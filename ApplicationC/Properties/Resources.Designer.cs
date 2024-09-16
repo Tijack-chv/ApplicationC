@@ -63,6 +63,36 @@ namespace ApplicationC.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé {
+            get {
+                object obj = ResourceManager.GetObject("131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap affiche {
+            get {
+                object obj = ResourceManager.GetObject("affiche", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cement_concrete_wall_texture_hi_2868537 {
+            get {
+                object obj = ResourceManager.GetObject("cement-concrete-wall-texture-hi-2868537", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hackathon {
             get {
                 object obj = ResourceManager.GetObject("hackathon", resourceCulture);
@@ -93,9 +123,59 @@ namespace ApplicationC.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_multiply_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_multiply_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap info_52px {
+            get {
+                object obj = ResourceManager.GetObject("info_52px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap multiply_48px_____ {
+            get {
+                object obj = ResourceManager.GetObject("multiply_48px_____", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quit_icon_149882 {
+            get {
+                object obj = ResourceManager.GetObject("quit_icon_149882", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap switch_power_on_off_icon_178313 {
+            get {
+                object obj = ResourceManager.GetObject("switch_power_on_off_icon_178313", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -79,7 +79,7 @@ namespace ApplicationC
             RemplirListeOrganisateurs();
             if (etat == EtatGestion.Create) // cas etat create
             {
-                label1.Text = "Ajout d'un Hackathon";
+                labelAjoutHack.Text = "Ajout d'un Hackathon";
                 BtnAction.Text = "AJOUTER";
                 gbInfo.Visible = true;
                 cbListe.Visible = false;
@@ -87,17 +87,11 @@ namespace ApplicationC
             }
             else // cas etat update
             {
-                label1.Text = "Modification d'un Hackathon";
+                labelAjoutHack.Text = "Modification d'un Hackathon";
                 BtnAction.Text = "MODIFIER";
                 gbInfo.Visible = false;
                 cbListe.Visible = true;
                 RemplirListeHackathons();
-                if (dtFinInscription.Value < DateTime.Now && dtDebut.Value <= DateTime.Now)
-                {
-                    dtDebut.Enabled = false;
-                    dtFin.Enabled = false;
-                    dtFinInscription.Enabled = false;
-                }
             }
         }
 
@@ -197,16 +191,19 @@ namespace ApplicationC
 
                 dtFinInscription.MinDate = H.Datefininscription;
                 dtFinInscription.Value = H.Datefininscription;
-                 
+
                 if (dtFinInscription.Value < DateTime.Now && dtDebut.Value >= DateTime.Now)
                 {
-                    dtFinInscription.MinDate = new DateTime(2000,01,01,00,00,00);
-                } else
+                    dtFinInscription.MinDate = new DateTime(2000, 01, 01, 00, 00, 00); // permet d'éviter les erreurs sur le premier parcours de la méthode 
+                    // la date min ne conduira pas à changer les valeurs des dates ou autres
+                    dtDebut.Enabled = false;
+                    dtFin.Enabled = false;
+                    dtFinInscription.Enabled = false;
+                }
+                else
                 {
                     dtFinInscription.MinDate = H.Datefininscription;
                 }
-                
-
 
                 dtDebut.MinDate = H.Datefininscription;
                 dtDebut.Value = H.Dateheuredebuth;

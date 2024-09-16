@@ -50,24 +50,19 @@ namespace ApplicationC
             dgvHackathon.Columns[10].HeaderText = "Prénom Organisateur";
         }
 
-        private void BtnFermer_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void VoirLesÉquipesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Type type = BSHackathon.Current.GetType();
             int idH = (int)type.GetProperty("Idhackathon").GetValue(BSHackathon.Current, null);
-           
+
             List<Equipe> lesEquipes = ModeleHackathon.listeEquipesParHackathon(idH);
             if (lesEquipes.Count != 0)
             {
                 BSEquipe.DataSource = (lesEquipes).Select(static x => new
-                  {
-                      x.Idequipe,
-                      x.Nomequipe
-                  });
+                {
+                    x.Idequipe,
+                    x.Nomequipe
+                });
 
                 dgvEquipes.DataSource = BSEquipe;
                 dgvEquipes.Visible = true;
@@ -96,6 +91,9 @@ namespace ApplicationC
             dgvEquipes.Visible = false;
         }
 
-    
+        private void pictureBoxFermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
