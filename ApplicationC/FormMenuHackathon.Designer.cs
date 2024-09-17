@@ -90,7 +90,6 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
             ClientSize = new Size(665, 347);
             ControlBox = false;
             Controls.Add(panelSousAffichage);

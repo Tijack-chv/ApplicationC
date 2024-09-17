@@ -203,6 +203,9 @@ namespace ApplicationC
                 else
                 {
                     dtFinInscription.MinDate = H.Datefininscription;
+                    dtDebut.Enabled = true;
+                    dtFin.Enabled = true;
+                    dtFinInscription.Enabled = true;
                 }
 
                 dtDebut.MinDate = H.Datefininscription;
