@@ -43,8 +43,8 @@
             menuStripHackathon.Items.AddRange(new ToolStripItem[] { ListeHackathonToolStripMenuItem, AjoutHackathonToolStripMenuItem, ModificationHackathonToolStripMenuItem });
             menuStripHackathon.Location = new Point(0, 0);
             menuStripHackathon.Name = "menuStripHackathon";
-            menuStripHackathon.Padding = new Padding(7, 2, 0, 2);
-            menuStripHackathon.Size = new Size(665, 26);
+            menuStripHackathon.Padding = new Padding(8, 3, 0, 3);
+            menuStripHackathon.Size = new Size(760, 32);
             menuStripHackathon.TabIndex = 0;
             menuStripHackathon.Text = "menu";
             // 
@@ -53,7 +53,7 @@
             ListeHackathonToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ListeHackathonToolStripMenuItem.ForeColor = Color.White;
             ListeHackathonToolStripMenuItem.Name = "ListeHackathonToolStripMenuItem";
-            ListeHackathonToolStripMenuItem.Size = new Size(118, 22);
+            ListeHackathonToolStripMenuItem.Size = new Size(152, 26);
             ListeHackathonToolStripMenuItem.Text = "Liste Hackathon";
             ListeHackathonToolStripMenuItem.Click += ListeHackathonToolStripMenuItem_Click;
             // 
@@ -62,7 +62,7 @@
             AjoutHackathonToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
             AjoutHackathonToolStripMenuItem.ForeColor = Color.White;
             AjoutHackathonToolStripMenuItem.Name = "AjoutHackathonToolStripMenuItem";
-            AjoutHackathonToolStripMenuItem.Size = new Size(122, 22);
+            AjoutHackathonToolStripMenuItem.Size = new Size(157, 26);
             AjoutHackathonToolStripMenuItem.Text = "Ajout Hackathon";
             AjoutHackathonToolStripMenuItem.Click += AjoutHackathonToolStripMenuItem_Click;
             // 
@@ -71,7 +71,7 @@
             ModificationHackathonToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
             ModificationHackathonToolStripMenuItem.ForeColor = Color.White;
             ModificationHackathonToolStripMenuItem.Name = "ModificationHackathonToolStripMenuItem";
-            ModificationHackathonToolStripMenuItem.Size = new Size(166, 22);
+            ModificationHackathonToolStripMenuItem.Size = new Size(216, 26);
             ModificationHackathonToolStripMenuItem.Text = "Modification Hackathon";
             ModificationHackathonToolStripMenuItem.Click += ModificationHackathonToolStripMenuItem_Click;
             // 
@@ -80,23 +80,24 @@
             panelSousAffichage.BackColor = Color.Transparent;
             panelSousAffichage.BackgroundImageLayout = ImageLayout.Center;
             panelSousAffichage.Dock = DockStyle.Fill;
-            panelSousAffichage.Location = new Point(0, 26);
-            panelSousAffichage.Margin = new Padding(4);
+            panelSousAffichage.Location = new Point(0, 32);
+            panelSousAffichage.Margin = new Padding(5, 5, 5, 5);
             panelSousAffichage.Name = "panelSousAffichage";
-            panelSousAffichage.Size = new Size(665, 321);
+            panelSousAffichage.Size = new Size(760, 431);
             panelSousAffichage.TabIndex = 1;
             // 
             // FormMenuHackathon
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(665, 347);
+            BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
+            ClientSize = new Size(760, 463);
             ControlBox = false;
             Controls.Add(panelSousAffichage);
             Controls.Add(menuStripHackathon);
             FormBorderStyle = FormBorderStyle.None;
             MainMenuStrip = menuStripHackathon;
-            Margin = new Padding(4);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "FormMenuHackathon";
             Text = "HACKAT'INNOV";
             menuStripHackathon.ResumeLayout(false);

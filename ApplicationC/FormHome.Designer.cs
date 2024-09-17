@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             panelNorth = new Panel();
-            labelEquipe = new Label();
             labelOrganisation = new Label();
             pictureBoxLogo = new PictureBox();
             panelWest = new Panel();
@@ -48,7 +47,6 @@
             // panelNorth
             // 
             panelNorth.BackColor = Color.FromArgb(35, 40, 45);
-            panelNorth.Controls.Add(labelEquipe);
             panelNorth.Controls.Add(labelOrganisation);
             panelNorth.Controls.Add(pictureBoxLogo);
             panelNorth.Dock = DockStyle.Top;
@@ -56,17 +54,6 @@
             panelNorth.Name = "panelNorth";
             panelNorth.Size = new Size(882, 91);
             panelNorth.TabIndex = 0;
-            // 
-            // labelEquipe
-            // 
-            labelEquipe.AutoSize = true;
-            labelEquipe.Font = new Font("SimSun-ExtB", 18.2F, FontStyle.Bold);
-            labelEquipe.ForeColor = Color.SeaGreen;
-            labelEquipe.Location = new Point(619, 29);
-            labelEquipe.Name = "labelEquipe";
-            labelEquipe.Size = new Size(267, 31);
-            labelEquipe.TabIndex = 0;
-            labelEquipe.Text = "Nom de l'équipe";
             // 
             // labelOrganisation
             // 
@@ -182,6 +169,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(882, 553);
             ControlBox = false;
@@ -207,7 +195,6 @@
         private Button buttonHackathon;
         private Button buttonEquipe;
         private Label labelOrganisation;
-        private Label labelEquipe;
         private Button buttonAbout;
         private Button buttonQuitter;
     }

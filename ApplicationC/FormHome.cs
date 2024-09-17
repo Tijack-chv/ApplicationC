@@ -17,7 +17,6 @@ namespace ApplicationC
         public FormHome()
         {
             InitializeComponent();
-            labelEquipe.Visible = false;
             sousF = new(panelAffichage);
         }
 
