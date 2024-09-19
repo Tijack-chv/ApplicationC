@@ -199,6 +199,7 @@ namespace ApplicationC
                     dtDebut.Enabled = false;
                     dtFin.Enabled = false;
                     dtFinInscription.Enabled = false;
+                    nudNbMaxEquipe.Enabled = false;
                 }
                 else
                 {
@@ -206,6 +207,7 @@ namespace ApplicationC
                     dtDebut.Enabled = true;
                     dtFin.Enabled = true;
                     dtFinInscription.Enabled = true;
+                    nudNbMaxEquipe.Enabled = true;
                 }
 
                 dtDebut.MinDate = H.Datefininscription;

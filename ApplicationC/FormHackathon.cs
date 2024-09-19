@@ -13,9 +13,14 @@ namespace ApplicationC
 {
     public partial class FormHackathon : Form
     {
+        private int maxPage;
+        private int minPage;
         public FormHackathon()
         {
             InitializeComponent();
+            maxPage = 100;
+            minPage = 1;
+            buttonPrec.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -94,6 +99,55 @@ namespace ApplicationC
         private void pictureBoxFermer_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonPrec_Click(object sender, EventArgs e)
+        {
+            int tempPage = Convert.ToInt32(textBoxPage.Text);
+            tempPage--;
+            textBoxPage.Text = tempPage.ToString();
+        }
+
+        private void buttonSuiv_Click(object sender, EventArgs e)
+        {
+            int tempPage = Convert.ToInt32(textBoxPage.Text);
+            tempPage++;
+            textBoxPage.Text = tempPage.ToString();
+        }
+
+        private void textBoxPage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxPage_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxPage.Text != "" || textBoxPage.Text != "0")
+            {
+                if (Convert.ToInt32(textBoxPage.Text) >= maxPage)
+                {
+                    textBoxPage.Text = maxPage.ToString();
+                    buttonSuiv.Enabled = false;
+                }
+                else
+                {
+                    buttonSuiv.Enabled = true;
+                }
+                if (Convert.ToInt32(textBoxPage.Text) == minPage)
+                {
+                    buttonPrec.Enabled = false;
+                }
+                else
+                {
+                    buttonPrec.Enabled = true;
+                }
+            } else
+            {
+                textBoxPage.Text = "1";
+            }
         }
     }
 }

@@ -38,7 +38,6 @@
             buttonConnecter = new Button();
             labelErreurEmail = new Label();
             labelErreurMdp = new Label();
-            labelMdpOublie = new Label();
             groupBoxConnection = new GroupBox();
             groupBoxConnection.SuspendLayout();
             SuspendLayout();
@@ -87,7 +86,7 @@
             labelMdp.BackColor = Color.Transparent;
             labelMdp.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelMdp.ForeColor = Color.White;
-            labelMdp.Location = new Point(22, 97);
+            labelMdp.Location = new Point(22, 137);
             labelMdp.Name = "labelMdp";
             labelMdp.Size = new Size(179, 32);
             labelMdp.TabIndex = 4;
@@ -99,7 +98,7 @@
             textBoxMdp.BorderStyle = BorderStyle.None;
             textBoxMdp.Font = new Font("Times New Roman", 16.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             textBoxMdp.ForeColor = Color.White;
-            textBoxMdp.Location = new Point(221, 97);
+            textBoxMdp.Location = new Point(221, 137);
             textBoxMdp.Name = "textBoxMdp";
             textBoxMdp.PasswordChar = '*';
             textBoxMdp.Size = new Size(237, 32);
@@ -113,7 +112,7 @@
             labelShow.AutoSize = true;
             labelShow.BackColor = Color.Transparent;
             labelShow.ForeColor = Color.White;
-            labelShow.Location = new Point(464, 103);
+            labelShow.Location = new Point(464, 143);
             labelShow.Name = "labelShow";
             labelShow.Size = new Size(45, 20);
             labelShow.TabIndex = 5;
@@ -153,24 +152,11 @@
             labelErreurMdp.BackColor = Color.Transparent;
             labelErreurMdp.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelErreurMdp.ForeColor = Color.Red;
-            labelErreurMdp.Location = new Point(44, 132);
+            labelErreurMdp.Location = new Point(44, 172);
             labelErreurMdp.Name = "labelErreurMdp";
             labelErreurMdp.Size = new Size(314, 23);
             labelErreurMdp.TabIndex = 28;
             labelErreurMdp.Text = "Erreur : le mot de passe est manquant";
-            // 
-            // labelMdpOublie
-            // 
-            labelMdpOublie.AutoSize = true;
-            labelMdpOublie.BackColor = Color.Transparent;
-            labelMdpOublie.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelMdpOublie.ForeColor = Color.White;
-            labelMdpOublie.Location = new Point(217, 264);
-            labelMdpOublie.Name = "labelMdpOublie";
-            labelMdpOublie.Size = new Size(163, 20);
-            labelMdpOublie.TabIndex = 29;
-            labelMdpOublie.Text = "Mot de passe oublié ?";
-            labelMdpOublie.Click += labelMdpOublie_Click;
             // 
             // groupBoxConnection
             // 
@@ -184,7 +170,7 @@
             groupBoxConnection.Controls.Add(labelMdp);
             groupBoxConnection.Location = new Point(27, 69);
             groupBoxConnection.Name = "groupBoxConnection";
-            groupBoxConnection.Size = new Size(532, 184);
+            groupBoxConnection.Size = new Size(535, 212);
             groupBoxConnection.TabIndex = 30;
             groupBoxConnection.TabStop = false;
             // 
@@ -196,7 +182,6 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(599, 366);
             Controls.Add(groupBoxConnection);
-            Controls.Add(labelMdpOublie);
             Controls.Add(buttonConnecter);
             Controls.Add(labelConnexion);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -219,7 +204,6 @@
         private Button buttonConnecter;
         private Label labelErreurEmail;
         private Label labelErreurMdp;
-        private Label labelMdpOublie;
         private GroupBox groupBoxConnection;
     }
 }

@@ -39,6 +39,7 @@
             buttonHackathon = new Button();
             buttonHome = new Button();
             panelAffichage = new Panel();
+            buttonSettings = new Button();
             panelNorth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             panelWest.SuspendLayout();
@@ -80,6 +81,7 @@
             // panelWest
             // 
             panelWest.BackColor = Color.FromArgb(45, 50, 55);
+            panelWest.Controls.Add(buttonSettings);
             panelWest.Controls.Add(buttonAbout);
             panelWest.Controls.Add(buttonQuitter);
             panelWest.Controls.Add(buttonEquipe);
@@ -165,6 +167,19 @@
             panelAffichage.Size = new Size(760, 462);
             panelAffichage.TabIndex = 2;
             // 
+            // buttonSettings
+            // 
+            buttonSettings.BackColor = Color.FromArgb(45, 50, 55);
+            buttonSettings.BackgroundImage = Properties.Resources.parametres;
+            buttonSettings.BackgroundImageLayout = ImageLayout.Center;
+            buttonSettings.FlatStyle = FlatStyle.Popup;
+            buttonSettings.Location = new Point(0, 294);
+            buttonSettings.Name = "buttonSettings";
+            buttonSettings.Size = new Size(122, 52);
+            buttonSettings.TabIndex = 2;
+            buttonSettings.UseVisualStyleBackColor = false;
+            buttonSettings.Click += buttonSettings_Click;
+            // 
             // FormHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -197,5 +212,6 @@
         private Label labelOrganisation;
         private Button buttonAbout;
         private Button buttonQuitter;
+        private Button buttonSettings;
     }
 }

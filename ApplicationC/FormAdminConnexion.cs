@@ -18,7 +18,6 @@ namespace ApplicationC
             InitializeComponent();
             labelErreurEmail.Visible = false;
             labelErreurMdp.Visible = false;
-            labelMdpOublie.Visible = false;
         }
 
 
@@ -81,8 +80,6 @@ namespace ApplicationC
         {
             if (textBoxMail.Text == "" || textBoxMdp.Text == "" || textBoxMail.Text == "email" || textBoxMdp.Text == "password") //revoir si verif de l'adresse mail et du nombre de caractère dans le mdp
             {
-                labelMdpOublie.Visible = true;
-
                 if (textBoxMail.Text == "" || textBoxMail.Text == "email")
                 {
                     labelErreurEmail.Visible = true;
@@ -107,11 +104,6 @@ namespace ApplicationC
 
                 admin = ModeleAdministrateur.ConnexionAdmin(textBoxMail.Text, textBoxMdp.Text);
             }
-        }
-
-        private void labelMdpOublie_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

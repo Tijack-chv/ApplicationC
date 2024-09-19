@@ -27,7 +27,7 @@ namespace ApplicationC
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pictureBoxLogo_Click(object sender, EventArgs e)
@@ -46,6 +46,11 @@ namespace ApplicationC
         }
 
         private void buttonAbout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
         {
 
         }

@@ -93,6 +93,16 @@ namespace ApplicationC.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap deux_roues_dentees_de_reglage {
+            get {
+                object obj = ResourceManager.GetObject("deux-roues-dentees-de-reglage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hackathon {
             get {
                 object obj = ResourceManager.GetObject("hackathon", resourceCulture);
@@ -166,6 +176,16 @@ namespace ApplicationC.Properties {
         internal static System.Drawing.Bitmap multiply_48px_____ {
             get {
                 object obj = ResourceManager.GetObject("multiply_48px_____", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap parametres {
+            get {
+                object obj = ResourceManager.GetObject("parametres", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
