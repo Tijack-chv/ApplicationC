@@ -23,6 +23,7 @@ namespace ApplicationC
             buttonPrec.Enabled = false;
         }
 
+        //FormHackathon
         private void Form1_Load(object sender, EventArgs e)
         {
             BSHackathon.DataSource = ModeleHackathon.listeHackathons().Select(static x => new
@@ -96,25 +97,32 @@ namespace ApplicationC
             dgvEquipes.Visible = false;
         }
 
+        #region pictureBoxFermer_Click
         private void pictureBoxFermer_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
 
+        #region buttonPrec_Click
         private void buttonPrec_Click(object sender, EventArgs e)
         {
             int tempPage = Convert.ToInt32(textBoxPage.Text);
             tempPage--;
             textBoxPage.Text = tempPage.ToString();
         }
+        #endregion
 
+        #region buttonSuiv_Click
         private void buttonSuiv_Click(object sender, EventArgs e)
         {
             int tempPage = Convert.ToInt32(textBoxPage.Text);
             tempPage++;
             textBoxPage.Text = tempPage.ToString();
         }
+        #endregion
 
+        #region textBoxPage_KeyPress
         private void textBoxPage_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -122,11 +130,18 @@ namespace ApplicationC
                 e.Handled = true;
             }
         }
+        #endregion
 
+        #region textboxPage_TextChanged
         private void textBoxPage_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxPage.Text != "" || textBoxPage.Text != "0")
+            if (textBoxPage.Text != "")
             {
+                if (Convert.ToInt32(textBoxPage.Text) <= 0)
+                {
+                    textBoxPage.Text = "1";
+                }
+
                 if (Convert.ToInt32(textBoxPage.Text) >= maxPage)
                 {
                     textBoxPage.Text = maxPage.ToString();
@@ -144,10 +159,13 @@ namespace ApplicationC
                 {
                     buttonPrec.Enabled = true;
                 }
-            } else
+            }
+            else
             {
                 textBoxPage.Text = "1";
             }
         }
+        #endregion
+
     }
 }
