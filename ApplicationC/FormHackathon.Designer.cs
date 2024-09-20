@@ -64,7 +64,7 @@
             dgvHackathon.Name = "dgvHackathon";
             dgvHackathon.ReadOnly = true;
             dgvHackathon.RowHeadersWidth = 51;
-            dgvHackathon.Size = new Size(723, 283);
+            dgvHackathon.Size = new Size(633, 212);
             dgvHackathon.TabIndex = 0;
             dgvHackathon.CellClick += DgvHackathon_CellContentClick;
             dgvHackathon.CellContentClick += DgvHackathon_CellContentClick;
@@ -76,10 +76,10 @@
             labelListe.AutoSize = true;
             labelListe.BackColor = Color.Transparent;
             labelListe.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelListe.Location = new Point(18, 12);
-            labelListe.Margin = new Padding(5, 0, 5, 0);
+            labelListe.Location = new Point(16, 9);
+            labelListe.Margin = new Padding(4, 0, 4, 0);
             labelListe.Name = "labelListe";
-            labelListe.Size = new Size(261, 29);
+            labelListe.Size = new Size(208, 24);
             labelListe.TabIndex = 2;
             labelListe.Text = "Liste des Hackathons";
             // 
@@ -89,10 +89,10 @@
             labelInfo.BackColor = Color.Transparent;
             labelInfo.Font = new Font("SimSun-ExtB", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelInfo.ForeColor = SystemColors.ActiveCaptionText;
-            labelInfo.Location = new Point(10, 399);
-            labelInfo.Margin = new Padding(5, 0, 5, 0);
+            labelInfo.Location = new Point(9, 299);
+            labelInfo.Margin = new Padding(4, 0, 4, 0);
             labelInfo.Name = "labelInfo";
-            labelInfo.Size = new Size(674, 20);
+            labelInfo.Size = new Size(553, 16);
             labelInfo.TabIndex = 4;
             labelInfo.Text = "click droit sur l'hackathon sélectionné pour voir ses équipes";
             // 
@@ -114,8 +114,7 @@
             // 
             pictureBoxFermer.BackColor = Color.Transparent;
             pictureBoxFermer.Image = Properties.Resources.icons8_multiply_32;
-            pictureBoxFermer.Location = new Point(720, 4);
-            pictureBoxFermer.Margin = new Padding(3, 4, 3, 4);
+            pictureBoxFermer.Location = new Point(630, 3);
             pictureBoxFermer.Name = "pictureBoxFermer";
             pictureBoxFermer.Size = new Size(32, 32);
             pictureBoxFermer.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -129,9 +128,10 @@
             buttonPrec.FlatStyle = FlatStyle.Popup;
             buttonPrec.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonPrec.ForeColor = Color.White;
-            buttonPrec.Location = new Point(211, 348);
+            buttonPrec.Location = new Point(185, 261);
+            buttonPrec.Margin = new Padding(3, 2, 3, 2);
             buttonPrec.Name = "buttonPrec";
-            buttonPrec.Size = new Size(126, 29);
+            buttonPrec.Size = new Size(110, 22);
             buttonPrec.TabIndex = 7;
             buttonPrec.Text = "Précédent";
             buttonPrec.UseVisualStyleBackColor = false;
@@ -143,9 +143,10 @@
             buttonSuiv.FlatStyle = FlatStyle.Popup;
             buttonSuiv.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonSuiv.ForeColor = Color.White;
-            buttonSuiv.Location = new Point(407, 348);
+            buttonSuiv.Location = new Point(356, 261);
+            buttonSuiv.Margin = new Padding(3, 2, 3, 2);
             buttonSuiv.Name = "buttonSuiv";
-            buttonSuiv.Size = new Size(126, 29);
+            buttonSuiv.Size = new Size(110, 22);
             buttonSuiv.TabIndex = 8;
             buttonSuiv.Text = "Suivant";
             buttonSuiv.UseVisualStyleBackColor = false;
@@ -154,25 +155,28 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(30, 35, 40);
-            panel1.Location = new Point(533, 348);
+            panel1.Location = new Point(466, 261);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(200, 29);
+            panel1.Size = new Size(175, 22);
             panel1.TabIndex = 11;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(30, 35, 40);
-            panel2.Location = new Point(11, 348);
+            panel2.Location = new Point(10, 261);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(200, 29);
+            panel2.Size = new Size(175, 22);
             panel2.TabIndex = 12;
             // 
             // textBoxPage
             // 
-            textBoxPage.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPage.Location = new Point(337, 347);
+            textBoxPage.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxPage.Location = new Point(295, 261);
+            textBoxPage.Margin = new Padding(3, 2, 3, 2);
             textBoxPage.Name = "textBoxPage";
-            textBoxPage.Size = new Size(70, 30);
+            textBoxPage.Size = new Size(62, 23);
             textBoxPage.TabIndex = 13;
             textBoxPage.Text = "1";
             textBoxPage.TextAlign = HorizontalAlignment.Center;
@@ -196,11 +200,11 @@
             // 
             // FormHackathon
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkOliveGreen;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(760, 431);
+            ClientSize = new Size(665, 323);
             Controls.Add(textBoxPage);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -212,7 +216,7 @@
             Controls.Add(labelListe);
             Controls.Add(dgvHackathon);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(5);
+            Margin = new Padding(4);
             Name = "FormHackathon";
             Text = "Gestion des Hackathons";
             Load += Form1_Load;
