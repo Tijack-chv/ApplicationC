@@ -100,9 +100,12 @@ namespace ApplicationC
                  labelErreurEmail.Visible=false;
                  labelErreurMdp.Visible=false;
 
-                Administrateur admin = new();
-
-                admin = ModeleAdministrateur.ConnexionAdmin(textBoxMail.Text, textBoxMdp.Text);
+                if(ModeleAdministrateur.ConnexionAdmin(textBoxMail.Text, textBoxMdp.Text))
+                {
+                    FormHome formHome = new();
+                    formHome.Show();
+                    this.Hide();
+                }
             }
         }
     }

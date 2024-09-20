@@ -26,7 +26,7 @@ namespace ApplicationC
         //FormHackathon
         private void Form1_Load(object sender, EventArgs e)
         {
-            BSHackathon.DataSource = ModeleHackathon.listeHackathons().Select(static x => new
+            BSHackathon.DataSource = ModeleHackathon.listeHackathonsParPage(Convert.ToInt32(textBoxPage.Text)).Select(static x => new
             {
                 x.Idhackathon,
                 x.Thematique,
@@ -164,6 +164,7 @@ namespace ApplicationC
             {
                 textBoxPage.Text = "1";
             }
+            Form1_Load(this, EventArgs.Empty);
         }
         #endregion
 

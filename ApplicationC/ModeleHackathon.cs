@@ -17,8 +17,15 @@ namespace ApplicationC
         /// <returns></returns>
         public static List<Hackathon> listeHackathons()
         {
-            return Modele.MonModel.Hackathons.Include(a => a.IdorganisateurNavigation).ToList();
+            return Modele.MonModel.Hackathons.Include(a => a.IdorganisateurNavigation).OrderBy(b=> b.Idhackathon).ToList();
         }
+
+
+        public static List<Hackathon> listeHackathonsParPage(int position)
+        {
+            return Modele.MonModel.Hackathons.Include(a => a.IdorganisateurNavigation).OrderBy(a=> a.Idhackathon).Skip(position).Take(5).ToList();
+        }
+
 
         /// <summary>
         /// Retourne la liste des hackathons en incluant l'organisateur et avec une date minimum
@@ -27,7 +34,7 @@ namespace ApplicationC
         /// <returns></returns>
         public static List<Hackathon> listeHackathonsParDateMin(DateTime date)
         {
-            return Modele.MonModel.Hackathons.Where(p=> p.Dateheuredebuth >= date).Include(a => a.IdorganisateurNavigation).ToList();
+            return Modele.MonModel.Hackathons.Where(p=> p.Dateheuredebuth >= date).OrderBy(a=> a.Idhackathon).Include(a => a.IdorganisateurNavigation).ToList();
         }
 
         /// <summary>
