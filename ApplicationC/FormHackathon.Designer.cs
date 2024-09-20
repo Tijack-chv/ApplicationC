@@ -41,11 +41,14 @@
             panel1 = new Panel();
             panel2 = new Panel();
             textBoxPage = new TextBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            VoirEquipeToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvHackathon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BSHackathon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BSEquipe).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEquipes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFermer).BeginInit();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // dgvHackathon
@@ -54,6 +57,7 @@
             dgvHackathon.AllowUserToDeleteRows = false;
             dgvHackathon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvHackathon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHackathon.ContextMenuStrip = contextMenuStrip1;
             dgvHackathon.Location = new Point(10, 56);
             dgvHackathon.Margin = new Padding(5);
             dgvHackathon.MultiSelect = false;
@@ -97,12 +101,12 @@
             dgvEquipes.AllowUserToAddRows = false;
             dgvEquipes.AllowUserToDeleteRows = false;
             dgvEquipes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquipes.Location = new Point(435, 183);
+            dgvEquipes.Location = new Point(424, 210);
             dgvEquipes.Margin = new Padding(5);
             dgvEquipes.Name = "dgvEquipes";
             dgvEquipes.ReadOnly = true;
             dgvEquipes.RowHeadersWidth = 51;
-            dgvEquipes.Size = new Size(298, 156);
+            dgvEquipes.Size = new Size(298, 119);
             dgvEquipes.TabIndex = 5;
             dgvEquipes.Visible = false;
             // 
@@ -175,6 +179,21 @@
             textBoxPage.TextChanged += textBoxPage_TextChanged;
             textBoxPage.KeyPress += textBoxPage_KeyPress;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { VoirEquipeToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(183, 28);
+            contextMenuStrip1.Click += VoirLesÉquipesToolStripMenuItem_Click;
+            // 
+            // VoirEquipeToolStripMenuItem
+            // 
+            VoirEquipeToolStripMenuItem.Name = "VoirEquipeToolStripMenuItem";
+            VoirEquipeToolStripMenuItem.Size = new Size(210, 24);
+            VoirEquipeToolStripMenuItem.Text = "Voir les équipes";
+            VoirEquipeToolStripMenuItem.Click += VoirLesÉquipesToolStripMenuItem_Click;
+            // 
             // FormHackathon
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -202,6 +221,7 @@
             ((System.ComponentModel.ISupportInitialize)BSEquipe).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvEquipes).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFermer).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -220,6 +240,8 @@
         private Panel panel1;
         private Panel panel2;
         private TextBox textBoxPage;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem VoirEquipeToolStripMenuItem;
     }
 }
 
