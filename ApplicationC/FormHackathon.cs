@@ -63,7 +63,7 @@ namespace ApplicationC
 
             List<Equipe> lesEquipes = ModeleHackathon.listeEquipesParHackathon(idH);
             if (lesEquipes.Count != 0)
-            {
+            { 
                 BSEquipe.DataSource = (lesEquipes).Select(static x => new
                 {
                     x.Idequipe,
