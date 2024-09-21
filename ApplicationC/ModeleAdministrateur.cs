@@ -31,7 +31,7 @@ namespace ApplicationC
         {
             bool connexion = true;
             
-            Administrateur admin = new Administrateur();
+            Administrateur admin = new();
 
             admin = RecupererAdmin(mail);
 
@@ -44,6 +44,29 @@ namespace ApplicationC
                 connexion = false;
             }
             return connexion;
+        }
+
+        public static bool ModificationMdpAdmin(string mail, string mdp)
+        {
+            bool modification = true;
+
+            Administrateur administrateur = new();
+            try
+            {
+                administrateur = RecupererAdmin(mail);
+
+                string mdpHash = BC.HashPassword(mdp);
+
+                administrateur.Motpasse = mdpHash;
+
+                Modele.MonModel.SaveChanges();
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                modification = false;
+            }
+            return modification;
         }
     }
 }

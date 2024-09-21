@@ -102,7 +102,9 @@ namespace ApplicationC
 
                 if(ModeleAdministrateur.ConnexionAdmin(textBoxMail.Text, textBoxMdp.Text))
                 {
-                    FormHome formHome = new();
+                    Administrateur administrateur = new();
+                    administrateur = ModeleAdministrateur.RecupererAdmin(textBoxMail.Text);
+                    FormHome formHome = new(administrateur);
                     formHome.Show();
                     this.Hide();
                 }

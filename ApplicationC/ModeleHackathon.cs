@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,13 +18,20 @@ namespace ApplicationC
         /// <returns></returns>
         public static List<Hackathon> listeHackathons()
         {
-            return Modele.MonModel.Hackathons.Include(a => a.IdorganisateurNavigation).OrderBy(b=> b.Idhackathon).ToList();
+            return Modele.MonModel.Hackathons.Include(a => a.IdorganisateurNavigation).OrderBy(b => b.Idhackathon).ToList();
         }
 
 
         public static List<Hackathon> listeHackathonsParPage(int position)
         {
-            return Modele.MonModel.Hackathons.Include(a => a.IdorganisateurNavigation).OrderBy(a=> a.Idhackathon).Skip(position).Take(5).ToList();
+            return Modele.MonModel.Hackathons.Where(c => c.Idhackathon >= (position-1) * 10).Include(a => a.IdorganisateurNavigation).OrderBy(b=>b.Idhackathon).Take(10).ToList();
+        }
+
+        public static int CountHackathon()
+        {
+            int nb = Modele.MonModel.Hackathons.Count();
+
+            return nb;
         }
 
 

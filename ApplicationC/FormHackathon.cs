@@ -18,12 +18,22 @@ namespace ApplicationC
         public FormHackathon()
         {
             InitializeComponent();
-            maxPage = 100;
+            nbPages();
             minPage = 1;
             buttonPrec.Enabled = false;
         }
 
-        //FormHackathon
+        private void nbPages()
+        {
+            int count = ModeleHackathon.CountHackathon();
+            if (count%10 == 0) { 
+                maxPage = count/10;
+            } else
+            {
+                maxPage = (count/10)+1;
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             BSHackathon.DataSource = ModeleHackathon.listeHackathonsParPage(Convert.ToInt32(textBoxPage.Text)).Select(static x => new
@@ -39,7 +49,7 @@ namespace ApplicationC
                 x.Datefininscription,
                 x.IdorganisateurNavigation.Nom,
                 x.IdorganisateurNavigation.Prenom
-            }).OrderByDescending(x => x.Dateheuredebuth);
+            });
 
 
             dgvHackathon.DataSource = BSHackathon;
@@ -164,6 +174,7 @@ namespace ApplicationC
             {
                 textBoxPage.Text = "1";
             }
+            nbPages();
             Form1_Load(this, EventArgs.Empty);
         }
         #endregion
