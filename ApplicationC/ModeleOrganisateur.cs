@@ -13,7 +13,7 @@ namespace ApplicationC
         /// <summary>
         /// Retourne toute la liste des organisateurs
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>  
         public static List<Organisateur> listeOrganisateurs()
         {
             return Modele.MonModel.Organisateurs.ToList();
