@@ -109,6 +109,7 @@ public partial class Ap3PiewanContext : DbContext
             entity.Property(e => e.Dateheurefinh)
                 .HasColumnType("datetime")
                 .HasColumnName("dateheurefinh");
+            entity.Property(e => e.Estarchive).HasColumnName("estarchive");
             entity.Property(e => e.Idorganisateur).HasColumnName("idorganisateur");
             entity.Property(e => e.Lieu)
                 .HasMaxLength(128)
