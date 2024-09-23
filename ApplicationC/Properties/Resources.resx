@@ -118,14 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icons8_member_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\public\icons8_member_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="quit_icon_149882" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\quit_icon_149882.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="multiply_48px_____" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\public\multiply_48px_____.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="parametres" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\parametres.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="round-account-button-with-user-inside_icon-icons.com_72596" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\round-account-button-with-user-inside_icon-icons.com_72596.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="identifiant_logo-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\identifiant_logo-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info_52px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\info_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,11 +142,14 @@
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="password_1325" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\password_1325.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="switch_power_on_off_icon_178313" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\switch_power_on_off_icon_178313.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\public\131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_member_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\icons8_member_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_multiply_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\icons8_multiply_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,13 +160,22 @@
   <data name="info_52px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\info_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="multiply_48px_____" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\multiply_48px_____.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="deux-roues-dentees-de-reglage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\deux-roues-dentees-de-reglage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_home_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\icons8_home_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="parametres" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\public\parametres.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1486395884-account_80606" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\1486395884-account_80606.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="personal_computer_monitor_desktop_pc_icon_179104" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\personal_computer_monitor_desktop_pc_icon_179104.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

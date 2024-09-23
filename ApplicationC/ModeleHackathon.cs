@@ -12,6 +12,7 @@ namespace ApplicationC
 {
     public static class ModeleHackathon
     {
+        #region listeHackathons
         /// <summary>
         /// Retourne la liste des hackathons en incluant l'organisateur
         /// </summary>
@@ -20,21 +21,56 @@ namespace ApplicationC
         {
             return Modele.MonModel.Hackathons.Include(a => a.IdorganisateurNavigation).OrderBy(b => b.Idhackathon).ToList();
         }
+        #endregion
 
-
+        #region listeHackathonsParPage
+        /// <summary>
+        /// Nouvelle référence de la méthode d'affichage des hackathons en incluant l'organisateur mais également en incluant le système d'affichage par page
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public static List<Hackathon> listeHackathonsParPage(int position)
         {
             return Modele.MonModel.Hackathons.Where(c => c.Idhackathon >= (position-1) * 10).Include(a => a.IdorganisateurNavigation).OrderBy(b=>b.Idhackathon).Take(10).ToList();
         }
+        #endregion
 
+        #region CountHackathon
+        /// <summary>
+        /// Pour savoir le nombre de page max à avoir pour éviter toute erreur
+        /// </summary>
+        /// <returns></returns>
         public static int CountHackathon()
         {
             int nb = Modele.MonModel.Hackathons.Count();
 
             return nb;
         }
+        #endregion
 
+        public static bool hackathonEstArchive(int idh)
+        {
+            bool estArchive = true;
+            Hackathon unHackathon;
 
+            try
+            {
+                unHackathon = RecupererHackathon(idh);
+
+                //unHackathon.estArchive = true;
+
+                Modele.MonModel.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                estArchive = false;
+                MessageBox.Show(e.Message.ToString());
+            }
+
+            return estArchive;
+        }
+
+        #region listeHackathonsParDateMin
         /// <summary>
         /// Retourne la liste des hackathons en incluant l'organisateur et avec une date minimum
         /// </summary>
@@ -44,7 +80,9 @@ namespace ApplicationC
         {
             return Modele.MonModel.Hackathons.Where(p=> p.Dateheuredebuth >= date).OrderBy(a=> a.Idhackathon).Include(a => a.IdorganisateurNavigation).ToList();
         }
+        #endregion
 
+        #region listeEquipesParHackathon
         /// <summary>
         /// Retourne la liste des équipes inscrites à l'hackathon dont l'identifiant est passé en paramètre
         /// </summary>
@@ -68,8 +106,9 @@ namespace ApplicationC
           
             return lesE;
         }
+        #endregion
 
-
+        #region RetourneDernierHackathonSaisi
         /// <summary>
         /// Retourne l'identifiant du dernier hackathon saisi dans la BD
         /// </summary>
@@ -78,7 +117,9 @@ namespace ApplicationC
         {
             return Modele.MonModel.Hackathons.Max(x => x.Idhackathon);
         }
+        #endregion
 
+        #region AjoutHackathon
         /// <summary>
         /// Retourne vrai si l'ajout d'un hackathon a pu avoir lieu en BD
         /// Faux sinon
@@ -126,7 +167,9 @@ namespace ApplicationC
             }
             return vretour;
         }
+        #endregion
 
+        #region RecupererHackathon
         /// <summary>
         /// Fonction qui retourne l'objet hackathon qui correspond à l'identifiant passé en paramètre 
         /// </summary>
@@ -145,8 +188,9 @@ namespace ApplicationC
             }
             return unHackathon;
         }
+        #endregion
 
-        #region Modification Hackathon
+        #region ModificationHackathon
         /// <summary>
         /// Retourne vrai si la modification de l'hackathon dont l'identifiant est passé en paramètre a pu avoir lieu
         /// </summary>

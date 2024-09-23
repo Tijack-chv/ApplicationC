@@ -51,9 +51,9 @@
             buttonAnnuler.FlatStyle = FlatStyle.Popup;
             buttonAnnuler.Font = new Font("Stencil", 12F);
             buttonAnnuler.ForeColor = Color.White;
-            buttonAnnuler.Location = new Point(27, 193);
+            buttonAnnuler.Location = new Point(21, 193);
             buttonAnnuler.Name = "buttonAnnuler";
-            buttonAnnuler.Size = new Size(151, 31);
+            buttonAnnuler.Size = new Size(162, 31);
             buttonAnnuler.TabIndex = 3;
             buttonAnnuler.Text = "Annuler";
             buttonAnnuler.UseVisualStyleBackColor = false;
@@ -65,9 +65,9 @@
             buttonExit.FlatStyle = FlatStyle.Popup;
             buttonExit.Font = new Font("Stencil", 12F);
             buttonExit.ForeColor = Color.White;
-            buttonExit.Location = new Point(27, 117);
+            buttonExit.Location = new Point(21, 118);
             buttonExit.Name = "buttonExit";
-            buttonExit.Size = new Size(151, 31);
+            buttonExit.Size = new Size(162, 31);
             buttonExit.TabIndex = 2;
             buttonExit.Text = "Quitter";
             buttonExit.UseVisualStyleBackColor = false;
@@ -79,9 +79,9 @@
             buttonDeconnexion.FlatStyle = FlatStyle.Popup;
             buttonDeconnexion.Font = new Font("Stencil", 12F);
             buttonDeconnexion.ForeColor = Color.White;
-            buttonDeconnexion.Location = new Point(27, 45);
+            buttonDeconnexion.Location = new Point(21, 45);
             buttonDeconnexion.Name = "buttonDeconnexion";
-            buttonDeconnexion.Size = new Size(151, 31);
+            buttonDeconnexion.Size = new Size(162, 31);
             buttonDeconnexion.TabIndex = 1;
             buttonDeconnexion.Text = "Se déconnecter";
             buttonDeconnexion.UseVisualStyleBackColor = false;

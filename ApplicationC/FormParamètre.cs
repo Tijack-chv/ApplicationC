@@ -36,6 +36,9 @@ namespace ApplicationC
             panelMdp.Visible = false;
             panelInfoPers.Location = new Point(172, 52);
             panelInfoPers.Visible = true;
+            textBoxEmail.Text = administrateur.Email;
+            textBoxFirstName.Text = administrateur.Nom;
+            textBoxName.Text = administrateur.Prenom;
         }
 
         #region Placeholder
