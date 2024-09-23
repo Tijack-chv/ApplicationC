@@ -32,6 +32,7 @@
             ListeHackathonToolStripMenuItem = new ToolStripMenuItem();
             AjoutHackathonToolStripMenuItem = new ToolStripMenuItem();
             ModificationHackathonToolStripMenuItem = new ToolStripMenuItem();
+            rechercheHackathonToolStripMenuItem = new ToolStripMenuItem();
             panelSousAffichage = new Panel();
             menuStripHackathon.SuspendLayout();
             SuspendLayout();
@@ -40,11 +41,11 @@
             // 
             menuStripHackathon.BackColor = Color.FromArgb(50, 55, 60);
             menuStripHackathon.ImageScalingSize = new Size(20, 20);
-            menuStripHackathon.Items.AddRange(new ToolStripItem[] { ListeHackathonToolStripMenuItem, AjoutHackathonToolStripMenuItem, ModificationHackathonToolStripMenuItem });
+            menuStripHackathon.Items.AddRange(new ToolStripItem[] { ListeHackathonToolStripMenuItem, AjoutHackathonToolStripMenuItem, ModificationHackathonToolStripMenuItem, rechercheHackathonToolStripMenuItem });
             menuStripHackathon.Location = new Point(0, 0);
             menuStripHackathon.Name = "menuStripHackathon";
-            menuStripHackathon.Padding = new Padding(8, 3, 0, 3);
-            menuStripHackathon.Size = new Size(760, 32);
+            menuStripHackathon.Padding = new Padding(7, 2, 0, 2);
+            menuStripHackathon.Size = new Size(665, 26);
             menuStripHackathon.TabIndex = 0;
             menuStripHackathon.Text = "menu";
             // 
@@ -53,7 +54,7 @@
             ListeHackathonToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ListeHackathonToolStripMenuItem.ForeColor = Color.White;
             ListeHackathonToolStripMenuItem.Name = "ListeHackathonToolStripMenuItem";
-            ListeHackathonToolStripMenuItem.Size = new Size(152, 26);
+            ListeHackathonToolStripMenuItem.Size = new Size(118, 22);
             ListeHackathonToolStripMenuItem.Text = "Liste Hackathon";
             ListeHackathonToolStripMenuItem.Click += ListeHackathonToolStripMenuItem_Click;
             // 
@@ -62,7 +63,7 @@
             AjoutHackathonToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
             AjoutHackathonToolStripMenuItem.ForeColor = Color.White;
             AjoutHackathonToolStripMenuItem.Name = "AjoutHackathonToolStripMenuItem";
-            AjoutHackathonToolStripMenuItem.Size = new Size(157, 26);
+            AjoutHackathonToolStripMenuItem.Size = new Size(122, 22);
             AjoutHackathonToolStripMenuItem.Text = "Ajout Hackathon";
             AjoutHackathonToolStripMenuItem.Click += AjoutHackathonToolStripMenuItem_Click;
             // 
@@ -71,33 +72,42 @@
             ModificationHackathonToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
             ModificationHackathonToolStripMenuItem.ForeColor = Color.White;
             ModificationHackathonToolStripMenuItem.Name = "ModificationHackathonToolStripMenuItem";
-            ModificationHackathonToolStripMenuItem.Size = new Size(216, 26);
+            ModificationHackathonToolStripMenuItem.Size = new Size(166, 22);
             ModificationHackathonToolStripMenuItem.Text = "Modification Hackathon";
             ModificationHackathonToolStripMenuItem.Click += ModificationHackathonToolStripMenuItem_Click;
+            // 
+            // rechercheHackathonToolStripMenuItem
+            // 
+            rechercheHackathonToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
+            rechercheHackathonToolStripMenuItem.ForeColor = Color.White;
+            rechercheHackathonToolStripMenuItem.Name = "rechercheHackathonToolStripMenuItem";
+            rechercheHackathonToolStripMenuItem.Size = new Size(152, 22);
+            rechercheHackathonToolStripMenuItem.Text = "Recherche Hackathon";
+            rechercheHackathonToolStripMenuItem.Click += rechercheHackathonToolStripMenuItem_Click;
             // 
             // panelSousAffichage
             // 
             panelSousAffichage.BackColor = Color.Transparent;
             panelSousAffichage.BackgroundImageLayout = ImageLayout.Center;
             panelSousAffichage.Dock = DockStyle.Fill;
-            panelSousAffichage.Location = new Point(0, 32);
-            panelSousAffichage.Margin = new Padding(5, 5, 5, 5);
+            panelSousAffichage.Location = new Point(0, 26);
+            panelSousAffichage.Margin = new Padding(4);
             panelSousAffichage.Name = "panelSousAffichage";
-            panelSousAffichage.Size = new Size(760, 431);
+            panelSousAffichage.Size = new Size(665, 321);
             panelSousAffichage.TabIndex = 1;
             // 
             // FormMenuHackathon
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(760, 463);
+            ClientSize = new Size(665, 347);
             ControlBox = false;
             Controls.Add(panelSousAffichage);
             Controls.Add(menuStripHackathon);
             FormBorderStyle = FormBorderStyle.None;
             MainMenuStrip = menuStripHackathon;
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(4);
             Name = "FormMenuHackathon";
             Text = "HACKAT'INNOV";
             menuStripHackathon.ResumeLayout(false);
@@ -113,5 +123,6 @@
         private System.Windows.Forms.Panel panelSousAffichage;
         private ToolStripMenuItem AjoutHackathonToolStripMenuItem;
         private ToolStripMenuItem ModificationHackathonToolStripMenuItem;
+        private ToolStripMenuItem rechercheHackathonToolStripMenuItem;
     }
 }

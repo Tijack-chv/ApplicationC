@@ -26,28 +26,36 @@ namespace ApplicationC
         #region listeHackathonsParPage
         /// <summary>
         /// Nouvelle référence de la méthode d'affichage des hackathons en incluant l'organisateur mais également en incluant le système d'affichage par page
+        /// estArchive inclus dans le tri de l'affichage
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
         public static List<Hackathon> listeHackathonsParPage(int position)
         {
-            return Modele.MonModel.Hackathons.Where(c => c.Idhackathon >= (position-1) * 10).Include(a => a.IdorganisateurNavigation).OrderBy(b=>b.Idhackathon).Take(10).ToList();
+            return Modele.MonModel.Hackathons.Where(c => c.Idhackathon >= (position-1) * 10 && c.Estarchive == false).Include(a => a.IdorganisateurNavigation).OrderBy(b=>b.Idhackathon).Take(10).ToList();
         }
         #endregion
 
         #region CountHackathon
         /// <summary>
         /// Pour savoir le nombre de page max à avoir pour éviter toute erreur
+        /// estArchive inclus dans le count
         /// </summary>
         /// <returns></returns>
         public static int CountHackathon()
         {
-            int nb = Modele.MonModel.Hackathons.Count();
+            int nb = Modele.MonModel.Hackathons.Where(c => c.Estarchive == false).Count();
 
             return nb;
         }
         #endregion
 
+        #region hachathonEstArchive
+        /// <summary>
+        /// Permet d'archiver un hackathon afin de pouvoir l'enlever de l'affichage
+        /// </summary>
+        /// <param name="idh"></param>
+        /// <returns></returns>
         public static bool hackathonEstArchive(int idh)
         {
             bool estArchive = true;
@@ -57,7 +65,7 @@ namespace ApplicationC
             {
                 unHackathon = RecupererHackathon(idh);
 
-                //unHackathon.estArchive = true;
+                unHackathon.Estarchive = true;
 
                 Modele.MonModel.SaveChanges();
             }
@@ -69,6 +77,7 @@ namespace ApplicationC
 
             return estArchive;
         }
+        #endregion
 
         #region listeHackathonsParDateMin
         /// <summary>
@@ -239,7 +248,5 @@ namespace ApplicationC
             return vretour;
         }
         #endregion
-
-
     }
 }

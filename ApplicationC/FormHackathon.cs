@@ -26,11 +26,13 @@ namespace ApplicationC
         private void nbPages()
         {
             int count = ModeleHackathon.CountHackathon();
-            if (count%10 == 0) { 
-                maxPage = count/10;
-            } else
+            if (count % 10 == 0)
             {
-                maxPage = (count/10)+1;
+                maxPage = count / 10;
+            }
+            else
+            {
+                maxPage = (count / 10) + 1;
             }
         }
 
@@ -73,7 +75,7 @@ namespace ApplicationC
 
             List<Equipe> lesEquipes = ModeleHackathon.listeEquipesParHackathon(idH);
             if (lesEquipes.Count != 0)
-            { 
+            {
                 BSEquipe.DataSource = (lesEquipes).Select(static x => new
                 {
                     x.Idequipe,
@@ -179,5 +181,25 @@ namespace ApplicationC
         }
         #endregion
 
+        private void dgvHackathon_DoubleClick(object sender, EventArgs e)
+        {
+            System.Type type = BSHackathon.Current.GetType();
+            int idH = (int)type.GetProperty("Idhackathon").GetValue(BSHackathon.Current, null);
+            string name = (String)type.GetProperty("Thematique").GetValue(BSHackathon.Current,null);
+
+            DialogResult dialogResult = MessageBox.Show("Voulez-vous archiver l'Hackathon '" + name + "' ? ","Archivage de l'hackathon n°" + idH +" ",MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (ModeleHackathon.hackathonEstArchive(idH))
+                {
+                    MessageBox.Show("Archivage de l'hackathon '" + name + "' a correctement été effectué !");
+                    Form1_Load(sender, EventArgs.Empty);
+                }
+                else
+                {
+                    MessageBox.Show("L'archivage de l'élément n'a pas été effectué !");
+                }
+            }
+        }
     }
 }

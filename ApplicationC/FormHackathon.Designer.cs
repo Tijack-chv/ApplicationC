@@ -70,6 +70,7 @@
             dgvHackathon.CellContentClick += DgvHackathon_CellContentClick;
             dgvHackathon.CellMouseClick += DgvHackathon_CellMouseClick;
             dgvHackathon.Click += DgvHackathon_Click;
+            dgvHackathon.DoubleClick += dgvHackathon_DoubleClick;
             // 
             // contextMenuStrip1
             // 
