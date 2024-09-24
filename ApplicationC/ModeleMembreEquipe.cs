@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 
 namespace ApplicationC
 {
+    public enum EtatTypeGestion
+    {
+        Membre,
+        Equipe
+    }
+
+
     public static class ModeleMembreEquipe
     {
 
@@ -35,10 +42,17 @@ namespace ApplicationC
         }
         #endregion
 
-        public static int CompteMembreEquipe ()
+        public static int CompteMembreEquipe (EtatTypeGestion etat)
         {
-            int nb = Modele.MonModel.Membres.Count();
-
+            int nb = 0;
+            
+            if (etat == EtatTypeGestion.Membre) 
+            {
+                nb = Modele.MonModel.Membres.Count();    
+            } else
+            {
+                nb = Modele.MonModel.Equipes.Count();
+            }
             return nb;
         }
     }

@@ -130,6 +130,9 @@
   <data name="round-account-button-with-user-inside_icon-icons.com_72596" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\round-account-button-with-user-inside_icon-icons.com_72596.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_right_15604" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\arrow_right_15604.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="identifiant_logo-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\identifiant_logo-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -184,7 +187,7 @@
   <data name="131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow_right_15604" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="arrow_right_156041" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\arrow_right_15604.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
