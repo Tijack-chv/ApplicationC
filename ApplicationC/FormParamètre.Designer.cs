@@ -58,10 +58,12 @@
             // menuStrip1
             // 
             menuStrip1.BackColor = Color.FromArgb(50, 55, 60);
+            menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { compteToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(665, 26);
+            menuStrip1.Padding = new Padding(7, 3, 0, 3);
+            menuStrip1.Size = new Size(760, 32);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -73,26 +75,28 @@
             compteToolStripMenuItem.Image = Properties.Resources._1486395884_account_80606;
             compteToolStripMenuItem.ImageTransparentColor = Color.Black;
             compteToolStripMenuItem.Name = "compteToolStripMenuItem";
-            compteToolStripMenuItem.Size = new Size(83, 22);
+            compteToolStripMenuItem.Size = new Size(105, 26);
             compteToolStripMenuItem.Text = "Compte";
             // 
             // informationsPersonnelsToolStripMenuItem
             // 
             informationsPersonnelsToolStripMenuItem.BackColor = Color.FromArgb(50, 55, 60);
+            informationsPersonnelsToolStripMenuItem.BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé;
             informationsPersonnelsToolStripMenuItem.ForeColor = Color.White;
             informationsPersonnelsToolStripMenuItem.Image = Properties.Resources.personal_computer_monitor_desktop_pc_icon_179104;
             informationsPersonnelsToolStripMenuItem.Name = "informationsPersonnelsToolStripMenuItem";
-            informationsPersonnelsToolStripMenuItem.Size = new Size(223, 22);
+            informationsPersonnelsToolStripMenuItem.Size = new Size(287, 26);
             informationsPersonnelsToolStripMenuItem.Text = "Informations personnels";
             informationsPersonnelsToolStripMenuItem.Click += informationsPersonnelsToolStripMenuItem_Click;
             // 
             // motDePasseToolStripMenuItem
             // 
             motDePasseToolStripMenuItem.BackColor = Color.FromArgb(50, 55, 60);
+            motDePasseToolStripMenuItem.BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé;
             motDePasseToolStripMenuItem.ForeColor = Color.White;
             motDePasseToolStripMenuItem.Image = Properties.Resources.password_1325;
             motDePasseToolStripMenuItem.Name = "motDePasseToolStripMenuItem";
-            motDePasseToolStripMenuItem.Size = new Size(223, 22);
+            motDePasseToolStripMenuItem.Size = new Size(287, 26);
             motDePasseToolStripMenuItem.Text = "Mot de passe";
             motDePasseToolStripMenuItem.Click += motDePasseToolStripMenuItem_Click;
             // 
@@ -109,9 +113,10 @@
             panelMdp.Controls.Add(textBoxAncienMdp);
             panelMdp.Controls.Add(buttonValiderMdp);
             panelMdp.Controls.Add(buttonAnnulerMdp);
-            panelMdp.Location = new Point(172, 52);
+            panelMdp.Location = new Point(197, 69);
+            panelMdp.Margin = new Padding(3, 4, 3, 4);
             panelMdp.Name = "panelMdp";
-            panelMdp.Size = new Size(233, 266);
+            panelMdp.Size = new Size(266, 355);
             panelMdp.TabIndex = 1;
             // 
             // labelShow
@@ -119,9 +124,9 @@
             labelShow.AutoSize = true;
             labelShow.BackColor = Color.Transparent;
             labelShow.ForeColor = Color.Black;
-            labelShow.Location = new Point(98, 213);
+            labelShow.Location = new Point(112, 284);
             labelShow.Name = "labelShow";
-            labelShow.Size = new Size(36, 15);
+            labelShow.Size = new Size(45, 20);
             labelShow.TabIndex = 6;
             labelShow.Text = "Show";
             labelShow.Click += labelShow_Click;
@@ -129,11 +134,12 @@
             // progressBarMdp
             // 
             progressBarMdp.ForeColor = Color.Red;
-            progressBarMdp.Location = new Point(22, 136);
+            progressBarMdp.Location = new Point(25, 181);
+            progressBarMdp.Margin = new Padding(3, 4, 3, 4);
             progressBarMdp.Maximum = 10;
             progressBarMdp.Minimum = 1;
             progressBarMdp.Name = "progressBarMdp";
-            progressBarMdp.Size = new Size(191, 10);
+            progressBarMdp.Size = new Size(218, 13);
             progressBarMdp.Step = 1;
             progressBarMdp.Style = ProgressBarStyle.Continuous;
             progressBarMdp.TabIndex = 11;
@@ -145,9 +151,9 @@
             label2NvMdp.BackColor = Color.Transparent;
             label2NvMdp.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2NvMdp.ForeColor = Color.Black;
-            label2NvMdp.Location = new Point(3, 158);
+            label2NvMdp.Location = new Point(3, 211);
             label2NvMdp.Name = "label2NvMdp";
-            label2NvMdp.Size = new Size(228, 22);
+            label2NvMdp.Size = new Size(284, 28);
             label2NvMdp.TabIndex = 10;
             label2NvMdp.Text = "Confirmez le mot de passe :";
             // 
@@ -157,9 +163,9 @@
             labelNvMdp.BackColor = Color.Transparent;
             labelNvMdp.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelNvMdp.ForeColor = Color.Black;
-            labelNvMdp.Location = new Point(21, 82);
+            labelNvMdp.Location = new Point(24, 109);
             labelNvMdp.Name = "labelNvMdp";
-            labelNvMdp.Size = new Size(197, 22);
+            labelNvMdp.Size = new Size(246, 28);
             labelNvMdp.TabIndex = 9;
             labelNvMdp.Text = "Nouveau mot de passe :";
             // 
@@ -169,9 +175,9 @@
             labelAncienMdp.BackColor = Color.Transparent;
             labelAncienMdp.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelAncienMdp.ForeColor = Color.Black;
-            labelAncienMdp.Location = new Point(26, 26);
+            labelAncienMdp.Location = new Point(30, 35);
             labelAncienMdp.Name = "labelAncienMdp";
-            labelAncienMdp.Size = new Size(183, 22);
+            labelAncienMdp.Size = new Size(228, 28);
             labelAncienMdp.TabIndex = 3;
             labelAncienMdp.Text = "Ancien mot de passe :";
             // 
@@ -181,11 +187,10 @@
             textBox2NvMdp.BorderStyle = BorderStyle.None;
             textBox2NvMdp.Font = new Font("Times New Roman", 16.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             textBox2NvMdp.ForeColor = Color.White;
-            textBox2NvMdp.Location = new Point(13, 183);
-            textBox2NvMdp.Margin = new Padding(3, 2, 3, 2);
+            textBox2NvMdp.Location = new Point(15, 244);
             textBox2NvMdp.Name = "textBox2NvMdp";
             textBox2NvMdp.PasswordChar = '*';
-            textBox2NvMdp.Size = new Size(209, 25);
+            textBox2NvMdp.Size = new Size(239, 32);
             textBox2NvMdp.TabIndex = 8;
             textBox2NvMdp.Text = "mot de passe";
             textBox2NvMdp.TextAlign = HorizontalAlignment.Center;
@@ -198,11 +203,10 @@
             textBoxNvMdp.BorderStyle = BorderStyle.None;
             textBoxNvMdp.Font = new Font("Times New Roman", 16.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             textBoxNvMdp.ForeColor = Color.White;
-            textBoxNvMdp.Location = new Point(14, 106);
-            textBoxNvMdp.Margin = new Padding(3, 2, 3, 2);
+            textBoxNvMdp.Location = new Point(16, 141);
             textBoxNvMdp.Name = "textBoxNvMdp";
             textBoxNvMdp.PasswordChar = '*';
-            textBoxNvMdp.Size = new Size(209, 25);
+            textBoxNvMdp.Size = new Size(239, 32);
             textBoxNvMdp.TabIndex = 7;
             textBoxNvMdp.Text = "mot de passe";
             textBoxNvMdp.TextAlign = HorizontalAlignment.Center;
@@ -216,11 +220,10 @@
             textBoxAncienMdp.BorderStyle = BorderStyle.None;
             textBoxAncienMdp.Font = new Font("Times New Roman", 16.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             textBoxAncienMdp.ForeColor = Color.White;
-            textBoxAncienMdp.Location = new Point(13, 51);
-            textBoxAncienMdp.Margin = new Padding(3, 2, 3, 2);
+            textBoxAncienMdp.Location = new Point(15, 68);
             textBoxAncienMdp.Name = "textBoxAncienMdp";
             textBoxAncienMdp.PasswordChar = '*';
-            textBoxAncienMdp.Size = new Size(209, 25);
+            textBoxAncienMdp.Size = new Size(239, 32);
             textBoxAncienMdp.TabIndex = 6;
             textBoxAncienMdp.Text = "mot de passe";
             textBoxAncienMdp.TextAlign = HorizontalAlignment.Center;
@@ -233,9 +236,10 @@
             buttonValiderMdp.FlatStyle = FlatStyle.Popup;
             buttonValiderMdp.Font = new Font("Stencil", 12F);
             buttonValiderMdp.ForeColor = Color.White;
-            buttonValiderMdp.Location = new Point(21, 232);
+            buttonValiderMdp.Location = new Point(24, 309);
+            buttonValiderMdp.Margin = new Padding(3, 4, 3, 4);
             buttonValiderMdp.Name = "buttonValiderMdp";
-            buttonValiderMdp.Size = new Size(92, 31);
+            buttonValiderMdp.Size = new Size(105, 41);
             buttonValiderMdp.TabIndex = 5;
             buttonValiderMdp.Text = "Valider";
             buttonValiderMdp.UseVisualStyleBackColor = false;
@@ -247,9 +251,10 @@
             buttonAnnulerMdp.FlatStyle = FlatStyle.Popup;
             buttonAnnulerMdp.Font = new Font("Stencil", 12F);
             buttonAnnulerMdp.ForeColor = Color.White;
-            buttonAnnulerMdp.Location = new Point(120, 232);
+            buttonAnnulerMdp.Location = new Point(137, 309);
+            buttonAnnulerMdp.Margin = new Padding(3, 4, 3, 4);
             buttonAnnulerMdp.Name = "buttonAnnulerMdp";
-            buttonAnnulerMdp.Size = new Size(92, 31);
+            buttonAnnulerMdp.Size = new Size(105, 41);
             buttonAnnulerMdp.TabIndex = 4;
             buttonAnnulerMdp.Text = "Annuler";
             buttonAnnulerMdp.UseVisualStyleBackColor = false;
@@ -264,9 +269,10 @@
             panelInfoPers.Controls.Add(textBoxFirstName);
             panelInfoPers.Controls.Add(textBoxName);
             panelInfoPers.Controls.Add(textBoxEmail);
-            panelInfoPers.Location = new Point(420, 52);
+            panelInfoPers.Location = new Point(480, 69);
+            panelInfoPers.Margin = new Padding(3, 4, 3, 4);
             panelInfoPers.Name = "panelInfoPers";
-            panelInfoPers.Size = new Size(233, 266);
+            panelInfoPers.Size = new Size(266, 355);
             panelInfoPers.TabIndex = 2;
             // 
             // labelFirstName
@@ -275,9 +281,9 @@
             labelFirstName.BackColor = Color.Transparent;
             labelFirstName.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelFirstName.ForeColor = Color.Black;
-            labelFirstName.Location = new Point(67, 187);
+            labelFirstName.Location = new Point(77, 249);
             labelFirstName.Name = "labelFirstName";
-            labelFirstName.Size = new Size(84, 22);
+            labelFirstName.Size = new Size(104, 28);
             labelFirstName.TabIndex = 17;
             labelFirstName.Text = "Prénom :";
             // 
@@ -287,9 +293,9 @@
             labelName.BackColor = Color.Transparent;
             labelName.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelName.ForeColor = Color.Black;
-            labelName.Location = new Point(81, 109);
+            labelName.Location = new Point(93, 145);
             labelName.Name = "labelName";
-            labelName.Size = new Size(59, 22);
+            labelName.Size = new Size(73, 28);
             labelName.TabIndex = 16;
             labelName.Text = "Nom :";
             // 
@@ -299,9 +305,9 @@
             labelEmail.BackColor = Color.Transparent;
             labelEmail.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelEmail.ForeColor = Color.Black;
-            labelEmail.Location = new Point(55, 26);
+            labelEmail.Location = new Point(63, 35);
             labelEmail.Name = "labelEmail";
-            labelEmail.Size = new Size(124, 22);
+            labelEmail.Size = new Size(153, 28);
             labelEmail.TabIndex = 12;
             labelEmail.Text = "Adresse mail :";
             // 
@@ -312,10 +318,9 @@
             textBoxFirstName.Enabled = false;
             textBoxFirstName.Font = new Font("Times New Roman", 16.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             textBoxFirstName.ForeColor = Color.White;
-            textBoxFirstName.Location = new Point(9, 212);
-            textBoxFirstName.Margin = new Padding(3, 2, 3, 2);
+            textBoxFirstName.Location = new Point(10, 283);
             textBoxFirstName.Name = "textBoxFirstName";
-            textBoxFirstName.Size = new Size(209, 25);
+            textBoxFirstName.Size = new Size(239, 32);
             textBoxFirstName.TabIndex = 15;
             textBoxFirstName.Text = "Prénom admin";
             textBoxFirstName.TextAlign = HorizontalAlignment.Center;
@@ -327,10 +332,9 @@
             textBoxName.Enabled = false;
             textBoxName.Font = new Font("Times New Roman", 16.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             textBoxName.ForeColor = Color.White;
-            textBoxName.Location = new Point(9, 133);
-            textBoxName.Margin = new Padding(3, 2, 3, 2);
+            textBoxName.Location = new Point(10, 177);
             textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(209, 25);
+            textBoxName.Size = new Size(239, 32);
             textBoxName.TabIndex = 14;
             textBoxName.Text = "Nom admin";
             textBoxName.TextAlign = HorizontalAlignment.Center;
@@ -342,25 +346,25 @@
             textBoxEmail.Enabled = false;
             textBoxEmail.Font = new Font("Times New Roman", 16.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             textBoxEmail.ForeColor = Color.White;
-            textBoxEmail.Location = new Point(7, 51);
-            textBoxEmail.Margin = new Padding(3, 2, 3, 2);
+            textBoxEmail.Location = new Point(8, 68);
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(209, 25);
+            textBoxEmail.Size = new Size(239, 32);
             textBoxEmail.TabIndex = 13;
             textBoxEmail.Text = "email";
             textBoxEmail.TextAlign = HorizontalAlignment.Center;
             // 
             // FormParamètre
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(665, 347);
+            ClientSize = new Size(760, 463);
             Controls.Add(panelInfoPers);
             Controls.Add(panelMdp);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.None;
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormParamètre";
             Text = "FormParamètre";
             menuStrip1.ResumeLayout(false);

@@ -26,6 +26,7 @@ namespace ApplicationC
 
             sousF = new(panelAffichage);
             sousF.openChildForm(new FormAccueil(true));
+            buttonAffiche(false);
         }
 
         public FormHome(Administrateur admin)
@@ -35,6 +36,7 @@ namespace ApplicationC
             sousF = new(panelAffichage);
             labelAdmin.Text = administrateur.Prenom + " " + administrateur.Nom;
             sousF.openChildForm(new FormAccueil(true));
+            buttonAffiche(false);
         }
 
         private void buttonQuitter_Click(object sender, EventArgs e)
@@ -42,9 +44,24 @@ namespace ApplicationC
             sousF.openChildForm(new FormAccueil(false));
         }
 
+        private void buttonAffiche(bool test)
+        {
+            buttonAbout.Visible = test;
+            buttonEquipe.Visible = test;
+            buttonHackathon.Visible = test;
+            buttonQuitter.Visible = test;
+            buttonSettings.Visible = test;
+        }
+
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            sousF.openChildForm(new FormAccueil(true));
+            //size panelLeft en grand : 122; 462
+            //size button en grand : 122; 52
+            if (buttonSettings.Visible == true) { 
+                buttonAffiche(false);
+            } else { 
+                buttonAffiche(true);
+            }
         }
 
         private void pictureBoxLogo_Click(object sender, EventArgs e)
@@ -59,7 +76,7 @@ namespace ApplicationC
 
         private void buttonEquipe_Click(object sender, EventArgs e)
         {
-
+            sousF.openChildForm(new FormMenuMembreEquipe());
         }
 
         private void buttonAbout_Click(object sender, EventArgs e)

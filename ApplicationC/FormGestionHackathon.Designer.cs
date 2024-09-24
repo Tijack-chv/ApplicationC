@@ -85,7 +85,7 @@
             BtnFermer.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnFermer.ForeColor = SystemColors.ControlLightLight;
             BtnFermer.Location = new Point(470, 305);
-            BtnFermer.Margin = new Padding(5, 5, 5, 5);
+            BtnFermer.Margin = new Padding(5);
             BtnFermer.Name = "BtnFermer";
             BtnFermer.Size = new Size(109, 57);
             BtnFermer.TabIndex = 4;
@@ -99,7 +99,7 @@
             dtDebut.CustomFormat = "dd/MM/yyyy HH:mm";
             dtDebut.Format = DateTimePickerFormat.Custom;
             dtDebut.Location = new Point(31, 57);
-            dtDebut.Margin = new Padding(5, 5, 5, 5);
+            dtDebut.Margin = new Padding(5);
             dtDebut.Name = "dtDebut";
             dtDebut.Size = new Size(179, 26);
             dtDebut.TabIndex = 5;
@@ -110,7 +110,7 @@
             dtFin.CustomFormat = "dd/MM/yyyy HH:mm";
             dtFin.Format = DateTimePickerFormat.Custom;
             dtFin.Location = new Point(30, 125);
-            dtFin.Margin = new Padding(5, 5, 5, 5);
+            dtFin.Margin = new Padding(5);
             dtFin.Name = "dtFin";
             dtFin.Size = new Size(180, 26);
             dtFin.TabIndex = 6;
@@ -163,7 +163,7 @@
             // 
             tbObjectifs.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbObjectifs.Location = new Point(235, 125);
-            tbObjectifs.Margin = new Padding(5, 5, 5, 5);
+            tbObjectifs.Margin = new Padding(5);
             tbObjectifs.Multiline = true;
             tbObjectifs.Name = "tbObjectifs";
             tbObjectifs.Size = new Size(212, 95);
@@ -195,7 +195,7 @@
             // 
             tbThematique.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbThematique.Location = new Point(235, 60);
-            tbThematique.Margin = new Padding(5, 5, 5, 5);
+            tbThematique.Margin = new Padding(5);
             tbThematique.Name = "tbThematique";
             tbThematique.Size = new Size(212, 26);
             tbThematique.TabIndex = 15;
@@ -204,7 +204,7 @@
             // 
             tbLieu.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbLieu.Location = new Point(32, 195);
-            tbLieu.Margin = new Padding(5, 5, 5, 5);
+            tbLieu.Margin = new Padding(5);
             tbLieu.Name = "tbLieu";
             tbLieu.Size = new Size(178, 26);
             tbLieu.TabIndex = 16;
@@ -213,7 +213,7 @@
             // 
             tbVille.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbVille.Location = new Point(31, 267);
-            tbVille.Margin = new Padding(5, 5, 5, 5);
+            tbVille.Margin = new Padding(5);
             tbVille.Name = "tbVille";
             tbVille.Size = new Size(178, 26);
             tbVille.TabIndex = 17;
@@ -233,7 +233,7 @@
             // 
             tbConditions.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbConditions.Location = new Point(235, 267);
-            tbConditions.Margin = new Padding(5, 5, 5, 5);
+            tbConditions.Margin = new Padding(5);
             tbConditions.Multiline = true;
             tbConditions.Name = "tbConditions";
             tbConditions.Size = new Size(212, 95);
@@ -256,7 +256,7 @@
             cbOrganisateur.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbOrganisateur.FormattingEnabled = true;
             cbOrganisateur.Location = new Point(471, 57);
-            cbOrganisateur.Margin = new Padding(5, 5, 5, 5);
+            cbOrganisateur.Margin = new Padding(5);
             cbOrganisateur.Name = "cbOrganisateur";
             cbOrganisateur.Size = new Size(207, 28);
             cbOrganisateur.TabIndex = 21;
@@ -275,7 +275,7 @@
             // tbAffiche
             // 
             tbAffiche.Location = new Point(470, 125);
-            tbAffiche.Margin = new Padding(5, 5, 5, 5);
+            tbAffiche.Margin = new Padding(5);
             tbAffiche.Multiline = true;
             tbAffiche.Name = "tbAffiche";
             tbAffiche.Size = new Size(253, 95);
@@ -288,7 +288,7 @@
             BtnAction.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnAction.ForeColor = SystemColors.ControlLightLight;
             BtnAction.Location = new Point(609, 304);
-            BtnAction.Margin = new Padding(5, 5, 5, 5);
+            BtnAction.Margin = new Padding(5);
             BtnAction.Name = "BtnAction";
             BtnAction.Size = new Size(114, 57);
             BtnAction.TabIndex = 24;
@@ -303,7 +303,7 @@
             BtnAjoutOrganisateur.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnAjoutOrganisateur.ForeColor = Color.White;
             BtnAjoutOrganisateur.Location = new Point(688, 55);
-            BtnAjoutOrganisateur.Margin = new Padding(5, 5, 5, 5);
+            BtnAjoutOrganisateur.Margin = new Padding(5);
             BtnAjoutOrganisateur.Name = "BtnAjoutOrganisateur";
             BtnAjoutOrganisateur.Size = new Size(35, 35);
             BtnAjoutOrganisateur.TabIndex = 25;
@@ -342,9 +342,9 @@
             gbInfo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gbInfo.ForeColor = SystemColors.ActiveCaptionText;
             gbInfo.Location = new Point(13, 52);
-            gbInfo.Margin = new Padding(5, 5, 5, 5);
+            gbInfo.Margin = new Padding(5);
             gbInfo.Name = "gbInfo";
-            gbInfo.Padding = new Padding(5, 5, 5, 5);
+            gbInfo.Padding = new Padding(5);
             gbInfo.Size = new Size(733, 375);
             gbInfo.TabIndex = 26;
             gbInfo.TabStop = false;
@@ -386,7 +386,7 @@
             dtFinInscription.CustomFormat = "dd/MM/yyyy HH:mm";
             dtFinInscription.Format = DateTimePickerFormat.Custom;
             dtFinInscription.Location = new Point(32, 335);
-            dtFinInscription.Margin = new Padding(5, 5, 5, 5);
+            dtFinInscription.Margin = new Padding(5);
             dtFinInscription.Name = "dtFinInscription";
             dtFinInscription.Size = new Size(178, 26);
             dtFinInscription.TabIndex = 26;
@@ -394,12 +394,13 @@
             // 
             // cbListe
             // 
-            cbListe.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbListe.BackColor = Color.White;
+            cbListe.FlatStyle = FlatStyle.Popup;
             cbListe.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbListe.ForeColor = SystemColors.ActiveCaptionText;
             cbListe.FormattingEnabled = true;
             cbListe.Location = new Point(362, 9);
-            cbListe.Margin = new Padding(5, 5, 5, 5);
+            cbListe.Margin = new Padding(5);
             cbListe.Name = "cbListe";
             cbListe.Size = new Size(383, 28);
             cbListe.TabIndex = 27;
@@ -420,7 +421,7 @@
             Controls.Add(gbInfo);
             Controls.Add(labelAjoutHack);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "FormGestionHackathon";
             Text = "FormGestionHackathon";
             Load += FormGestionHackathon_Load;

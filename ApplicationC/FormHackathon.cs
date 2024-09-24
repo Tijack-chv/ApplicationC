@@ -185,9 +185,9 @@ namespace ApplicationC
         {
             System.Type type = BSHackathon.Current.GetType();
             int idH = (int)type.GetProperty("Idhackathon").GetValue(BSHackathon.Current, null);
-            string name = (String)type.GetProperty("Thematique").GetValue(BSHackathon.Current,null);
+            string name = (String)type.GetProperty("Thematique").GetValue(BSHackathon.Current, null);
 
-            DialogResult dialogResult = MessageBox.Show("Voulez-vous archiver l'Hackathon '" + name + "' ? ","Archivage de l'hackathon n°" + idH +" ",MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Voulez-vous archiver l'Hackathon '" + name + "' ? ", "Archivage de l'hackathon n°" + idH + " ", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 if (ModeleHackathon.hackathonEstArchive(idH))
@@ -200,6 +200,16 @@ namespace ApplicationC
                     MessageBox.Show("L'archivage de l'élément n'a pas été effectué !");
                 }
             }
+        }
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Type type = BSHackathon.Current.GetType();
+            int idH = (int)type.GetProperty("Idhackathon").GetValue(BSHackathon.Current, null);
+
+
+            SousFormulaire sousF = new((System.Windows.Forms.Application.OpenForms["FormMenuHackathon"] as FormMenuHackathon).panelSousAffichage);
+            sousF.openChildForm(new FormGestionHackathon(EtatGestion.Update, idH));
         }
     }
 }

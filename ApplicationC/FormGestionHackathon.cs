@@ -19,9 +19,20 @@ namespace ApplicationC
     public partial class FormGestionHackathon : Form
     {
         private EtatGestion etat;
+        private int idModifChoix = 0;
         public FormGestionHackathon(EtatGestion etat)
         {
             InitializeComponent();
+            dtDebut.MinDate = DateTime.Now;
+            dtFin.MinDate = DateTime.Now;
+            dtFinInscription.MinDate = DateTime.Now;
+            this.etat = etat;
+        }
+
+        public FormGestionHackathon(EtatGestion etat,int id)
+        {
+            InitializeComponent();
+            idModifChoix = id;
             dtDebut.MinDate = DateTime.Now;
             dtFin.MinDate = DateTime.Now;
             dtFinInscription.MinDate = DateTime.Now;
@@ -63,6 +74,10 @@ namespace ApplicationC
             BSListeH.DataSource = ModeleHackathon.listeHackathonsParDateMin(DateTime.Now);
             cbListe.DataSource = BSListeH;
             cbListe.SelectedIndex = -1;
+            if (idModifChoix != 0)
+            {
+                cbListe.SelectedValue = idModifChoix;
+            }
         }
 
         public void RemplirListeOrganisateurs()

@@ -32,6 +32,7 @@
             dgvHackathon = new DataGridView();
             contextMenuStrip1 = new ContextMenuStrip(components);
             VoirEquipeToolStripMenuItem = new ToolStripMenuItem();
+            modifierToolStripMenuItem = new ToolStripMenuItem();
             labelListe = new Label();
             labelInfo = new Label();
             BSHackathon = new BindingSource(components);
@@ -58,13 +59,13 @@
             dgvHackathon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvHackathon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHackathon.ContextMenuStrip = contextMenuStrip1;
-            dgvHackathon.Location = new Point(9, 43);
-            dgvHackathon.Margin = new Padding(5);
+            dgvHackathon.Location = new Point(10, 57);
+            dgvHackathon.Margin = new Padding(6, 7, 6, 7);
             dgvHackathon.MultiSelect = false;
             dgvHackathon.Name = "dgvHackathon";
             dgvHackathon.ReadOnly = true;
             dgvHackathon.RowHeadersWidth = 51;
-            dgvHackathon.Size = new Size(642, 225);
+            dgvHackathon.Size = new Size(734, 300);
             dgvHackathon.TabIndex = 0;
             dgvHackathon.CellClick += DgvHackathon_CellContentClick;
             dgvHackathon.CellContentClick += DgvHackathon_CellContentClick;
@@ -74,28 +75,43 @@
             // 
             // contextMenuStrip1
             // 
+            contextMenuStrip1.BackColor = Color.FromArgb(50, 55, 60);
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { VoirEquipeToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { VoirEquipeToolStripMenuItem, modifierToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(156, 26);
-            contextMenuStrip1.Click += VoirLesÉquipesToolStripMenuItem_Click;
+            contextMenuStrip1.Size = new Size(254, 84);
             // 
             // VoirEquipeToolStripMenuItem
             // 
+            VoirEquipeToolStripMenuItem.BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé;
+            VoirEquipeToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
+            VoirEquipeToolStripMenuItem.ForeColor = Color.White;
+            VoirEquipeToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
             VoirEquipeToolStripMenuItem.Name = "VoirEquipeToolStripMenuItem";
-            VoirEquipeToolStripMenuItem.Size = new Size(155, 22);
+            VoirEquipeToolStripMenuItem.Size = new Size(253, 26);
             VoirEquipeToolStripMenuItem.Text = "Voir les équipes";
             VoirEquipeToolStripMenuItem.Click += VoirLesÉquipesToolStripMenuItem_Click;
+            // 
+            // modifierToolStripMenuItem
+            // 
+            modifierToolStripMenuItem.BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé;
+            modifierToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
+            modifierToolStripMenuItem.ForeColor = Color.White;
+            modifierToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
+            modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            modifierToolStripMenuItem.Size = new Size(253, 26);
+            modifierToolStripMenuItem.Text = "Modifier l'Hackathon";
+            modifierToolStripMenuItem.Click += modifierToolStripMenuItem_Click;
             // 
             // labelListe
             // 
             labelListe.AutoSize = true;
             labelListe.BackColor = Color.Transparent;
             labelListe.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelListe.Location = new Point(16, 9);
-            labelListe.Margin = new Padding(4, 0, 4, 0);
+            labelListe.Location = new Point(18, 12);
+            labelListe.Margin = new Padding(5, 0, 5, 0);
             labelListe.Name = "labelListe";
-            labelListe.Size = new Size(208, 24);
+            labelListe.Size = new Size(261, 29);
             labelListe.TabIndex = 2;
             labelListe.Text = "Liste des Hackathons";
             // 
@@ -105,10 +121,10 @@
             labelInfo.BackColor = Color.Transparent;
             labelInfo.Font = new Font("SimSun-ExtB", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelInfo.ForeColor = SystemColors.ActiveCaptionText;
-            labelInfo.Location = new Point(12, 299);
-            labelInfo.Margin = new Padding(4, 0, 4, 0);
+            labelInfo.Location = new Point(14, 399);
+            labelInfo.Margin = new Padding(5, 0, 5, 0);
             labelInfo.Name = "labelInfo";
-            labelInfo.Size = new Size(553, 16);
+            labelInfo.Size = new Size(674, 20);
             labelInfo.TabIndex = 4;
             labelInfo.Text = "click droit sur l'hackathon sélectionné pour voir ses équipes";
             // 
@@ -117,12 +133,12 @@
             dgvEquipes.AllowUserToAddRows = false;
             dgvEquipes.AllowUserToDeleteRows = false;
             dgvEquipes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquipes.Location = new Point(189, 162);
-            dgvEquipes.Margin = new Padding(5);
+            dgvEquipes.Location = new Point(449, 57);
+            dgvEquipes.Margin = new Padding(6, 7, 6, 7);
             dgvEquipes.Name = "dgvEquipes";
             dgvEquipes.ReadOnly = true;
             dgvEquipes.RowHeadersWidth = 51;
-            dgvEquipes.Size = new Size(281, 106);
+            dgvEquipes.Size = new Size(295, 300);
             dgvEquipes.TabIndex = 5;
             dgvEquipes.Visible = false;
             // 
@@ -130,7 +146,8 @@
             // 
             pictureBoxFermer.BackColor = Color.Transparent;
             pictureBoxFermer.Image = Properties.Resources.icons8_multiply_32;
-            pictureBoxFermer.Location = new Point(630, 3);
+            pictureBoxFermer.Location = new Point(720, 4);
+            pictureBoxFermer.Margin = new Padding(3, 4, 3, 4);
             pictureBoxFermer.Name = "pictureBoxFermer";
             pictureBoxFermer.Size = new Size(32, 32);
             pictureBoxFermer.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -144,10 +161,9 @@
             buttonPrec.FlatStyle = FlatStyle.Popup;
             buttonPrec.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonPrec.ForeColor = Color.White;
-            buttonPrec.Location = new Point(189, 275);
-            buttonPrec.Margin = new Padding(3, 2, 3, 2);
+            buttonPrec.Location = new Point(216, 367);
             buttonPrec.Name = "buttonPrec";
-            buttonPrec.Size = new Size(110, 22);
+            buttonPrec.Size = new Size(126, 29);
             buttonPrec.TabIndex = 7;
             buttonPrec.Text = "Précédent";
             buttonPrec.UseVisualStyleBackColor = false;
@@ -159,10 +175,9 @@
             buttonSuiv.FlatStyle = FlatStyle.Popup;
             buttonSuiv.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonSuiv.ForeColor = Color.White;
-            buttonSuiv.Location = new Point(360, 275);
-            buttonSuiv.Margin = new Padding(3, 2, 3, 2);
+            buttonSuiv.Location = new Point(411, 367);
             buttonSuiv.Name = "buttonSuiv";
-            buttonSuiv.Size = new Size(110, 22);
+            buttonSuiv.Size = new Size(126, 29);
             buttonSuiv.TabIndex = 8;
             buttonSuiv.Text = "Suivant";
             buttonSuiv.UseVisualStyleBackColor = false;
@@ -171,28 +186,25 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(30, 35, 40);
-            panel1.Location = new Point(470, 275);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(537, 367);
             panel1.Name = "panel1";
-            panel1.Size = new Size(175, 22);
+            panel1.Size = new Size(200, 29);
             panel1.TabIndex = 11;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(30, 35, 40);
-            panel2.Location = new Point(13, 275);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(15, 367);
             panel2.Name = "panel2";
-            panel2.Size = new Size(175, 22);
+            panel2.Size = new Size(200, 29);
             panel2.TabIndex = 12;
             // 
             // textBoxPage
             // 
             textBoxPage.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPage.Location = new Point(299, 275);
-            textBoxPage.Margin = new Padding(3, 2, 3, 2);
+            textBoxPage.Location = new Point(342, 367);
             textBoxPage.Name = "textBoxPage";
-            textBoxPage.Size = new Size(62, 23);
+            textBoxPage.Size = new Size(70, 27);
             textBoxPage.TabIndex = 13;
             textBoxPage.Text = "1";
             textBoxPage.TextAlign = HorizontalAlignment.Center;
@@ -201,11 +213,11 @@
             // 
             // FormHackathon
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkOliveGreen;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(665, 323);
+            ClientSize = new Size(760, 431);
             Controls.Add(textBoxPage);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -217,7 +229,7 @@
             Controls.Add(labelListe);
             Controls.Add(dgvHackathon);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
+            Margin = new Padding(5);
             Name = "FormHackathon";
             Text = "Gestion des Hackathons";
             Load += Form1_Load;
@@ -247,6 +259,7 @@
         private TextBox textBoxPage;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem VoirEquipeToolStripMenuItem;
+        private ToolStripMenuItem modifierToolStripMenuItem;
     }
 }
 
