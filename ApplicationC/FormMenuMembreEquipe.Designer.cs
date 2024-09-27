@@ -42,6 +42,7 @@
             rechercheMembreEquipeToolStripMenuItem = new ToolStripMenuItem();
             rechercheMembreToolStripMenuItem = new ToolStripMenuItem();
             rechercheEquipeToolStripMenuItem = new ToolStripMenuItem();
+            panelSousAffichage = new Panel();
             menuStripMembreEquipe.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,8 +53,8 @@
             menuStripMembreEquipe.Items.AddRange(new ToolStripItem[] { ListeMembreEquipe, AjoutMembreEquipeToolStripMenuItem, ModificationMembreEquipeToolStripMenuItem, rechercheMembreEquipeToolStripMenuItem });
             menuStripMembreEquipe.Location = new Point(0, 0);
             menuStripMembreEquipe.Name = "menuStripMembreEquipe";
-            menuStripMembreEquipe.Padding = new Padding(7, 2, 0, 2);
-            menuStripMembreEquipe.Size = new Size(665, 26);
+            menuStripMembreEquipe.Padding = new Padding(8, 3, 0, 3);
+            menuStripMembreEquipe.Size = new Size(760, 32);
             menuStripMembreEquipe.TabIndex = 1;
             menuStripMembreEquipe.Text = "menu";
             // 
@@ -63,7 +64,7 @@
             ListeMembreEquipe.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ListeMembreEquipe.ForeColor = Color.White;
             ListeMembreEquipe.Name = "ListeMembreEquipe";
-            ListeMembreEquipe.Size = new Size(49, 22);
+            ListeMembreEquipe.Size = new Size(63, 26);
             ListeMembreEquipe.Text = "Liste";
             // 
             // listeMembreToolStripMenuItem
@@ -72,7 +73,7 @@
             listeMembreToolStripMenuItem.ForeColor = Color.White;
             listeMembreToolStripMenuItem.Image = (Image)resources.GetObject("listeMembreToolStripMenuItem.Image");
             listeMembreToolStripMenuItem.Name = "listeMembreToolStripMenuItem";
-            listeMembreToolStripMenuItem.Size = new Size(184, 26);
+            listeMembreToolStripMenuItem.Size = new Size(204, 26);
             listeMembreToolStripMenuItem.Text = "Liste Membre";
             listeMembreToolStripMenuItem.Click += listeMembreToolStripMenuItem_Click;
             // 
@@ -82,7 +83,7 @@
             listeEquipeToolStripMenuItem.ForeColor = Color.White;
             listeEquipeToolStripMenuItem.Image = (Image)resources.GetObject("listeEquipeToolStripMenuItem.Image");
             listeEquipeToolStripMenuItem.Name = "listeEquipeToolStripMenuItem";
-            listeEquipeToolStripMenuItem.Size = new Size(184, 26);
+            listeEquipeToolStripMenuItem.Size = new Size(204, 26);
             listeEquipeToolStripMenuItem.Text = "Liste Equipe";
             listeEquipeToolStripMenuItem.Click += listeEquipeToolStripMenuItem_Click;
             // 
@@ -92,7 +93,7 @@
             AjoutMembreEquipeToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
             AjoutMembreEquipeToolStripMenuItem.ForeColor = Color.White;
             AjoutMembreEquipeToolStripMenuItem.Name = "AjoutMembreEquipeToolStripMenuItem";
-            AjoutMembreEquipeToolStripMenuItem.Size = new Size(53, 22);
+            AjoutMembreEquipeToolStripMenuItem.Size = new Size(68, 26);
             AjoutMembreEquipeToolStripMenuItem.Text = "Ajout";
             // 
             // ajoutMembreToolStripMenuItem
@@ -101,7 +102,7 @@
             ajoutMembreToolStripMenuItem.ForeColor = Color.White;
             ajoutMembreToolStripMenuItem.Image = (Image)resources.GetObject("ajoutMembreToolStripMenuItem.Image");
             ajoutMembreToolStripMenuItem.Name = "ajoutMembreToolStripMenuItem";
-            ajoutMembreToolStripMenuItem.Size = new Size(184, 26);
+            ajoutMembreToolStripMenuItem.Size = new Size(209, 26);
             ajoutMembreToolStripMenuItem.Text = "Ajout Membre";
             ajoutMembreToolStripMenuItem.Click += ajoutMembreToolStripMenuItem_Click;
             // 
@@ -111,7 +112,7 @@
             ajoutEquipeToolStripMenuItem.ForeColor = Color.White;
             ajoutEquipeToolStripMenuItem.Image = (Image)resources.GetObject("ajoutEquipeToolStripMenuItem.Image");
             ajoutEquipeToolStripMenuItem.Name = "ajoutEquipeToolStripMenuItem";
-            ajoutEquipeToolStripMenuItem.Size = new Size(184, 26);
+            ajoutEquipeToolStripMenuItem.Size = new Size(209, 26);
             ajoutEquipeToolStripMenuItem.Text = "Ajout Equipe";
             ajoutEquipeToolStripMenuItem.Click += ajoutEquipeToolStripMenuItem_Click;
             // 
@@ -121,7 +122,7 @@
             ModificationMembreEquipeToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
             ModificationMembreEquipeToolStripMenuItem.ForeColor = Color.White;
             ModificationMembreEquipeToolStripMenuItem.Name = "ModificationMembreEquipeToolStripMenuItem";
-            ModificationMembreEquipeToolStripMenuItem.Size = new Size(97, 22);
+            ModificationMembreEquipeToolStripMenuItem.Size = new Size(127, 26);
             ModificationMembreEquipeToolStripMenuItem.Text = "Modification";
             // 
             // modificationMembreToolStripMenuItem
@@ -131,7 +132,7 @@
             modificationMembreToolStripMenuItem.Image = (Image)resources.GetObject("modificationMembreToolStripMenuItem.Image");
             modificationMembreToolStripMenuItem.Name = "modificationMembreToolStripMenuItem";
             modificationMembreToolStripMenuItem.RightToLeft = RightToLeft.No;
-            modificationMembreToolStripMenuItem.Size = new Size(212, 26);
+            modificationMembreToolStripMenuItem.Size = new Size(268, 26);
             modificationMembreToolStripMenuItem.Text = "Modification Membre";
             modificationMembreToolStripMenuItem.Click += modificationMembreToolStripMenuItem_Click;
             // 
@@ -141,7 +142,7 @@
             modificationEquipeToolStripMenuItem.ForeColor = Color.White;
             modificationEquipeToolStripMenuItem.Image = (Image)resources.GetObject("modificationEquipeToolStripMenuItem.Image");
             modificationEquipeToolStripMenuItem.Name = "modificationEquipeToolStripMenuItem";
-            modificationEquipeToolStripMenuItem.Size = new Size(212, 26);
+            modificationEquipeToolStripMenuItem.Size = new Size(268, 26);
             modificationEquipeToolStripMenuItem.Text = "Modification Equipe";
             modificationEquipeToolStripMenuItem.Click += modificationEquipeToolStripMenuItem_Click;
             // 
@@ -151,7 +152,7 @@
             rechercheMembreEquipeToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
             rechercheMembreEquipeToolStripMenuItem.ForeColor = Color.White;
             rechercheMembreEquipeToolStripMenuItem.Name = "rechercheMembreEquipeToolStripMenuItem";
-            rechercheMembreEquipeToolStripMenuItem.Size = new Size(83, 22);
+            rechercheMembreEquipeToolStripMenuItem.Size = new Size(106, 26);
             rechercheMembreEquipeToolStripMenuItem.Text = "Recherche";
             // 
             // rechercheMembreToolStripMenuItem
@@ -160,7 +161,7 @@
             rechercheMembreToolStripMenuItem.ForeColor = Color.White;
             rechercheMembreToolStripMenuItem.Image = (Image)resources.GetObject("rechercheMembreToolStripMenuItem.Image");
             rechercheMembreToolStripMenuItem.Name = "rechercheMembreToolStripMenuItem";
-            rechercheMembreToolStripMenuItem.Size = new Size(198, 26);
+            rechercheMembreToolStripMenuItem.Size = new Size(247, 26);
             rechercheMembreToolStripMenuItem.Text = "Recherche Membre";
             rechercheMembreToolStripMenuItem.Click += rechercheMembreToolStripMenuItem_Click;
             // 
@@ -170,19 +171,28 @@
             rechercheEquipeToolStripMenuItem.ForeColor = Color.White;
             rechercheEquipeToolStripMenuItem.Image = (Image)resources.GetObject("rechercheEquipeToolStripMenuItem.Image");
             rechercheEquipeToolStripMenuItem.Name = "rechercheEquipeToolStripMenuItem";
-            rechercheEquipeToolStripMenuItem.Size = new Size(198, 26);
+            rechercheEquipeToolStripMenuItem.Size = new Size(247, 26);
             rechercheEquipeToolStripMenuItem.Text = "Recherche Equipe";
             rechercheEquipeToolStripMenuItem.Click += rechercheEquipeToolStripMenuItem_Click;
             // 
+            // panelSousAffichage
+            // 
+            panelSousAffichage.BackColor = Color.Transparent;
+            panelSousAffichage.Dock = DockStyle.Fill;
+            panelSousAffichage.Location = new Point(0, 32);
+            panelSousAffichage.Name = "panelSousAffichage";
+            panelSousAffichage.Size = new Size(760, 429);
+            panelSousAffichage.TabIndex = 2;
+            // 
             // FormMenuMembreEquipe
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(665, 346);
+            ClientSize = new Size(760, 461);
+            Controls.Add(panelSousAffichage);
             Controls.Add(menuStripMembreEquipe);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormMenuMembreEquipe";
             Text = "FormMenuMembreEquipe";
             menuStripMembreEquipe.ResumeLayout(false);
@@ -206,5 +216,6 @@
         private ToolStripMenuItem modificationEquipeToolStripMenuItem;
         private ToolStripMenuItem rechercheMembreToolStripMenuItem;
         private ToolStripMenuItem rechercheEquipeToolStripMenuItem;
+        private Panel panelSousAffichage;
     }
 }

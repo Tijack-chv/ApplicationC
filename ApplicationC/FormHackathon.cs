@@ -207,9 +207,16 @@ namespace ApplicationC
             System.Type type = BSHackathon.Current.GetType();
             int idH = (int)type.GetProperty("Idhackathon").GetValue(BSHackathon.Current, null);
 
+            Hackathon hack = ModeleHackathon.RecupererHackathon(idH);
 
-            SousFormulaire sousF = new((System.Windows.Forms.Application.OpenForms["FormMenuHackathon"] as FormMenuHackathon).panelSousAffichage);
-            sousF.openChildForm(new FormGestionHackathon(EtatGestion.Update, idH));
+            if (hack.Dateheuredebuth <= DateTime.Now)
+            {
+                MessageBox.Show("Cette Hackathon étant en cours ou terminé, il ne peut donc pas être modifié !");
+            } else
+            {
+                SousFormulaire sousF = new((System.Windows.Forms.Application.OpenForms["FormMenuHackathon"] as FormMenuHackathon).panelSousAffichage);
+                sousF.openChildForm(new FormGestionHackathon(EtatGestion.Update, idH));
+            }
         }
     }
 }

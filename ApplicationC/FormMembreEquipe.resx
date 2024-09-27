@@ -117,56 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>321, 22</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="VoirEquipeToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAA51JREFUWEft1dtr22Ucx/FvI0xU3M2GzuGdK4WKMifrhWztTmpl3ajCIHOOHZq5
-        U0OGW3WrrnVrt9nGZQdW0lHUhtGybO3atOlpre48FAUR/AsEEfHCkIkXCv35/ixPS9p1uxAbcPQLL5I8
-        v+f3/X6f5/klsZmYif997AjvOG0F9qT7mPuIjcTS0WT0x+LdxS+4odxGy3BLOvFtwotdjd3ZdGzTZoby
-        MldyFE1DTen4N3FP2m62je5r2feZvWhPuMvTH5GBSDp2O+bddQs3Yl5dvO6Hoi1FhW7Kg6PsYNlKf6O/
-        dErH7+OUc8Zf2jDQ8GfzjWZv3DVcafbCiXC6vLb8HUo8+Ehq22tTkf6Ix0omGnSGnMvOsDOCL3HFuepe
-        v4LGmRtOhke3nth61p6xx125e6PqXFWqvqfeq09m6UM/BpxBDDmXnWFnJMvYmK7rHuUgd2VL5fcFGwoK
-        XMmJEfw8mKrurPaqu5xuJNCDXiTRh34MYNAZmoLGNUc0X/cqF/lDraFUyd4SPyUnHklFtCIVag95oTgu
-        4CI6cQld6EYPep0k+tA/icZE1zVP9ySgHB04H/KCrcHRNTVrmuxZe8yVN1t/cn0q0BrwAufQhnacRxwX
-        0YFL6EI3EuhB7yQaE13XPN3TCeVQLuX+AtGAV15T/t3cVXPzMx34LWUB82wXgtiD91CF/fgQNfgYh1GP
-        IziKY1n0WeN1OIRafATl2Ivd2Iy3UIoi+4kf8DlsAQ1sY6ASIUwurkRKqMIq8gkaEcanjt5LA9SMGlGz
-        avwDKG8F/HgDC+1ne4rKZrMyOzC5gfdxAFqBVq5VZRdX0QhO4KSj9xrTNTWie3S/8in/BqxAoV3nS7mQ
-        4r67J2DraEBb8y52YuwYtG3qvhoHMdaIVqdGtGIVPY0zjt5rTA1o17ST26Hir9hf9hytGmufEGU0sI4J
-        b2MjtkDPhG7Mfi7UkBKqKR2NCqiQikbRjCZoF3RcOkKdu3K/ZL/YPLJb1tM/HkusA7/bUhopRgmWYTlW
-        YBVexWvO6yjFaqzFcRu1sxQRNaPd0fGpcZ13od1iyxdRyW35vfEonsa8fyMvkvfH+Or1fOjItPJitnwB
-        B5PJPX3ha/TdsVOuuJ4VHeEi+9Xm82RNueX/cfgO04DOXMXfxPP2tc22xVx6JDNjmsNXRQP6qi23vy2f
-        xzFzNLkL30Zf2l623/jLreDj/f92py3y+SmbzQ9rrrZ8Jh6yMPsH9pThFdAhca0AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="modifierToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAA51JREFUWEft1dtr22Ucx/FvI0xU3M2GzuGdK4WKMifrhWztTmpl3ajCIHOOHZq5
-        U0OGW3WrrnVrt9nGZQdW0lHUhtGybO3atOlpre48FAUR/AsEEfHCkIkXCv35/ixPS9p1uxAbcPQLL5I8
-        v+f3/X6f5/klsZmYif997AjvOG0F9qT7mPuIjcTS0WT0x+LdxS+4odxGy3BLOvFtwotdjd3ZdGzTZoby
-        MldyFE1DTen4N3FP2m62je5r2feZvWhPuMvTH5GBSDp2O+bddQs3Yl5dvO6Hoi1FhW7Kg6PsYNlKf6O/
-        dErH7+OUc8Zf2jDQ8GfzjWZv3DVcafbCiXC6vLb8HUo8+Ehq22tTkf6Ix0omGnSGnMvOsDOCL3HFuepe
-        v4LGmRtOhke3nth61p6xx125e6PqXFWqvqfeq09m6UM/BpxBDDmXnWFnJMvYmK7rHuUgd2VL5fcFGwoK
-        XMmJEfw8mKrurPaqu5xuJNCDXiTRh34MYNAZmoLGNUc0X/cqF/lDraFUyd4SPyUnHklFtCIVag95oTgu
-        4CI6cQld6EYPep0k+tA/icZE1zVP9ySgHB04H/KCrcHRNTVrmuxZe8yVN1t/cn0q0BrwAufQhnacRxwX
-        0YFL6EI3EuhB7yQaE13XPN3TCeVQLuX+AtGAV15T/t3cVXPzMx34LWUB82wXgtiD91CF/fgQNfgYh1GP
-        IziKY1n0WeN1OIRafATl2Ivd2Iy3UIoi+4kf8DlsAQ1sY6ASIUwurkRKqMIq8gkaEcanjt5LA9SMGlGz
-        avwDKG8F/HgDC+1ne4rKZrMyOzC5gfdxAFqBVq5VZRdX0QhO4KSj9xrTNTWie3S/8in/BqxAoV3nS7mQ
-        4r67J2DraEBb8y52YuwYtG3qvhoHMdaIVqdGtGIVPY0zjt5rTA1o17ST26Hir9hf9hytGmufEGU0sI4J
-        b2MjtkDPhG7Mfi7UkBKqKR2NCqiQikbRjCZoF3RcOkKdu3K/ZL/YPLJb1tM/HkusA7/bUhopRgmWYTlW
-        YBVexWvO6yjFaqzFcRu1sxQRNaPd0fGpcZ13od1iyxdRyW35vfEonsa8fyMvkvfH+Or1fOjItPJitnwB
-        B5PJPX3ha/TdsVOuuJ4VHeEi+9Xm82RNueX/cfgO04DOXMXfxPP2tc22xVx6JDNjmsNXRQP6qi23vy2f
-        xzFzNLkL30Zf2l623/jLreDj/f92py3y+SmbzQ9rrrZ8Jh6yMPsH9pThFdAhca0AAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="BSHackathon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bindingSourceMembreEquipe.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="BSEquipe.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>175, 18</value>
   </metadata>
 </root>

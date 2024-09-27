@@ -85,8 +85,8 @@
             informationsPersonnelsToolStripMenuItem.ForeColor = Color.White;
             informationsPersonnelsToolStripMenuItem.Image = Properties.Resources.personal_computer_monitor_desktop_pc_icon_179104;
             informationsPersonnelsToolStripMenuItem.Name = "informationsPersonnelsToolStripMenuItem";
-            informationsPersonnelsToolStripMenuItem.Size = new Size(287, 26);
-            informationsPersonnelsToolStripMenuItem.Text = "Informations personnels";
+            informationsPersonnelsToolStripMenuItem.Size = new Size(302, 26);
+            informationsPersonnelsToolStripMenuItem.Text = "Informations personnelles";
             informationsPersonnelsToolStripMenuItem.Click += informationsPersonnelsToolStripMenuItem_Click;
             // 
             // motDePasseToolStripMenuItem
@@ -96,7 +96,7 @@
             motDePasseToolStripMenuItem.ForeColor = Color.White;
             motDePasseToolStripMenuItem.Image = Properties.Resources.password_1325;
             motDePasseToolStripMenuItem.Name = "motDePasseToolStripMenuItem";
-            motDePasseToolStripMenuItem.Size = new Size(287, 26);
+            motDePasseToolStripMenuItem.Size = new Size(302, 26);
             motDePasseToolStripMenuItem.Text = "Mot de passe";
             motDePasseToolStripMenuItem.Click += motDePasseToolStripMenuItem_Click;
             // 
@@ -155,7 +155,7 @@
             label2NvMdp.Name = "label2NvMdp";
             label2NvMdp.Size = new Size(284, 28);
             label2NvMdp.TabIndex = 10;
-            label2NvMdp.Text = "Confirmez le mot de passe :";
+            label2NvMdp.Text = "Confirmer le mot de passe :";
             // 
             // labelNvMdp
             // 
@@ -236,7 +236,7 @@
             buttonValiderMdp.FlatStyle = FlatStyle.Popup;
             buttonValiderMdp.Font = new Font("Stencil", 12F);
             buttonValiderMdp.ForeColor = Color.White;
-            buttonValiderMdp.Location = new Point(24, 309);
+            buttonValiderMdp.Location = new Point(16, 309);
             buttonValiderMdp.Margin = new Padding(3, 4, 3, 4);
             buttonValiderMdp.Name = "buttonValiderMdp";
             buttonValiderMdp.Size = new Size(105, 41);
@@ -254,7 +254,7 @@
             buttonAnnulerMdp.Location = new Point(137, 309);
             buttonAnnulerMdp.Margin = new Padding(3, 4, 3, 4);
             buttonAnnulerMdp.Name = "buttonAnnulerMdp";
-            buttonAnnulerMdp.Size = new Size(105, 41);
+            buttonAnnulerMdp.Size = new Size(117, 41);
             buttonAnnulerMdp.TabIndex = 4;
             buttonAnnulerMdp.Text = "Annuler";
             buttonAnnulerMdp.UseVisualStyleBackColor = false;

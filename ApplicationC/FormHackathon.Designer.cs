@@ -39,12 +39,13 @@
             BSHackathon = new BindingSource(components);
             BSEquipe = new BindingSource(components);
             dgvEquipes = new DataGridView();
-            pictureBoxFermer = new PictureBox();
             buttonPrec = new Button();
             buttonSuiv = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
             textBoxPage = new TextBox();
+            label1 = new Label();
+            pictureBoxFermer = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvHackathon).BeginInit();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BSHackathon).BeginInit();
@@ -60,13 +61,13 @@
             dgvHackathon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvHackathon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHackathon.ContextMenuStrip = contextMenuStrip1;
-            dgvHackathon.Location = new Point(9, 43);
-            dgvHackathon.Margin = new Padding(5);
+            dgvHackathon.Location = new Point(11, 41);
+            dgvHackathon.Margin = new Padding(6, 7, 6, 7);
             dgvHackathon.MultiSelect = false;
             dgvHackathon.Name = "dgvHackathon";
             dgvHackathon.ReadOnly = true;
             dgvHackathon.RowHeadersWidth = 51;
-            dgvHackathon.Size = new Size(642, 225);
+            dgvHackathon.Size = new Size(734, 300);
             dgvHackathon.TabIndex = 0;
             dgvHackathon.CellClick += DgvHackathon_CellContentClick;
             dgvHackathon.CellContentClick += DgvHackathon_CellContentClick;
@@ -80,7 +81,7 @@
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { VoirEquipeToolStripMenuItem, modifierToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(209, 56);
+            contextMenuStrip1.Size = new Size(254, 56);
             // 
             // VoirEquipeToolStripMenuItem
             // 
@@ -89,7 +90,7 @@
             VoirEquipeToolStripMenuItem.ForeColor = Color.White;
             VoirEquipeToolStripMenuItem.Image = (Image)resources.GetObject("VoirEquipeToolStripMenuItem.Image");
             VoirEquipeToolStripMenuItem.Name = "VoirEquipeToolStripMenuItem";
-            VoirEquipeToolStripMenuItem.Size = new Size(208, 26);
+            VoirEquipeToolStripMenuItem.Size = new Size(253, 26);
             VoirEquipeToolStripMenuItem.Text = "Voir les équipes";
             VoirEquipeToolStripMenuItem.Click += VoirLesÉquipesToolStripMenuItem_Click;
             // 
@@ -100,7 +101,7 @@
             modifierToolStripMenuItem.ForeColor = Color.White;
             modifierToolStripMenuItem.Image = (Image)resources.GetObject("modifierToolStripMenuItem.Image");
             modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            modifierToolStripMenuItem.Size = new Size(208, 26);
+            modifierToolStripMenuItem.Size = new Size(253, 26);
             modifierToolStripMenuItem.Text = "Modifier l'Hackathon";
             modifierToolStripMenuItem.Click += modifierToolStripMenuItem_Click;
             // 
@@ -109,10 +110,10 @@
             labelListe.AutoSize = true;
             labelListe.BackColor = Color.Transparent;
             labelListe.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelListe.Location = new Point(16, 9);
-            labelListe.Margin = new Padding(4, 0, 4, 0);
+            labelListe.Location = new Point(18, 12);
+            labelListe.Margin = new Padding(5, 0, 5, 0);
             labelListe.Name = "labelListe";
-            labelListe.Size = new Size(208, 24);
+            labelListe.Size = new Size(261, 29);
             labelListe.TabIndex = 2;
             labelListe.Text = "Liste des Hackathons";
             // 
@@ -120,12 +121,12 @@
             // 
             labelInfo.AutoSize = true;
             labelInfo.BackColor = Color.Transparent;
-            labelInfo.Font = new Font("SimSun-ExtB", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelInfo.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelInfo.ForeColor = SystemColors.ActiveCaptionText;
-            labelInfo.Location = new Point(12, 299);
-            labelInfo.Margin = new Padding(4, 0, 4, 0);
+            labelInfo.Location = new Point(11, 405);
+            labelInfo.Margin = new Padding(5, 0, 5, 0);
             labelInfo.Name = "labelInfo";
-            labelInfo.Size = new Size(553, 16);
+            labelInfo.Size = new Size(612, 17);
             labelInfo.TabIndex = 4;
             labelInfo.Text = "click droit sur l'hackathon sélectionné pour voir ses équipes";
             // 
@@ -134,26 +135,14 @@
             dgvEquipes.AllowUserToAddRows = false;
             dgvEquipes.AllowUserToDeleteRows = false;
             dgvEquipes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquipes.Location = new Point(393, 43);
-            dgvEquipes.Margin = new Padding(5);
+            dgvEquipes.Location = new Point(450, 41);
+            dgvEquipes.Margin = new Padding(6, 7, 6, 7);
             dgvEquipes.Name = "dgvEquipes";
             dgvEquipes.ReadOnly = true;
             dgvEquipes.RowHeadersWidth = 51;
-            dgvEquipes.Size = new Size(258, 225);
+            dgvEquipes.Size = new Size(295, 300);
             dgvEquipes.TabIndex = 5;
             dgvEquipes.Visible = false;
-            // 
-            // pictureBoxFermer
-            // 
-            pictureBoxFermer.BackColor = Color.Transparent;
-            pictureBoxFermer.Image = Properties.Resources.icons8_multiply_32;
-            pictureBoxFermer.Location = new Point(630, 3);
-            pictureBoxFermer.Name = "pictureBoxFermer";
-            pictureBoxFermer.Size = new Size(32, 32);
-            pictureBoxFermer.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBoxFermer.TabIndex = 6;
-            pictureBoxFermer.TabStop = false;
-            pictureBoxFermer.Click += pictureBoxFermer_Click;
             // 
             // buttonPrec
             // 
@@ -161,10 +150,9 @@
             buttonPrec.FlatStyle = FlatStyle.Popup;
             buttonPrec.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonPrec.ForeColor = Color.White;
-            buttonPrec.Location = new Point(189, 275);
-            buttonPrec.Margin = new Padding(3, 2, 3, 2);
+            buttonPrec.Location = new Point(216, 341);
             buttonPrec.Name = "buttonPrec";
-            buttonPrec.Size = new Size(110, 22);
+            buttonPrec.Size = new Size(126, 29);
             buttonPrec.TabIndex = 7;
             buttonPrec.Text = "Précédent";
             buttonPrec.UseVisualStyleBackColor = false;
@@ -176,10 +164,9 @@
             buttonSuiv.FlatStyle = FlatStyle.Popup;
             buttonSuiv.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonSuiv.ForeColor = Color.White;
-            buttonSuiv.Location = new Point(360, 275);
-            buttonSuiv.Margin = new Padding(3, 2, 3, 2);
+            buttonSuiv.Location = new Point(411, 341);
             buttonSuiv.Name = "buttonSuiv";
-            buttonSuiv.Size = new Size(110, 22);
+            buttonSuiv.Size = new Size(126, 29);
             buttonSuiv.TabIndex = 8;
             buttonSuiv.Text = "Suivant";
             buttonSuiv.UseVisualStyleBackColor = false;
@@ -188,41 +175,65 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(30, 35, 40);
-            panel1.Location = new Point(470, 275);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(537, 341);
             panel1.Name = "panel1";
-            panel1.Size = new Size(175, 22);
+            panel1.Size = new Size(208, 29);
             panel1.TabIndex = 11;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(30, 35, 40);
-            panel2.Location = new Point(13, 275);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(11, 341);
             panel2.Name = "panel2";
-            panel2.Size = new Size(175, 22);
+            panel2.Size = new Size(204, 29);
             panel2.TabIndex = 12;
             // 
             // textBoxPage
             // 
-            textBoxPage.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPage.Location = new Point(299, 275);
-            textBoxPage.Margin = new Padding(3, 2, 3, 2);
+            textBoxPage.Font = new Font("Britannic Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxPage.Location = new Point(342, 341);
             textBoxPage.Name = "textBoxPage";
-            textBoxPage.Size = new Size(62, 23);
+            textBoxPage.Size = new Size(70, 30);
             textBoxPage.TabIndex = 13;
             textBoxPage.Text = "1";
             textBoxPage.TextAlign = HorizontalAlignment.Center;
             textBoxPage.TextChanged += textBoxPage_TextChanged;
             textBoxPage.KeyPress += textBoxPage_KeyPress;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(11, 381);
+            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(596, 17);
+            label1.TabIndex = 14;
+            label1.Text = "double click gauche sur l'hackathon afin d'archivé celui-ci";
+            // 
+            // pictureBoxFermer
+            // 
+            pictureBoxFermer.BackColor = Color.Transparent;
+            pictureBoxFermer.Image = Properties.Resources.icons8_multiply_32;
+            pictureBoxFermer.Location = new Point(720, 4);
+            pictureBoxFermer.Margin = new Padding(3, 4, 3, 4);
+            pictureBoxFermer.Name = "pictureBoxFermer";
+            pictureBoxFermer.Size = new Size(32, 32);
+            pictureBoxFermer.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBoxFermer.TabIndex = 6;
+            pictureBoxFermer.TabStop = false;
+            pictureBoxFermer.Click += pictureBoxFermer_Click;
+            // 
             // FormHackathon
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkOliveGreen;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(665, 323);
+            ClientSize = new Size(760, 431);
+            Controls.Add(label1);
             Controls.Add(textBoxPage);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -234,7 +245,7 @@
             Controls.Add(labelListe);
             Controls.Add(dgvHackathon);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "FormHackathon";
             Text = "Gestion des Hackathons";
             Load += Form1_Load;
@@ -256,7 +267,6 @@
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.BindingSource BSEquipe;
         private System.Windows.Forms.DataGridView dgvEquipes;
-        private PictureBox pictureBoxFermer;
         private Button buttonPrec;
         private Button buttonSuiv;
         private Panel panel1;
@@ -265,6 +275,8 @@
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem VoirEquipeToolStripMenuItem;
         private ToolStripMenuItem modifierToolStripMenuItem;
+        private Label label1;
+        private PictureBox pictureBoxFermer;
     }
 }
 

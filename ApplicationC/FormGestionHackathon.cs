@@ -29,7 +29,7 @@ namespace ApplicationC
             this.etat = etat;
         }
 
-        public FormGestionHackathon(EtatGestion etat,int id)
+        public FormGestionHackathon(EtatGestion etat, int id)
         {
             InitializeComponent();
             idModifChoix = id;
@@ -182,9 +182,6 @@ namespace ApplicationC
         {
             FormAjoutOrganisateur FAO = new FormAjoutOrganisateur();
             FAO.Show();
-
-            // (System.Windows.Forms.Application.OpenForms["FormMenu"] as FormMenu).openChildForm(new FormAjoutOrganisateur());
-
         }
 
         private void BSListeH_CurrentChanged(object sender, EventArgs e)

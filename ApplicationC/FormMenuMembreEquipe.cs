@@ -12,19 +12,22 @@ namespace ApplicationC
 {
     public partial class FormMenuMembreEquipe : Form
     {
+        SousFormulaire sousF;
+
         public FormMenuMembreEquipe()
         {
             InitializeComponent();
+            sousF = new(panelSousAffichage);
         }
 
         private void listeMembreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            sousF.openChildForm(new FormMembreEquipe(EtatTypeGestion.Membre));
         }
 
         private void listeEquipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            sousF.openChildForm(new FormMembreEquipe(EtatTypeGestion.Equipe));
         }
 
         private void ajoutMembreToolStripMenuItem_Click(object sender, EventArgs e)

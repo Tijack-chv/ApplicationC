@@ -14,10 +14,8 @@ namespace ApplicationC
         Equipe
     }
 
-
     public static class ModeleMembreEquipe
     {
-
         #region listeMembre & listeEquipe
         public static List<Membre> listeMembre()
         {
@@ -42,11 +40,12 @@ namespace ApplicationC
         }
         #endregion
 
-        public static int CompteMembreEquipe (EtatTypeGestion etat)
+        #region CompteMembreEquipe
+        public static int CompteMembreEquipe (string choix)
         {
             int nb = 0;
             
-            if (etat == EtatTypeGestion.Membre) 
+            if (choix == "membre") 
             {
                 nb = Modele.MonModel.Membres.Count();    
             } else
@@ -55,5 +54,6 @@ namespace ApplicationC
             }
             return nb;
         }
+        #endregion
     }
 }
