@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using BC = BCrypt.Net.BCrypt;
 
-namespace ApplicationC
+namespace ApplicationC.Model
 {
     public static class ModeleAdministrateur
     {
         public static Administrateur RecupererAdmin(string login)
         {
-            Administrateur admin = new ();
+            Administrateur admin = new();
             try
             {
                 admin = Modele.MonModel.Administrateurs.First(a => a.Email == login);
@@ -30,7 +30,7 @@ namespace ApplicationC
         public static bool ConnexionAdmin(string mail, string mdp)
         {
             bool connexion = true;
-            
+
             Administrateur admin = new();
 
             admin = RecupererAdmin(mail);
@@ -38,7 +38,8 @@ namespace ApplicationC
             if (admin.Idadministrateur == 0)
             {
                 connexion = false;
-            } else if (!BC.Verify(mdp, admin.Motpasse))
+            }
+            else if (!BC.Verify(mdp, admin.Motpasse))
             {
                 MessageBox.Show("Le mot de passe est incorrect !");
                 connexion = false;
@@ -61,7 +62,8 @@ namespace ApplicationC
 
                 Modele.MonModel.SaveChanges();
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
                 modification = false;

@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ApplicationC.Controller;
 using ApplicationC.Entities;
+using ApplicationC.Model;
 
 namespace ApplicationC
 {
     public partial class FormHackathon : Form
     {
+        #region Attribut
         private int maxPage;
         private int minPage;
+        #endregion
+
+        #region Constructeur FormHackathon
         public FormHackathon()
         {
             InitializeComponent();
@@ -22,7 +28,12 @@ namespace ApplicationC
             minPage = 1;
             buttonPrec.Enabled = false;
         }
+        #endregion
 
+        #region nbPages
+        /// <summary>
+        /// Permet de compter le nombre de page max disponible afin de poser une limite 
+        /// </summary>
         private void nbPages()
         {
             int count = ModeleHackathon.CountHackathon();
@@ -35,7 +46,14 @@ namespace ApplicationC
                 maxPage = (count / 10) + 1;
             }
         }
+        #endregion
 
+        #region Form1_Load
+        /// <summary>
+        /// Permet l'affichage de la liste des Hackathons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             BSHackathon.DataSource = ModeleHackathon.listeHackathonsParPage(Convert.ToInt32(textBoxPage.Text)).Select(static x => new
@@ -67,7 +85,14 @@ namespace ApplicationC
             dgvHackathon.Columns[9].HeaderText = "Nom Organisateur";
             dgvHackathon.Columns[10].HeaderText = "Prénom Organisateur";
         }
+        #endregion
 
+        #region voirLesEquipesToolStripMenuItem_Click
+        /// <summary>
+        /// Au click droit sur la dgv, permet de voir toutes les équipes pour l'hackathon choisi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VoirLesÉquipesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Type type = BSHackathon.Current.GetType();
@@ -93,7 +118,14 @@ namespace ApplicationC
             }
 
         }
+        #endregion
 
+        #region DgvHackathon_AllClick
+        /// <summary>
+        /// Pour les 3 méthodes ci-dessous, permet de rendre invisible la liste des équipes de l'hackathon
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DgvHackathon_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvEquipes.Visible = false;
@@ -108,6 +140,7 @@ namespace ApplicationC
         {
             dgvEquipes.Visible = false;
         }
+        #endregion
 
         #region pictureBoxFermer_Click
         private void pictureBoxFermer_Click(object sender, EventArgs e)
@@ -181,6 +214,12 @@ namespace ApplicationC
         }
         #endregion
 
+        #region dgvHackathon_DoubleClick
+        /// <summary>
+        /// Permet au double click sur la dgv d'archiver l'hackathon sélectionner
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvHackathon_DoubleClick(object sender, EventArgs e)
         {
             System.Type type = BSHackathon.Current.GetType();
@@ -201,7 +240,14 @@ namespace ApplicationC
                 }
             }
         }
+        #endregion
 
+        #region modifierToolStripMenuItem_Click
+        /// <summary>
+        /// Permet d'aller sur la page modifier Hackathon avec l'hackathon sélectionné pour la modif
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Type type = BSHackathon.Current.GetType();
@@ -218,5 +264,6 @@ namespace ApplicationC
                 sousF.openChildForm(new FormGestionHackathon(EtatGestion.Update, idH));
             }
         }
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ApplicationC.Entities;
+using ApplicationC.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,7 +58,6 @@ namespace ApplicationC
 
         #endregion
 
-
         #region labelShow
         private void labelShow_Click(object sender, EventArgs e)
         {
@@ -74,7 +74,6 @@ namespace ApplicationC
             }
         }
         #endregion
-
 
         private void buttonConnecter_Click(object sender, EventArgs e)
         {

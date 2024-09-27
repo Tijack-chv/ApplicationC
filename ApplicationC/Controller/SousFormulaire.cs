@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationC
+namespace ApplicationC.Controller
 {
     public class SousFormulaire
     {

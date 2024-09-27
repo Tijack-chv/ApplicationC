@@ -30,6 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             dataGridViewMembreEquipe = new DataGridView();
+            contextMenuStripInfoEquipe = new ContextMenuStrip(components);
+            voirLesMembresToolStripMenuItem = new ToolStripMenuItem();
+            modifierLéquipeToolStripMenuItem = new ToolStripMenuItem();
             labelListeMembreEquipe = new Label();
             textBoxPage = new TextBox();
             panelLeft = new Panel();
@@ -40,20 +43,49 @@
             bindingSourceMembreEquipe = new BindingSource(components);
             pictureBoxFermer = new PictureBox();
             dataGridViewInfoEquipe = new DataGridView();
+            bindingSourceInfoEquipe = new BindingSource(components);
+            labelSuppEquipeMembre = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMembreEquipe).BeginInit();
+            contextMenuStripInfoEquipe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSourceMembreEquipe).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFermer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInfoEquipe).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSourceInfoEquipe).BeginInit();
             SuspendLayout();
             // 
             // dataGridViewMembreEquipe
             // 
             dataGridViewMembreEquipe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMembreEquipe.ContextMenuStrip = contextMenuStripInfoEquipe;
             dataGridViewMembreEquipe.Location = new Point(12, 38);
             dataGridViewMembreEquipe.Name = "dataGridViewMembreEquipe";
             dataGridViewMembreEquipe.RowHeadersWidth = 51;
             dataGridViewMembreEquipe.Size = new Size(736, 289);
             dataGridViewMembreEquipe.TabIndex = 0;
+            dataGridViewMembreEquipe.CellClick += dataGridViewMembreEquipe_CellClick;
+            dataGridViewMembreEquipe.CellContentClick += dataGridViewMembreEquipe_CellContentClick;
+            dataGridViewMembreEquipe.CellMouseClick += dataGridViewMembreEquipe_CellMouseClick;
+            // 
+            // contextMenuStripInfoEquipe
+            // 
+            contextMenuStripInfoEquipe.ImageScalingSize = new Size(20, 20);
+            contextMenuStripInfoEquipe.Items.AddRange(new ToolStripItem[] { voirLesMembresToolStripMenuItem, modifierLéquipeToolStripMenuItem });
+            contextMenuStripInfoEquipe.Name = "contextMenuStripInfoEquipe";
+            contextMenuStripInfoEquipe.Size = new Size(193, 52);
+            // 
+            // voirLesMembresToolStripMenuItem
+            // 
+            voirLesMembresToolStripMenuItem.Name = "voirLesMembresToolStripMenuItem";
+            voirLesMembresToolStripMenuItem.Size = new Size(192, 24);
+            voirLesMembresToolStripMenuItem.Text = "Voir les membres";
+            voirLesMembresToolStripMenuItem.Click += voirLesMembresToolStripMenuItem_Click;
+            // 
+            // modifierLéquipeToolStripMenuItem
+            // 
+            modifierLéquipeToolStripMenuItem.Name = "modifierLéquipeToolStripMenuItem";
+            modifierLéquipeToolStripMenuItem.Size = new Size(192, 24);
+            modifierLéquipeToolStripMenuItem.Text = "Modifier l'équipe";
+            modifierLéquipeToolStripMenuItem.Click += modifierLéquipeToolStripMenuItem_Click;
             // 
             // labelListeMembreEquipe
             // 
@@ -127,12 +159,12 @@
             // 
             labelInfoEquipe.AutoSize = true;
             labelInfoEquipe.BackColor = Color.Transparent;
-            labelInfoEquipe.Font = new Font("SimSun-ExtB", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelInfoEquipe.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold);
             labelInfoEquipe.ForeColor = SystemColors.ActiveCaptionText;
-            labelInfoEquipe.Location = new Point(19, 392);
+            labelInfoEquipe.Location = new Point(19, 403);
             labelInfoEquipe.Margin = new Padding(5, 0, 5, 0);
             labelInfoEquipe.Name = "labelInfoEquipe";
-            labelInfoEquipe.Size = new Size(641, 20);
+            labelInfoEquipe.Size = new Size(582, 17);
             labelInfoEquipe.TabIndex = 14;
             labelInfoEquipe.Text = "click droit sur l'équipe sélectionné pour voir ses membres";
             // 
@@ -158,12 +190,26 @@
             dataGridViewInfoEquipe.TabIndex = 21;
             dataGridViewInfoEquipe.Visible = false;
             // 
+            // labelSuppEquipeMembre
+            // 
+            labelSuppEquipeMembre.AutoSize = true;
+            labelSuppEquipeMembre.BackColor = Color.Transparent;
+            labelSuppEquipeMembre.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold);
+            labelSuppEquipeMembre.ForeColor = SystemColors.ActiveCaptionText;
+            labelSuppEquipeMembre.Location = new Point(19, 378);
+            labelSuppEquipeMembre.Margin = new Padding(5, 0, 5, 0);
+            labelSuppEquipeMembre.Name = "labelSuppEquipeMembre";
+            labelSuppEquipeMembre.Size = new Size(602, 17);
+            labelSuppEquipeMembre.TabIndex = 22;
+            labelSuppEquipeMembre.Text = "double click gauche sur l'équipe sélectioné pour la suppimer";
+            // 
             // FormMembreEquipe
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
             ClientSize = new Size(760, 429);
+            Controls.Add(labelSuppEquipeMembre);
             Controls.Add(dataGridViewInfoEquipe);
             Controls.Add(pictureBoxFermer);
             Controls.Add(textBoxPage);
@@ -178,9 +224,11 @@
             Name = "FormMembreEquipe";
             Text = "FormMembreEquipe";
             ((System.ComponentModel.ISupportInitialize)dataGridViewMembreEquipe).EndInit();
+            contextMenuStripInfoEquipe.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)bindingSourceMembreEquipe).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFermer).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInfoEquipe).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSourceInfoEquipe).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -198,5 +246,10 @@
         private BindingSource bindingSourceMembreEquipe;
         private PictureBox pictureBoxFermer;
         private DataGridView dataGridViewInfoEquipe;
+        private BindingSource bindingSourceInfoEquipe;
+        private ContextMenuStrip contextMenuStripInfoEquipe;
+        private ToolStripMenuItem voirLesMembresToolStripMenuItem;
+        private ToolStripMenuItem modifierLéquipeToolStripMenuItem;
+        private Label labelSuppEquipeMembre;
     }
 }

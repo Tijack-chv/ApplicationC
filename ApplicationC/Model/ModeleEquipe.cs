@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationC
+namespace ApplicationC.Model
 {
     public static class ModeleEquipe
     {

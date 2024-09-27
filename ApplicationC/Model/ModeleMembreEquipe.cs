@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationC
+namespace ApplicationC.Model
 {
     public enum EtatTypeGestion
     {
@@ -41,18 +41,26 @@ namespace ApplicationC
         #endregion
 
         #region CompteMembreEquipe
-        public static int CompteMembreEquipe (string choix)
+        public static int CompteMembreEquipe(string choix)
         {
             int nb = 0;
-            
-            if (choix == "membre") 
+
+            if (choix == "membre")
             {
-                nb = Modele.MonModel.Membres.Count();    
-            } else
+                nb = Modele.MonModel.Membres.Count();
+            }
+            else
             {
                 nb = Modele.MonModel.Equipes.Count();
             }
             return nb;
+        }
+        #endregion
+
+        #region listeMembreParEquipe
+        public static List<Membre> listeMembreParEquipe(int idEquipe)
+        {
+            return Modele.MonModel.Membres.Include(p => p.IdequipeNavigation).Where(x => x.Idequipe == idEquipe).ToList();
         }
         #endregion
     }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ApplicationC
+namespace ApplicationC.Model
 {
     public static class ModeleHackathon
     {
@@ -32,7 +32,7 @@ namespace ApplicationC
         /// <returns></returns>
         public static List<Hackathon> listeHackathonsParPage(int position)
         {
-            return Modele.MonModel.Hackathons.Where(c => c.Idhackathon >= (position-1) * 10 && c.Estarchive == false).Include(a => a.IdorganisateurNavigation).OrderBy(b=>b.Idhackathon).Take(10).ToList();
+            return Modele.MonModel.Hackathons.Where(c => c.Idhackathon >= (position - 1) * 10 && c.Estarchive == false).Include(a => a.IdorganisateurNavigation).OrderBy(b => b.Idhackathon).Take(10).ToList();
         }
         #endregion
 
@@ -87,7 +87,7 @@ namespace ApplicationC
         /// <returns></returns>
         public static List<Hackathon> listeHackathonsParDateMin(DateTime date)
         {
-            return Modele.MonModel.Hackathons.Where(p=> p.Dateheuredebuth >= date).OrderBy(a=> a.Idhackathon).Include(a => a.IdorganisateurNavigation).ToList();
+            return Modele.MonModel.Hackathons.Where(p => p.Dateheuredebuth >= date).OrderBy(a => a.Idhackathon).Include(a => a.IdorganisateurNavigation).ToList();
         }
         #endregion
 
@@ -103,7 +103,7 @@ namespace ApplicationC
 
             // parcourir les équipes et récupérer celle de l'hackathon
             Hackathon h = Modele.MonModel.Hackathons.Include(p => p.Inscrires).ThenInclude(p => p.IdequipeNavigation).First(x => x.Idhackathon == idH);
-         //   Hackathon h = (Hackathon) Modele.MonModel.Hackathons.Where(p => p.Idhackathon == idH).Include(p => p.Inscrires);
+            //   Hackathon h = (Hackathon) Modele.MonModel.Hackathons.Where(p => p.Idhackathon == idH).Include(p => p.Inscrires);
 
             List<Inscrire> lesI = h.Inscrires.ToList();
 
@@ -112,7 +112,7 @@ namespace ApplicationC
             {
                 lesE.Add(I.IdequipeNavigation);
             }
-          
+
             return lesE;
         }
         #endregion
@@ -216,7 +216,7 @@ namespace ApplicationC
         /// <param name="dateFinInscription"></param>
         /// <param name="idOrganisateur"></param>
         /// <returns></returns>
-        public static bool ModificationHackathon(int idH, string lieu, string ville, string thematique, string objectifs, string conditions, string affiche, DateTime dateD, DateTime dateF, int nbPlaceMaxEquipe, DateTime dateFinInscription,  int idOrganisateur)
+        public static bool ModificationHackathon(int idH, string lieu, string ville, string thematique, string objectifs, string conditions, string affiche, DateTime dateD, DateTime dateF, int nbPlaceMaxEquipe, DateTime dateFinInscription, int idOrganisateur)
         {
             Hackathon unHackathon;
             bool vretour = true;

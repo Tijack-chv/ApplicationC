@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.Diagnostics.CodeAnalysis;
+using ApplicationC.Controller;
+using ApplicationC.Model;
 
 
 namespace ApplicationC

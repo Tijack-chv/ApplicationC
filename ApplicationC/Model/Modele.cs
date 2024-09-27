@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ApplicationC.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApplicationC
+namespace ApplicationC.Model
 {
     public static class Modele
     {

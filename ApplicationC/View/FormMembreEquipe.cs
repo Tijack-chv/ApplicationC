@@ -1,4 +1,5 @@
 ﻿using ApplicationC.Entities;
+using ApplicationC.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,17 @@ namespace ApplicationC
 {
     public partial class FormMembreEquipe : Form
     {
+        #region Attribut
         private int maxPage;
         private int minPage;
         private string choix;
+        #endregion
 
+        #region Constructeur FormMembreEquipe
         public FormMembreEquipe()
         {
             InitializeComponent();
+            choix = "";
         }
 
         public FormMembreEquipe(EtatTypeGestion etatType)
@@ -29,20 +34,28 @@ namespace ApplicationC
             if (etatType == EtatTypeGestion.Equipe)
             {
                 choix = "equipe";
-            } else
+            }
+            else
             {
                 choix = "membre";
                 labelInfoEquipe.Visible = false;
+                dataGridViewMembreEquipe.ContextMenuStrip = null;
             }
 
             nbPages(choix);
-            
+
             minPage = 1;
             buttonPrec.Enabled = false;
-            
+
             affichageLoad(choix);
         }
+        #endregion
 
+        #region nbPages
+        /// <summary>
+        /// Permet de mettre une limite sur le nombre de page possible
+        /// </summary>
+        /// <param name="typeChoix"></param>
         private void nbPages(string typeChoix)
         {
             int count = ModeleMembreEquipe.CompteMembreEquipe(typeChoix);
@@ -55,6 +68,7 @@ namespace ApplicationC
                 maxPage = (count / 10) + 1;
             }
         }
+        #endregion
 
         #region buttonPrec_Click
         private void buttonPrec_Click(object sender, EventArgs e)
@@ -121,6 +135,11 @@ namespace ApplicationC
         }
         #endregion
 
+        #region afficheLoad
+        /// <summary>
+        /// Permet l'affichage des données équipes ou membres
+        /// </summary>
+        /// <param name="typeChoix"></param>
         public void affichageLoad(string typeChoix)
         {
             if (typeChoix == "membre")
@@ -146,7 +165,8 @@ namespace ApplicationC
                 dataGridViewMembreEquipe.Columns[5].HeaderText = "Date de naissance";
                 dataGridViewMembreEquipe.Columns[6].HeaderText = "Identifiant de l'Equipe";
                 dataGridViewMembreEquipe.Columns[7].HeaderText = "Nom de l'équipe";
-            } else
+            }
+            else
             {
                 bindingSourceMembreEquipe.DataSource = ModeleMembreEquipe.listeEquipeParPage(Convert.ToInt32(textBoxPage.Text)).Select(static z => new
                 {
@@ -164,5 +184,68 @@ namespace ApplicationC
 
             }
         }
+        #endregion
+
+        #region voirLesMembresToolStripMenuItem_Click
+        /// <summary>
+        /// au click droit sur la dataGridView, permet de voir tous les membres associés à l'équipe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void voirLesMembresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Type type = bindingSourceMembreEquipe.Current.GetType();
+            int idE = (int)type.GetProperty("Idequipe").GetValue(bindingSourceMembreEquipe.Current, null);
+
+            List<Membre> lesMembres = ModeleMembreEquipe.listeMembreParEquipe(idE);
+
+            if (lesMembres.Count != 0)
+            {
+                bindingSourceInfoEquipe.DataSource = (lesMembres).Select(static x => new
+                {
+                    x.Idmembre,
+                    x.Prenom,
+                    x.Nom,
+                    x.Telephone,
+                    x.Email,
+                });
+
+                dataGridViewInfoEquipe.DataSource = bindingSourceInfoEquipe;
+                dataGridViewInfoEquipe.Visible = true;
+            }
+            else
+            {
+                dataGridViewInfoEquipe.Visible = false;
+                MessageBox.Show("Pas de membre pour cette équipe");
+            }
+        }
+        #endregion
+
+        private void modifierLéquipeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #region dataGridViewMembreEquipe_AllClick
+        /// <summary>
+        /// Enlève l'affichage de la datagridviewInfoEquipe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewMembreEquipe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewInfoEquipe.Visible = false;
+        }
+
+        private void dataGridViewMembreEquipe_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewInfoEquipe.Visible = false;
+        }
+
+        private void dataGridViewMembreEquipe_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridViewInfoEquipe.Visible = false;
+        }
+        #endregion
     }
 }
