@@ -15,7 +15,7 @@ namespace ApplicationC
     public partial class FormHome : Form
     {
         Administrateur administrateur;
-
+        bool sideBarExpend;
         SousFormulaire sousF;
 
         public FormHome()
@@ -52,6 +52,15 @@ namespace ApplicationC
             buttonHackathon.Visible = test;
             buttonQuitter.Visible = test;
             buttonSettings.Visible = test;
+            if (!test)
+            {
+                buttonHome.Width -= 60;
+                panelWest.Width -= 60;
+            } else
+            {
+                buttonHome.Width += 60;
+                panelWest.Width += 60;
+            }
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
@@ -60,6 +69,7 @@ namespace ApplicationC
             //size button en grand : 122; 52
             if (buttonSettings.Visible == true) { 
                 buttonAffiche(false);
+
             } else { 
                 buttonAffiche(true);
             }

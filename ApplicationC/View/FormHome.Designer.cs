@@ -103,6 +103,8 @@
             panelWest.Controls.Add(buttonHome);
             panelWest.Dock = DockStyle.Left;
             panelWest.Location = new Point(0, 91);
+            panelWest.MaximumSize = new Size(122, 462);
+            panelWest.MinimumSize = new Size(62, 52);
             panelWest.Name = "panelWest";
             panelWest.Size = new Size(122, 462);
             panelWest.TabIndex = 1;
@@ -113,7 +115,7 @@
             buttonSettings.BackgroundImage = Properties.Resources.parametres;
             buttonSettings.BackgroundImageLayout = ImageLayout.Center;
             buttonSettings.FlatStyle = FlatStyle.Popup;
-            buttonSettings.Location = new Point(0, 154);
+            buttonSettings.Location = new Point(0, 306);
             buttonSettings.Name = "buttonSettings";
             buttonSettings.Size = new Size(122, 52);
             buttonSettings.TabIndex = 2;
@@ -126,7 +128,7 @@
             buttonAbout.BackgroundImage = Properties.Resources.info_52px;
             buttonAbout.BackgroundImageLayout = ImageLayout.Zoom;
             buttonAbout.FlatStyle = FlatStyle.Popup;
-            buttonAbout.Location = new Point(0, 205);
+            buttonAbout.Location = new Point(0, 357);
             buttonAbout.Name = "buttonAbout";
             buttonAbout.Size = new Size(122, 52);
             buttonAbout.TabIndex = 2;
@@ -139,7 +141,7 @@
             buttonQuitter.BackgroundImage = Properties.Resources.quit_icon_149882;
             buttonQuitter.BackgroundImageLayout = ImageLayout.Zoom;
             buttonQuitter.FlatStyle = FlatStyle.Popup;
-            buttonQuitter.Location = new Point(0, 256);
+            buttonQuitter.Location = new Point(0, 408);
             buttonQuitter.Name = "buttonQuitter";
             buttonQuitter.Size = new Size(122, 52);
             buttonQuitter.TabIndex = 2;
@@ -152,7 +154,7 @@
             buttonEquipe.BackgroundImage = Properties.Resources.icons8_member_32;
             buttonEquipe.BackgroundImageLayout = ImageLayout.Center;
             buttonEquipe.FlatStyle = FlatStyle.Popup;
-            buttonEquipe.Location = new Point(0, 103);
+            buttonEquipe.Location = new Point(0, 102);
             buttonEquipe.Name = "buttonEquipe";
             buttonEquipe.Size = new Size(122, 52);
             buttonEquipe.TabIndex = 1;
@@ -165,7 +167,7 @@
             buttonHackathon.BackgroundImage = Properties.Resources.hackathon;
             buttonHackathon.BackgroundImageLayout = ImageLayout.Zoom;
             buttonHackathon.FlatStyle = FlatStyle.Popup;
-            buttonHackathon.Location = new Point(0, 54);
+            buttonHackathon.Location = new Point(0, 53);
             buttonHackathon.Name = "buttonHackathon";
             buttonHackathon.Size = new Size(122, 52);
             buttonHackathon.TabIndex = 1;
@@ -178,10 +180,11 @@
             buttonHome.BackgroundImage = Properties.Resources.icons8_home_32;
             buttonHome.BackgroundImageLayout = ImageLayout.Center;
             buttonHome.FlatStyle = FlatStyle.Popup;
-            buttonHome.Location = new Point(0, 3);
+            buttonHome.Location = new Point(0, 2);
             buttonHome.Name = "buttonHome";
             buttonHome.Size = new Size(122, 52);
             buttonHome.TabIndex = 0;
+            buttonHome.TextAlign = ContentAlignment.MiddleRight;
             buttonHome.UseVisualStyleBackColor = false;
             buttonHome.Click += buttonHome_Click;
             // 
