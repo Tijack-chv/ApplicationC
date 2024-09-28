@@ -34,6 +34,12 @@
             labelOrganisation = new Label();
             pictureBoxLogo = new PictureBox();
             panelWest = new Panel();
+            panelAbout = new Panel();
+            panelQuitter = new Panel();
+            panelHackathon = new Panel();
+            panelSettings = new Panel();
+            panelMembreEquipe = new Panel();
+            panelHome = new Panel();
             buttonSettings = new Button();
             buttonAbout = new Button();
             buttonQuitter = new Button();
@@ -95,6 +101,12 @@
             // panelWest
             // 
             panelWest.BackColor = Color.FromArgb(45, 50, 55);
+            panelWest.Controls.Add(panelAbout);
+            panelWest.Controls.Add(panelQuitter);
+            panelWest.Controls.Add(panelHackathon);
+            panelWest.Controls.Add(panelSettings);
+            panelWest.Controls.Add(panelMembreEquipe);
+            panelWest.Controls.Add(panelHome);
             panelWest.Controls.Add(buttonSettings);
             panelWest.Controls.Add(buttonAbout);
             panelWest.Controls.Add(buttonQuitter);
@@ -109,15 +121,63 @@
             panelWest.Size = new Size(122, 462);
             panelWest.TabIndex = 1;
             // 
+            // panelAbout
+            // 
+            panelAbout.BackColor = Color.SeaGreen;
+            panelAbout.Location = new Point(0, 357);
+            panelAbout.Name = "panelAbout";
+            panelAbout.Size = new Size(6, 52);
+            panelAbout.TabIndex = 5;
+            // 
+            // panelQuitter
+            // 
+            panelQuitter.BackColor = Color.SeaGreen;
+            panelQuitter.Location = new Point(0, 406);
+            panelQuitter.Name = "panelQuitter";
+            panelQuitter.Size = new Size(6, 52);
+            panelQuitter.TabIndex = 6;
+            // 
+            // panelHackathon
+            // 
+            panelHackathon.BackColor = Color.SeaGreen;
+            panelHackathon.Location = new Point(0, 53);
+            panelHackathon.Name = "panelHackathon";
+            panelHackathon.Size = new Size(6, 52);
+            panelHackathon.TabIndex = 1;
+            // 
+            // panelSettings
+            // 
+            panelSettings.BackColor = Color.SeaGreen;
+            panelSettings.Location = new Point(0, 306);
+            panelSettings.Name = "panelSettings";
+            panelSettings.Size = new Size(6, 52);
+            panelSettings.TabIndex = 4;
+            // 
+            // panelMembreEquipe
+            // 
+            panelMembreEquipe.BackColor = Color.SeaGreen;
+            panelMembreEquipe.Location = new Point(0, 102);
+            panelMembreEquipe.Name = "panelMembreEquipe";
+            panelMembreEquipe.Size = new Size(6, 52);
+            panelMembreEquipe.TabIndex = 3;
+            // 
+            // panelHome
+            // 
+            panelHome.BackColor = Color.SeaGreen;
+            panelHome.Location = new Point(0, 2);
+            panelHome.Name = "panelHome";
+            panelHome.Size = new Size(6, 52);
+            panelHome.TabIndex = 0;
+            // 
             // buttonSettings
             // 
             buttonSettings.BackColor = Color.FromArgb(45, 50, 55);
             buttonSettings.BackgroundImage = Properties.Resources.parametres;
             buttonSettings.BackgroundImageLayout = ImageLayout.Center;
             buttonSettings.FlatStyle = FlatStyle.Popup;
-            buttonSettings.Location = new Point(0, 306);
+            buttonSettings.Location = new Point(6, 306);
             buttonSettings.Name = "buttonSettings";
-            buttonSettings.Size = new Size(122, 52);
+            buttonSettings.Size = new Size(116, 52);
             buttonSettings.TabIndex = 2;
             buttonSettings.UseVisualStyleBackColor = false;
             buttonSettings.Click += buttonSettings_Click;
@@ -128,9 +188,9 @@
             buttonAbout.BackgroundImage = Properties.Resources.info_52px;
             buttonAbout.BackgroundImageLayout = ImageLayout.Zoom;
             buttonAbout.FlatStyle = FlatStyle.Popup;
-            buttonAbout.Location = new Point(0, 357);
+            buttonAbout.Location = new Point(6, 357);
             buttonAbout.Name = "buttonAbout";
-            buttonAbout.Size = new Size(122, 52);
+            buttonAbout.Size = new Size(116, 52);
             buttonAbout.TabIndex = 2;
             buttonAbout.UseVisualStyleBackColor = false;
             buttonAbout.Click += buttonAbout_Click;
@@ -141,9 +201,9 @@
             buttonQuitter.BackgroundImage = Properties.Resources.quit_icon_149882;
             buttonQuitter.BackgroundImageLayout = ImageLayout.Zoom;
             buttonQuitter.FlatStyle = FlatStyle.Popup;
-            buttonQuitter.Location = new Point(0, 408);
+            buttonQuitter.Location = new Point(6, 408);
             buttonQuitter.Name = "buttonQuitter";
-            buttonQuitter.Size = new Size(122, 52);
+            buttonQuitter.Size = new Size(116, 52);
             buttonQuitter.TabIndex = 2;
             buttonQuitter.UseVisualStyleBackColor = false;
             buttonQuitter.Click += buttonQuitter_Click;
@@ -154,9 +214,9 @@
             buttonEquipe.BackgroundImage = Properties.Resources.icons8_member_32;
             buttonEquipe.BackgroundImageLayout = ImageLayout.Center;
             buttonEquipe.FlatStyle = FlatStyle.Popup;
-            buttonEquipe.Location = new Point(0, 102);
+            buttonEquipe.Location = new Point(6, 102);
             buttonEquipe.Name = "buttonEquipe";
-            buttonEquipe.Size = new Size(122, 52);
+            buttonEquipe.Size = new Size(116, 52);
             buttonEquipe.TabIndex = 1;
             buttonEquipe.UseVisualStyleBackColor = false;
             buttonEquipe.Click += buttonEquipe_Click;
@@ -167,9 +227,9 @@
             buttonHackathon.BackgroundImage = Properties.Resources.hackathon;
             buttonHackathon.BackgroundImageLayout = ImageLayout.Zoom;
             buttonHackathon.FlatStyle = FlatStyle.Popup;
-            buttonHackathon.Location = new Point(0, 53);
+            buttonHackathon.Location = new Point(6, 53);
             buttonHackathon.Name = "buttonHackathon";
-            buttonHackathon.Size = new Size(122, 52);
+            buttonHackathon.Size = new Size(116, 52);
             buttonHackathon.TabIndex = 1;
             buttonHackathon.UseVisualStyleBackColor = false;
             buttonHackathon.Click += buttonHackathon_Click;
@@ -180,9 +240,9 @@
             buttonHome.BackgroundImage = Properties.Resources.icons8_home_32;
             buttonHome.BackgroundImageLayout = ImageLayout.Center;
             buttonHome.FlatStyle = FlatStyle.Popup;
-            buttonHome.Location = new Point(0, 2);
+            buttonHome.Location = new Point(6, 2);
             buttonHome.Name = "buttonHome";
-            buttonHome.Size = new Size(122, 52);
+            buttonHome.Size = new Size(116, 52);
             buttonHome.TabIndex = 0;
             buttonHome.TextAlign = ContentAlignment.MiddleRight;
             buttonHome.UseVisualStyleBackColor = false;
@@ -231,5 +291,11 @@
         private Label labelAdmin;
         private PictureBox pictureBoxLogo;
         private Button buttonHome;
+        private Panel panelHome;
+        private Panel panelAbout;
+        private Panel panelQuitter;
+        private Panel panelHackathon;
+        private Panel panelSettings;
+        private Panel panelMembreEquipe;
     }
 }

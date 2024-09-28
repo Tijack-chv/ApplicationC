@@ -28,6 +28,9 @@ namespace ApplicationC
             sousF = new(panelAffichage);
             sousF.openChildForm(new FormAccueil(true));
             buttonAffiche(false);
+
+            panelVisible();
+            panelHome.Visible = true;
         }
 
         public FormHome(Administrateur admin)
@@ -38,10 +41,15 @@ namespace ApplicationC
             labelAdmin.Text = administrateur.Prenom + " " + administrateur.Nom;
             sousF.openChildForm(new FormAccueil(true));
             buttonAffiche(false);
+
+            panelVisible();
+            panelHome.Visible = true;
         }
 
         private void buttonQuitter_Click(object sender, EventArgs e)
         {
+            panelVisible();
+            panelQuitter.Visible = true;
             sousF.openChildForm(new FormAccueil(false));
         }
 
@@ -67,6 +75,8 @@ namespace ApplicationC
         {
             //size panelLeft en grand : 122; 462
             //size button en grand : 122; 52
+            panelVisible();
+            panelHome.Visible = true;
             if (buttonSettings.Visible == true) { 
                 buttonAffiche(false);
 
@@ -83,21 +93,38 @@ namespace ApplicationC
         private void buttonHackathon_Click(object sender, EventArgs e)
         {
             sousF.openChildForm(new FormMenuHackathon());
+            panelVisible();
+            panelHackathon.Visible = true;
         }
 
         private void buttonEquipe_Click(object sender, EventArgs e)
         {
             sousF.openChildForm(new FormMenuMembreEquipe());
+            panelVisible();
+            panelMembreEquipe.Visible = true;
         }
 
         private void buttonAbout_Click(object sender, EventArgs e)
         {
-
+            panelVisible();
+            panelAbout.Visible = true;
         }
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
             sousF.openChildForm(new FormParamètre(administrateur));
+            panelVisible();
+            panelSettings.Visible = true;
+        }
+
+        private void panelVisible()
+        {
+            panelAbout.Visible = false;
+            panelSettings.Visible = false;
+            panelQuitter.Visible = false;
+            panelHome.Visible = false;
+            panelHackathon.Visible = false;
+            panelMembreEquipe.Visible = false;
         }
     }
 }
