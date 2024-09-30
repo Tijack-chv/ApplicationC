@@ -62,11 +62,11 @@ namespace ApplicationC
             buttonSettings.Visible = test;
             if (!test)
             {
-                buttonHome.Width -= 60;
+                buttonHome.Width -= 53;
                 panelWest.Width -= 60;
             } else
             {
-                buttonHome.Width += 60;
+                buttonHome.Width += 53;
                 panelWest.Width += 60;
             }
         }
@@ -79,7 +79,6 @@ namespace ApplicationC
             panelHome.Visible = true;
             if (buttonSettings.Visible == true) { 
                 buttonAffiche(false);
-
             } else { 
                 buttonAffiche(true);
             }

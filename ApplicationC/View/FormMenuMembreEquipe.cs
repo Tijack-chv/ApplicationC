@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApplicationC.Controller;
 using ApplicationC.Model;
+using ApplicationC.View;
 
 namespace ApplicationC
 {
@@ -34,22 +35,26 @@ namespace ApplicationC
 
         private void ajoutMembreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // Crea Membre
+            sousF.openChildForm(new FormGestionMembreEquipe(EtatGestion.Create, EtatTypeGestion.Membre));
         }
 
         private void ajoutEquipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // Crea Equipe
+            sousF.openChildForm(new FormGestionMembreEquipe(EtatGestion.Create, EtatTypeGestion.Equipe));
         }
 
         private void modificationMembreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //Modif Membre
+            sousF.openChildForm(new FormGestionMembreEquipe(EtatGestion.Update, EtatTypeGestion.Membre));
         }
 
         private void modificationEquipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // Modif Equipe
+            sousF.openChildForm(new FormGestionMembreEquipe(EtatGestion.Update, EtatTypeGestion.Equipe));
         }
 
         private void rechercheMembreToolStripMenuItem_Click(object sender, EventArgs e)
