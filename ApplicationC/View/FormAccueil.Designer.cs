@@ -40,7 +40,7 @@
             panelDecoArret.Controls.Add(buttonAnnuler);
             panelDecoArret.Controls.Add(buttonExit);
             panelDecoArret.Controls.Add(buttonDeconnexion);
-            panelDecoArret.Location = new Point(227, 43);
+            panelDecoArret.Location = new Point(385, 91);
             panelDecoArret.Name = "panelDecoArret";
             panelDecoArret.Size = new Size(200, 265);
             panelDecoArret.TabIndex = 0;
@@ -92,7 +92,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(665, 347);
+            ClientSize = new Size(1013, 490);
             Controls.Add(panelDecoArret);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormAccueil";

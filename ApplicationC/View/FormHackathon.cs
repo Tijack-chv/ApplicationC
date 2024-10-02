@@ -37,13 +37,13 @@ namespace ApplicationC
         private void nbPages()
         {
             int count = ModeleHackathon.CountHackathon();
-            if (count % 10 == 0)
+            if (count % 20 == 0)
             {
-                maxPage = count / 10;
+                maxPage = count / 20;
             }
             else
             {
-                maxPage = (count / 10) + 1;
+                maxPage = (count / 20) + 1;
             }
         }
         #endregion

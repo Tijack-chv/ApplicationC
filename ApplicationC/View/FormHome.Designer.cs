@@ -30,22 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             panelNorth = new Panel();
-            labelAdmin = new Label();
+            buttonMenu = new Button();
             labelOrganisation = new Label();
             pictureBoxLogo = new PictureBox();
             panelWest = new Panel();
             panelAbout = new Panel();
-            panelQuitter = new Panel();
             panelHackathon = new Panel();
-            panelSettings = new Panel();
-            buttonQuitter = new Button();
             panelMembreEquipe = new Panel();
             buttonAbout = new Button();
-            panelHome = new Panel();
+            panelQuitter = new Panel();
+            labelAdmin = new Label();
+            buttonQuitter = new Button();
+            panelSettings = new Panel();
             buttonSettings = new Button();
-            buttonEquipe = new Button();
-            buttonHackathon = new Button();
             buttonHome = new Button();
+            buttonHackathon = new Button();
+            panelHome = new Panel();
+            buttonEquipe = new Button();
             panelAffichage = new Panel();
             panelNorth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
@@ -55,34 +56,37 @@
             // panelNorth
             // 
             panelNorth.BackColor = Color.FromArgb(35, 40, 45);
-            panelNorth.Controls.Add(labelAdmin);
+            panelNorth.Controls.Add(buttonMenu);
             panelNorth.Controls.Add(labelOrganisation);
             panelNorth.Controls.Add(pictureBoxLogo);
             panelNorth.Dock = DockStyle.Top;
             panelNorth.Location = new Point(0, 0);
             panelNorth.Margin = new Padding(3, 2, 3, 2);
             panelNorth.Name = "panelNorth";
-            panelNorth.Size = new Size(772, 68);
+            panelNorth.Size = new Size(1013, 83);
             panelNorth.TabIndex = 0;
             // 
-            // labelAdmin
+            // buttonMenu
             // 
-            labelAdmin.AutoSize = true;
-            labelAdmin.Font = new Font("SimSun-ExtB", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelAdmin.ForeColor = Color.SeaGreen;
-            labelAdmin.Location = new Point(530, 24);
-            labelAdmin.Name = "labelAdmin";
-            labelAdmin.RightToLeft = RightToLeft.Yes;
-            labelAdmin.Size = new Size(218, 24);
-            labelAdmin.TabIndex = 4;
-            labelAdmin.Text = "Prenom Nom Admin";
+            buttonMenu.BackColor = Color.Transparent;
+            buttonMenu.BackgroundImage = (Image)resources.GetObject("buttonMenu.BackgroundImage");
+            buttonMenu.BackgroundImageLayout = ImageLayout.Center;
+            buttonMenu.FlatStyle = FlatStyle.Popup;
+            buttonMenu.Location = new Point(0, 0);
+            buttonMenu.Margin = new Padding(3, 2, 3, 2);
+            buttonMenu.Name = "buttonMenu";
+            buttonMenu.Size = new Size(87, 83);
+            buttonMenu.TabIndex = 5;
+            buttonMenu.TextAlign = ContentAlignment.MiddleRight;
+            buttonMenu.UseVisualStyleBackColor = false;
+            buttonMenu.Click += buttonMenu_Click;
             // 
             // labelOrganisation
             // 
             labelOrganisation.AutoSize = true;
             labelOrganisation.Font = new Font("SimSun-ExtB", 28F, FontStyle.Bold | FontStyle.Italic);
             labelOrganisation.ForeColor = Color.SeaGreen;
-            labelOrganisation.Location = new Point(109, 15);
+            labelOrganisation.Location = new Point(605, 24);
             labelOrganisation.Name = "labelOrganisation";
             labelOrganisation.Size = new Size(277, 38);
             labelOrganisation.TabIndex = 3;
@@ -91,10 +95,10 @@
             // pictureBoxLogo
             // 
             pictureBoxLogo.Image = Properties.Resources.logo;
-            pictureBoxLogo.Location = new Point(0, 0);
+            pictureBoxLogo.Location = new Point(888, 0);
             pictureBoxLogo.Margin = new Padding(3, 2, 3, 2);
             pictureBoxLogo.Name = "pictureBoxLogo";
-            pictureBoxLogo.Size = new Size(107, 68);
+            pictureBoxLogo.Size = new Size(125, 83);
             pictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxLogo.TabIndex = 2;
             pictureBoxLogo.TabStop = false;
@@ -104,174 +108,216 @@
             // 
             panelWest.BackColor = Color.FromArgb(45, 50, 55);
             panelWest.Controls.Add(panelAbout);
-            panelWest.Controls.Add(panelQuitter);
             panelWest.Controls.Add(panelHackathon);
-            panelWest.Controls.Add(panelSettings);
-            panelWest.Controls.Add(buttonQuitter);
             panelWest.Controls.Add(panelMembreEquipe);
             panelWest.Controls.Add(buttonAbout);
-            panelWest.Controls.Add(panelHome);
+            panelWest.Controls.Add(panelQuitter);
+            panelWest.Controls.Add(labelAdmin);
+            panelWest.Controls.Add(buttonQuitter);
+            panelWest.Controls.Add(panelSettings);
             panelWest.Controls.Add(buttonSettings);
-            panelWest.Controls.Add(buttonEquipe);
-            panelWest.Controls.Add(buttonHackathon);
             panelWest.Controls.Add(buttonHome);
+            panelWest.Controls.Add(buttonHackathon);
+            panelWest.Controls.Add(panelHome);
+            panelWest.Controls.Add(buttonEquipe);
             panelWest.Dock = DockStyle.Left;
-            panelWest.Location = new Point(0, 68);
+            panelWest.Location = new Point(0, 83);
             panelWest.Margin = new Padding(3, 2, 3, 2);
-            panelWest.MaximumSize = new Size(107, 346);
-            panelWest.MinimumSize = new Size(54, 39);
+            panelWest.MaximumSize = new Size(223, 490);
             panelWest.Name = "panelWest";
-            panelWest.Size = new Size(107, 345);
+            panelWest.Size = new Size(223, 490);
             panelWest.TabIndex = 1;
             // 
             // panelAbout
             // 
             panelAbout.BackColor = Color.SeaGreen;
-            panelAbout.Location = new Point(0, 268);
+            panelAbout.Location = new Point(0, 364);
             panelAbout.Margin = new Padding(3, 2, 3, 2);
             panelAbout.Name = "panelAbout";
-            panelAbout.Size = new Size(3, 39);
+            panelAbout.Size = new Size(3, 59);
             panelAbout.TabIndex = 5;
-            // 
-            // panelQuitter
-            // 
-            panelQuitter.BackColor = Color.SeaGreen;
-            panelQuitter.Location = new Point(0, 306);
-            panelQuitter.Margin = new Padding(3, 2, 3, 2);
-            panelQuitter.Name = "panelQuitter";
-            panelQuitter.Size = new Size(3, 39);
-            panelQuitter.TabIndex = 6;
             // 
             // panelHackathon
             // 
             panelHackathon.BackColor = Color.SeaGreen;
-            panelHackathon.Location = new Point(0, 40);
+            panelHackathon.Location = new Point(0, 113);
             panelHackathon.Margin = new Padding(3, 2, 3, 2);
             panelHackathon.Name = "panelHackathon";
-            panelHackathon.Size = new Size(3, 39);
+            panelHackathon.Size = new Size(3, 59);
             panelHackathon.TabIndex = 1;
-            // 
-            // panelSettings
-            // 
-            panelSettings.BackColor = Color.SeaGreen;
-            panelSettings.Location = new Point(0, 230);
-            panelSettings.Margin = new Padding(3, 2, 3, 2);
-            panelSettings.Name = "panelSettings";
-            panelSettings.Size = new Size(3, 39);
-            panelSettings.TabIndex = 4;
-            // 
-            // buttonQuitter
-            // 
-            buttonQuitter.BackColor = Color.FromArgb(45, 50, 55);
-            buttonQuitter.BackgroundImage = Properties.Resources.quit_icon_149882;
-            buttonQuitter.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonQuitter.FlatStyle = FlatStyle.Popup;
-            buttonQuitter.Location = new Point(3, 306);
-            buttonQuitter.Margin = new Padding(3, 2, 3, 2);
-            buttonQuitter.Name = "buttonQuitter";
-            buttonQuitter.Size = new Size(104, 39);
-            buttonQuitter.TabIndex = 2;
-            buttonQuitter.UseVisualStyleBackColor = false;
-            buttonQuitter.Click += buttonQuitter_Click;
             // 
             // panelMembreEquipe
             // 
             panelMembreEquipe.BackColor = Color.SeaGreen;
-            panelMembreEquipe.Location = new Point(0, 76);
+            panelMembreEquipe.Location = new Point(0, 176);
             panelMembreEquipe.Margin = new Padding(3, 2, 3, 2);
             panelMembreEquipe.Name = "panelMembreEquipe";
-            panelMembreEquipe.Size = new Size(3, 39);
+            panelMembreEquipe.Size = new Size(3, 59);
             panelMembreEquipe.TabIndex = 3;
             // 
             // buttonAbout
             // 
             buttonAbout.BackColor = Color.FromArgb(45, 50, 55);
-            buttonAbout.BackgroundImage = Properties.Resources.info_52px;
             buttonAbout.BackgroundImageLayout = ImageLayout.Zoom;
             buttonAbout.FlatStyle = FlatStyle.Popup;
-            buttonAbout.Location = new Point(3, 268);
+            buttonAbout.Font = new Font("Sylfaen", 12F, FontStyle.Bold);
+            buttonAbout.ForeColor = Color.White;
+            buttonAbout.Image = (Image)resources.GetObject("buttonAbout.Image");
+            buttonAbout.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonAbout.Location = new Point(3, 364);
             buttonAbout.Margin = new Padding(3, 2, 3, 2);
             buttonAbout.Name = "buttonAbout";
-            buttonAbout.Size = new Size(104, 39);
+            buttonAbout.Size = new Size(218, 59);
             buttonAbout.TabIndex = 2;
+            buttonAbout.Text = "       Information";
+            buttonAbout.TextAlign = ContentAlignment.MiddleLeft;
             buttonAbout.UseVisualStyleBackColor = false;
             buttonAbout.Click += buttonAbout_Click;
             // 
-            // panelHome
+            // panelQuitter
             // 
-            panelHome.BackColor = Color.SeaGreen;
-            panelHome.Location = new Point(0, 2);
-            panelHome.Margin = new Padding(3, 2, 3, 2);
-            panelHome.Name = "panelHome";
-            panelHome.Size = new Size(3, 39);
-            panelHome.TabIndex = 0;
+            panelQuitter.BackColor = Color.SeaGreen;
+            panelQuitter.Location = new Point(0, 427);
+            panelQuitter.Margin = new Padding(3, 2, 3, 2);
+            panelQuitter.Name = "panelQuitter";
+            panelQuitter.Size = new Size(3, 59);
+            panelQuitter.TabIndex = 6;
+            // 
+            // labelAdmin
+            // 
+            labelAdmin.AutoSize = true;
+            labelAdmin.Font = new Font("SimSun-ExtB", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            labelAdmin.ForeColor = Color.SeaGreen;
+            labelAdmin.Location = new Point(3, 12);
+            labelAdmin.Name = "labelAdmin";
+            labelAdmin.RightToLeft = RightToLeft.Yes;
+            labelAdmin.Size = new Size(218, 24);
+            labelAdmin.TabIndex = 4;
+            labelAdmin.Text = "Prenom Nom Admin";
+            // 
+            // buttonQuitter
+            // 
+            buttonQuitter.BackColor = Color.FromArgb(45, 50, 55);
+            buttonQuitter.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonQuitter.FlatStyle = FlatStyle.Popup;
+            buttonQuitter.Font = new Font("Sylfaen", 12F, FontStyle.Bold);
+            buttonQuitter.ForeColor = Color.White;
+            buttonQuitter.Image = (Image)resources.GetObject("buttonQuitter.Image");
+            buttonQuitter.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonQuitter.Location = new Point(3, 427);
+            buttonQuitter.Margin = new Padding(3, 2, 3, 2);
+            buttonQuitter.Name = "buttonQuitter";
+            buttonQuitter.Size = new Size(218, 59);
+            buttonQuitter.TabIndex = 2;
+            buttonQuitter.Text = "       Quitter";
+            buttonQuitter.TextAlign = ContentAlignment.MiddleLeft;
+            buttonQuitter.UseVisualStyleBackColor = false;
+            buttonQuitter.Click += buttonQuitter_Click;
+            // 
+            // panelSettings
+            // 
+            panelSettings.BackColor = Color.SeaGreen;
+            panelSettings.Location = new Point(0, 302);
+            panelSettings.Margin = new Padding(3, 2, 3, 2);
+            panelSettings.Name = "panelSettings";
+            panelSettings.Size = new Size(3, 59);
+            panelSettings.TabIndex = 4;
             // 
             // buttonSettings
             // 
             buttonSettings.BackColor = Color.FromArgb(45, 50, 55);
-            buttonSettings.BackgroundImage = Properties.Resources.parametres;
             buttonSettings.BackgroundImageLayout = ImageLayout.Center;
             buttonSettings.FlatStyle = FlatStyle.Popup;
-            buttonSettings.Location = new Point(3, 230);
+            buttonSettings.Font = new Font("Sylfaen", 12F, FontStyle.Bold);
+            buttonSettings.ForeColor = Color.White;
+            buttonSettings.Image = (Image)resources.GetObject("buttonSettings.Image");
+            buttonSettings.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonSettings.Location = new Point(3, 301);
             buttonSettings.Margin = new Padding(3, 2, 3, 2);
             buttonSettings.Name = "buttonSettings";
-            buttonSettings.Size = new Size(104, 39);
+            buttonSettings.Size = new Size(218, 59);
             buttonSettings.TabIndex = 2;
+            buttonSettings.Text = "       Paramètre";
+            buttonSettings.TextAlign = ContentAlignment.MiddleLeft;
             buttonSettings.UseVisualStyleBackColor = false;
             buttonSettings.Click += buttonSettings_Click;
-            // 
-            // buttonEquipe
-            // 
-            buttonEquipe.BackColor = Color.FromArgb(45, 50, 55);
-            buttonEquipe.BackgroundImage = Properties.Resources.icons8_member_32;
-            buttonEquipe.BackgroundImageLayout = ImageLayout.Center;
-            buttonEquipe.FlatStyle = FlatStyle.Popup;
-            buttonEquipe.Location = new Point(3, 76);
-            buttonEquipe.Margin = new Padding(3, 2, 3, 2);
-            buttonEquipe.Name = "buttonEquipe";
-            buttonEquipe.Size = new Size(104, 39);
-            buttonEquipe.TabIndex = 1;
-            buttonEquipe.UseVisualStyleBackColor = false;
-            buttonEquipe.Click += buttonEquipe_Click;
-            // 
-            // buttonHackathon
-            // 
-            buttonHackathon.BackColor = Color.FromArgb(45, 50, 55);
-            buttonHackathon.BackgroundImage = Properties.Resources.hackathon;
-            buttonHackathon.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonHackathon.FlatStyle = FlatStyle.Popup;
-            buttonHackathon.Location = new Point(3, 40);
-            buttonHackathon.Margin = new Padding(3, 2, 3, 2);
-            buttonHackathon.Name = "buttonHackathon";
-            buttonHackathon.Size = new Size(104, 39);
-            buttonHackathon.TabIndex = 1;
-            buttonHackathon.UseVisualStyleBackColor = false;
-            buttonHackathon.Click += buttonHackathon_Click;
             // 
             // buttonHome
             // 
             buttonHome.BackColor = Color.FromArgb(45, 50, 55);
-            buttonHome.BackgroundImage = Properties.Resources.icons8_home_32;
-            buttonHome.BackgroundImageLayout = ImageLayout.Center;
+            buttonHome.BackgroundImageLayout = ImageLayout.None;
             buttonHome.FlatStyle = FlatStyle.Popup;
-            buttonHome.Location = new Point(3, 2);
+            buttonHome.Font = new Font("Sylfaen", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonHome.ForeColor = Color.White;
+            buttonHome.Image = (Image)resources.GetObject("buttonHome.Image");
+            buttonHome.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonHome.Location = new Point(3, 50);
             buttonHome.Margin = new Padding(3, 2, 3, 2);
             buttonHome.Name = "buttonHome";
-            buttonHome.Size = new Size(104, 39);
+            buttonHome.Size = new Size(218, 59);
             buttonHome.TabIndex = 0;
-            buttonHome.TextAlign = ContentAlignment.MiddleRight;
+            buttonHome.Text = "       Accueil";
+            buttonHome.TextAlign = ContentAlignment.MiddleLeft;
             buttonHome.UseVisualStyleBackColor = false;
             buttonHome.Click += buttonHome_Click;
+            // 
+            // buttonHackathon
+            // 
+            buttonHackathon.BackColor = Color.FromArgb(45, 50, 55);
+            buttonHackathon.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonHackathon.FlatStyle = FlatStyle.Popup;
+            buttonHackathon.Font = new Font("Sylfaen", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonHackathon.ForeColor = Color.White;
+            buttonHackathon.Image = (Image)resources.GetObject("buttonHackathon.Image");
+            buttonHackathon.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonHackathon.Location = new Point(3, 113);
+            buttonHackathon.Margin = new Padding(3, 2, 3, 2);
+            buttonHackathon.Name = "buttonHackathon";
+            buttonHackathon.Size = new Size(218, 59);
+            buttonHackathon.TabIndex = 1;
+            buttonHackathon.Text = "       Hackathon";
+            buttonHackathon.TextAlign = ContentAlignment.MiddleLeft;
+            buttonHackathon.UseVisualStyleBackColor = false;
+            buttonHackathon.Click += buttonHackathon_Click;
+            // 
+            // panelHome
+            // 
+            panelHome.BackColor = Color.SeaGreen;
+            panelHome.Location = new Point(0, 50);
+            panelHome.Margin = new Padding(3, 2, 3, 2);
+            panelHome.Name = "panelHome";
+            panelHome.Size = new Size(3, 59);
+            panelHome.TabIndex = 0;
+            // 
+            // buttonEquipe
+            // 
+            buttonEquipe.BackColor = Color.FromArgb(45, 50, 55);
+            buttonEquipe.BackgroundImageLayout = ImageLayout.Center;
+            buttonEquipe.FlatStyle = FlatStyle.Popup;
+            buttonEquipe.Font = new Font("Sylfaen", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonEquipe.ForeColor = Color.White;
+            buttonEquipe.Image = (Image)resources.GetObject("buttonEquipe.Image");
+            buttonEquipe.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonEquipe.Location = new Point(3, 176);
+            buttonEquipe.Margin = new Padding(3, 2, 3, 2);
+            buttonEquipe.Name = "buttonEquipe";
+            buttonEquipe.Size = new Size(218, 59);
+            buttonEquipe.TabIndex = 1;
+            buttonEquipe.Text = "       Equipe Membre";
+            buttonEquipe.TextAlign = ContentAlignment.MiddleLeft;
+            buttonEquipe.UseVisualStyleBackColor = false;
+            buttonEquipe.Click += buttonEquipe_Click;
             // 
             // panelAffichage
             // 
             panelAffichage.BackColor = Color.Transparent;
             panelAffichage.Dock = DockStyle.Fill;
-            panelAffichage.Location = new Point(107, 68);
+            panelAffichage.Location = new Point(0, 83);
             panelAffichage.Margin = new Padding(3, 2, 3, 2);
             panelAffichage.Name = "panelAffichage";
-            panelAffichage.Size = new Size(665, 345);
+            panelAffichage.Size = new Size(1013, 490);
             panelAffichage.TabIndex = 2;
+            panelAffichage.Click += panelAffichage_Click;
             // 
             // FormHome
             // 
@@ -279,19 +325,22 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(772, 413);
+            ClientSize = new Size(1013, 573);
             ControlBox = false;
-            Controls.Add(panelAffichage);
             Controls.Add(panelWest);
+            Controls.Add(panelAffichage);
             Controls.Add(panelNorth);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MaximumSize = new Size(1029, 612);
+            MinimumSize = new Size(1029, 612);
             Name = "FormHome";
             Text = "HACKAT' INNOV";
             panelNorth.ResumeLayout(false);
             panelNorth.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             panelWest.ResumeLayout(false);
+            panelWest.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -314,5 +363,6 @@
         private Panel panelHackathon;
         private Panel panelSettings;
         private Panel panelMembreEquipe;
+        private Button buttonMenu;
     }
 }

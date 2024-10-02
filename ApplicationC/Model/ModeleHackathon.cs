@@ -32,7 +32,7 @@ namespace ApplicationC.Model
         /// <returns></returns>
         public static List<Hackathon> listeHackathonsParPage(int position)
         {
-            return Modele.MonModel.Hackathons.Where(c => c.Idhackathon >= (position - 1) * 10 && c.Estarchive == false).Include(a => a.IdorganisateurNavigation).OrderBy(b => b.Idhackathon).Take(10).ToList();
+            return Modele.MonModel.Hackathons.Where(c => c.Idhackathon >= (position - 1) * 20 && c.Estarchive == false).Include(a => a.IdorganisateurNavigation).OrderBy(b => b.Idhackathon).Take(20).ToList();
         }
         #endregion
 
@@ -44,9 +44,7 @@ namespace ApplicationC.Model
         /// <returns></returns>
         public static int CountHackathon()
         {
-            int nb = Modele.MonModel.Hackathons.Where(c => c.Estarchive == false).Count();
-
-            return nb;
+            return Modele.MonModel.Hackathons.Where(c => c.Estarchive == false).Count();
         }
         #endregion
 

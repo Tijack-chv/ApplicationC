@@ -15,7 +15,6 @@ namespace ApplicationC
     public partial class FormParamètre : Form
     {
         Administrateur administrateur = new();
-        //location panel pour affichage : 172; 52
         public FormParamètre(Administrateur admin)
         {
             InitializeComponent();
@@ -29,13 +28,15 @@ namespace ApplicationC
         {
             panelInfoPers.Visible = false;
             panelInfoPers.Location = new Point(420, 52);
+            panelMdp.BackColor = Color.FromArgb(120, 127, 127, 127);
             panelMdp.Visible = true;
         }
 
         private void informationsPersonnelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelMdp.Visible = false;
-            panelInfoPers.Location = new Point(172, 52);
+            panelInfoPers.Location = new Point(379, 120);
+            panelInfoPers.BackColor = Color.FromArgb(120, 127, 127, 127);
             panelInfoPers.Visible = true;
             textBoxEmail.Text = administrateur.Email;
             textBoxFirstName.Text = administrateur.Nom;

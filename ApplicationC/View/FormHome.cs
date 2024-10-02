@@ -21,16 +21,14 @@ namespace ApplicationC
         public FormHome()
         {
             InitializeComponent();
-
             administrateur = new Administrateur();
-            labelAdmin.Visible = false;
+            labelAdmin.Text = "Chauveau Pierre";
 
             sousF = new(panelAffichage);
             sousF.openChildForm(new FormAccueil(true));
-            buttonAffiche(false);
 
+            buttonAffiche(false);
             panelVisible();
-            panelHome.Visible = true;
         }
 
         public FormHome(Administrateur admin)
@@ -40,80 +38,35 @@ namespace ApplicationC
             sousF = new(panelAffichage);
             labelAdmin.Text = administrateur.Prenom + " " + administrateur.Nom;
             sousF.openChildForm(new FormAccueil(true));
-            buttonAffiche(false);
 
+            buttonAffiche(false);
             panelVisible();
-            panelHome.Visible = true;
         }
 
         private void buttonQuitter_Click(object sender, EventArgs e)
         {
+            buttonAffiche(!buttonSettings.Visible);
+
             panelVisible();
             panelQuitter.Visible = true;
             sousF.openChildForm(new FormAccueil(false));
         }
 
+        private void buttonMenu_Click(object sender, EventArgs e)
+        {
+            buttonAffiche(!buttonSettings.Visible);
+            panelVisible();
+        }
+
         private void buttonAffiche(bool test)
         {
+            
+            panelWest.Visible = test;
             buttonAbout.Visible = test;
             buttonEquipe.Visible = test;
             buttonHackathon.Visible = test;
             buttonQuitter.Visible = test;
             buttonSettings.Visible = test;
-            if (!test)
-            {
-                buttonHome.Width -= 53;
-                panelWest.Width -= 60;
-            } else
-            {
-                buttonHome.Width += 53;
-                panelWest.Width += 60;
-            }
-        }
-
-        private void buttonHome_Click(object sender, EventArgs e)
-        {
-            //size panelLeft en grand : 122; 462
-            //size button en grand : 122; 52
-            panelVisible();
-            panelHome.Visible = true;
-            if (buttonSettings.Visible == true) { 
-                buttonAffiche(false);
-            } else { 
-                buttonAffiche(true);
-            }
-        }
-
-        private void pictureBoxLogo_Click(object sender, EventArgs e)
-        {
-            sousF.openChildForm(new FormAccueil(true));
-        }
-
-        private void buttonHackathon_Click(object sender, EventArgs e)
-        {
-            sousF.openChildForm(new FormMenuHackathon());
-            panelVisible();
-            panelHackathon.Visible = true;
-        }
-
-        private void buttonEquipe_Click(object sender, EventArgs e)
-        {
-            sousF.openChildForm(new FormMenuMembreEquipe());
-            panelVisible();
-            panelMembreEquipe.Visible = true;
-        }
-
-        private void buttonAbout_Click(object sender, EventArgs e)
-        {
-            panelVisible();
-            panelAbout.Visible = true;
-        }
-
-        private void buttonSettings_Click(object sender, EventArgs e)
-        {
-            sousF.openChildForm(new FormParamètre(administrateur));
-            panelVisible();
-            panelSettings.Visible = true;
         }
 
         private void panelVisible()
@@ -124,6 +77,65 @@ namespace ApplicationC
             panelHome.Visible = false;
             panelHackathon.Visible = false;
             panelMembreEquipe.Visible = false;
+        }
+
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+            buttonAffiche(!buttonSettings.Visible);
+
+            sousF.openChildForm(new FormAccueil(true));
+            panelVisible();
+            panelHome.Visible = true;
+        }
+
+        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        {
+            buttonAffiche(false);
+
+            sousF.openChildForm(new FormAccueil(true));
+        }
+
+        private void buttonHackathon_Click(object sender, EventArgs e)
+        {
+            buttonAffiche(!buttonSettings.Visible);
+
+            sousF.openChildForm(new FormMenuHackathon());
+            panelVisible();
+            panelHackathon.Visible = true;
+        }
+
+        private void buttonEquipe_Click(object sender, EventArgs e)
+        {
+            buttonAffiche(!buttonSettings.Visible);
+
+            sousF.openChildForm(new FormMenuMembreEquipe());
+            panelVisible();
+            panelMembreEquipe.Visible = true;
+        }
+
+        private void buttonAbout_Click(object sender, EventArgs e)
+        {
+            buttonAffiche(!buttonSettings.Visible);
+
+            panelVisible();
+            panelAbout.Visible = true;
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            buttonAffiche(!buttonSettings.Visible);
+
+            sousF.openChildForm(new FormParamètre(administrateur));
+            panelVisible();
+            panelSettings.Visible = true;
+        }
+
+        private void panelAffichage_Click(object sender, EventArgs e)
+        {
+            if (panelWest.Visible)
+            {
+                buttonAffiche(true);
+            }
         }
     }
 }

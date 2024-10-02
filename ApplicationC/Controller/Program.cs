@@ -15,8 +15,9 @@ namespace ApplicationC.Controller
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new FormHome());
+            Application.Run(new FormHome());
             //tempo pour les tests admin@hackathon.fr
-            Application.Run(new FormAdminConnexion());
+            //Application.Run(new FormAdminConnexion());
         }
     }
 }

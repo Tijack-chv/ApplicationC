@@ -247,5 +247,6 @@ namespace ApplicationC
             dataGridViewInfoEquipe.Visible = false;
         }
         #endregion
+
     }
 }
