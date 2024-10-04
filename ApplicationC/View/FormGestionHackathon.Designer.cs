@@ -48,11 +48,12 @@
             label9 = new Label();
             cbOrganisateur = new ComboBox();
             label10 = new Label();
-            tbAffiche = new TextBox();
             BtnAction = new Button();
             BtnAjoutOrganisateur = new Button();
             BSOrganisateur = new BindingSource(components);
             gbInfo = new GroupBox();
+            labelParcourirAffiche = new Label();
+            pictureBoxAffiche = new PictureBox();
             label12 = new Label();
             nudNbMaxEquipe = new NumericUpDown();
             label11 = new Label();
@@ -61,6 +62,7 @@
             BSListeH = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)BSOrganisateur).BeginInit();
             gbInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAffiche).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNbMaxEquipe).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BSListeH).BeginInit();
             SuspendLayout();
@@ -71,10 +73,10 @@
             labelAjoutHack.BackColor = Color.Transparent;
             labelAjoutHack.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelAjoutHack.ForeColor = SystemColors.ActiveCaptionText;
-            labelAjoutHack.Location = new Point(11, 7);
-            labelAjoutHack.Margin = new Padding(4, 0, 4, 0);
+            labelAjoutHack.Location = new Point(13, 9);
+            labelAjoutHack.Margin = new Padding(5, 0, 5, 0);
             labelAjoutHack.Name = "labelAjoutHack";
-            labelAjoutHack.Size = new Size(210, 24);
+            labelAjoutHack.Size = new Size(256, 29);
             labelAjoutHack.TabIndex = 3;
             labelAjoutHack.Text = "Ajout d'un Hackathon";
             // 
@@ -84,10 +86,10 @@
             BtnFermer.FlatStyle = FlatStyle.Popup;
             BtnFermer.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnFermer.ForeColor = SystemColors.ControlLightLight;
-            BtnFermer.Location = new Point(689, 375);
-            BtnFermer.Margin = new Padding(4);
+            BtnFermer.Location = new Point(573, 473);
+            BtnFermer.Margin = new Padding(5);
             BtnFermer.Name = "BtnFermer";
-            BtnFermer.Size = new Size(116, 43);
+            BtnFermer.Size = new Size(133, 57);
             BtnFermer.TabIndex = 4;
             BtnFermer.Text = "FERMER";
             BtnFermer.UseVisualStyleBackColor = false;
@@ -98,10 +100,10 @@
             dtDebut.CalendarFont = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtDebut.CustomFormat = "dd/MM/yyyy HH:mm";
             dtDebut.Format = DateTimePickerFormat.Custom;
-            dtDebut.Location = new Point(22, 54);
-            dtDebut.Margin = new Padding(4);
+            dtDebut.Location = new Point(25, 72);
+            dtDebut.Margin = new Padding(5);
             dtDebut.Name = "dtDebut";
-            dtDebut.Size = new Size(203, 22);
+            dtDebut.Size = new Size(243, 26);
             dtDebut.TabIndex = 5;
             dtDebut.ValueChanged += dtDebut_ValueChanged;
             // 
@@ -109,20 +111,20 @@
             // 
             dtFin.CustomFormat = "dd/MM/yyyy HH:mm";
             dtFin.Format = DateTimePickerFormat.Custom;
-            dtFin.Location = new Point(21, 129);
-            dtFin.Margin = new Padding(4);
+            dtFin.Location = new Point(25, 143);
+            dtFin.Margin = new Padding(5);
             dtFin.Name = "dtFin";
-            dtFin.Size = new Size(204, 22);
+            dtFin.Size = new Size(243, 26);
             dtFin.TabIndex = 6;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label2.Location = new Point(22, 32);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(25, 43);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(151, 16);
+            label2.Size = new Size(184, 20);
             label2.TabIndex = 8;
             label2.Text = "Date Heure de début";
             // 
@@ -130,10 +132,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label3.Location = new Point(21, 108);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(25, 115);
+            label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(128, 16);
+            label3.Size = new Size(159, 20);
             label3.TabIndex = 9;
             label3.Text = "Date Heure de fin";
             // 
@@ -141,10 +143,10 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label4.Location = new Point(346, 34);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(395, 45);
+            label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(89, 16);
+            label4.Size = new Size(106, 20);
             label4.TabIndex = 10;
             label4.Text = "Thématique";
             // 
@@ -152,31 +154,31 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label5.Location = new Point(345, 131);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(395, 115);
+            label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(68, 16);
+            label5.Size = new Size(85, 20);
             label5.TabIndex = 11;
             label5.Text = "Objectifs";
             // 
             // tbObjectifs
             // 
             tbObjectifs.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbObjectifs.Location = new Point(346, 150);
-            tbObjectifs.Margin = new Padding(4);
+            tbObjectifs.Location = new Point(396, 140);
+            tbObjectifs.Margin = new Padding(5);
             tbObjectifs.Multiline = true;
             tbObjectifs.Name = "tbObjectifs";
-            tbObjectifs.Size = new Size(273, 72);
+            tbObjectifs.Size = new Size(311, 95);
             tbObjectifs.TabIndex = 12;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label6.Location = new Point(23, 178);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(27, 178);
+            label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(36, 16);
+            label6.Size = new Size(45, 20);
             label6.TabIndex = 13;
             label6.Text = "Lieu";
             // 
@@ -184,69 +186,69 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label7.Location = new Point(22, 255);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(27, 245);
+            label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
-            label7.Size = new Size(38, 16);
+            label7.Size = new Size(46, 20);
             label7.TabIndex = 14;
             label7.Text = "Ville";
             // 
             // tbThematique
             // 
             tbThematique.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbThematique.Location = new Point(346, 56);
-            tbThematique.Margin = new Padding(4);
+            tbThematique.Location = new Point(395, 75);
+            tbThematique.Margin = new Padding(5);
             tbThematique.Name = "tbThematique";
-            tbThematique.Size = new Size(273, 22);
+            tbThematique.Size = new Size(311, 26);
             tbThematique.TabIndex = 15;
             // 
             // tbLieu
             // 
             tbLieu.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbLieu.Location = new Point(23, 200);
-            tbLieu.Margin = new Padding(4);
+            tbLieu.Location = new Point(25, 208);
+            tbLieu.Margin = new Padding(5);
             tbLieu.Name = "tbLieu";
-            tbLieu.Size = new Size(202, 22);
+            tbLieu.Size = new Size(243, 26);
             tbLieu.TabIndex = 16;
             // 
             // tbVille
             // 
             tbVille.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbVille.Location = new Point(23, 277);
-            tbVille.Margin = new Padding(4);
+            tbVille.Location = new Point(25, 274);
+            tbVille.Margin = new Padding(5);
             tbVille.Name = "tbVille";
-            tbVille.Size = new Size(202, 22);
+            tbVille.Size = new Size(243, 26);
             tbVille.TabIndex = 17;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label8.Location = new Point(346, 285);
-            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Location = new Point(395, 245);
+            label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
-            label8.Size = new Size(80, 16);
+            label8.Size = new Size(98, 20);
             label8.TabIndex = 18;
             label8.Text = "Conditions";
             // 
             // tbConditions
             // 
             tbConditions.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbConditions.Location = new Point(346, 305);
-            tbConditions.Margin = new Padding(4);
+            tbConditions.Location = new Point(395, 272);
+            tbConditions.Margin = new Padding(5);
             tbConditions.Multiline = true;
             tbConditions.Name = "tbConditions";
-            tbConditions.Size = new Size(273, 72);
+            tbConditions.Size = new Size(311, 95);
             tbConditions.TabIndex = 19;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label9.Location = new Point(741, 34);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(395, 376);
+            label9.Margin = new Padding(5, 0, 5, 0);
             label9.Name = "label9";
-            label9.Size = new Size(96, 16);
+            label9.Size = new Size(118, 20);
             label9.TabIndex = 20;
             label9.Text = "Organisateur";
             // 
@@ -255,31 +257,22 @@
             cbOrganisateur.DropDownStyle = ComboBoxStyle.DropDownList;
             cbOrganisateur.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbOrganisateur.FormattingEnabled = true;
-            cbOrganisateur.Location = new Point(741, 56);
-            cbOrganisateur.Margin = new Padding(4);
+            cbOrganisateur.Location = new Point(395, 406);
+            cbOrganisateur.Margin = new Padding(5);
             cbOrganisateur.Name = "cbOrganisateur";
-            cbOrganisateur.Size = new Size(182, 24);
+            cbOrganisateur.Size = new Size(207, 28);
             cbOrganisateur.TabIndex = 21;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label10.Location = new Point(741, 129);
-            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Location = new Point(800, 45);
+            label10.Margin = new Padding(5, 0, 5, 0);
             label10.Name = "label10";
-            label10.Size = new Size(54, 16);
+            label10.Size = new Size(68, 20);
             label10.TabIndex = 22;
             label10.Text = "Affiche";
-            // 
-            // tbAffiche
-            // 
-            tbAffiche.Location = new Point(741, 150);
-            tbAffiche.Margin = new Padding(4);
-            tbAffiche.Multiline = true;
-            tbAffiche.Name = "tbAffiche";
-            tbAffiche.Size = new Size(222, 72);
-            tbAffiche.TabIndex = 23;
             // 
             // BtnAction
             // 
@@ -287,10 +280,10 @@
             BtnAction.FlatStyle = FlatStyle.Popup;
             BtnAction.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnAction.ForeColor = SystemColors.ControlLightLight;
-            BtnAction.Location = new Point(840, 375);
-            BtnAction.Margin = new Padding(4);
+            BtnAction.Location = new Point(370, 473);
+            BtnAction.Margin = new Padding(5);
             BtnAction.Name = "BtnAction";
-            BtnAction.Size = new Size(125, 43);
+            BtnAction.Size = new Size(143, 57);
             BtnAction.TabIndex = 24;
             BtnAction.Text = "AJOUTER";
             BtnAction.UseVisualStyleBackColor = false;
@@ -302,10 +295,10 @@
             BtnAjoutOrganisateur.FlatStyle = FlatStyle.Popup;
             BtnAjoutOrganisateur.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnAjoutOrganisateur.ForeColor = Color.White;
-            BtnAjoutOrganisateur.Location = new Point(931, 54);
-            BtnAjoutOrganisateur.Margin = new Padding(4);
+            BtnAjoutOrganisateur.Location = new Point(629, 397);
+            BtnAjoutOrganisateur.Margin = new Padding(5);
             BtnAjoutOrganisateur.Name = "BtnAjoutOrganisateur";
-            BtnAjoutOrganisateur.Size = new Size(31, 26);
+            BtnAjoutOrganisateur.Size = new Size(35, 35);
             BtnAjoutOrganisateur.TabIndex = 25;
             BtnAjoutOrganisateur.Text = "+";
             BtnAjoutOrganisateur.UseVisualStyleBackColor = false;
@@ -314,6 +307,8 @@
             // gbInfo
             // 
             gbInfo.BackColor = Color.Transparent;
+            gbInfo.Controls.Add(labelParcourirAffiche);
+            gbInfo.Controls.Add(pictureBoxAffiche);
             gbInfo.Controls.Add(label12);
             gbInfo.Controls.Add(nudNbMaxEquipe);
             gbInfo.Controls.Add(label11);
@@ -330,7 +325,6 @@
             gbInfo.Controls.Add(label9);
             gbInfo.Controls.Add(label8);
             gbInfo.Controls.Add(label5);
-            gbInfo.Controls.Add(tbAffiche);
             gbInfo.Controls.Add(label7);
             gbInfo.Controls.Add(cbOrganisateur);
             gbInfo.Controls.Add(label3);
@@ -341,33 +335,52 @@
             gbInfo.Controls.Add(tbThematique);
             gbInfo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gbInfo.ForeColor = SystemColors.ActiveCaptionText;
-            gbInfo.Location = new Point(11, 39);
-            gbInfo.Margin = new Padding(4);
+            gbInfo.Location = new Point(13, 52);
+            gbInfo.Margin = new Padding(5);
             gbInfo.Name = "gbInfo";
-            gbInfo.Padding = new Padding(4);
-            gbInfo.Size = new Size(973, 423);
+            gbInfo.Padding = new Padding(5);
+            gbInfo.Size = new Size(1112, 564);
             gbInfo.TabIndex = 26;
             gbInfo.TabStop = false;
             gbInfo.Text = "Informations de l'hackathon";
+            // 
+            // labelParcourirAffiche
+            // 
+            labelParcourirAffiche.AutoSize = true;
+            labelParcourirAffiche.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelParcourirAffiche.Location = new Point(887, 495);
+            labelParcourirAffiche.Name = "labelParcourirAffiche";
+            labelParcourirAffiche.Size = new Size(123, 25);
+            labelParcourirAffiche.TabIndex = 31;
+            labelParcourirAffiche.Text = "Parcourir ...";
+            labelParcourirAffiche.Click += labelParcourirAffiche_Click;
+            // 
+            // pictureBoxAffiche
+            // 
+            pictureBoxAffiche.Location = new Point(800, 73);
+            pictureBoxAffiche.Name = "pictureBoxAffiche";
+            pictureBoxAffiche.Size = new Size(284, 419);
+            pictureBoxAffiche.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxAffiche.TabIndex = 30;
+            pictureBoxAffiche.TabStop = false;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label12.Location = new Point(741, 285);
-            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Location = new Point(30, 380);
+            label12.Margin = new Padding(5, 0, 5, 0);
             label12.Name = "label12";
-            label12.Size = new Size(196, 16);
+            label12.Size = new Size(238, 20);
             label12.TabIndex = 29;
             label12.Text = "Nombre de Place Maximum";
             // 
             // nudNbMaxEquipe
             // 
-            nudNbMaxEquipe.Location = new Point(741, 305);
-            nudNbMaxEquipe.Margin = new Padding(3, 2, 3, 2);
+            nudNbMaxEquipe.Location = new Point(25, 408);
             nudNbMaxEquipe.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
             nudNbMaxEquipe.Name = "nudNbMaxEquipe";
-            nudNbMaxEquipe.Size = new Size(221, 22);
+            nudNbMaxEquipe.Size = new Size(243, 26);
             nudNbMaxEquipe.TabIndex = 28;
             nudNbMaxEquipe.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
@@ -375,10 +388,10 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label11.Location = new Point(21, 336);
-            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Location = new Point(28, 307);
+            label11.Margin = new Padding(5, 0, 5, 0);
             label11.Name = "label11";
-            label11.Size = new Size(159, 16);
+            label11.Size = new Size(200, 20);
             label11.TabIndex = 27;
             label11.Text = "Date Butoir Inscription";
             // 
@@ -386,10 +399,10 @@
             // 
             dtFinInscription.CustomFormat = "dd/MM/yyyy HH:mm";
             dtFinInscription.Format = DateTimePickerFormat.Custom;
-            dtFinInscription.Location = new Point(23, 355);
-            dtFinInscription.Margin = new Padding(4);
+            dtFinInscription.Location = new Point(25, 332);
+            dtFinInscription.Margin = new Padding(5);
             dtFinInscription.Name = "dtFinInscription";
-            dtFinInscription.Size = new Size(202, 22);
+            dtFinInscription.Size = new Size(243, 26);
             dtFinInscription.TabIndex = 26;
             dtFinInscription.ValueChanged += dtpFinInscription_ValueChanged;
             // 
@@ -400,10 +413,10 @@
             cbListe.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbListe.ForeColor = SystemColors.ActiveCaptionText;
             cbListe.FormattingEnabled = true;
-            cbListe.Location = new Point(357, 13);
-            cbListe.Margin = new Padding(4);
+            cbListe.Location = new Point(408, 17);
+            cbListe.Margin = new Padding(5);
             cbListe.Name = "cbListe";
-            cbListe.Size = new Size(358, 24);
+            cbListe.Size = new Size(409, 28);
             cbListe.TabIndex = 27;
             cbListe.SelectedIndexChanged += CbListe_SelectedIndexChanged;
             // 
@@ -413,22 +426,23 @@
             // 
             // FormGestionHackathon
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkOliveGreen;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(1013, 464);
+            ClientSize = new Size(1158, 619);
             Controls.Add(cbListe);
             Controls.Add(gbInfo);
             Controls.Add(labelAjoutHack);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
+            Margin = new Padding(5);
             Name = "FormGestionHackathon";
             Text = "FormGestionHackathon";
             Load += FormGestionHackathon_Load;
             ((System.ComponentModel.ISupportInitialize)BSOrganisateur).EndInit();
             gbInfo.ResumeLayout(false);
             gbInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAffiche).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNbMaxEquipe).EndInit();
             ((System.ComponentModel.ISupportInitialize)BSListeH).EndInit();
             ResumeLayout(false);
@@ -457,7 +471,6 @@
         private System.Windows.Forms.ComboBox cbOrganisateur;
         private System.Windows.Forms.BindingSource BSOrganisateur;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbAffiche;
         private System.Windows.Forms.Button BtnAction;
         private System.Windows.Forms.Button BtnAjoutOrganisateur;
         private System.Windows.Forms.GroupBox gbInfo;
@@ -467,5 +480,7 @@
         private DateTimePicker dtFinInscription;
         private Label label12;
         private NumericUpDown nudNbMaxEquipe;
+        private PictureBox pictureBoxAffiche;
+        private Label labelParcourirAffiche;
     }
 }

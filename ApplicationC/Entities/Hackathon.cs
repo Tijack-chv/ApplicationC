@@ -19,7 +19,7 @@ public partial class Hackathon
 
     public string? Thematique { get; set; }
 
-    public string? Affiche { get; set; }
+    public byte[]? Affiche { get; set; }
 
     public string? Objectifs { get; set; }
 

@@ -46,6 +46,7 @@
             label1 = new Label();
             pictureBoxFermer = new PictureBox();
             panel2 = new Panel();
+            visualiserLAfficheToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvHackathon).BeginInit();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BSHackathon).BeginInit();
@@ -61,13 +62,13 @@
             dgvHackathon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvHackathon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHackathon.ContextMenuStrip = contextMenuStrip1;
-            dgvHackathon.Location = new Point(10, 38);
-            dgvHackathon.Margin = new Padding(5);
+            dgvHackathon.Location = new Point(11, 51);
+            dgvHackathon.Margin = new Padding(6, 7, 6, 7);
             dgvHackathon.MultiSelect = false;
             dgvHackathon.Name = "dgvHackathon";
             dgvHackathon.ReadOnly = true;
             dgvHackathon.RowHeadersWidth = 51;
-            dgvHackathon.Size = new Size(965, 358);
+            dgvHackathon.Size = new Size(1103, 477);
             dgvHackathon.TabIndex = 0;
             dgvHackathon.CellClick += DgvHackathon_CellContentClick;
             dgvHackathon.CellContentClick += DgvHackathon_CellContentClick;
@@ -79,9 +80,9 @@
             // 
             contextMenuStrip1.BackColor = Color.FromArgb(50, 55, 60);
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { VoirEquipeToolStripMenuItem, modifierToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { VoirEquipeToolStripMenuItem, modifierToolStripMenuItem, visualiserLAfficheToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(209, 56);
+            contextMenuStrip1.Size = new Size(254, 110);
             // 
             // VoirEquipeToolStripMenuItem
             // 
@@ -90,7 +91,7 @@
             VoirEquipeToolStripMenuItem.ForeColor = Color.White;
             VoirEquipeToolStripMenuItem.Image = (Image)resources.GetObject("VoirEquipeToolStripMenuItem.Image");
             VoirEquipeToolStripMenuItem.Name = "VoirEquipeToolStripMenuItem";
-            VoirEquipeToolStripMenuItem.Size = new Size(208, 26);
+            VoirEquipeToolStripMenuItem.Size = new Size(253, 26);
             VoirEquipeToolStripMenuItem.Text = "Voir les équipes";
             VoirEquipeToolStripMenuItem.Click += VoirLesÉquipesToolStripMenuItem_Click;
             // 
@@ -101,7 +102,7 @@
             modifierToolStripMenuItem.ForeColor = Color.White;
             modifierToolStripMenuItem.Image = (Image)resources.GetObject("modifierToolStripMenuItem.Image");
             modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            modifierToolStripMenuItem.Size = new Size(208, 26);
+            modifierToolStripMenuItem.Size = new Size(253, 26);
             modifierToolStripMenuItem.Text = "Modifier l'Hackathon";
             modifierToolStripMenuItem.Click += modifierToolStripMenuItem_Click;
             // 
@@ -110,10 +111,10 @@
             labelListe.AutoSize = true;
             labelListe.BackColor = Color.Transparent;
             labelListe.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelListe.Location = new Point(16, 9);
-            labelListe.Margin = new Padding(4, 0, 4, 0);
+            labelListe.Location = new Point(18, 12);
+            labelListe.Margin = new Padding(5, 0, 5, 0);
             labelListe.Name = "labelListe";
-            labelListe.Size = new Size(208, 24);
+            labelListe.Size = new Size(261, 29);
             labelListe.TabIndex = 2;
             labelListe.Text = "Liste des Hackathons";
             // 
@@ -123,10 +124,10 @@
             labelInfo.BackColor = Color.Transparent;
             labelInfo.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelInfo.ForeColor = SystemColors.ActiveCaptionText;
-            labelInfo.Location = new Point(10, 444);
-            labelInfo.Margin = new Padding(4, 0, 4, 0);
+            labelInfo.Location = new Point(11, 592);
+            labelInfo.Margin = new Padding(5, 0, 5, 0);
             labelInfo.Name = "labelInfo";
-            labelInfo.Size = new Size(492, 14);
+            labelInfo.Size = new Size(612, 17);
             labelInfo.TabIndex = 4;
             labelInfo.Text = "click droit sur l'hackathon sélectionné pour voir ses équipes";
             // 
@@ -135,12 +136,12 @@
             dgvEquipes.AllowUserToAddRows = false;
             dgvEquipes.AllowUserToDeleteRows = false;
             dgvEquipes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquipes.Location = new Point(728, 38);
-            dgvEquipes.Margin = new Padding(5);
+            dgvEquipes.Location = new Point(832, 51);
+            dgvEquipes.Margin = new Padding(6, 7, 6, 7);
             dgvEquipes.Name = "dgvEquipes";
             dgvEquipes.ReadOnly = true;
             dgvEquipes.RowHeadersWidth = 51;
-            dgvEquipes.Size = new Size(247, 358);
+            dgvEquipes.Size = new Size(282, 477);
             dgvEquipes.TabIndex = 5;
             dgvEquipes.Visible = false;
             // 
@@ -150,10 +151,9 @@
             buttonPrec.FlatStyle = FlatStyle.Popup;
             buttonPrec.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonPrec.ForeColor = Color.White;
-            buttonPrec.Location = new Point(350, 395);
-            buttonPrec.Margin = new Padding(3, 2, 3, 2);
+            buttonPrec.Location = new Point(400, 527);
             buttonPrec.Name = "buttonPrec";
-            buttonPrec.Size = new Size(110, 22);
+            buttonPrec.Size = new Size(126, 29);
             buttonPrec.TabIndex = 7;
             buttonPrec.Text = "Précédent";
             buttonPrec.UseVisualStyleBackColor = false;
@@ -165,10 +165,9 @@
             buttonSuiv.FlatStyle = FlatStyle.Popup;
             buttonSuiv.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonSuiv.ForeColor = Color.White;
-            buttonSuiv.Location = new Point(521, 395);
-            buttonSuiv.Margin = new Padding(3, 2, 3, 2);
+            buttonSuiv.Location = new Point(595, 527);
             buttonSuiv.Name = "buttonSuiv";
-            buttonSuiv.Size = new Size(110, 22);
+            buttonSuiv.Size = new Size(126, 29);
             buttonSuiv.TabIndex = 8;
             buttonSuiv.Text = "Suivant";
             buttonSuiv.UseVisualStyleBackColor = false;
@@ -177,19 +176,17 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(30, 35, 40);
-            panel1.Location = new Point(631, 395);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(721, 527);
             panel1.Name = "panel1";
-            panel1.Size = new Size(344, 22);
+            panel1.Size = new Size(393, 29);
             panel1.TabIndex = 11;
             // 
             // textBoxPage
             // 
             textBoxPage.Font = new Font("Britannic Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPage.Location = new Point(460, 395);
-            textBoxPage.Margin = new Padding(3, 2, 3, 2);
+            textBoxPage.Location = new Point(526, 527);
             textBoxPage.Name = "textBoxPage";
-            textBoxPage.Size = new Size(62, 25);
+            textBoxPage.Size = new Size(70, 30);
             textBoxPage.TabIndex = 13;
             textBoxPage.Text = "1";
             textBoxPage.TextAlign = HorizontalAlignment.Center;
@@ -202,10 +199,10 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(10, 426);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(11, 568);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(478, 14);
+            label1.Size = new Size(596, 17);
             label1.TabIndex = 14;
             label1.Text = "double click gauche sur l'hackathon afin d'archivé celui-ci";
             // 
@@ -213,7 +210,8 @@
             // 
             pictureBoxFermer.BackColor = Color.Transparent;
             pictureBoxFermer.Image = Properties.Resources.icons8_multiply_32;
-            pictureBoxFermer.Location = new Point(981, 0);
+            pictureBoxFermer.Location = new Point(1121, 0);
+            pictureBoxFermer.Margin = new Padding(3, 4, 3, 4);
             pictureBoxFermer.Name = "pictureBoxFermer";
             pictureBoxFermer.Size = new Size(32, 32);
             pictureBoxFermer.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -224,19 +222,29 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(30, 35, 40);
-            panel2.Location = new Point(10, 395);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(11, 527);
             panel2.Name = "panel2";
-            panel2.Size = new Size(340, 22);
+            panel2.Size = new Size(389, 29);
             panel2.TabIndex = 15;
+            // 
+            // visualiserLAfficheToolStripMenuItem
+            // 
+            visualiserLAfficheToolStripMenuItem.BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé1;
+            visualiserLAfficheToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
+            visualiserLAfficheToolStripMenuItem.ForeColor = Color.White;
+            visualiserLAfficheToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
+            visualiserLAfficheToolStripMenuItem.Name = "visualiserLAfficheToolStripMenuItem";
+            visualiserLAfficheToolStripMenuItem.Size = new Size(253, 26);
+            visualiserLAfficheToolStripMenuItem.Text = "Visualiser l'Affiche";
+            visualiserLAfficheToolStripMenuItem.Click += visualiserLAfficheToolStripMenuItem_Click;
             // 
             // FormHackathon
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkOliveGreen;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(1013, 464);
+            ClientSize = new Size(1158, 619);
             Controls.Add(panel2);
             Controls.Add(label1);
             Controls.Add(textBoxPage);
@@ -249,7 +257,7 @@
             Controls.Add(labelListe);
             Controls.Add(dgvHackathon);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "FormHackathon";
             Text = "Gestion des Hackathons";
             Load += Form1_Load;
@@ -281,6 +289,7 @@
         private Label label1;
         private PictureBox pictureBoxFermer;
         private Panel panel2;
+        private ToolStripMenuItem visualiserLAfficheToolStripMenuItem;
     }
 }
 

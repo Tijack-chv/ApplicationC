@@ -143,7 +143,7 @@ namespace ApplicationC.Model
         /// <param name="dateFinInscription"></param>
         /// <param name="idOrganisateur"></param>
         /// <returns></returns>
-        public static bool AjoutHackathon(string lieu, string ville, string thematique, string objectifs, string conditions, string affiche, DateTime dateD, DateTime dateF, int nbPlaceMaxEquipe, DateTime dateFinInscription, int idOrganisateur)
+        public static bool AjoutHackathon(string lieu, string ville, string thematique, string objectifs, string conditions, byte[] affiche, DateTime dateD, DateTime dateF, int nbPlaceMaxEquipe, DateTime dateFinInscription, int idOrganisateur)
         {
             Hackathon unHackathon;
             bool vretour = true;
@@ -214,7 +214,7 @@ namespace ApplicationC.Model
         /// <param name="dateFinInscription"></param>
         /// <param name="idOrganisateur"></param>
         /// <returns></returns>
-        public static bool ModificationHackathon(int idH, string lieu, string ville, string thematique, string objectifs, string conditions, string affiche, DateTime dateD, DateTime dateF, int nbPlaceMaxEquipe, DateTime dateFinInscription, int idOrganisateur)
+        public static bool ModificationHackathon(int idH, string lieu, string ville, string thematique, string objectifs, string conditions, byte[] affiche, DateTime dateD, DateTime dateF, int nbPlaceMaxEquipe, DateTime dateFinInscription, int idOrganisateur)
         {
             Hackathon unHackathon;
             bool vretour = true;
@@ -241,7 +241,7 @@ namespace ApplicationC.Model
             catch (Exception ex)
             {
                 vretour = false;
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.InnerException?.Message ?? ex.Message);
             }
             return vretour;
         }

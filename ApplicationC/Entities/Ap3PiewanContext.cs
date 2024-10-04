@@ -95,7 +95,7 @@ public partial class Ap3PiewanContext : DbContext
 
             entity.Property(e => e.Idhackathon).HasColumnName("idhackathon");
             entity.Property(e => e.Affiche)
-                .HasMaxLength(255)
+                .HasColumnType("mediumblob")
                 .HasColumnName("affiche");
             entity.Property(e => e.Conditions)
                 .HasMaxLength(255)
@@ -145,6 +145,7 @@ public partial class Ap3PiewanContext : DbContext
 
             entity.Property(e => e.Idhackathon).HasColumnName("idhackathon");
             entity.Property(e => e.Idequipe).HasColumnName("idequipe");
+            entity.Property(e => e.Datedesinscription).HasColumnName("datedesinscription");
             entity.Property(e => e.Dateinscription).HasColumnName("dateinscription");
 
             entity.HasOne(d => d.IdequipeNavigation).WithMany(p => p.Inscrires)

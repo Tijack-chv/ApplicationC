@@ -258,12 +258,18 @@ namespace ApplicationC
             if (hack.Dateheuredebuth <= DateTime.Now)
             {
                 MessageBox.Show("Cette Hackathon étant en cours ou terminé, il ne peut donc pas être modifié !");
-            } else
+            }
+            else
             {
                 SousFormulaire sousF = new((System.Windows.Forms.Application.OpenForms["FormMenuHackathon"] as FormMenuHackathon).panelSousAffichage);
                 sousF.openChildForm(new FormGestionHackathon(EtatGestion.Update, idH));
             }
         }
         #endregion
+
+        private void visualiserLAfficheToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

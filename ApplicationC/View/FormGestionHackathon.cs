@@ -116,7 +116,7 @@ namespace ApplicationC
             dtFinInscription.Value = DateTime.Now;
             dtDebut.Value = DateTime.Now;
             dtFin.Value = DateTime.Now;
-            tbAffiche.Clear();
+            pictureBoxAffiche.Image = null;
             tbLieu.Clear();
             tbVille.Clear();
             tbObjectifs.Clear();
@@ -142,7 +142,15 @@ namespace ApplicationC
                 thematique = tbThematique.Text;
                 objectifs = tbObjectifs.Text;
                 conditions = tbConditions.Text;
-                affiche = tbAffiche.Text;
+
+                byte[] imgAffiche = null;
+                if (pictureBoxAffiche.Image != null)
+                {
+                    MemoryStream ms = new();
+                    pictureBoxAffiche.Image.Save(ms, pictureBoxAffiche.Image.RawFormat);
+                    imgAffiche = ms.ToArray();
+                }
+
                 dateDeb = dtDebut.Value;
                 dateFin = dtFin.Value;
                 dateFinInscription = dtFinInscription.Value;
@@ -154,7 +162,7 @@ namespace ApplicationC
 
                 if (etat == EtatGestion.Create) // cas de l'ajout
                 {
-                    if (ModeleHackathon.AjoutHackathon(lieu, ville, thematique, objectifs, conditions, affiche, dateDeb, dateFin, nbPlaceMaxEquipe, dateFinInscription, idOrga))
+                    if (ModeleHackathon.AjoutHackathon(lieu, ville, thematique, objectifs, conditions, imgAffiche, dateDeb, dateFin, nbPlaceMaxEquipe, dateFinInscription, idOrga))
                     {
                         MessageBox.Show("Hackathon ajouté " + ModeleHackathon.RetourneDernierHackathonSaisi());
                         Annuler();
@@ -163,7 +171,7 @@ namespace ApplicationC
                 if (etat == EtatGestion.Update) // cas de la mise à jour
                 {
                     Hackathon H = (Hackathon)BSListeH.Current;
-                    if (ModeleHackathon.ModificationHackathon(H.Idhackathon, lieu, ville, thematique, objectifs, conditions, affiche, dateDeb, dateFin, nbPlaceMaxEquipe, dateFinInscription, idOrga))
+                    if (ModeleHackathon.ModificationHackathon(H.Idhackathon, lieu, ville, thematique, objectifs, conditions, imgAffiche, dateDeb, dateFin, nbPlaceMaxEquipe, dateFinInscription, idOrga))
                     {
                         MessageBox.Show("Hackathon modifié");
                         gbInfo.Visible = false;
@@ -199,8 +207,21 @@ namespace ApplicationC
                 tbVille.Text = H.Ville;
                 tbObjectifs.Text = H.Objectifs;
                 tbConditions.Text = H.Conditions;
-                tbAffiche.Text = H.Affiche;
 
+                if (H.Affiche != null)
+                {
+                    using (MemoryStream ms = new MemoryStream(H.Affiche))
+                    {
+                        // Convertir le MemoryStream en Image
+                        Image image = Image.FromStream(ms);
+
+                        // Assigner l'image au PictureBox
+                        pictureBoxAffiche.Image = image;
+                    }
+                } else
+                {
+                    pictureBoxAffiche.Image=null;
+                }
 
                 dtFinInscription.MinDate = H.Datefininscription;
                 dtFinInscription.Value = H.Datefininscription;
@@ -242,6 +263,17 @@ namespace ApplicationC
         private void CbListe_SelectedIndexChanged(object sender, EventArgs e)
         {
             BSListeH_CurrentChanged(sender, e);
+        }
+
+        private void labelParcourirAffiche_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new();
+            openFileDialog.Filter = "Choose Image(*.JPG;*.PNG;*.GIF)|*.jpg;*.png;*.gif";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxAffiche.Image = Image.FromFile(openFileDialog.FileName);
+            }
         }
     }
 }
