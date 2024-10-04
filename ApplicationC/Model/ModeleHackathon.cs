@@ -32,7 +32,18 @@ namespace ApplicationC.Model
         /// <returns></returns>
         public static List<Hackathon> listeHackathonsParPage(int position)
         {
-            return Modele.MonModel.Hackathons.Where(c => c.Idhackathon >= (position - 1) * 20 && c.Estarchive == false).Include(a => a.IdorganisateurNavigation).OrderBy(b => b.Idhackathon).Take(20).ToList();
+            int elementsParPage = 20;
+
+            // Filtrer les hackathons non archivés
+            var query = Modele.MonModel.Hackathons
+                .Where(c => c.Estarchive == false)
+                .Include(a => a.IdorganisateurNavigation)
+                .OrderBy(b => b.Idhackathon);
+
+            // Appliquer la pagination
+            return query.Skip((position - 1) * elementsParPage)
+                        .Take(elementsParPage)
+                        .ToList();
         }
         #endregion
 
