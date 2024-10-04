@@ -34,6 +34,7 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             VoirEquipeToolStripMenuItem = new ToolStripMenuItem();
             modifierToolStripMenuItem = new ToolStripMenuItem();
+            visualiserLAfficheToolStripMenuItem = new ToolStripMenuItem();
             labelListe = new Label();
             labelInfo = new Label();
             BSHackathon = new BindingSource(components);
@@ -46,13 +47,16 @@
             label1 = new Label();
             pictureBoxFermer = new PictureBox();
             panel2 = new Panel();
-            visualiserLAfficheToolStripMenuItem = new ToolStripMenuItem();
+            pictureBoxAffiche = new PictureBox();
+            panelPictureBoxAffiche = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvHackathon).BeginInit();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BSHackathon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BSEquipe).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEquipes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFermer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAffiche).BeginInit();
+            panelPictureBoxAffiche.SuspendLayout();
             SuspendLayout();
             // 
             // dgvHackathon
@@ -82,7 +86,7 @@
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { VoirEquipeToolStripMenuItem, modifierToolStripMenuItem, visualiserLAfficheToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(254, 110);
+            contextMenuStrip1.Size = new Size(254, 82);
             // 
             // VoirEquipeToolStripMenuItem
             // 
@@ -105,6 +109,17 @@
             modifierToolStripMenuItem.Size = new Size(253, 26);
             modifierToolStripMenuItem.Text = "Modifier l'Hackathon";
             modifierToolStripMenuItem.Click += modifierToolStripMenuItem_Click;
+            // 
+            // visualiserLAfficheToolStripMenuItem
+            // 
+            visualiserLAfficheToolStripMenuItem.BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé1;
+            visualiserLAfficheToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
+            visualiserLAfficheToolStripMenuItem.ForeColor = Color.White;
+            visualiserLAfficheToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
+            visualiserLAfficheToolStripMenuItem.Name = "visualiserLAfficheToolStripMenuItem";
+            visualiserLAfficheToolStripMenuItem.Size = new Size(253, 26);
+            visualiserLAfficheToolStripMenuItem.Text = "Visualiser l'Affiche";
+            visualiserLAfficheToolStripMenuItem.Click += visualiserLAfficheToolStripMenuItem_Click;
             // 
             // labelListe
             // 
@@ -227,16 +242,25 @@
             panel2.Size = new Size(389, 29);
             panel2.TabIndex = 15;
             // 
-            // visualiserLAfficheToolStripMenuItem
+            // pictureBoxAffiche
             // 
-            visualiserLAfficheToolStripMenuItem.BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé1;
-            visualiserLAfficheToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
-            visualiserLAfficheToolStripMenuItem.ForeColor = Color.White;
-            visualiserLAfficheToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
-            visualiserLAfficheToolStripMenuItem.Name = "visualiserLAfficheToolStripMenuItem";
-            visualiserLAfficheToolStripMenuItem.Size = new Size(253, 26);
-            visualiserLAfficheToolStripMenuItem.Text = "Visualiser l'Affiche";
-            visualiserLAfficheToolStripMenuItem.Click += visualiserLAfficheToolStripMenuItem_Click;
+            pictureBoxAffiche.BackColor = Color.Ivory;
+            pictureBoxAffiche.Location = new Point(3, 3);
+            pictureBoxAffiche.Name = "pictureBoxAffiche";
+            pictureBoxAffiche.Size = new Size(291, 425);
+            pictureBoxAffiche.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxAffiche.TabIndex = 31;
+            pictureBoxAffiche.TabStop = false;
+            // 
+            // panelPictureBoxAffiche
+            // 
+            panelPictureBoxAffiche.BackColor = Color.Black;
+            panelPictureBoxAffiche.Controls.Add(pictureBoxAffiche);
+            panelPictureBoxAffiche.Location = new Point(785, 78);
+            panelPictureBoxAffiche.Name = "panelPictureBoxAffiche";
+            panelPictureBoxAffiche.Size = new Size(297, 431);
+            panelPictureBoxAffiche.TabIndex = 32;
+            panelPictureBoxAffiche.Visible = false;
             // 
             // FormHackathon
             // 
@@ -245,6 +269,7 @@
             BackColor = Color.DarkOliveGreen;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
             ClientSize = new Size(1158, 619);
+            Controls.Add(panelPictureBoxAffiche);
             Controls.Add(panel2);
             Controls.Add(label1);
             Controls.Add(textBoxPage);
@@ -257,7 +282,7 @@
             Controls.Add(labelListe);
             Controls.Add(dgvHackathon);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "FormHackathon";
             Text = "Gestion des Hackathons";
             Load += Form1_Load;
@@ -267,6 +292,8 @@
             ((System.ComponentModel.ISupportInitialize)BSEquipe).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvEquipes).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFermer).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAffiche).EndInit();
+            panelPictureBoxAffiche.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -290,6 +317,8 @@
         private PictureBox pictureBoxFermer;
         private Panel panel2;
         private ToolStripMenuItem visualiserLAfficheToolStripMenuItem;
+        private PictureBox pictureBoxAffiche;
+        private Panel panelPictureBoxAffiche;
     }
 }
 

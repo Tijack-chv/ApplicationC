@@ -68,7 +68,8 @@ namespace ApplicationC
                 x.Nbplaceeqmax,
                 x.Datefininscription,
                 x.IdorganisateurNavigation.Nom,
-                x.IdorganisateurNavigation.Prenom
+                x.IdorganisateurNavigation.Prenom,
+                x.Affiche,
             });
 
 
@@ -84,6 +85,7 @@ namespace ApplicationC
             dgvHackathon.Columns[8].HeaderText = "Date butoir inscription";
             dgvHackathon.Columns[9].HeaderText = "Nom Organisateur";
             dgvHackathon.Columns[10].HeaderText = "Prénom Organisateur";
+            dgvHackathon.Columns[11].Visible = false;
         }
         #endregion
 
@@ -129,16 +131,19 @@ namespace ApplicationC
         private void DgvHackathon_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvEquipes.Visible = false;
+            panelPictureBoxAffiche.Visible = false;
         }
 
         private void DgvHackathon_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             dgvEquipes.Visible = false;
+            panelPictureBoxAffiche.Visible = false;
         }
 
         private void DgvHackathon_Click(object sender, EventArgs e)
         {
             dgvEquipes.Visible = false;
+            panelPictureBoxAffiche.Visible = false;
         }
         #endregion
 
@@ -269,7 +274,25 @@ namespace ApplicationC
 
         private void visualiserLAfficheToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            System.Type type = BSHackathon.Current.GetType();
+            byte[] affiche = (byte[])type.GetProperty("Affiche").GetValue(BSHackathon.Current, null);
+            
+            if (affiche != null)
+            {
+                using (MemoryStream ms = new MemoryStream(affiche))
+                {
+                    // Convertir le MemoryStream en Image
+                    Image image = Image.FromStream(ms);
 
+                    // Assigner l'image au PictureBox
+                    pictureBoxAffiche.Image = image;
+                }
+
+                panelPictureBoxAffiche.Visible = true;
+            } else
+            {
+                MessageBox.Show("Il n'y a pas d'affiche pour cet événement !");
+            }
         }
     }
 }
