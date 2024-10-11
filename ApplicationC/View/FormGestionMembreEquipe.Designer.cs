@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelGestionMembre = new Panel();
             comboBoxModificationMembreEquipe = new ComboBox();
             groupBoxMembre = new GroupBox();
@@ -55,10 +56,12 @@
             buttonFermer = new Button();
             buttonAction = new Button();
             labelAjoutModifMembreEquipe = new Label();
+            bindingSourceMembreEquipe = new BindingSource(components);
             panelGestionMembre.SuspendLayout();
             groupBoxMembre.SuspendLayout();
             panelEquipe.SuspendLayout();
             panelMembre.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSourceMembreEquipe).BeginInit();
             SuspendLayout();
             // 
             // panelGestionMembre
@@ -79,6 +82,7 @@
             comboBoxModificationMembreEquipe.Name = "comboBoxModificationMembreEquipe";
             comboBoxModificationMembreEquipe.Size = new Size(375, 28);
             comboBoxModificationMembreEquipe.TabIndex = 27;
+            comboBoxModificationMembreEquipe.SelectedIndexChanged += comboBoxModificationMembreEquipe_SelectedIndexChanged;
             // 
             // groupBoxMembre
             // 
@@ -367,6 +371,10 @@
             labelAjoutModifMembreEquipe.TabIndex = 4;
             labelAjoutModifMembreEquipe.Text = "Ajout/Modification d'un Membre";
             // 
+            // bindingSourceMembreEquipe
+            // 
+            bindingSourceMembreEquipe.CurrentChanged += bindingSourceMembreEquipe_CurrentChanged;
+            // 
             // FormGestionMembreEquipe
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -385,6 +393,7 @@
             panelEquipe.PerformLayout();
             panelMembre.ResumeLayout(false);
             panelMembre.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSourceMembreEquipe).EndInit();
             ResumeLayout(false);
         }
 
@@ -417,5 +426,6 @@
         private Label label6;
         private DateTimePicker dateTimePickerDatenaiss;
         private Label labelErrorInfo;
+        private BindingSource bindingSourceMembreEquipe;
     }
 }

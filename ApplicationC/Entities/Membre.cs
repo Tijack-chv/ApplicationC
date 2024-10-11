@@ -17,7 +17,7 @@ public partial class Membre
 
     public string? Telephone { get; set; }
 
-    public DateOnly? Datenaissance { get; set; }
+    public DateTime Datenaissance { get; set; }
 
     public string? Lienportfolio { get; set; }
 

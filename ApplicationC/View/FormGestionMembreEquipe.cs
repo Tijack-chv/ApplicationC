@@ -1,4 +1,5 @@
 ﻿using ApplicationC.Controller;
+using ApplicationC.Entities;
 using ApplicationC.Model;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,17 @@ namespace ApplicationC.View
                 {
                     labelAjoutModifMembreEquipe.Text = "Modification d'une équipe";
                     comboBoxModificationMembreEquipe.Visible = true;
+
+                    comboBoxModificationMembreEquipe.ValueMember = "Idmembre";
+                    comboBoxModificationMembreEquipe.DisplayMember = "nomComplet";
+
+                    bindingSourceMembreEquipe.DataSource = (ModeleMembreEquipe.listeMembreSimple()).Select(x => new
+                    {
+                        x.Idmembre,
+                        nomComplet = x.Nom + " " + x.Prenom,
+                    });
+                    comboBoxModificationMembreEquipe.DataSource = bindingSourceMembreEquipe;
+                    comboBoxModificationMembreEquipe.SelectedIndex = -1;
                 }
             }
             else
@@ -117,7 +129,7 @@ namespace ApplicationC.View
                             labelPrenom.ForeColor = Color.Black;
                             textBoxPrenom.ForeColor = Color.Black;
                         }
-                    } 
+                    }
                     if (test)
                     {
                         labelPrenom.ForeColor = Color.Black;
@@ -159,7 +171,8 @@ namespace ApplicationC.View
                                 labelEmail.ForeColor = Color.Red;
                                 textBoxEmail.ForeColor = Color.Red;
                                 test = false;
-                            } else
+                            }
+                            else
                             {
                                 labelEmail.ForeColor = Color.Black;
                                 textBoxEmail.ForeColor = Color.Black;
@@ -172,7 +185,8 @@ namespace ApplicationC.View
                                 labelTelephone.ForeColor = Color.Red;
                                 textBoxTelephone.ForeColor = Color.Red;
                                 test = false;
-                            } else
+                            }
+                            else
                             {
                                 labelTelephone.ForeColor = Color.Black;
                                 textBoxTelephone.ForeColor = Color.Black;
@@ -182,11 +196,13 @@ namespace ApplicationC.View
                         if (test)
                         {
                             labelErrorInfo.Visible = false;
-                        } else
+                        }
+                        else
                         {
                             labelErrorInfo.Visible = true;
                         }
-                    } else
+                    }
+                    else
                     {
                         labelErrorInfo.Visible = true;
                     }
@@ -240,6 +256,28 @@ namespace ApplicationC.View
             {
                 e.Handled = true;
             }
+        }
+
+        private void bindingSourceMembreEquipe_CurrentChanged(object sender, EventArgs e)
+        {
+            
+            if (comboBoxModificationMembreEquipe.SelectedIndex != -1)
+            {
+                Membre membre = (Membre)bindingSourceMembreEquipe.Current;
+
+                textboxNom.Text = membre.Nom;
+                textBoxPrenom.Text = membre.Prenom;
+                textBoxTelephone.Text = membre.Telephone;
+                textBoxEmail.Text = membre.Email;
+                textBoxLienPortfolio.Text = membre.Lienportfolio;
+                dateTimePickerDatenaiss.Value = membre.Datenaissance;                
+            }
+            
+        }
+
+        private void comboBoxModificationMembreEquipe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bindingSourceMembreEquipe_CurrentChanged(sender, e);
         }
 
 

@@ -22,6 +22,11 @@ namespace ApplicationC.Model
             return Modele.MonModel.Membres.Include(a => a.IdequipeNavigation).OrderBy(b => b.Idmembre).ToList();
         }
 
+        public static List<Membre> listeMembreSimple()
+        {
+            return Modele.MonModel.Membres.ToList();
+        }
+
         public static List<Equipe> listeEquipe()
         {
             return Modele.MonModel.Equipes.OrderBy(b => b.Idequipe).ToList();

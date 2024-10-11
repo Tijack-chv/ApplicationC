@@ -166,7 +166,9 @@ public partial class Ap3PiewanContext : DbContext
             entity.HasIndex(e => e.Idequipe, "i_fk_membre_equipe1");
 
             entity.Property(e => e.Idmembre).HasColumnName("idmembre");
-            entity.Property(e => e.Datenaissance).HasColumnName("datenaissance");
+            entity.Property(e => e.Datenaissance)
+                .HasColumnType("datetime")
+                .HasColumnName("datenaissance");
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .HasColumnName("email");
