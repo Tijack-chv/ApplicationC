@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApplicationC.Controller;
+using SousFormulaire;
 
 namespace ApplicationC
 {
     public partial class FormMenuHackathon : Form
     {
 
-        SousFormulaire sousF;
+        SFormulaire sousF;
         public FormMenuHackathon()
         {
             InitializeComponent();

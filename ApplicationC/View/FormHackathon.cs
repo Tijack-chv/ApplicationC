@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ApplicationC.Controller;
 using ApplicationC.Entities;
 using ApplicationC.Model;
+using SousFormulaire;
 
 namespace ApplicationC
 {
@@ -266,7 +267,7 @@ namespace ApplicationC
             }
             else
             {
-                SousFormulaire sousF = new((System.Windows.Forms.Application.OpenForms["FormMenuHackathon"] as FormMenuHackathon).panelSousAffichage);
+                SFormulaire sousF = new((System.Windows.Forms.Application.OpenForms["FormMenuHackathon"] as FormMenuHackathon).panelSousAffichage);
                 sousF.openChildForm(new FormGestionHackathon(EtatGestion.Update, idH));
             }
         }

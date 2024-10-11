@@ -10,12 +10,13 @@ using System.Windows.Forms;
 using ApplicationC.Controller;
 using ApplicationC.Model;
 using ApplicationC.View;
+using SousFormulaire;
 
 namespace ApplicationC
 {
     public partial class FormMenuMembreEquipe : Form
     {
-        SousFormulaire sousF;
+        SFormulaire sousF;
 
         public FormMenuMembreEquipe()
         {

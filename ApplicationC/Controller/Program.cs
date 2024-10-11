@@ -1,5 +1,4 @@
 using ApplicationC.Model;
-
 namespace ApplicationC.Controller
 {
     internal static class Program

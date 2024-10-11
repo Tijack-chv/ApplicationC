@@ -5,11 +5,13 @@ using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace ApplicationC.Controller
 {
     public static class Controleur
     {
+
 
         /// <summary>
         /// méthode qui retourne vrai ou faux selon la validité du format d'un email passé en paramètres
@@ -53,6 +55,31 @@ namespace ApplicationC.Controller
             {
                 Console.WriteLine("Exception caught in CreateEmail(): {0}", ex.ToString());
             }
+        }
+
+
+
+        public static async Task<bool> IsUrlAccessible(string url)
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = await httpClient.GetAsync(url);
+                    return response.IsSuccessStatusCode; // 2xx status code
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        public static bool IsValidUrl(string url)
+        {
+            // Expression régulière pour valider une URL
+            string pattern = @"^(http|https)://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(/[^ ]*)?$";
+            return Regex.IsMatch(url, pattern);
         }
     }
 }

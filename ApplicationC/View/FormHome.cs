@@ -1,5 +1,6 @@
 ﻿using ApplicationC.Controller;
 using ApplicationC.Entities;
+using SousFormulaire;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace ApplicationC
     {
         Administrateur administrateur;
         bool sideBarExpend;
-        SousFormulaire sousF;
+        SFormulaire sousF;
 
         public FormHome()
         {
