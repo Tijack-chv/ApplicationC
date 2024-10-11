@@ -18,6 +18,8 @@ namespace ApplicationC.View
     {
         private string etatGest;
         private string etatTypeGest;
+        private int idModifChoix;
+
         public FormGestionMembreEquipe(EtatGestion etatGestion, EtatTypeGestion etatTypeGestion)
         {
             InitializeComponent();
@@ -54,16 +56,18 @@ namespace ApplicationC.View
                     labelAjoutModifMembreEquipe.Text = "Modification d'une équipe";
                     comboBoxModificationMembreEquipe.Visible = true;
 
-                    comboBoxModificationMembreEquipe.ValueMember = "Idmembre";
-                    comboBoxModificationMembreEquipe.DisplayMember = "nomComplet";
+                    comboBoxModificationMembreEquipe.ValueMember = "idmembre";
+                    comboBoxModificationMembreEquipe.DisplayMember = "nom";
 
-                    bindingSourceMembreEquipe.DataSource = (ModeleMembreEquipe.listeMembreSimple()).Select(x => new
-                    {
-                        x.Idmembre,
-                        nomComplet = x.Nom + " " + x.Prenom,
-                    });
+                    bindingSourceMembreEquipe.DataSource = (ModeleMembreEquipe.listeMembreSimple());
                     comboBoxModificationMembreEquipe.DataSource = bindingSourceMembreEquipe;
                     comboBoxModificationMembreEquipe.SelectedIndex = -1;
+
+                    if (idModifChoix != 0)
+                    {
+                        comboBoxModificationMembreEquipe.SelectedValue = idModifChoix;
+                        groupBoxMembre.Visible = true;
+                    }
                 }
             }
             else
@@ -270,9 +274,10 @@ namespace ApplicationC.View
                 textBoxTelephone.Text = membre.Telephone;
                 textBoxEmail.Text = membre.Email;
                 textBoxLienPortfolio.Text = membre.Lienportfolio;
-                dateTimePickerDatenaiss.Value = membre.Datenaissance;                
+                dateTimePickerDatenaiss.Value = membre.Datenaissance;
+                
+                groupBoxMembre.Visible = true;
             }
-            
         }
 
         private void comboBoxModificationMembreEquipe_SelectedIndexChanged(object sender, EventArgs e)
