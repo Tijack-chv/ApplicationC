@@ -73,5 +73,67 @@ namespace ApplicationC.Model
             return Modele.MonModel.Membres.Include(p => p.IdequipeNavigation).Where(x => x.Idequipe == idEquipe).ToList();
         }
         #endregion
+
+        public static Membre RecupererMembre(int idM)
+        {
+            Membre membre = new();
+            try
+            {
+                membre = Modele.MonModel.Membres.First(x => x.Idmembre == idM);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return membre;  
+        }
+        public static bool ModificationMembre(int idmembre, string nom, string prenom, string email, string telephone, DateTime datenaiss, string lienportfolio)
+        {
+            Membre unMembre;
+            bool modif = true;
+            try
+            {
+                unMembre = RecupererMembre(idmembre);
+
+                unMembre.Nom = nom;
+                unMembre.Email = email;
+                unMembre.Prenom = prenom;
+                unMembre.Datenaissance = datenaiss;
+                unMembre.Lienportfolio = lienportfolio;
+                unMembre.Telephone = telephone;
+
+                Modele.MonModel.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                modif = false;
+                MessageBox.Show(ex.Message);
+            }
+            return modif;
+        }
+
+        public static bool AjoutMembre(string nom, string prenom, string email, string telephone, DateTime datenaiss, string lienportfolio)
+        {
+            Membre unMembre = new();
+            bool modif = true;
+            try
+            {
+                unMembre.Nom = nom;
+                unMembre.Email = email;
+                unMembre.Prenom = prenom;
+                unMembre.Datenaissance = datenaiss;
+                unMembre.Lienportfolio = lienportfolio;
+                unMembre.Telephone = telephone;
+
+                Modele.MonModel.Membres.Add(unMembre);
+                Modele.MonModel.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                modif = false;
+                MessageBox.Show(ex.Message);
+            }
+            return modif;
+        }
     }
 }

@@ -26,11 +26,11 @@ namespace ApplicationC.View
         public FormGestionMembreEquipe(EtatGestion etatGestion, EtatTypeGestion etatTypeGestion)
         {
             InitializeComponent();
+            idModifChoix = -1;
             affichage(etatGestion, etatTypeGestion);
             panelGestionMembre.BackColor = Color.FromArgb(140, 127, 127, 127);
             etatGest = etatGestion.ToString();
             etatTypeGest = etatTypeGestion.ToString();
-            groupBoxMembre.Visible = false;
         }
 
         public FormGestionMembreEquipe(EtatGestion etatGestion, EtatTypeGestion etatTypeGestion, int id) {
@@ -44,9 +44,6 @@ namespace ApplicationC.View
 
         public void affichage(EtatGestion etatGestion, EtatTypeGestion etatTypeGestion)
         {
-            // 155; 65   location panel Modif
-            // 754; 330  size panel modif
-
             if (etatTypeGestion == EtatTypeGestion.Membre)
             {
                 groupBoxMembre.Text = "Gestion du Membre";
@@ -63,6 +60,7 @@ namespace ApplicationC.View
                 {
                     labelAjoutModifMembreEquipe.Text = "Ajout d'un Membre";
                     comboBoxModificationMembreEquipe.Visible = false;
+                    groupBoxMembre.Visible = true;
                 }
                 else
                 {
@@ -76,10 +74,13 @@ namespace ApplicationC.View
                     comboBoxModificationMembreEquipe.DataSource = bindingSourceMembreEquipe;
                     comboBoxModificationMembreEquipe.SelectedIndex = -1;
 
-                    if (idModifChoix != 0)
+                    if (idModifChoix != -1)
                     {
                         comboBoxModificationMembreEquipe.SelectedValue = idModifChoix;
                         groupBoxMembre.Visible = true;
+                    } else
+                    {
+                        groupBoxMembre.Visible = false;
                     }
                 }
             }
@@ -118,129 +119,139 @@ namespace ApplicationC.View
         {
             bool test = true;
 
-            if (etatTypeGest == "Membre")
+            if (textBoxPrenom.Text == "")
             {
-                if (etatGest == "Create")
+                test = false;
+
+                labelPrenom.ForeColor = Color.Red;
+                textBoxPrenom.ForeColor = Color.Red;
+
+                if (textboxNom.Text != "")
                 {
-                    // Crea Membre
-                    if (textBoxPrenom.Text == "")
+                    labelNom.ForeColor = Color.Black;
+                    textboxNom.ForeColor = Color.Black;
+                }
+            }
+            if (textboxNom.Text == "")
+            {
+                test = false;
+
+                labelNom.ForeColor = Color.Red;
+                textboxNom.ForeColor = Color.Red;
+
+                if (textBoxPrenom.Text != "")
+                {
+                    labelPrenom.ForeColor = Color.Black;
+                    textBoxPrenom.ForeColor = Color.Black;
+                }
+            }
+            if (test)
+            {
+                labelPrenom.ForeColor = Color.Black;
+                textBoxPrenom.ForeColor = Color.Black;
+                labelNom.ForeColor = Color.Black;
+                textboxNom.ForeColor = Color.Black;
+
+                if (textBoxLienPortfolio.Text != "")
+                {
+                    string url = textBoxLienPortfolio.Text.Trim();
+                    string verif = "";
+                    if (Controleur.IsValidUrl(url))
                     {
-                        test = false;
-
-                        labelPrenom.ForeColor = Color.Red;
-                        textBoxPrenom.ForeColor = Color.Red;
-
-                        if (textboxNom.Text != "")
+                        if (await Controleur.IsUrlAccessible(url))
                         {
-                            labelNom.ForeColor = Color.Black;
-                            textboxNom.ForeColor = Color.Black;
-                        }
-                    }
-                    if (textboxNom.Text == "")
-                    {
-                        test = false;
-
-                        labelNom.ForeColor = Color.Red;
-                        textboxNom.ForeColor = Color.Red;
-
-                        if (textBoxPrenom.Text != "")
-                        {
-                            labelPrenom.ForeColor = Color.Black;
-                            textBoxPrenom.ForeColor = Color.Black;
-                        }
-                    }
-                    if (test)
-                    {
-                        labelPrenom.ForeColor = Color.Black;
-                        textBoxPrenom.ForeColor = Color.Black;
-                        labelNom.ForeColor = Color.Black;
-                        textboxNom.ForeColor = Color.Black;
-
-                        if (textBoxLienPortfolio.Text != "")
-                        {
-                            string url = textBoxLienPortfolio.Text.Trim();
-                            string verif = "";
-                            if (Controleur.IsValidUrl(url))
-                            {
-                                if (await Controleur.IsUrlAccessible(url))
-                                {
-                                    verif = "accessible";
-                                }
-                                else
-                                {
-                                    verif = "pas accessible";
-                                }
-
-                                labelLienPortfolio.ForeColor = Color.Black;
-                                textBoxLienPortfolio.ForeColor = Color.Black;
-
-                                MessageBox.Show(verif);
-                            }
-                            else
-                            {
-                                labelLienPortfolio.ForeColor = Color.Red;
-                                textBoxLienPortfolio.ForeColor = Color.Red;
-                                test = false;
-                            }
-                        }
-                        if (textBoxEmail.Text != "")
-                        {
-                            if (!Controleur.ValidMail(textBoxEmail.Text))
-                            {
-                                labelEmail.ForeColor = Color.Red;
-                                textBoxEmail.ForeColor = Color.Red;
-                                test = false;
-                            }
-                            else
-                            {
-                                labelEmail.ForeColor = Color.Black;
-                                textBoxEmail.ForeColor = Color.Black;
-                            }
-                        }
-                        if (textBoxTelephone.Text != "")
-                        {
-                            if (textBoxTelephone.Text.Count() != 10)
-                            {
-                                labelTelephone.ForeColor = Color.Red;
-                                textBoxTelephone.ForeColor = Color.Red;
-                                test = false;
-                            }
-                            else
-                            {
-                                labelTelephone.ForeColor = Color.Black;
-                                textBoxTelephone.ForeColor = Color.Black;
-                            }
-                        }
-
-                        if (test)
-                        {
-                            labelErrorInfo.Visible = false;
+                            verif = "Le lien du portfolio est accessible !";
                         }
                         else
                         {
-                            labelErrorInfo.Visible = true;
+                            verif = "La modification peut se faire mais le le lien du portfolio n'est pas accessible !";
+                        }
+
+                        labelLienPortfolio.ForeColor = Color.Black;
+                        textBoxLienPortfolio.ForeColor = Color.Black;
+
+                        MessageBox.Show(verif);
+                    }
+                    else
+                    {
+                        labelLienPortfolio.ForeColor = Color.Red;
+                        textBoxLienPortfolio.ForeColor = Color.Red;
+                        test = false;
+                    }
+                }
+                if (textBoxEmail.Text != "")
+                {
+                    if (!Controleur.ValidMail(textBoxEmail.Text))
+                    {
+                        labelEmail.ForeColor = Color.Red;
+                        textBoxEmail.ForeColor = Color.Red;
+                        test = false;
+                    }
+                    else
+                    {
+                        labelEmail.ForeColor = Color.Black;
+                        textBoxEmail.ForeColor = Color.Black;
+                    }
+                }
+                if (textBoxTelephone.Text != "")
+                {
+                    if (textBoxTelephone.Text.Count() != 10)
+                    {
+                        labelTelephone.ForeColor = Color.Red;
+                        textBoxTelephone.ForeColor = Color.Red;
+                        test = false;
+                    }
+                    else
+                    {
+                        labelTelephone.ForeColor = Color.Black;
+                        textBoxTelephone.ForeColor = Color.Black;
+                    }
+                }
+
+                if (test)
+                {
+                    labelErrorInfo.Visible = false;
+                    if (etatTypeGest == "Membre")
+                    {
+                        if (etatGest == "Create")
+                        {
+                            if (ModeleMembreEquipe.AjoutMembre(textboxNom.Text, textBoxPrenom.Text, textBoxEmail.Text, textBoxTelephone.Text, dateTimePickerDatenaiss.Value, textBoxLienPortfolio.Text))
+                            {
+                                MessageBox.Show("Membre ajouté");
+                                annuler(EtatTypeGestion.Membre);
+                            }
+                        }
+                        else
+                        {
+                            Membre M = (Membre)bindingSourceMembreEquipe.Current;
+                            if (ModeleMembreEquipe.ModificationMembre(M.Idmembre,textboxNom.Text,textBoxPrenom.Text,textBoxEmail.Text,textBoxTelephone.Text,dateTimePickerDatenaiss.Value,textBoxLienPortfolio.Text))
+                            {
+                                MessageBox.Show("Membre modifié");
+                                groupBoxMembre.Visible = false;
+                                comboBoxModificationMembreEquipe.SelectedIndex = -1;
+                            }
                         }
                     }
                     else
                     {
-                        labelErrorInfo.Visible = true;
+                        if (etatGest == "Create")
+                        {
+                            // Crea Equipe
+                        }
+                        else
+                        {
+                            // Modif Equipe
+                        }
                     }
                 }
                 else
                 {
-                    // Modif Membre
+                    labelErrorInfo.Visible = true;
                 }
             }
             else
             {
-                if (etatGest == "Create")
-                {
-                    // Crea Equipe
-                }
-                else
-                {
-                    // Modif Equipe
-                }
+                labelErrorInfo.Visible = true;
             }
         }
 
@@ -278,19 +289,21 @@ namespace ApplicationC.View
         #region bindingSourceMembreEquipe_CurrentChanged
         private void bindingSourceMembreEquipe_CurrentChanged(object sender, EventArgs e)
         {
-            
-            if (comboBoxModificationMembreEquipe.SelectedIndex != -1)
+            if (etatTypeGest == (EtatTypeGestion.Membre).ToString())
             {
-                Membre membre = (Membre)bindingSourceMembreEquipe.Current;
+                if (comboBoxModificationMembreEquipe.SelectedIndex != -1)
+                {
+                    Membre membre = (Membre)bindingSourceMembreEquipe.Current;
 
-                textboxNom.Text = membre.Nom;
-                textBoxPrenom.Text = membre.Prenom;
-                textBoxTelephone.Text = membre.Telephone;
-                textBoxEmail.Text = membre.Email;
-                textBoxLienPortfolio.Text = membre.Lienportfolio;
-                dateTimePickerDatenaiss.Value = membre.Datenaissance;
-                
-                groupBoxMembre.Visible = true;
+                    textboxNom.Text = membre.Nom;
+                    textBoxPrenom.Text = membre.Prenom;
+                    textBoxTelephone.Text = membre.Telephone;
+                    textBoxEmail.Text = membre.Email;
+                    textBoxLienPortfolio.Text = membre.Lienportfolio;
+                    dateTimePickerDatenaiss.Value = membre.Datenaissance;
+
+                    groupBoxMembre.Visible = true;
+                }
             }
         }
         #endregion
@@ -301,6 +314,23 @@ namespace ApplicationC.View
             bindingSourceMembreEquipe_CurrentChanged(sender, e);
         }
         #endregion
+
+        private void annuler(EtatTypeGestion etatTypeGestion)
+        {
+            if (etatTypeGestion == EtatTypeGestion.Membre)
+            {
+                textBoxEmail.Text = "";
+                textBoxLienPortfolio.Text = "";
+                textboxNom.Text = "";
+                textBoxPrenom.Text = "";
+                textBoxTelephone.Text = "";
+                dateTimePickerDatenaiss.Value = dateTimePickerDatenaiss.MaxDate;
+            }
+        }
+
+
+
+
 
 
         /* Permet au moment du click de chercher le chemin d'accès au fichier et de le retranscrire sur une textbox
