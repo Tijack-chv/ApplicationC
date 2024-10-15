@@ -242,7 +242,7 @@
             textboxNom.Name = "textboxNom";
             textboxNom.Size = new Size(311, 26);
             textboxNom.TabIndex = 17;
-            textboxNom.KeyPress += textboxNom_KeyPress;
+            textboxNom.KeyPress += textBoxNomPrenom_KeyPress;
             // 
             // textBoxLienPortfolio
             // 
@@ -261,7 +261,7 @@
             textBoxPrenom.Name = "textBoxPrenom";
             textBoxPrenom.Size = new Size(311, 26);
             textBoxPrenom.TabIndex = 28;
-            textBoxPrenom.KeyPress += textBoxPrenom_KeyPress;
+            textBoxPrenom.KeyPress += textBoxNomPrenom_KeyPress;
             // 
             // labelDatnaiss
             // 

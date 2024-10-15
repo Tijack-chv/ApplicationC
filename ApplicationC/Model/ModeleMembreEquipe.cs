@@ -27,6 +27,11 @@ namespace ApplicationC.Model
             return Modele.MonModel.Membres.ToList();
         }
 
+        public static List<Equipe> listeEquipeSimple()
+        {
+            return Modele.MonModel.Equipes.ToList();
+        }
+
         public static List<Equipe> listeEquipe()
         {
             return Modele.MonModel.Equipes.OrderBy(b => b.Idequipe).ToList();

@@ -16,13 +16,26 @@ namespace ApplicationC.View
 {
     public partial class FormGestionMembreEquipe : Form
     {
+
+        #region Attribut
         private string etatGest;
         private string etatTypeGest;
         private int idModifChoix;
+        #endregion
 
         public FormGestionMembreEquipe(EtatGestion etatGestion, EtatTypeGestion etatTypeGestion)
         {
             InitializeComponent();
+            affichage(etatGestion, etatTypeGestion);
+            panelGestionMembre.BackColor = Color.FromArgb(140, 127, 127, 127);
+            etatGest = etatGestion.ToString();
+            etatTypeGest = etatTypeGestion.ToString();
+            groupBoxMembre.Visible = false;
+        }
+
+        public FormGestionMembreEquipe(EtatGestion etatGestion, EtatTypeGestion etatTypeGestion, int id) {
+            InitializeComponent();
+            idModifChoix = id;
             affichage(etatGestion, etatTypeGestion);
             panelGestionMembre.BackColor = Color.FromArgb(140, 127, 127, 127);
             etatGest = etatGestion.ToString();
@@ -91,6 +104,7 @@ namespace ApplicationC.View
             }
         }
 
+        #region textBoxTelephone_KeyPress
         private void textBoxTelephone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -98,6 +112,7 @@ namespace ApplicationC.View
                 e.Handled = true;
             }
         }
+        #endregion
 
         private async void buttonAction_ClickAsync(object sender, EventArgs e)
         {
@@ -229,11 +244,14 @@ namespace ApplicationC.View
             }
         }
 
+        #region buttonFermer_Click
         private void buttonFermer_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
 
+        #region textBoxTelephone_TextChanged
         private void textBoxTelephone_TextChanged(object sender, EventArgs e)
         {
             if (textBoxTelephone.Text != "" && textBoxTelephone.Text[0].ToString() != "0")
@@ -245,23 +263,19 @@ namespace ApplicationC.View
                 textBoxTelephone.Text = textBoxTelephone.Text.Remove(1, 1);
             }
         }
+        #endregion
 
-        private void textboxNom_KeyPress(object sender, KeyPressEventArgs e)
+        #region textboxNomPrenom_KeyPress
+        private void textBoxNomPrenom_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
+        #endregion
 
-        private void textBoxPrenom_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
+        #region bindingSourceMembreEquipe_CurrentChanged
         private void bindingSourceMembreEquipe_CurrentChanged(object sender, EventArgs e)
         {
             
@@ -279,12 +293,14 @@ namespace ApplicationC.View
                 groupBoxMembre.Visible = true;
             }
         }
+        #endregion
 
+        #region comboBoxModificationMembreEquipe_SelectedIndexChanged
         private void comboBoxModificationMembreEquipe_SelectedIndexChanged(object sender, EventArgs e)
         {
             bindingSourceMembreEquipe_CurrentChanged(sender, e);
         }
-
+        #endregion
 
 
         /* Permet au moment du click de chercher le chemin d'accès au fichier et de le retranscrire sur une textbox
