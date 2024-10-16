@@ -20,33 +20,38 @@ namespace ApplicationC.View
         #region Attribut
         private string etatGest;
         private string etatTypeGest;
-        private int idModifChoix;
+        private int idModifChoix = -1;
         #endregion
 
         public FormGestionMembreEquipe(EtatGestion etatGestion, EtatTypeGestion etatTypeGestion)
         {
             InitializeComponent();
-            idModifChoix = -1;
-            affichage(etatGestion, etatTypeGestion);
-            panelGestionMembre.BackColor = Color.FromArgb(140, 127, 127, 127);
+
             etatGest = etatGestion.ToString();
             etatTypeGest = etatTypeGestion.ToString();
+
+            affichage(etatGestion, etatTypeGestion);
+            panelGestionMembre.BackColor = Color.FromArgb(140, 127, 127, 127);
         }
 
-        public FormGestionMembreEquipe(EtatGestion etatGestion, EtatTypeGestion etatTypeGestion, int id) {
+        public FormGestionMembreEquipe(EtatGestion etatGestion, EtatTypeGestion etatTypeGestion, int id)
+        {
             InitializeComponent();
-            idModifChoix = id;
-            affichage(etatGestion, etatTypeGestion);
-            panelGestionMembre.BackColor = Color.FromArgb(140, 127, 127, 127);
+
             etatGest = etatGestion.ToString();
             etatTypeGest = etatTypeGestion.ToString();
+
+            idModifChoix = id;
+
+            affichage(etatGestion, etatTypeGestion);
+            panelGestionMembre.BackColor = Color.FromArgb(140, 127, 127, 127);
         }
 
         public void affichage(EtatGestion etatGestion, EtatTypeGestion etatTypeGestion)
         {
             if (etatTypeGestion == EtatTypeGestion.Membre)
             {
-                groupBoxMembre.Text = "Gestion du Membre";
+                groupBoxMembreEquipe.Text = "Gestion du Membre";
                 panelMembre.Location = new Point(155, 65);
                 panelMembre.Visible = true;
                 panelEquipe.Location = new Point(1200, 1200);
@@ -60,11 +65,11 @@ namespace ApplicationC.View
                 {
                     labelAjoutModifMembreEquipe.Text = "Ajout d'un Membre";
                     comboBoxModificationMembreEquipe.Visible = false;
-                    groupBoxMembre.Visible = true;
+                    groupBoxMembreEquipe.Visible = true;
                 }
                 else
                 {
-                    labelAjoutModifMembreEquipe.Text = "Modification d'une équipe";
+                    labelAjoutModifMembreEquipe.Text = "Modification d'un membre";
                     comboBoxModificationMembreEquipe.Visible = true;
 
                     comboBoxModificationMembreEquipe.ValueMember = "idmembre";
@@ -77,16 +82,17 @@ namespace ApplicationC.View
                     if (idModifChoix != -1)
                     {
                         comboBoxModificationMembreEquipe.SelectedValue = idModifChoix;
-                        groupBoxMembre.Visible = true;
-                    } else
+                        groupBoxMembreEquipe.Visible = true;
+                    }
+                    else
                     {
-                        groupBoxMembre.Visible = false;
+                        groupBoxMembreEquipe.Visible = false;
                     }
                 }
             }
             else
             {
-                groupBoxMembre.Text = "Gestion de l'équipe";
+                groupBoxMembreEquipe.Text = "Gestion de l'équipe";
                 panelEquipe.Location = new Point(155, 65);
                 panelEquipe.Visible = true;
                 panelMembre.Location = new Point(1200, 1200);
@@ -94,6 +100,7 @@ namespace ApplicationC.View
 
                 if (etatGestion == EtatGestion.Create)
                 {
+                    textBoxEmailEquipe.Enabled = true;
                     labelAjoutModifMembreEquipe.Text = "Ajout d'une équipe";
                     comboBoxModificationMembreEquipe.Visible = false;
                 }
@@ -101,6 +108,23 @@ namespace ApplicationC.View
                 {
                     labelAjoutModifMembreEquipe.Text = "Modification d'une équipe";
                     comboBoxModificationMembreEquipe.Visible = true;
+
+                    comboBoxModificationMembreEquipe.ValueMember = "idequipe";
+                    comboBoxModificationMembreEquipe.DisplayMember = "nomequipe";
+
+                    bindingSourceMembreEquipe.DataSource = (ModeleMembreEquipe.listeEquipeSimple());
+                    comboBoxModificationMembreEquipe.DataSource = bindingSourceMembreEquipe;
+                    comboBoxModificationMembreEquipe.SelectedIndex = -1;
+
+                    if (idModifChoix != -1)
+                    {
+                        comboBoxModificationMembreEquipe.SelectedValue = idModifChoix;
+                        groupBoxMembreEquipe.Visible = true;
+                    }
+                    else
+                    {
+                        groupBoxMembreEquipe.Visible = false;
+                    }
                 }
             }
         }
@@ -118,40 +142,34 @@ namespace ApplicationC.View
         private async void buttonAction_ClickAsync(object sender, EventArgs e)
         {
             bool test = true;
-
-            if (textBoxPrenom.Text == "")
+            if (etatTypeGest == EtatTypeGestion.Membre.ToString())
             {
-                test = false;
-
-                labelPrenom.ForeColor = Color.Red;
-                textBoxPrenom.ForeColor = Color.Red;
-
-                if (textboxNom.Text != "")
+                if (textBoxPrenom.Text == "")
                 {
-                    labelNom.ForeColor = Color.Black;
-                    textboxNom.ForeColor = Color.Black;
+                    test = false;
+
+                    labelPrenom.ForeColor = Color.Red;
+                    textBoxPrenom.ForeColor = Color.Red;
+
+                    if (textboxNom.Text != "")
+                    {
+                        labelNom.ForeColor = Color.Black;
+                        textboxNom.ForeColor = Color.Black;
+                    }
                 }
-            }
-            if (textboxNom.Text == "")
-            {
-                test = false;
-
-                labelNom.ForeColor = Color.Red;
-                textboxNom.ForeColor = Color.Red;
-
-                if (textBoxPrenom.Text != "")
+                if (textboxNom.Text == "")
                 {
-                    labelPrenom.ForeColor = Color.Black;
-                    textBoxPrenom.ForeColor = Color.Black;
-                }
-            }
-            if (test)
-            {
-                labelPrenom.ForeColor = Color.Black;
-                textBoxPrenom.ForeColor = Color.Black;
-                labelNom.ForeColor = Color.Black;
-                textboxNom.ForeColor = Color.Black;
+                    test = false;
 
+                    labelNom.ForeColor = Color.Red;
+                    textboxNom.ForeColor = Color.Red;
+
+                    if (textBoxPrenom.Text != "")
+                    {
+                        labelPrenom.ForeColor = Color.Black;
+                        textBoxPrenom.ForeColor = Color.Black;
+                    }
+                }
                 if (textBoxLienPortfolio.Text != "")
                 {
                     string url = textBoxLienPortfolio.Text.Trim();
@@ -207,46 +225,103 @@ namespace ApplicationC.View
                         textBoxTelephone.ForeColor = Color.Black;
                     }
                 }
-
-                if (test)
+            }
+            else
+            {
+                if (textBoxEmailEquipe.Text == "")
                 {
-                    labelErrorInfo.Visible = false;
-                    if (etatTypeGest == "Membre")
+                    test = false;
+                    labelEmailEq.ForeColor = Color.Red;
+                    textBoxEmailEquipe.ForeColor = Color.Red;
+
+                    if (textBoxNomEquipe.Text == "")
                     {
-                        if (etatGest == "Create")
+                        test = false;
+                        labelNomEquipe.ForeColor = Color.Black;
+                        textBoxNomEquipe.ForeColor = Color.Black;
+                    }
+                }
+                if (textBoxNomEquipe.Text == "")
+                {
+                    test = false;
+                    labelNomEquipe.ForeColor = Color.Red;
+                    textBoxNomEquipe.ForeColor = Color.Red;
+
+                    if (textBoxEmailEquipe.Text == "")
+                    {
+                        test = false;
+                        labelEmailEq.ForeColor = Color.Black;
+                        textBoxEmailEquipe.ForeColor = Color.Black;
+                    }
+                }
+
+                if (textBoxLienPrototype.Text != "")
+                {
+                    string url = textBoxLienPrototype.Text.Trim();
+                    string verif = "";
+                    if (Controleur.IsValidUrl(url))
+                    {
+                        if (await Controleur.IsUrlAccessible(url))
                         {
-                            if (ModeleMembreEquipe.AjoutMembre(textboxNom.Text, textBoxPrenom.Text, textBoxEmail.Text, textBoxTelephone.Text, dateTimePickerDatenaiss.Value, textBoxLienPortfolio.Text))
-                            {
-                                MessageBox.Show("Membre ajouté");
-                                annuler(EtatTypeGestion.Membre);
-                            }
+                            verif = "Le lien du prototype est accessible !";
                         }
                         else
                         {
-                            Membre M = (Membre)bindingSourceMembreEquipe.Current;
-                            if (ModeleMembreEquipe.ModificationMembre(M.Idmembre,textboxNom.Text,textBoxPrenom.Text,textBoxEmail.Text,textBoxTelephone.Text,dateTimePickerDatenaiss.Value,textBoxLienPortfolio.Text))
-                            {
-                                MessageBox.Show("Membre modifié");
-                                groupBoxMembre.Visible = false;
-                                comboBoxModificationMembreEquipe.SelectedIndex = -1;
-                            }
+                            verif = "La modification peut se faire mais le le lien du prototype n'est pas accessible !";
+                        }
+
+                        labelLienPrototype.ForeColor = Color.Black;
+                        textBoxLienPrototype.ForeColor = Color.Black;
+
+                        MessageBox.Show(verif);
+                    }
+                    else
+                    {
+                        labelLienPrototype.ForeColor = Color.Red;
+                        textBoxLienPrototype.ForeColor = Color.Red;
+                        test = false;
+                    }
+                }
+            }
+            if (test)
+            {
+                labelErrorInfo.Visible = false;
+                if (etatTypeGest == EtatTypeGestion.Membre.ToString())
+                {
+                    labelPrenom.ForeColor = Color.Black;
+                    textBoxPrenom.ForeColor = Color.Black;
+                    labelNom.ForeColor = Color.Black;
+                    textboxNom.ForeColor = Color.Black;
+
+                    if (etatGest == EtatGestion.Create.ToString())
+                    {
+                        if (ModeleMembreEquipe.AjoutMembre(textboxNom.Text, textBoxPrenom.Text, textBoxEmail.Text, textBoxTelephone.Text, dateTimePickerDatenaiss.Value, textBoxLienPortfolio.Text))
+                        {
+                            MessageBox.Show("Membre ajouté");
+                            annuler(EtatTypeGestion.Membre);
                         }
                     }
                     else
                     {
-                        if (etatGest == "Create")
+                        Membre M = (Membre)bindingSourceMembreEquipe.Current;
+                        if (ModeleMembreEquipe.ModificationMembre(M.Idmembre, textboxNom.Text, textBoxPrenom.Text, textBoxEmail.Text, textBoxTelephone.Text, dateTimePickerDatenaiss.Value, textBoxLienPortfolio.Text))
                         {
-                            // Crea Equipe
-                        }
-                        else
-                        {
-                            // Modif Equipe
+                            MessageBox.Show("Membre modifié");
+                            groupBoxMembreEquipe.Visible = false;
+                            comboBoxModificationMembreEquipe.SelectedIndex = -1;
                         }
                     }
                 }
                 else
                 {
-                    labelErrorInfo.Visible = true;
+                    if (etatGest == "Create")
+                    {
+                        // Crea Equipe
+                    }
+                    else
+                    {
+                        // Modif Equipe
+                    }
                 }
             }
             else
@@ -286,28 +361,6 @@ namespace ApplicationC.View
         }
         #endregion
 
-        #region bindingSourceMembreEquipe_CurrentChanged
-        private void bindingSourceMembreEquipe_CurrentChanged(object sender, EventArgs e)
-        {
-            if (etatTypeGest == (EtatTypeGestion.Membre).ToString())
-            {
-                if (comboBoxModificationMembreEquipe.SelectedIndex != -1)
-                {
-                    Membre membre = (Membre)bindingSourceMembreEquipe.Current;
-
-                    textboxNom.Text = membre.Nom;
-                    textBoxPrenom.Text = membre.Prenom;
-                    textBoxTelephone.Text = membre.Telephone;
-                    textBoxEmail.Text = membre.Email;
-                    textBoxLienPortfolio.Text = membre.Lienportfolio;
-                    dateTimePickerDatenaiss.Value = membre.Datenaissance;
-
-                    groupBoxMembre.Visible = true;
-                }
-            }
-        }
-        #endregion
-
         #region comboBoxModificationMembreEquipe_SelectedIndexChanged
         private void comboBoxModificationMembreEquipe_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -325,6 +378,41 @@ namespace ApplicationC.View
                 textBoxPrenom.Text = "";
                 textBoxTelephone.Text = "";
                 dateTimePickerDatenaiss.Value = dateTimePickerDatenaiss.MaxDate;
+            }
+            else
+            {
+                textBoxEmailEquipe.Text = "";
+                textBoxNomEquipe.Text = "";
+                textBoxLienPrototype.Text = "";
+            }
+        }
+
+        private void bindingSourceMembreEquipe_CurrentChanged(object sender, EventArgs e)
+        {
+            if (comboBoxModificationMembreEquipe.SelectedIndex != -1)
+            {
+                if (etatTypeGest == EtatTypeGestion.Membre.ToString())
+                {
+                    Membre membre = (Membre)bindingSourceMembreEquipe.Current;
+
+                    textboxNom.Text = membre.Nom;
+                    textBoxPrenom.Text = membre.Prenom;
+                    textBoxTelephone.Text = membre.Telephone;
+                    textBoxEmail.Text = membre.Email;
+                    textBoxLienPortfolio.Text = membre.Lienportfolio;
+                    dateTimePickerDatenaiss.Value = membre.Datenaissance;
+
+                    groupBoxMembreEquipe.Visible = true;
+                } else
+                {
+                    Equipe equipe = (Equipe)bindingSourceMembreEquipe.Current;
+
+                    textBoxEmailEquipe.Text = equipe.Login;
+                    textBoxNomEquipe.Text = equipe.Nomequipe;
+                    textBoxLienPrototype.Text = equipe.Lienprototype;
+
+                    groupBoxMembreEquipe.Visible = true;
+                }
             }
         }
 
