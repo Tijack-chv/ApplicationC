@@ -87,6 +87,7 @@ namespace ApplicationC.Model
             }
             return membre;  
         }
+
         public static bool ModificationMembre(int idmembre, string nom, string prenom, string email, string telephone, DateTime datenaiss, string lienportfolio)
         {
             Membre unMembre;
@@ -134,6 +135,63 @@ namespace ApplicationC.Model
                 MessageBox.Show(ex.Message);
             }
             return modif;
+        }
+
+        public static Equipe RecupererEquipe(string login)
+        {
+            Equipe equipe = new();
+
+            try
+            {
+                equipe = Modele.MonModel.Equipes.First(x => x.Login == login);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return equipe;
+        }
+
+        public static bool ModificationEquipe(string logEq, string nomEq, string lienProto)
+        {
+            Equipe uneEquipe;
+            bool modif = true;
+
+            try
+            {
+                uneEquipe = RecupererEquipe(logEq);
+                uneEquipe.Lienprototype = lienProto;
+                uneEquipe.Nomequipe = nomEq;
+
+                Modele.MonModel.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                modif = false;
+                MessageBox.Show(ex.Message);
+            }
+            return modif;
+        }
+
+        public static bool AjoutEquipe(string login, string nomEq, string lienProto)
+        {
+            Equipe equipe = new();
+            bool crea = true;
+
+            try
+            {
+                equipe.Login = login;
+                equipe.Lienprototype = lienProto;
+                equipe.Nomequipe = nomEq;
+
+                Modele.MonModel.Equipes.Add(equipe);
+                Modele.MonModel.SaveChanges();
+            } catch (Exception ex)
+            {
+                crea = false;
+                MessageBox.Show(ex.Message);
+            }
+            return crea;
         }
     }
 }

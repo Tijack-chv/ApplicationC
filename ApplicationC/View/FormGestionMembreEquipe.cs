@@ -288,11 +288,6 @@ namespace ApplicationC.View
                 labelErrorInfo.Visible = false;
                 if (etatTypeGest == EtatTypeGestion.Membre.ToString())
                 {
-                    labelPrenom.ForeColor = Color.Black;
-                    textBoxPrenom.ForeColor = Color.Black;
-                    labelNom.ForeColor = Color.Black;
-                    textboxNom.ForeColor = Color.Black;
-
                     if (etatGest == EtatGestion.Create.ToString())
                     {
                         if (ModeleMembreEquipe.AjoutMembre(textboxNom.Text, textBoxPrenom.Text, textBoxEmail.Text, textBoxTelephone.Text, dateTimePickerDatenaiss.Value, textBoxLienPortfolio.Text))
@@ -316,11 +311,20 @@ namespace ApplicationC.View
                 {
                     if (etatGest == "Create")
                     {
-                        // Crea Equipe
+                        if (ModeleMembreEquipe.AjoutEquipe(textBoxEmailEquipe.Text, textBoxNomEquipe.Text, textBoxLienPrototype.Text))
+                        {
+                            MessageBox.Show("Equipe ajouté");
+                            annuler(EtatTypeGestion.Equipe);
+                        }
                     }
                     else
                     {
-                        // Modif Equipe
+                        if (ModeleMembreEquipe.ModificationEquipe(textBoxEmailEquipe.Text, textBoxNomEquipe.Text, textBoxLienPrototype.Text))
+                        {
+                            MessageBox.Show("Equipe modifié");
+                            groupBoxMembreEquipe.Visible = false;
+                            comboBoxModificationMembreEquipe.SelectedIndex = -1;
+                        }
                     }
                 }
             }
