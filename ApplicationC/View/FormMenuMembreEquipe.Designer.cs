@@ -73,7 +73,7 @@
             listeMembreToolStripMenuItem.ForeColor = Color.White;
             listeMembreToolStripMenuItem.Image = (Image)resources.GetObject("listeMembreToolStripMenuItem.Image");
             listeMembreToolStripMenuItem.Name = "listeMembreToolStripMenuItem";
-            listeMembreToolStripMenuItem.Size = new Size(224, 26);
+            listeMembreToolStripMenuItem.Size = new Size(204, 26);
             listeMembreToolStripMenuItem.Text = "Liste Membre";
             listeMembreToolStripMenuItem.Click += listeMembreToolStripMenuItem_Click;
             // 
@@ -83,7 +83,7 @@
             listeEquipeToolStripMenuItem.ForeColor = Color.White;
             listeEquipeToolStripMenuItem.Image = (Image)resources.GetObject("listeEquipeToolStripMenuItem.Image");
             listeEquipeToolStripMenuItem.Name = "listeEquipeToolStripMenuItem";
-            listeEquipeToolStripMenuItem.Size = new Size(224, 26);
+            listeEquipeToolStripMenuItem.Size = new Size(204, 26);
             listeEquipeToolStripMenuItem.Text = "Liste Equipe";
             listeEquipeToolStripMenuItem.Click += listeEquipeToolStripMenuItem_Click;
             // 
@@ -216,6 +216,6 @@
         private ToolStripMenuItem modificationEquipeToolStripMenuItem;
         private ToolStripMenuItem rechercheMembreToolStripMenuItem;
         private ToolStripMenuItem rechercheEquipeToolStripMenuItem;
-        private Panel panelSousAffichage;
+        public Panel panelSousAffichage;
     }
 }

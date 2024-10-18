@@ -40,6 +40,8 @@
             BSHackathon = new BindingSource(components);
             BSEquipe = new BindingSource(components);
             dgvEquipes = new DataGridView();
+            contextMenuStripEquipe = new ContextMenuStrip(components);
+            désinscrireEquipeToolStripMenuItem = new ToolStripMenuItem();
             buttonPrec = new Button();
             buttonSuiv = new Button();
             panel1 = new Panel();
@@ -54,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)BSHackathon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BSEquipe).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEquipes).BeginInit();
+            contextMenuStripEquipe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFermer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAffiche).BeginInit();
             panelPictureBoxAffiche.SuspendLayout();
@@ -77,7 +80,6 @@
             dgvHackathon.CellClick += DgvHackathon_CellContentClick;
             dgvHackathon.CellContentClick += DgvHackathon_CellContentClick;
             dgvHackathon.CellMouseClick += DgvHackathon_CellMouseClick;
-            dgvHackathon.Click += DgvHackathon_Click;
             dgvHackathon.DoubleClick += dgvHackathon_DoubleClick;
             // 
             // contextMenuStrip1
@@ -151,6 +153,7 @@
             dgvEquipes.AllowUserToAddRows = false;
             dgvEquipes.AllowUserToDeleteRows = false;
             dgvEquipes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEquipes.ContextMenuStrip = contextMenuStripEquipe;
             dgvEquipes.Location = new Point(832, 51);
             dgvEquipes.Margin = new Padding(6, 7, 6, 7);
             dgvEquipes.Name = "dgvEquipes";
@@ -159,6 +162,20 @@
             dgvEquipes.Size = new Size(282, 477);
             dgvEquipes.TabIndex = 5;
             dgvEquipes.Visible = false;
+            // 
+            // contextMenuStripEquipe
+            // 
+            contextMenuStripEquipe.ImageScalingSize = new Size(20, 20);
+            contextMenuStripEquipe.Items.AddRange(new ToolStripItem[] { désinscrireEquipeToolStripMenuItem });
+            contextMenuStripEquipe.Name = "contextMenuStripEquipe";
+            contextMenuStripEquipe.Size = new Size(211, 56);
+            // 
+            // désinscrireEquipeToolStripMenuItem
+            // 
+            désinscrireEquipeToolStripMenuItem.Name = "désinscrireEquipeToolStripMenuItem";
+            désinscrireEquipeToolStripMenuItem.Size = new Size(210, 24);
+            désinscrireEquipeToolStripMenuItem.Text = "Désinscrire Equipe";
+            désinscrireEquipeToolStripMenuItem.Click += désinscrireEquipeToolStripMenuItem_Click;
             // 
             // buttonPrec
             // 
@@ -291,6 +308,7 @@
             ((System.ComponentModel.ISupportInitialize)BSHackathon).EndInit();
             ((System.ComponentModel.ISupportInitialize)BSEquipe).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvEquipes).EndInit();
+            contextMenuStripEquipe.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxFermer).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAffiche).EndInit();
             panelPictureBoxAffiche.ResumeLayout(false);
@@ -319,6 +337,8 @@
         private ToolStripMenuItem visualiserLAfficheToolStripMenuItem;
         private PictureBox pictureBoxAffiche;
         private Panel panelPictureBoxAffiche;
+        private ContextMenuStrip contextMenuStripEquipe;
+        private ToolStripMenuItem désinscrireEquipeToolStripMenuItem;
     }
 }
 

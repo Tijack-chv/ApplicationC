@@ -277,7 +277,7 @@ namespace ApplicationC
         {
             System.Type type = BSHackathon.Current.GetType();
             byte[] affiche = (byte[])type.GetProperty("Affiche").GetValue(BSHackathon.Current, null);
-            
+
             if (affiche != null)
             {
                 using (MemoryStream ms = new MemoryStream(affiche))
@@ -290,10 +290,16 @@ namespace ApplicationC
                 }
 
                 panelPictureBoxAffiche.Visible = true;
-            } else
+            }
+            else
             {
                 MessageBox.Show("Il n'y a pas d'affiche pour cet événement !");
             }
+        }
+
+        private void désinscrireEquipeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

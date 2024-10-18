@@ -57,11 +57,10 @@
             // 
             dataGridViewMembreEquipe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMembreEquipe.ContextMenuStrip = contextMenuStripInfoEquipe;
-            dataGridViewMembreEquipe.Location = new Point(10, 40);
-            dataGridViewMembreEquipe.Margin = new Padding(3, 2, 3, 2);
+            dataGridViewMembreEquipe.Location = new Point(11, 53);
             dataGridViewMembreEquipe.Name = "dataGridViewMembreEquipe";
             dataGridViewMembreEquipe.RowHeadersWidth = 51;
-            dataGridViewMembreEquipe.Size = new Size(991, 360);
+            dataGridViewMembreEquipe.Size = new Size(1133, 480);
             dataGridViewMembreEquipe.TabIndex = 0;
             dataGridViewMembreEquipe.CellClick += dataGridViewMembreEquipe_CellClick;
             dataGridViewMembreEquipe.CellContentClick += dataGridViewMembreEquipe_CellContentClick;
@@ -72,19 +71,19 @@
             contextMenuStripInfoEquipe.ImageScalingSize = new Size(20, 20);
             contextMenuStripInfoEquipe.Items.AddRange(new ToolStripItem[] { voirLesMembresToolStripMenuItem, modifierLéquipeToolStripMenuItem });
             contextMenuStripInfoEquipe.Name = "contextMenuStripInfoEquipe";
-            contextMenuStripInfoEquipe.Size = new Size(165, 48);
+            contextMenuStripInfoEquipe.Size = new Size(193, 52);
             // 
             // voirLesMembresToolStripMenuItem
             // 
             voirLesMembresToolStripMenuItem.Name = "voirLesMembresToolStripMenuItem";
-            voirLesMembresToolStripMenuItem.Size = new Size(164, 22);
+            voirLesMembresToolStripMenuItem.Size = new Size(192, 24);
             voirLesMembresToolStripMenuItem.Text = "Voir les membres";
             voirLesMembresToolStripMenuItem.Click += voirLesMembresToolStripMenuItem_Click;
             // 
             // modifierLéquipeToolStripMenuItem
             // 
             modifierLéquipeToolStripMenuItem.Name = "modifierLéquipeToolStripMenuItem";
-            modifierLéquipeToolStripMenuItem.Size = new Size(164, 22);
+            modifierLéquipeToolStripMenuItem.Size = new Size(192, 24);
             modifierLéquipeToolStripMenuItem.Text = "Modifier l'équipe";
             modifierLéquipeToolStripMenuItem.Click += modifierLéquipeToolStripMenuItem_Click;
             // 
@@ -93,20 +92,19 @@
             labelListeMembreEquipe.AutoSize = true;
             labelListeMembreEquipe.BackColor = Color.Transparent;
             labelListeMembreEquipe.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelListeMembreEquipe.Location = new Point(10, 7);
-            labelListeMembreEquipe.Margin = new Padding(4, 0, 4, 0);
+            labelListeMembreEquipe.Location = new Point(11, 9);
+            labelListeMembreEquipe.Margin = new Padding(5, 0, 5, 0);
             labelListeMembreEquipe.Name = "labelListeMembreEquipe";
-            labelListeMembreEquipe.Size = new Size(283, 24);
+            labelListeMembreEquipe.Size = new Size(356, 29);
             labelListeMembreEquipe.TabIndex = 3;
             labelListeMembreEquipe.Text = "Liste Des Membres / Equipes";
             // 
             // textBoxPage
             // 
             textBoxPage.Font = new Font("Britannic Bold", 12F);
-            textBoxPage.Location = new Point(462, 399);
-            textBoxPage.Margin = new Padding(3, 2, 3, 2);
+            textBoxPage.Location = new Point(528, 532);
             textBoxPage.Name = "textBoxPage";
-            textBoxPage.Size = new Size(62, 25);
+            textBoxPage.Size = new Size(70, 30);
             textBoxPage.TabIndex = 19;
             textBoxPage.Text = "1";
             textBoxPage.TextAlign = HorizontalAlignment.Center;
@@ -116,19 +114,17 @@
             // panelLeft
             // 
             panelLeft.BackColor = Color.FromArgb(30, 35, 40);
-            panelLeft.Location = new Point(10, 399);
-            panelLeft.Margin = new Padding(3, 2, 3, 2);
+            panelLeft.Location = new Point(11, 532);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new Size(340, 22);
+            panelLeft.Size = new Size(389, 29);
             panelLeft.TabIndex = 18;
             // 
             // panelRight
             // 
             panelRight.BackColor = Color.FromArgb(30, 35, 40);
-            panelRight.Location = new Point(632, 399);
-            panelRight.Margin = new Padding(3, 2, 3, 2);
+            panelRight.Location = new Point(722, 532);
             panelRight.Name = "panelRight";
-            panelRight.Size = new Size(369, 22);
+            panelRight.Size = new Size(422, 29);
             panelRight.TabIndex = 17;
             // 
             // buttonSuiv
@@ -137,10 +133,9 @@
             buttonSuiv.FlatStyle = FlatStyle.Popup;
             buttonSuiv.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonSuiv.ForeColor = Color.White;
-            buttonSuiv.Location = new Point(522, 399);
-            buttonSuiv.Margin = new Padding(3, 2, 3, 2);
+            buttonSuiv.Location = new Point(597, 532);
             buttonSuiv.Name = "buttonSuiv";
-            buttonSuiv.Size = new Size(110, 22);
+            buttonSuiv.Size = new Size(126, 29);
             buttonSuiv.TabIndex = 16;
             buttonSuiv.Text = "Suivant";
             buttonSuiv.UseVisualStyleBackColor = false;
@@ -152,10 +147,9 @@
             buttonPrec.FlatStyle = FlatStyle.Popup;
             buttonPrec.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonPrec.ForeColor = Color.White;
-            buttonPrec.Location = new Point(351, 399);
-            buttonPrec.Margin = new Padding(3, 2, 3, 2);
+            buttonPrec.Location = new Point(401, 532);
             buttonPrec.Name = "buttonPrec";
-            buttonPrec.Size = new Size(110, 22);
+            buttonPrec.Size = new Size(126, 29);
             buttonPrec.TabIndex = 15;
             buttonPrec.Text = "Précédent";
             buttonPrec.UseVisualStyleBackColor = false;
@@ -167,10 +161,10 @@
             labelInfoEquipe.BackColor = Color.Transparent;
             labelInfoEquipe.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold);
             labelInfoEquipe.ForeColor = SystemColors.ActiveCaptionText;
-            labelInfoEquipe.Location = new Point(10, 443);
-            labelInfoEquipe.Margin = new Padding(4, 0, 4, 0);
+            labelInfoEquipe.Location = new Point(11, 591);
+            labelInfoEquipe.Margin = new Padding(5, 0, 5, 0);
             labelInfoEquipe.Name = "labelInfoEquipe";
-            labelInfoEquipe.Size = new Size(468, 14);
+            labelInfoEquipe.Size = new Size(582, 17);
             labelInfoEquipe.TabIndex = 14;
             labelInfoEquipe.Text = "click droit sur l'équipe sélectionné pour voir ses membres";
             // 
@@ -178,7 +172,8 @@
             // 
             pictureBoxFermer.BackColor = Color.Transparent;
             pictureBoxFermer.Image = Properties.Resources.icons8_multiply_32;
-            pictureBoxFermer.Location = new Point(982, -1);
+            pictureBoxFermer.Location = new Point(1122, -1);
+            pictureBoxFermer.Margin = new Padding(3, 4, 3, 4);
             pictureBoxFermer.Name = "pictureBoxFermer";
             pictureBoxFermer.Size = new Size(32, 32);
             pictureBoxFermer.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -188,11 +183,10 @@
             // dataGridViewInfoEquipe
             // 
             dataGridViewInfoEquipe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewInfoEquipe.Location = new Point(736, 40);
-            dataGridViewInfoEquipe.Margin = new Padding(3, 2, 3, 2);
+            dataGridViewInfoEquipe.Location = new Point(841, 53);
             dataGridViewInfoEquipe.Name = "dataGridViewInfoEquipe";
             dataGridViewInfoEquipe.RowHeadersWidth = 51;
-            dataGridViewInfoEquipe.Size = new Size(265, 360);
+            dataGridViewInfoEquipe.Size = new Size(303, 480);
             dataGridViewInfoEquipe.TabIndex = 21;
             dataGridViewInfoEquipe.Visible = false;
             // 
@@ -202,19 +196,19 @@
             labelSuppEquipeMembre.BackColor = Color.Transparent;
             labelSuppEquipeMembre.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold);
             labelSuppEquipeMembre.ForeColor = SystemColors.ActiveCaptionText;
-            labelSuppEquipeMembre.Location = new Point(10, 425);
-            labelSuppEquipeMembre.Margin = new Padding(4, 0, 4, 0);
+            labelSuppEquipeMembre.Location = new Point(11, 567);
+            labelSuppEquipeMembre.Margin = new Padding(5, 0, 5, 0);
             labelSuppEquipeMembre.Name = "labelSuppEquipeMembre";
-            labelSuppEquipeMembre.Size = new Size(484, 14);
+            labelSuppEquipeMembre.Size = new Size(602, 17);
             labelSuppEquipeMembre.TabIndex = 22;
             labelSuppEquipeMembre.Text = "double click gauche sur l'équipe sélectioné pour la suppimer";
             // 
             // FormMembreEquipe
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(1013, 464);
+            ClientSize = new Size(1158, 619);
             Controls.Add(labelSuppEquipeMembre);
             Controls.Add(dataGridViewInfoEquipe);
             Controls.Add(pictureBoxFermer);
@@ -227,7 +221,6 @@
             Controls.Add(labelListeMembreEquipe);
             Controls.Add(dataGridViewMembreEquipe);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormMembreEquipe";
             Text = "FormMembreEquipe";
             ((System.ComponentModel.ISupportInitialize)dataGridViewMembreEquipe).EndInit();

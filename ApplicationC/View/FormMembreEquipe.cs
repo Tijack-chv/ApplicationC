@@ -1,5 +1,7 @@
 ﻿using ApplicationC.Entities;
 using ApplicationC.Model;
+using ApplicationC.View;
+using SousFormulaire;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -221,10 +223,18 @@ namespace ApplicationC
         }
         #endregion
 
+        #region modifierLéquipeToolStripMenuItem_Click
         private void modifierLéquipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            System.Type type = bindingSourceMembreEquipe.Current.GetType();
+            string loginE = (string)type.GetProperty("Login").GetValue(bindingSourceMembreEquipe.Current, null);
 
+            Equipe equipe = ModeleMembreEquipe.RecupererEquipe(loginE);
+
+            SFormulaire sousF = new((System.Windows.Forms.Application.OpenForms["FormMenuMembreEquipe"] as FormMenuMembreEquipe).panelSousAffichage);
+            sousF.openChildForm(new FormGestionMembreEquipe(EtatGestion.Update, EtatTypeGestion.Equipe, equipe.Idequipe));
         }
+        #endregion
 
         #region dataGridViewMembreEquipe_AllClick
         /// <summary>
@@ -247,6 +257,5 @@ namespace ApplicationC
             dataGridViewInfoEquipe.Visible = false;
         }
         #endregion
-
     }
 }

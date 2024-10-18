@@ -114,7 +114,7 @@ namespace ApplicationC.Model
             Hackathon h = Modele.MonModel.Hackathons.Include(p => p.Inscrires).ThenInclude(p => p.IdequipeNavigation).First(x => x.Idhackathon == idH);
             //   Hackathon h = (Hackathon) Modele.MonModel.Hackathons.Where(p => p.Idhackathon == idH).Include(p => p.Inscrires);
 
-            List<Inscrire> lesI = h.Inscrires.ToList();
+            List<Inscrire> lesI = h.Inscrires.Where(x=> x.Datedesinscription == null).ToList();
 
             List<Equipe> lesE = new List<Equipe>();
             foreach (Inscrire I in lesI)
@@ -125,6 +125,23 @@ namespace ApplicationC.Model
             return lesE;
         }
         #endregion
+
+        public static bool desinscriptionEquipe(int idHackathon, int idEquipe)
+        {
+            bool modif = true;
+            try
+            {
+                Inscrire inscriptionEquipe = RecupererInscriptionEquipe(idHackathon, idEquipe);
+                
+            }
+            catch (Exception ex)
+            {
+                modif = false;
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+            return modif;
+        }
 
         #region RetourneDernierHackathonSaisi
         /// <summary>
@@ -207,6 +224,23 @@ namespace ApplicationC.Model
             return unHackathon;
         }
         #endregion
+
+        public static Inscrire RecupererInscriptionEquipe(int idH, int idE)
+        {
+            Inscrire uneInscription = new();
+
+            try
+            {
+                uneInscription = Modele.MonModel.Inscrires.First(x => x.Idhackathon == idH && x.Idequipe == idE);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return uneInscription;
+        }
+
+
 
         #region ModificationHackathon
         /// <summary>
