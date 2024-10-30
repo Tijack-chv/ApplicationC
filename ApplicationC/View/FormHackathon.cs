@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using ApplicationC.Controller;
 using ApplicationC.Entities;
 using ApplicationC.Model;
@@ -300,6 +301,23 @@ namespace ApplicationC
         private void désinscrireEquipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            System.Type typeE = BSEquipe.Current.GetType();
+            int idE = (int)typeE.GetProperty("Idequipe").GetValue(BSEquipe.Current, null);
+            Equipe eq = ModeleMembreEquipe.RecupererEquipe(idE);
+
+            DialogResult dialogResult = MessageBox.Show("Voulez-vous désinscrire l'équipe "+ eq.Nomequipe +" ? ", "Désinscription de l'équipe n°" + idE + " ", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                System.Type typeH = BSHackathon.Current.GetType();
+                int idH = (int)typeH.GetProperty("Idhackathon").GetValue(BSHackathon.Current, null);
+
+                if (ModeleHackathon.desinscriptionEquipe(idH, idE))
+                {
+                    MessageBox.Show("L'équipe " + eq.Nomequipe + " a bien été désinscrite !");
+                    VoirLesÉquipesToolStripMenuItem_Click(sender, e);
+                }
+            }
         }
     }
 }

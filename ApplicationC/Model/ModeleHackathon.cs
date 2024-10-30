@@ -132,7 +132,9 @@ namespace ApplicationC.Model
             try
             {
                 Inscrire inscriptionEquipe = RecupererInscriptionEquipe(idHackathon, idEquipe);
-                
+                inscriptionEquipe.Datedesinscription = DateTime.Now;
+
+                Modele.MonModel.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -239,8 +241,6 @@ namespace ApplicationC.Model
             }
             return uneInscription;
         }
-
-
 
         #region ModificationHackathon
         /// <summary>

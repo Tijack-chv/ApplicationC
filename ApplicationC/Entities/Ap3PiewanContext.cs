@@ -26,6 +26,8 @@ public partial class Ap3PiewanContext : DbContext
 
     public virtual DbSet<Membre> Membres { get; set; }
 
+    public virtual DbSet<Migration> Migrations { get; set; }
+
     public virtual DbSet<Organisateur> Organisateurs { get; set; }
 
     public virtual DbSet<Token> Tokens { get; set; }
@@ -145,7 +147,12 @@ public partial class Ap3PiewanContext : DbContext
 
             entity.Property(e => e.Idhackathon).HasColumnName("idhackathon");
             entity.Property(e => e.Idequipe).HasColumnName("idequipe");
-            entity.Property(e => e.Datedesinscription).HasColumnName("datedesinscription");
+            entity.Property(e => e.Commentaire)
+                .HasColumnType("text")
+                .HasColumnName("commentaire");
+            entity.Property(e => e.Datedesinscription)
+                .HasColumnType("datetime")
+                .HasColumnName("datedesinscription");
             entity.Property(e => e.Dateinscription).HasColumnName("dateinscription");
 
             entity.HasOne(d => d.IdequipeNavigation).WithMany(p => p.Inscrires)
@@ -190,6 +197,21 @@ public partial class Ap3PiewanContext : DbContext
                 .HasForeignKey(d => d.Idequipe)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("membre_ibfk_2");
+        });
+
+        modelBuilder.Entity<Migration>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity
+                .ToTable("migrations")
+                .UseCollation("utf8mb4_unicode_ci");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Batch).HasColumnName("batch");
+            entity.Property(e => e.Migration1)
+                .HasMaxLength(255)
+                .HasColumnName("migration");
         });
 
         modelBuilder.Entity<Organisateur>(entity =>

@@ -152,6 +152,21 @@ namespace ApplicationC.Model
             return equipe;
         }
 
+        public static Equipe RecupererEquipe(int id)
+        {
+            Equipe equipe = new();
+
+            try
+            {
+                equipe = Modele.MonModel.Equipes.First(x => x.Idequipe == id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return equipe;
+        }
+
         public static bool ModificationEquipe(string logEq, string nomEq, string lienProto)
         {
             Equipe uneEquipe;
