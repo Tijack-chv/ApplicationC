@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Drawing.Drawing2D;
+using System.Security.Policy;
 
 namespace ApplicationC.Controller
 {
@@ -54,6 +55,32 @@ namespace ApplicationC.Controller
                 Console.WriteLine("Exception caught in CreateEmail(): {0}", ex.ToString());
             }
         }
+
+        public static void EmailSend(string dest, string subject, string body)
+        {
+            string to = dest;
+            string from = "HackathonOrga@hackatinnov.com";
+            MailMessage message = new MailMessage(from, to);
+            message.Subject = subject;
+            message.Body = body;
+            SmtpClient client = new SmtpClient();
+
+            client.Host = "mail.dombtsig.local";
+            client.Port = 1025;
+
+            // Credentials are necessary if the server requires the client
+            // to authenticate before it will send email on the client's behalf.
+            client.UseDefaultCredentials = true;
+
+            try
+            {
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught in CreateEmail(): {0}", ex.ToString());
+            }
+        } 
 
         /// <summary>
         /// méthode vérifiant si l'url en paramètre est accessible ou non
