@@ -47,6 +47,15 @@ namespace ApplicationC.Model
         }
         #endregion
 
+        public static int CountPlaceRestantes(int idH)
+        {
+            int value = 0;
+
+            value = Modele.MonModel.Inscrires.Where(x => x.Idhackathon == idH).Where(x=> x.Datedesinscription == null).Count();
+
+            return value;
+        }
+
         #region CountHackathon
         /// <summary>
         /// Pour savoir le nombre de page max à avoir pour éviter toute erreur
@@ -108,11 +117,7 @@ namespace ApplicationC.Model
         /// <returns></returns>
         public static List<Equipe> listeEquipesParHackathon(int idH)
         {
-            // List<Equipe> lesEquipes = Modele.MonModel.Hackathons.Where(p => p.Numcli == idClient).Include(p => p.NumcliNavigation).ToList();
-
-            // parcourir les équipes et récupérer celle de l'hackathon
             Hackathon h = Modele.MonModel.Hackathons.Include(p => p.Inscrires).ThenInclude(p => p.IdequipeNavigation).First(x => x.Idhackathon == idH);
-            //   Hackathon h = (Hackathon) Modele.MonModel.Hackathons.Where(p => p.Idhackathon == idH).Include(p => p.Inscrires);
 
             List<Inscrire> lesI = h.Inscrires.Where(x=> x.Datedesinscription == null).ToList();
 
@@ -125,6 +130,21 @@ namespace ApplicationC.Model
             return lesE;
         }
         #endregion
+
+        public static List<Hackathon> listeHackathonParEquipe(int idE)
+        {
+            Equipe e = Modele.MonModel.Equipes.Include(p=> p.Inscrires).ThenInclude(p=> p.IdhackathonNavigation).First(x=> x.Idequipe == idE); 
+
+            List<Inscrire> lesI = e.Inscrires.Where(x=> x.Datedesinscription==null).ToList();
+
+            List<Hackathon> lesH = new List<Hackathon>();
+            foreach (Inscrire I in lesI)
+            {
+                lesH.Add(I.IdhackathonNavigation);
+            }
+
+            return lesH;
+        }
 
         public static bool desinscriptionEquipe(int idHackathon, int idEquipe)
         {
@@ -291,5 +311,20 @@ namespace ApplicationC.Model
             return vretour;
         }
         #endregion
+
+        public static DateTime FirstDate()
+        {
+            
+            DateTime date = Modele.MonModel.Hackathons.Where(x=> !x.Estarchive).Min(x=> x.Datefininscription);
+
+            return date;
+        }
+
+        public static DateTime LastDate()
+        {
+            DateTime date = Modele.MonModel.Hackathons.Where(x => !x.Estarchive).Max(x => x.Datefininscription);
+
+            return date;
+        }
     }
 }

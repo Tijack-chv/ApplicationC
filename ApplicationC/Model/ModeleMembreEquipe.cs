@@ -88,6 +88,11 @@ namespace ApplicationC.Model
             return membre;  
         }
 
+        public static List<Membre> RecupererMembres(int idE)
+        {
+            return Modele.MonModel.Membres.Where(x => x.Idequipe == idE).ToList();
+        }
+
         public static bool ModificationMembre(int idmembre, string nom, string prenom, string email, string telephone, DateTime datenaiss, string lienportfolio)
         {
             Membre unMembre;

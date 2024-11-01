@@ -56,13 +56,19 @@ namespace ApplicationC.Controller
             }
         }
 
-        public static void EmailSend(string dest, string subject, string body)
+        public static void EmailSend(List<string> dests, string subject, string body)
         {
-            string to = dest;
             string from = "HackathonOrga@hackatinnov.com";
-            MailMessage message = new MailMessage(from, to);
+            MailMessage message = new MailMessage();
+            message.From = new MailAddress(from);
             message.Subject = subject;
             message.Body = body;
+
+            foreach (string dest in dests)
+            {
+                message.To.Add(new MailAddress(dest));
+            }
+
             SmtpClient client = new SmtpClient();
 
             client.Host = "mail.dombtsig.local";

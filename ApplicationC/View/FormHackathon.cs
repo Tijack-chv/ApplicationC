@@ -13,6 +13,8 @@ using ApplicationC.Controller;
 using ApplicationC.Entities;
 using ApplicationC.Model;
 using SousFormulaire;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ApplicationC
 {
@@ -21,15 +23,33 @@ namespace ApplicationC
         #region Attribut
         private int maxPage;
         private int minPage;
+        private bool filtre = false;
         #endregion
 
         #region Constructeur FormHackathon
         public FormHackathon()
         {
             InitializeComponent();
-            nbPages();
+            
+            dateTimePickerDatePrec.MinDate = ModeleHackathon.FirstDate();
+            dateTimePickerDatePrec.MaxDate = ModeleHackathon.LastDate();
+
+            dateTimePickerDatePrec.Value = dateTimePickerDatePrec.MinDate;
+
+            dateTimePickerDateSuiv.MinDate = dateTimePickerDatePrec.Value;
+            dateTimePickerDateSuiv.MaxDate = ModeleHackathon.LastDate();
+
+            dateTimePickerDateSuiv.Value = dateTimePickerDateSuiv.MaxDate;
+
             minPage = 1;
             buttonPrec.Enabled = false;
+
+            comboBoxEquipe.ValueMember = "idequipe";
+            comboBoxEquipe.DisplayMember = "nomequipe";
+
+            bindingSourceAllEquipeCombo.DataSource = (ModeleMembreEquipe.listeEquipeSimple());
+            comboBoxEquipe.DataSource = bindingSourceAllEquipeCombo;
+            comboBoxEquipe.SelectedIndex = -1;
         }
         #endregion
 
@@ -50,6 +70,19 @@ namespace ApplicationC
             }
         }
         #endregion
+
+        private void nbPagesFiltre(List<Hackathon> liste)
+        {
+            int count = liste.Count();
+            if (count % 20 == 0)
+            {
+                maxPage = count / 20;
+            }
+            else
+            {
+                maxPage = (count / 20) + 1;
+            }
+        }
 
         #region Form1_Load
         /// <summary>
@@ -89,8 +122,46 @@ namespace ApplicationC
             dgvHackathon.Columns[9].HeaderText = "Nom Organisateur";
             dgvHackathon.Columns[10].HeaderText = "Prénom Organisateur";
             dgvHackathon.Columns[11].Visible = false;
+
+            nbPages();
         }
         #endregion
+
+        private void FormFiltre_Load(List<Hackathon> liste)
+        {
+            BSHackathon.DataSource = liste.Select(static x => new
+            {
+                x.Idhackathon,
+                x.Thematique,
+                x.Lieu,
+                x.Ville,
+                x.Dateheuredebuth,
+                x.Dateheurefinh,
+                x.Objectifs,
+                x.Nbplaceeqmax,
+                x.Datefininscription,
+                x.IdorganisateurNavigation.Nom,
+                x.IdorganisateurNavigation.Prenom,
+                x.Affiche,
+            });
+
+            dgvHackathon.DataSource = BSHackathon;
+            dgvHackathon.Columns[0].HeaderText = "Identifiant";
+            dgvHackathon.Columns[1].HeaderText = "Thématique";
+            dgvHackathon.Columns[2].HeaderText = "Lieu";
+            dgvHackathon.Columns[3].HeaderText = "Ville";
+            dgvHackathon.Columns[4].HeaderText = "Date de début";
+            dgvHackathon.Columns[5].HeaderText = "Date de fin";
+            dgvHackathon.Columns[6].HeaderText = "Objectifs";
+            dgvHackathon.Columns[7].HeaderText = "Nombre de Places Maximum";
+            dgvHackathon.Columns[8].HeaderText = "Date butoir inscription";
+            dgvHackathon.Columns[9].HeaderText = "Nom Organisateur";
+            dgvHackathon.Columns[10].HeaderText = "Prénom Organisateur";
+            dgvHackathon.Columns[11].Visible = false;
+
+            filtre = true;
+            nbPagesFiltre(liste);
+        }
 
         #region voirLesEquipesToolStripMenuItem_Click
         /// <summary>
@@ -217,8 +288,12 @@ namespace ApplicationC
             {
                 textBoxPage.Text = "1";
             }
-            nbPages();
-            Form1_Load(this, EventArgs.Empty);
+
+            if (!filtre)
+            {
+                nbPages();
+                Form1_Load(this, EventArgs.Empty);
+            }
         }
         #endregion
 
@@ -306,7 +381,7 @@ namespace ApplicationC
             int idE = (int)typeE.GetProperty("Idequipe").GetValue(BSEquipe.Current, null);
             Equipe eq = ModeleMembreEquipe.RecupererEquipe(idE);
 
-            DialogResult dialogResult = MessageBox.Show("Voulez-vous désinscrire l'équipe "+ eq.Nomequipe +" ? ", "Désinscription de l'équipe n°" + idE + " ", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Voulez-vous désinscrire l'équipe " + eq.Nomequipe + " ? ", "Désinscription de l'équipe n°" + idE + " ", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -315,16 +390,95 @@ namespace ApplicationC
 
                 if (ModeleHackathon.desinscriptionEquipe(idH, idE))
                 {
-                    MessageBox.Show("L'équipe " + eq.Nomequipe + " a bien été désinscrite !");
-                    //envoie d'un mail
-                    string subject = "";
-                    string body = "";
+                    string subject = "Désinscription Equipe";
+                    string body = "Bonjour, Votre équipe '" + eq.Nomequipe + "' a été désinscrite !\nSi cela est une erreur, veuillez informer l'administration de l'Hackathon en question.";
 
-                    Controleur.EmailSend(eq.Login, subject, body);
+                    List<Membre> membres = ModeleMembreEquipe.RecupererMembres(eq.Idequipe);
+                    List<string> dests = membres.Select(x => x.Email).ToList();
+                    dests.Add(eq.Login);
+
+                    Controleur.EmailSend(dests, subject, body);
+                    MessageBox.Show("L'équipe " + eq.Nomequipe + " a bien été désinscrite !\nUn email a bien été envoyé à cette équipe !");
 
                     dgvEquipes.Visible = false;
                     panelPictureBoxAffiche.Visible = false;
                 }
+            }
+        }
+
+        private void textBoxThematique_TextChanged(object sender, EventArgs e)
+        {
+            AppliquerFiltres();
+        }
+
+        private void buttonRenitialiserFiltre_Click(object sender, EventArgs e)
+        {
+            filtre = false;
+            textBoxThematique.Text = "";
+            Form1_Load(sender, EventArgs.Empty);
+            buttonSuiv.Enabled = true;
+        }
+
+        private void textBoxVille_TextChanged(object sender, EventArgs e)
+        {
+            AppliquerFiltres();
+        }
+
+        private void dateTimePickerDatePrec_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePickerDateSuiv.MinDate = dateTimePickerDatePrec.Value;
+            AppliquerFiltres();
+        }
+
+        private void dateTimePickerDateSuiv_ValueChanged(object sender, EventArgs e)
+        {
+            AppliquerFiltres();
+        }
+
+        private void comboBoxEquipe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AppliquerFiltres();
+        }
+
+        private void numericUpDownPlacesRestantes_ValueChanged(object sender, EventArgs e)
+        {
+            AppliquerFiltres();
+        }
+
+        private void AppliquerFiltres()
+        {
+            List<Hackathon> query1 = ModeleHackathon.listeHackathons();
+            List<Hackathon> query = new List<Hackathon>();
+
+            if (!string.IsNullOrEmpty(textBoxThematique.Text))
+                query1 = query1.Where(x => x.Thematique.Contains(textBoxThematique.Text)).ToList();
+            if (!string.IsNullOrEmpty(textBoxVille.Text))
+                query1 = query1.Where(x => x.Ville.Contains(textBoxVille.Text)).ToList();
+            if (dateTimePickerDatePrec.Value != dateTimePickerDatePrec.MinDate)
+                query1 = query1.Where(x => x.Datefininscription >= dateTimePickerDatePrec.Value).ToList();
+            if (dateTimePickerDateSuiv.Value != dateTimePickerDateSuiv.MaxDate)
+                query1 = query1.Where(x => x.Datefininscription <= dateTimePickerDatePrec.Value).ToList();
+            if (numericUpDownPlacesRestantes.Value != 0)
+                query1 = query1.Where(x => x.Nbplaceeqmax == numericUpDownPlacesRestantes.Value).ToList();
+            if (comboBoxEquipe.SelectedIndex != -1)
+            {
+                List<Hackathon> query2 = ModeleHackathon.listeHackathonParEquipe(Convert.ToInt32(comboBoxEquipe.SelectedValue));
+                query = query1.Intersect(query2).ToList();
+            } else
+            {
+                query = query1;
+            }
+
+            if (query.Any())
+            {
+                // Charge la liste filtrée dans le DataGridView si elle n'est pas vide
+                FormFiltre_Load(query);
+            }
+            else
+            {
+                // Si la liste est vide, vide le DataGridView et affiche un message
+                dgvHackathon.DataSource = null;
+                MessageBox.Show("Aucun hackathon ne correspond aux critères des filtres !", "Aucun résultat", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

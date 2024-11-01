@@ -254,7 +254,6 @@ namespace ApplicationC.View
                         textBoxEmailEquipe.ForeColor = Color.Black;
                     }
                 }
-
                 if (textBoxLienPrototype.Text != "")
                 {
                     string url = textBoxLienPrototype.Text.Trim();
