@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema 
+    Microsoft ResX Schema
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -123,6 +123,25 @@
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAERJREFUWEft
         1jEKADAIQ1EP1dP2sqmCo3Mz+B9kD1SLAUg6zlQBKwr0JACb5SZcZ/iI/E8AIFfBigJVYDyXf6UnAWtF
         PBEyrkz8slQqAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="buttonJury.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAATr1AAE69QGXCHZXAAAAB3RJ
+        TUUH5AgZCiwoXXPmYgAAAudJREFUWEft1kuITXEcwPGLlPEKG/IuC1nQeD+iLMgOiZKFkWeNDRusbJAl
+        ruvOXCuTFJJHyEpJsVEeSay8X3mtFIn4fo/fuc7kmubOnI2aX326557f7/8/5/zP+f/PKfTEfxUtLS3q
+        gxnYhaPB7ZkwF9U5hx1jEHbjNR7iFE7iAd5gD6yJVjmFHaIfDuIVtmMEeofh2AZz1lgbrXMIO8NyvMeG
+        +B/Zal5NsGal/3OJ6Nh761BfRs2rc1/kzuM08nke7AQO8SP4sEXm74hab4+1tolMNyI6HYvn2NpRp1Fr
+        jbW2iUw3IjodijvYG/8j+ydaW1vTWmfJbdgmst0IO6lUKv4ewC3UHFr3Rc6aI21tbcm+XCI6d6F5ijIG
+        uy8Nt+H8L+EZZrkvt7Czcrns7xq8gE/6MkwIS3EG5ppixKJ1DuHB4x6PwnH8xDe8DF9jn7nRaX0uQYdq
+        wFrcg1fpPL+IH/DAT+AI+PTfh7W2iV66GHYA763L6yf44mnkCl1+J8F3gifg7HDfFFTwEYfQ9feCDZFd
+        /zeiL9LcZLyDJ+AMSfdbsw7emq69FzJz2qH8gE3xP8nH9mp8hydwBcmBMnwv2NYTr++ZiA5GwsXHIU2u
+        PA234YLjwfUY41HNc0DbOGXvwr6SXKfCYqyHwzg12zhydn4O6Ql8wRJEVbWuEd6+LdlchxENfaBO4AJq
+        Xb1X5AsnPQHtRFS1O9Gz8E1qn5HtICxCuvb7hROZ3xH5hfiM7AkcY9h78RuV1dod6Py7IRr98+0X+flw
+        WU4P7sN4GO2+AdxGfW/HaOTZ3oAfILPRUCqVqrPDbX6nwaH16pqRzPmM/piLS7iJukZAC3Adb3EV++CU
+        Wgy/isdgIjwRr246fBA3Yz+uIW3riCX9dirSYgzDKrgCehW+6fzm8wvYW+DQus9t97kwue2JOwVXYAgK
+        xWIxeq8zbAwfroFwrs+Do+BC4/2VC9YizME4DEC7B7IneqJ2FAq/ANIBT73ig4iEAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="buttonAbout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

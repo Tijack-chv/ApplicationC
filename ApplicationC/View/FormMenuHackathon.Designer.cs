@@ -32,7 +32,6 @@
             ListeHackathonToolStripMenuItem = new ToolStripMenuItem();
             AjoutHackathonToolStripMenuItem = new ToolStripMenuItem();
             ModificationHackathonToolStripMenuItem = new ToolStripMenuItem();
-            rechercheHackathonToolStripMenuItem = new ToolStripMenuItem();
             panelSousAffichage = new Panel();
             menuStripHackathon.SuspendLayout();
             SuspendLayout();
@@ -41,7 +40,7 @@
             // 
             menuStripHackathon.BackColor = Color.FromArgb(50, 55, 60);
             menuStripHackathon.ImageScalingSize = new Size(20, 20);
-            menuStripHackathon.Items.AddRange(new ToolStripItem[] { ListeHackathonToolStripMenuItem, AjoutHackathonToolStripMenuItem, ModificationHackathonToolStripMenuItem, rechercheHackathonToolStripMenuItem });
+            menuStripHackathon.Items.AddRange(new ToolStripItem[] { ListeHackathonToolStripMenuItem, AjoutHackathonToolStripMenuItem, ModificationHackathonToolStripMenuItem });
             menuStripHackathon.Location = new Point(0, 0);
             menuStripHackathon.Name = "menuStripHackathon";
             menuStripHackathon.Padding = new Padding(7, 2, 0, 2);
@@ -76,22 +75,13 @@
             ModificationHackathonToolStripMenuItem.Text = "Modification Hackathon";
             ModificationHackathonToolStripMenuItem.Click += ModificationHackathonToolStripMenuItem_Click;
             // 
-            // rechercheHackathonToolStripMenuItem
-            // 
-            rechercheHackathonToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
-            rechercheHackathonToolStripMenuItem.ForeColor = Color.White;
-            rechercheHackathonToolStripMenuItem.Name = "rechercheHackathonToolStripMenuItem";
-            rechercheHackathonToolStripMenuItem.Size = new Size(152, 22);
-            rechercheHackathonToolStripMenuItem.Text = "Recherche Hackathon";
-            rechercheHackathonToolStripMenuItem.Click += rechercheHackathonToolStripMenuItem_Click;
-            // 
             // panelSousAffichage
             // 
             panelSousAffichage.BackColor = Color.Transparent;
             panelSousAffichage.BackgroundImageLayout = ImageLayout.Center;
             panelSousAffichage.Dock = DockStyle.Fill;
             panelSousAffichage.Location = new Point(0, 26);
-            panelSousAffichage.Margin = new Padding(4, 4, 4, 4);
+            panelSousAffichage.Margin = new Padding(4);
             panelSousAffichage.Name = "panelSousAffichage";
             panelSousAffichage.Size = new Size(1013, 464);
             panelSousAffichage.TabIndex = 1;
@@ -107,7 +97,7 @@
             Controls.Add(menuStripHackathon);
             FormBorderStyle = FormBorderStyle.None;
             MainMenuStrip = menuStripHackathon;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "FormMenuHackathon";
             Text = "HACKAT'INNOV";
             menuStripHackathon.ResumeLayout(false);
@@ -122,7 +112,6 @@
         private System.Windows.Forms.ToolStripMenuItem ListeHackathonToolStripMenuItem;
         private ToolStripMenuItem AjoutHackathonToolStripMenuItem;
         private ToolStripMenuItem ModificationHackathonToolStripMenuItem;
-        private ToolStripMenuItem rechercheHackathonToolStripMenuItem;
         public Panel panelSousAffichage;
     }
 }

@@ -183,13 +183,13 @@ namespace ApplicationC
                     x.Nomequipe
                 });
 
-                dgvEquipes.DataSource = BSEquipe;
-                dgvEquipes.Visible = true;
+                dgvEquipesJury.DataSource = BSEquipe;
+                dgvEquipesJury.Visible = true;
 
             }
             else
             {
-                dgvEquipes.Visible = false;
+                dgvEquipesJury.Visible = false;
                 MessageBox.Show("Pas d'équipe pour cet hackathon");
             }
 
@@ -204,19 +204,19 @@ namespace ApplicationC
         /// <param name="e"></param>
         private void DgvHackathon_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dgvEquipes.Visible = false;
+            dgvEquipesJury.Visible = false;
             panelPictureBoxAffiche.Visible = false;
         }
 
         private void DgvHackathon_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            dgvEquipes.Visible = false;
+            dgvEquipesJury.Visible = false;
             panelPictureBoxAffiche.Visible = false;
         }
 
         private void DgvHackathon_Click(object sender, EventArgs e)
         {
-            dgvEquipes.Visible = false;
+            dgvEquipesJury.Visible = false;
             panelPictureBoxAffiche.Visible = false;
         }
         #endregion
@@ -376,7 +376,6 @@ namespace ApplicationC
 
         private void désinscrireEquipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             System.Type typeE = BSEquipe.Current.GetType();
             int idE = (int)typeE.GetProperty("Idequipe").GetValue(BSEquipe.Current, null);
             Equipe eq = ModeleMembreEquipe.RecupererEquipe(idE);
@@ -400,7 +399,7 @@ namespace ApplicationC
                     Controleur.EmailSend(dests, subject, body);
                     MessageBox.Show("L'équipe " + eq.Nomequipe + " a bien été désinscrite !\nUn email a bien été envoyé à cette équipe !");
 
-                    dgvEquipes.Visible = false;
+                    dgvEquipesJury.Visible = false;
                     panelPictureBoxAffiche.Visible = false;
                 }
             }

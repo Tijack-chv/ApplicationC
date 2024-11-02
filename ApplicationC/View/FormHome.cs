@@ -1,5 +1,6 @@
 ﻿using ApplicationC.Controller;
 using ApplicationC.Entities;
+using ApplicationC.View;
 using SousFormulaire;
 using System;
 using System.Collections.Generic;
@@ -56,18 +57,17 @@ namespace ApplicationC
         private void buttonMenu_Click(object sender, EventArgs e)
         {
             buttonAffiche(!buttonSettings.Visible);
-            panelVisible();
         }
 
         private void buttonAffiche(bool test)
         {
-            
             panelWest.Visible = test;
             buttonAbout.Visible = test;
             buttonEquipe.Visible = test;
             buttonHackathon.Visible = test;
             buttonQuitter.Visible = test;
             buttonSettings.Visible = test;
+            buttonJury.Visible = test;
         }
 
         private void panelVisible()
@@ -78,6 +78,7 @@ namespace ApplicationC
             panelHome.Visible = false;
             panelHackathon.Visible = false;
             panelMembreEquipe.Visible = false;
+            panelJury.Visible = false;
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
@@ -137,6 +138,15 @@ namespace ApplicationC
             {
                 buttonAffiche(true);
             }
+        }
+
+        private void buttonJury_Click(object sender, EventArgs e)
+        {
+            buttonAffiche(!buttonJury.Visible);
+
+            sousF.openChildForm(new FormMenuJury());
+            panelVisible();
+            panelJury.Visible = true;
         }
     }
 }

@@ -39,7 +39,7 @@
             labelInfo = new Label();
             BSHackathon = new BindingSource(components);
             BSEquipe = new BindingSource(components);
-            dgvEquipes = new DataGridView();
+            dgvEquipesJury = new DataGridView();
             contextMenuStripEquipe = new ContextMenuStrip(components);
             désinscrireEquipeToolStripMenuItem = new ToolStripMenuItem();
             buttonPrec = new Button();
@@ -65,11 +65,12 @@
             labelEquipe = new Label();
             label7 = new Label();
             bindingSourceAllEquipeCombo = new BindingSource(components);
+            visualiserLeJuryToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvHackathon).BeginInit();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BSHackathon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BSEquipe).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvEquipes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEquipesJury).BeginInit();
             contextMenuStripEquipe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFermer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAffiche).BeginInit();
@@ -102,9 +103,9 @@
             // 
             contextMenuStrip1.BackColor = Color.FromArgb(50, 55, 60);
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { VoirEquipeToolStripMenuItem, modifierToolStripMenuItem, visualiserLAfficheToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { VoirEquipeToolStripMenuItem, modifierToolStripMenuItem, visualiserLAfficheToolStripMenuItem, visualiserLeJuryToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(209, 82);
+            contextMenuStrip1.Size = new Size(209, 108);
             // 
             // VoirEquipeToolStripMenuItem
             // 
@@ -164,20 +165,20 @@
             labelInfo.TabIndex = 4;
             labelInfo.Text = "click droit sur l'hackathon sélectionné pour voir ses équipes";
             // 
-            // dgvEquipes
+            // dgvEquipesJury
             // 
-            dgvEquipes.AllowUserToAddRows = false;
-            dgvEquipes.AllowUserToDeleteRows = false;
-            dgvEquipes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquipes.ContextMenuStrip = contextMenuStripEquipe;
-            dgvEquipes.Location = new Point(546, 38);
-            dgvEquipes.Margin = new Padding(5);
-            dgvEquipes.Name = "dgvEquipes";
-            dgvEquipes.ReadOnly = true;
-            dgvEquipes.RowHeadersWidth = 51;
-            dgvEquipes.Size = new Size(247, 358);
-            dgvEquipes.TabIndex = 5;
-            dgvEquipes.Visible = false;
+            dgvEquipesJury.AllowUserToAddRows = false;
+            dgvEquipesJury.AllowUserToDeleteRows = false;
+            dgvEquipesJury.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEquipesJury.ContextMenuStrip = contextMenuStripEquipe;
+            dgvEquipesJury.Location = new Point(546, 38);
+            dgvEquipesJury.Margin = new Padding(5);
+            dgvEquipesJury.Name = "dgvEquipesJury";
+            dgvEquipesJury.ReadOnly = true;
+            dgvEquipesJury.RowHeadersWidth = 51;
+            dgvEquipesJury.Size = new Size(247, 358);
+            dgvEquipesJury.TabIndex = 5;
+            dgvEquipesJury.Visible = false;
             // 
             // contextMenuStripEquipe
             // 
@@ -435,6 +436,16 @@
             label7.TabIndex = 46;
             label7.Text = "Nombre de Places :";
             // 
+            // visualiserLeJuryToolStripMenuItem
+            // 
+            visualiserLeJuryToolStripMenuItem.BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé;
+            visualiserLeJuryToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
+            visualiserLeJuryToolStripMenuItem.ForeColor = Color.White;
+            visualiserLeJuryToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
+            visualiserLeJuryToolStripMenuItem.Name = "visualiserLeJuryToolStripMenuItem";
+            visualiserLeJuryToolStripMenuItem.Size = new Size(208, 26);
+            visualiserLeJuryToolStripMenuItem.Text = "Visualiser le Jury";
+            // 
             // FormHackathon
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -463,7 +474,7 @@
             Controls.Add(buttonSuiv);
             Controls.Add(buttonPrec);
             Controls.Add(pictureBoxFermer);
-            Controls.Add(dgvEquipes);
+            Controls.Add(dgvEquipesJury);
             Controls.Add(labelInfo);
             Controls.Add(labelListe);
             Controls.Add(dgvHackathon);
@@ -476,7 +487,7 @@
             contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BSHackathon).EndInit();
             ((System.ComponentModel.ISupportInitialize)BSEquipe).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvEquipes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEquipesJury).EndInit();
             contextMenuStripEquipe.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxFermer).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAffiche).EndInit();
@@ -494,7 +505,7 @@
         private System.Windows.Forms.Label labelListe;
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.BindingSource BSEquipe;
-        private System.Windows.Forms.DataGridView dgvEquipes;
+        private System.Windows.Forms.DataGridView dgvEquipesJury;
         private Button buttonPrec;
         private Button buttonSuiv;
         private Panel panel1;
@@ -524,6 +535,7 @@
         private Label labelEquipe;
         private Label label7;
         private BindingSource bindingSourceAllEquipeCombo;
+        private ToolStripMenuItem visualiserLeJuryToolStripMenuItem;
     }
 }
 
