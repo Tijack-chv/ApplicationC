@@ -17,7 +17,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ApplicationC
-{
+{ 
     public partial class FormHackathon : Form
     {
         #region Attribut
