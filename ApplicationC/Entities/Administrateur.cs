@@ -14,4 +14,6 @@ public partial class Administrateur
     public string? Motpasse { get; set; }
 
     public string? Email { get; set; }
+
+    public virtual ICollection<Collecter> Collecters { get; set; } = new List<Collecter>();
 }

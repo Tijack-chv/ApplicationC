@@ -18,11 +18,15 @@ public partial class Ap3PiewanContext : DbContext
 
     public virtual DbSet<Administrateur> Administrateurs { get; set; }
 
+    public virtual DbSet<Collecter> Collecters { get; set; }
+
     public virtual DbSet<Equipe> Equipes { get; set; }
 
     public virtual DbSet<Hackathon> Hackathons { get; set; }
 
     public virtual DbSet<Inscrire> Inscrires { get; set; }
+
+    public virtual DbSet<Jury> Juries { get; set; }
 
     public virtual DbSet<Membre> Membres { get; set; }
 
@@ -64,6 +68,42 @@ public partial class Ap3PiewanContext : DbContext
             entity.Property(e => e.Prenom)
                 .HasMaxLength(128)
                 .HasColumnName("prenom");
+        });
+
+        modelBuilder.Entity<Collecter>(entity =>
+        {
+            entity.HasKey(e => new { e.Idequipe, e.Idadministrateur, e.Date })
+                .HasName("PRIMARY")
+                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0, 0 });
+
+            entity
+                .ToTable("COLLECTER")
+                .UseCollation("utf8mb4_unicode_ci");
+
+            entity.HasIndex(e => e.Idadministrateur, "collecter_idadministrateur_foreign");
+
+            entity.Property(e => e.Idequipe).HasColumnName("idequipe");
+            entity.Property(e => e.Idadministrateur).HasColumnName("idadministrateur");
+            entity.Property(e => e.Date)
+                .HasColumnType("datetime")
+                .HasColumnName("date");
+            entity.Property(e => e.Commentaire)
+                .HasColumnType("text")
+                .HasColumnName("commentaire");
+            entity.Property(e => e.CreatedAt)
+                .HasColumnType("timestamp")
+                .HasColumnName("created_at");
+            entity.Property(e => e.UpdatedAt)
+                .HasColumnType("timestamp")
+                .HasColumnName("updated_at");
+
+            entity.HasOne(d => d.IdadministrateurNavigation).WithMany(p => p.Collecters)
+                .HasForeignKey(d => d.Idadministrateur)
+                .HasConstraintName("collecter_idadministrateur_foreign");
+
+            entity.HasOne(d => d.IdequipeNavigation).WithMany(p => p.Collecters)
+                .HasForeignKey(d => d.Idequipe)
+                .HasConstraintName("collecter_idequipe_foreign");
         });
 
         modelBuilder.Entity<Equipe>(entity =>
@@ -131,6 +171,28 @@ public partial class Ap3PiewanContext : DbContext
                 .HasForeignKey(d => d.Idorganisateur)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("hackathon_ibfk_1");
+
+            entity.HasMany(d => d.Idjuries).WithMany(p => p.Idhackathons)
+                .UsingEntity<Dictionary<string, object>>(
+                    "Composition",
+                    r => r.HasOne<Jury>().WithMany()
+                        .HasForeignKey("Idjury")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("COMPOSITION_ibfk_2"),
+                    l => l.HasOne<Hackathon>().WithMany()
+                        .HasForeignKey("Idhackathon")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("COMPOSITION_ibfk_1"),
+                    j =>
+                    {
+                        j.HasKey("Idhackathon", "Idjury")
+                            .HasName("PRIMARY")
+                            .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
+                        j.ToTable("COMPOSITION");
+                        j.HasIndex(new[] { "Idjury" }, "idjury");
+                        j.IndexerProperty<int>("Idhackathon").HasColumnName("idhackathon");
+                        j.IndexerProperty<int>("Idjury").HasColumnName("idjury");
+                    });
         });
 
         modelBuilder.Entity<Inscrire>(entity =>
@@ -162,6 +224,26 @@ public partial class Ap3PiewanContext : DbContext
             entity.HasOne(d => d.IdhackathonNavigation).WithMany(p => p.Inscrires)
                 .HasForeignKey(d => d.Idhackathon)
                 .HasConstraintName("inscrire_ibfk_1");
+        });
+
+        modelBuilder.Entity<Jury>(entity =>
+        {
+            entity.HasKey(e => e.Idjury).HasName("PRIMARY");
+
+            entity.ToTable("JURY");
+
+            entity.HasIndex(e => e.Email, "indexEmailJury").IsUnique();
+
+            entity.Property(e => e.Idjury).HasColumnName("idjury");
+            entity.Property(e => e.Email)
+                .HasMaxLength(50)
+                .HasColumnName("email");
+            entity.Property(e => e.Nomjury)
+                .HasMaxLength(50)
+                .HasColumnName("nomjury");
+            entity.Property(e => e.Prenomjury)
+                .HasMaxLength(50)
+                .HasColumnName("prenomjury");
         });
 
         modelBuilder.Entity<Membre>(entity =>

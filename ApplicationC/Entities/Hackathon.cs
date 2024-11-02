@@ -34,4 +34,6 @@ public partial class Hackathon
     public virtual Organisateur? IdorganisateurNavigation { get; set; }
 
     public virtual ICollection<Inscrire> Inscrires { get; set; } = new List<Inscrire>();
+
+    public virtual ICollection<Jury> Idjuries { get; set; } = new List<Jury>();
 }
