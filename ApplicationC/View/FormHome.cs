@@ -119,6 +119,7 @@ namespace ApplicationC
         {
             buttonAffiche(!buttonSettings.Visible);
 
+            sousF.openChildForm(new FormAbout());
             panelVisible();
             panelAbout.Visible = true;
         }

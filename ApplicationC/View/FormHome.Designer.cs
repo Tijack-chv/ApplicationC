@@ -97,10 +97,10 @@
             // pictureBoxLogo
             // 
             pictureBoxLogo.Image = Properties.Resources.logo;
-            pictureBoxLogo.Location = new Point(888, 0);
+            pictureBoxLogo.Location = new Point(887, 1);
             pictureBoxLogo.Margin = new Padding(3, 2, 3, 2);
             pictureBoxLogo.Name = "pictureBoxLogo";
-            pictureBoxLogo.Size = new Size(125, 83);
+            pictureBoxLogo.Size = new Size(123, 79);
             pictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxLogo.TabIndex = 2;
             pictureBoxLogo.TabStop = false;

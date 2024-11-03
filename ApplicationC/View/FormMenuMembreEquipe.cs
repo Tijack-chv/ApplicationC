@@ -22,6 +22,7 @@ namespace ApplicationC
         {
             InitializeComponent();
             sousF = new(panelSousAffichage);
+            sousF.openChildForm(new FormMembreEquipe(EtatTypeGestion.Membre));
         }
 
         private void listeMembreToolStripMenuItem_Click(object sender, EventArgs e)

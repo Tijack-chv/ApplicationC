@@ -20,6 +20,7 @@ namespace ApplicationC
         {
             InitializeComponent();
             sousF = new(panelSousAffichage);
+            sousF.openChildForm(new FormHackathon());
         }
 
         private void ListeHackathonToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,11 +36,6 @@ namespace ApplicationC
         private void ModificationHackathonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sousF.openChildForm(new FormGestionHackathon(EtatGestion.Update));
-        }
-
-        private void rechercheHackathonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Lot2-5 Consultation filtrée des hackathons 
         }
     }
 }

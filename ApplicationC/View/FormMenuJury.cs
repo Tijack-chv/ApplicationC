@@ -19,21 +19,22 @@ namespace ApplicationC.View
         {
             InitializeComponent();
             sousF = new(panelSousAffichage);
+            sousF.openChildForm(new FormJury());
         }
 
         private void ListeJuryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            sousF.openChildForm(new FormJury());
         }
 
         private void AjoutJuryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            sousF.openChildForm(new FormGestionJury());
         }
 
         private void ModificationJuryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            sousF.openChildForm(new FormGestionJury());
         }
     }
 }

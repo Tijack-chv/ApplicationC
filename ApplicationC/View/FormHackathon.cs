@@ -110,7 +110,6 @@ namespace ApplicationC
 
 
             dgvHackathon.DataSource = BSHackathon;
-            dgvHackathon.Columns[0].HeaderText = "Identifiant";
             dgvHackathon.Columns[1].HeaderText = "Thématique";
             dgvHackathon.Columns[2].HeaderText = "Lieu";
             dgvHackathon.Columns[3].HeaderText = "Ville";
@@ -121,7 +120,13 @@ namespace ApplicationC
             dgvHackathon.Columns[8].HeaderText = "Date butoir inscription";
             dgvHackathon.Columns[9].HeaderText = "Nom Organisateur";
             dgvHackathon.Columns[10].HeaderText = "Prénom Organisateur";
+            dgvHackathon.Columns[0].Visible = false;
             dgvHackathon.Columns[11].Visible = false;
+
+            for (int i = 0; i<=11; i++)
+            {
+                dgvHackathon.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
 
             nbPages();
         }

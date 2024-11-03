@@ -29,12 +29,18 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHackathon));
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             dgvHackathon = new DataGridView();
             contextMenuStrip1 = new ContextMenuStrip(components);
             VoirEquipeToolStripMenuItem = new ToolStripMenuItem();
             modifierToolStripMenuItem = new ToolStripMenuItem();
             visualiserLAfficheToolStripMenuItem = new ToolStripMenuItem();
+            visualiserLeJuryToolStripMenuItem = new ToolStripMenuItem();
             labelListe = new Label();
             labelInfo = new Label();
             BSHackathon = new BindingSource(components);
@@ -65,7 +71,6 @@
             labelEquipe = new Label();
             label7 = new Label();
             bindingSourceAllEquipeCombo = new BindingSource(components);
-            visualiserLeJuryToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvHackathon).BeginInit();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BSHackathon).BeginInit();
@@ -83,15 +88,49 @@
             // 
             dgvHackathon.AllowUserToAddRows = false;
             dgvHackathon.AllowUserToDeleteRows = false;
+            dgvHackathon.AllowUserToOrderColumns = true;
+            dgvHackathon.AllowUserToResizeRows = false;
             dgvHackathon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvHackathon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHackathon.BackgroundColor = Color.FromArgb(80, 85, 90);
+            dgvHackathon.BorderStyle = BorderStyle.None;
+            dgvHackathon.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(40, 45, 50);
+            dataGridViewCellStyle1.Font = new Font("Rockwell", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvHackathon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvHackathon.ColumnHeadersHeight = 30;
             dgvHackathon.ContextMenuStrip = contextMenuStrip1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 85, 90);
+            dataGridViewCellStyle2.Font = new Font("Rockwell", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvHackathon.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvHackathon.EnableHeadersVisualStyles = false;
+            dgvHackathon.GridColor = Color.Black;
             dgvHackathon.Location = new Point(10, 38);
             dgvHackathon.Margin = new Padding(5);
             dgvHackathon.MultiSelect = false;
             dgvHackathon.Name = "dgvHackathon";
             dgvHackathon.ReadOnly = true;
-            dgvHackathon.RowHeadersWidth = 51;
+            dgvHackathon.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(80, 85, 90);
+            dataGridViewCellStyle3.Font = new Font("Rockwell", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvHackathon.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvHackathon.RowHeadersVisible = false;
+            dgvHackathon.RowHeadersWidth = 55;
+            dgvHackathon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHackathon.Size = new Size(783, 358);
             dgvHackathon.TabIndex = 0;
             dgvHackathon.CellClick += DgvHackathon_CellContentClick;
@@ -140,6 +179,16 @@
             visualiserLAfficheToolStripMenuItem.Text = "Visualiser l'Affiche";
             visualiserLAfficheToolStripMenuItem.Click += visualiserLAfficheToolStripMenuItem_Click;
             // 
+            // visualiserLeJuryToolStripMenuItem
+            // 
+            visualiserLeJuryToolStripMenuItem.BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé;
+            visualiserLeJuryToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
+            visualiserLeJuryToolStripMenuItem.ForeColor = Color.White;
+            visualiserLeJuryToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
+            visualiserLeJuryToolStripMenuItem.Name = "visualiserLeJuryToolStripMenuItem";
+            visualiserLeJuryToolStripMenuItem.Size = new Size(208, 26);
+            visualiserLeJuryToolStripMenuItem.Text = "Visualiser le Jury";
+            // 
             // labelListe
             // 
             labelListe.AutoSize = true;
@@ -169,12 +218,39 @@
             // 
             dgvEquipesJury.AllowUserToAddRows = false;
             dgvEquipesJury.AllowUserToDeleteRows = false;
-            dgvEquipesJury.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEquipesJury.AllowUserToOrderColumns = true;
+            dgvEquipesJury.AllowUserToResizeRows = false;
+            dgvEquipesJury.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvEquipesJury.BackgroundColor = Color.FromArgb(80, 85, 90);
+            dgvEquipesJury.BorderStyle = BorderStyle.None;
+            dgvEquipesJury.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(40, 45, 50);
+            dataGridViewCellStyle4.Font = new Font("Rockwell", 14.25F, FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvEquipesJury.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvEquipesJury.ColumnHeadersHeight = 30;
             dgvEquipesJury.ContextMenuStrip = contextMenuStripEquipe;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(80, 85, 90);
+            dataGridViewCellStyle5.Font = new Font("Rockwell", 11.25F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvEquipesJury.DefaultCellStyle = dataGridViewCellStyle5;
+            dgvEquipesJury.EnableHeadersVisualStyles = false;
+            dgvEquipesJury.GridColor = Color.Black;
             dgvEquipesJury.Location = new Point(546, 38);
             dgvEquipesJury.Margin = new Padding(5);
+            dgvEquipesJury.MultiSelect = false;
             dgvEquipesJury.Name = "dgvEquipesJury";
             dgvEquipesJury.ReadOnly = true;
+            dgvEquipesJury.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvEquipesJury.RowHeadersVisible = false;
             dgvEquipesJury.RowHeadersWidth = 51;
             dgvEquipesJury.Size = new Size(247, 358);
             dgvEquipesJury.TabIndex = 5;
@@ -288,10 +364,10 @@
             // pictureBoxAffiche
             // 
             pictureBoxAffiche.BackColor = Color.Ivory;
-            pictureBoxAffiche.Location = new Point(3, 2);
+            pictureBoxAffiche.Location = new Point(2, 2);
             pictureBoxAffiche.Margin = new Padding(3, 2, 3, 2);
             pictureBoxAffiche.Name = "pictureBoxAffiche";
-            pictureBoxAffiche.Size = new Size(255, 319);
+            pictureBoxAffiche.Size = new Size(256, 319);
             pictureBoxAffiche.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxAffiche.TabIndex = 31;
             pictureBoxAffiche.TabStop = false;
@@ -435,16 +511,6 @@
             label7.Size = new Size(169, 16);
             label7.TabIndex = 46;
             label7.Text = "Nombre de Places :";
-            // 
-            // visualiserLeJuryToolStripMenuItem
-            // 
-            visualiserLeJuryToolStripMenuItem.BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé;
-            visualiserLeJuryToolStripMenuItem.Font = new Font("Book Antiqua", 9.75F, FontStyle.Bold);
-            visualiserLeJuryToolStripMenuItem.ForeColor = Color.White;
-            visualiserLeJuryToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
-            visualiserLeJuryToolStripMenuItem.Name = "visualiserLeJuryToolStripMenuItem";
-            visualiserLeJuryToolStripMenuItem.Size = new Size(208, 26);
-            visualiserLeJuryToolStripMenuItem.Text = "Visualiser le Jury";
             // 
             // FormHackathon
             // 
