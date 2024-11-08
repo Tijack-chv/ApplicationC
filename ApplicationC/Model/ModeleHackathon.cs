@@ -131,12 +131,23 @@ namespace ApplicationC.Model
         }
         #endregion
 
-        public static List<Jury> listesJuryParHackathon(int idH)
+        public static List<Jury> ListeMembresJuryParHackathon(int idH)
         {
-            Hackathon h = Modele.MonModel.Hackathons.Include(p => p.Idjuries).First(x => x.Idhackathon == idH);
-            List<Jury> lesJ = h.Idjuries.ToList();
+            // Récupérer le hackathon en incluant l'équipe de jury et les jurys associés
+            Hackathon hackathon = Modele.MonModel.Hackathons
+                                .Include(h => h.IdequipejuryNavigation)
+                                    .ThenInclude(ej => ej.Idjuries) // Inclure les jurys de l'équipe
+                                .FirstOrDefault(h => h.Idhackathon == idH);
 
-            return lesJ;
+            // Vérifier si le hackathon et l'équipe de jury sont trouvés
+            if (hackathon?.IdequipejuryNavigation == null)
+            {
+                // Retourner une liste vide si le hackathon ou l'équipe de jury est manquant
+                return new List<Jury>();
+            }
+
+            // Retourner la liste des jurys associés à l'équipe de jury
+            return hackathon.IdequipejuryNavigation.Idjuries.ToList();
         }
 
         public static List<Hackathon> listeHackathonParEquipe(int idE)
@@ -245,7 +256,7 @@ namespace ApplicationC.Model
             Hackathon unHackathon = new Hackathon();
             try
             {
-                unHackathon = Modele.MonModel.Hackathons.First(x => x.Idhackathon == idH);
+                unHackathon = Modele.MonModel.Hackathons.Include(x=>x.IdequipejuryNavigation).First(x => x.Idhackathon == idH);
             }
             catch (Exception ex)
             {

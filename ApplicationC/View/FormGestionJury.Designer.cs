@@ -30,13 +30,13 @@
         {
             textBoxPrenom = new TextBox();
             labelNom = new Label();
-            textBoxNom = new TextBox();
-            textBoxEmail = new TextBox();
-            labelEmail = new Label();
             labelPrenom = new Label();
             buttonFermer = new Button();
             buttonAction = new Button();
             panel1 = new Panel();
+            textBoxNom = new TextBox();
+            textBoxEmail = new TextBox();
+            labelEmail = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,41 +63,6 @@
             labelNom.Size = new Size(144, 25);
             labelNom.TabIndex = 3;
             labelNom.Text = "Nom du Jury";
-            // 
-            // textBoxNom
-            // 
-            textBoxNom.BackColor = Color.FromArgb(45, 50, 55);
-            textBoxNom.BorderStyle = BorderStyle.None;
-            textBoxNom.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxNom.ForeColor = Color.White;
-            textBoxNom.Location = new Point(59, 88);
-            textBoxNom.Name = "textBoxNom";
-            textBoxNom.Size = new Size(239, 23);
-            textBoxNom.TabIndex = 6;
-            // 
-            // textBoxEmail
-            // 
-            textBoxEmail.BackColor = Color.FromArgb(45, 50, 55);
-            textBoxEmail.BorderStyle = BorderStyle.None;
-            textBoxEmail.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxEmail.ForeColor = Color.White;
-            textBoxEmail.Location = new Point(59, 315);
-            textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(239, 23);
-            textBoxEmail.TabIndex = 7;
-            // 
-            // labelEmail
-            // 
-            labelEmail.AutoSize = true;
-            labelEmail.BackColor = Color.Transparent;
-            labelEmail.FlatStyle = FlatStyle.Flat;
-            labelEmail.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelEmail.ForeColor = Color.FromArgb(25, 30, 35);
-            labelEmail.Location = new Point(104, 287);
-            labelEmail.Name = "labelEmail";
-            labelEmail.Size = new Size(152, 25);
-            labelEmail.TabIndex = 8;
-            labelEmail.Text = "Email du Jury";
             // 
             // labelPrenom
             // 
@@ -158,6 +123,41 @@
             panel1.Size = new Size(372, 528);
             panel1.TabIndex = 27;
             // 
+            // textBoxNom
+            // 
+            textBoxNom.BackColor = Color.FromArgb(45, 50, 55);
+            textBoxNom.BorderStyle = BorderStyle.None;
+            textBoxNom.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBoxNom.ForeColor = Color.White;
+            textBoxNom.Location = new Point(59, 88);
+            textBoxNom.Name = "textBoxNom";
+            textBoxNom.Size = new Size(239, 23);
+            textBoxNom.TabIndex = 6;
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.BackColor = Color.FromArgb(45, 50, 55);
+            textBoxEmail.BorderStyle = BorderStyle.None;
+            textBoxEmail.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBoxEmail.ForeColor = Color.White;
+            textBoxEmail.Location = new Point(59, 315);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(239, 23);
+            textBoxEmail.TabIndex = 7;
+            // 
+            // labelEmail
+            // 
+            labelEmail.AutoSize = true;
+            labelEmail.BackColor = Color.Transparent;
+            labelEmail.FlatStyle = FlatStyle.Flat;
+            labelEmail.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelEmail.ForeColor = Color.FromArgb(25, 30, 35);
+            labelEmail.Location = new Point(104, 287);
+            labelEmail.Name = "labelEmail";
+            labelEmail.Size = new Size(152, 25);
+            labelEmail.TabIndex = 8;
+            labelEmail.Text = "Email du Jury";
+            // 
             // FormGestionJury
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -179,12 +179,12 @@
 
         private TextBox textBoxPrenom;
         private Label labelNom;
-        private TextBox textBoxNom;
-        private TextBox textBoxEmail;
-        private Label labelEmail;
         private Label labelPrenom;
         private Button buttonFermer;
         private Button buttonAction;
         private Panel panel1;
+        private TextBox textBoxNom;
+        private Label labelEmail;
+        private TextBox textBoxEmail;
     }
 }

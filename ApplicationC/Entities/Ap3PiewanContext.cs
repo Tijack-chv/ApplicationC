@@ -22,6 +22,8 @@ public partial class Ap3PiewanContext : DbContext
 
     public virtual DbSet<Equipe> Equipes { get; set; }
 
+    public virtual DbSet<Equipejury> Equipejuries { get; set; }
+
     public virtual DbSet<Hackathon> Hackathons { get; set; }
 
     public virtual DbSet<Inscrire> Inscrires { get; set; }
@@ -115,6 +117,13 @@ public partial class Ap3PiewanContext : DbContext
             entity.HasIndex(e => e.Login, "ulogin").IsUnique();
 
             entity.Property(e => e.Idequipe).HasColumnName("idequipe");
+            entity.Property(e => e.Active).HasColumnName("active");
+            entity.Property(e => e.CleSecret)
+                .HasMaxLength(50)
+                .HasColumnName("cle_secret");
+            entity.Property(e => e.Google2faSecret)
+                .HasMaxLength(50)
+                .HasColumnName("google2fa_secret");
             entity.Property(e => e.Lienprototype)
                 .HasMaxLength(255)
                 .HasColumnName("lienprototype");
@@ -127,6 +136,40 @@ public partial class Ap3PiewanContext : DbContext
                 .HasColumnName("password");
         });
 
+        modelBuilder.Entity<Equipejury>(entity =>
+        {
+            entity.HasKey(e => e.Idequipejury).HasName("PRIMARY");
+
+            entity.ToTable("EQUIPEJURY");
+
+            entity.Property(e => e.Idequipejury).HasColumnName("idequipejury");
+            entity.Property(e => e.Details)
+                .HasMaxLength(120)
+                .HasColumnName("details");
+
+            entity.HasMany(d => d.Idjuries).WithMany(p => p.Idequipejuries)
+                .UsingEntity<Dictionary<string, object>>(
+                    "Composition",
+                    r => r.HasOne<Jury>().WithMany()
+                        .HasForeignKey("Idjury")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_JURY"),
+                    l => l.HasOne<Equipejury>().WithMany()
+                        .HasForeignKey("Idequipejury")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_EQUIPEJURY"),
+                    j =>
+                    {
+                        j.HasKey("Idequipejury", "Idjury")
+                            .HasName("PRIMARY")
+                            .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
+                        j.ToTable("COMPOSITION");
+                        j.HasIndex(new[] { "Idjury" }, "FK_JURY");
+                        j.IndexerProperty<int>("Idequipejury").HasColumnName("idequipejury");
+                        j.IndexerProperty<int>("Idjury").HasColumnName("idjury");
+                    });
+        });
+
         modelBuilder.Entity<Hackathon>(entity =>
         {
             entity.HasKey(e => e.Idhackathon).HasName("PRIMARY");
@@ -134,6 +177,8 @@ public partial class Ap3PiewanContext : DbContext
             entity.ToTable("HACKATHON");
 
             entity.HasIndex(e => e.Idorganisateur, "hackathon_ibfk_1");
+
+            entity.HasIndex(e => e.Idequipejury, "idequipejury");
 
             entity.Property(e => e.Idhackathon).HasColumnName("idhackathon");
             entity.Property(e => e.Affiche)
@@ -152,6 +197,7 @@ public partial class Ap3PiewanContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("dateheurefinh");
             entity.Property(e => e.Estarchive).HasColumnName("estarchive");
+            entity.Property(e => e.Idequipejury).HasColumnName("idequipejury");
             entity.Property(e => e.Idorganisateur).HasColumnName("idorganisateur");
             entity.Property(e => e.Lieu)
                 .HasMaxLength(128)
@@ -167,32 +213,14 @@ public partial class Ap3PiewanContext : DbContext
                 .HasMaxLength(128)
                 .HasColumnName("ville");
 
+            entity.HasOne(d => d.IdequipejuryNavigation).WithMany(p => p.Hackathons)
+                .HasForeignKey(d => d.Idequipejury)
+                .HasConstraintName("FK_EQJURY");
+
             entity.HasOne(d => d.IdorganisateurNavigation).WithMany(p => p.Hackathons)
                 .HasForeignKey(d => d.Idorganisateur)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("hackathon_ibfk_1");
-
-            entity.HasMany(d => d.Idjuries).WithMany(p => p.Idhackathons)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Composition",
-                    r => r.HasOne<Jury>().WithMany()
-                        .HasForeignKey("Idjury")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("COMPOSITION_ibfk_2"),
-                    l => l.HasOne<Hackathon>().WithMany()
-                        .HasForeignKey("Idhackathon")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("COMPOSITION_ibfk_1"),
-                    j =>
-                    {
-                        j.HasKey("Idhackathon", "Idjury")
-                            .HasName("PRIMARY")
-                            .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-                        j.ToTable("COMPOSITION");
-                        j.HasIndex(new[] { "Idjury" }, "idjury");
-                        j.IndexerProperty<int>("Idhackathon").HasColumnName("idhackathon");
-                        j.IndexerProperty<int>("Idjury").HasColumnName("idjury");
-                    });
         });
 
         modelBuilder.Entity<Inscrire>(entity =>

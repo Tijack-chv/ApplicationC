@@ -135,7 +135,7 @@ namespace ApplicationC.View
             System.Type type = bindingSourceJury.Current.GetType();
             int idJ = (int)type.GetProperty("Idjury").GetValue(bindingSourceJury.Current, null);
 
-            List<Hackathon> lesHackathons = ModeleJury.ListJuryParHackathon(idJ);
+            List<Hackathon> lesHackathons = ModeleJury.ListHackathonParJury(idJ);
             if (lesHackathons.Count != 0)
             {
                 bindingSourceHackathons.DataSource = (lesHackathons).Select(static x => new

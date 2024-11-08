@@ -15,6 +15,12 @@ public partial class Equipe
 
     public string? Password { get; set; }
 
+    public string? Google2faSecret { get; set; }
+
+    public string? CleSecret { get; set; }
+
+    public bool? Active { get; set; }
+
     public virtual ICollection<Collecter> Collecters { get; set; } = new List<Collecter>();
 
     public virtual ICollection<Inscrire> Inscrires { get; set; } = new List<Inscrire>();

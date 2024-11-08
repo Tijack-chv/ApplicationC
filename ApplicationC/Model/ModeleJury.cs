@@ -82,11 +82,33 @@ namespace ApplicationC.Model
             return vretour;
         }
 
-        public static List<Hackathon> ListJuryParHackathon(int idJury)
+        public static List<Equipejury> ListEquipeJuryParJury(int idJury)
         {
-            Jury j = Modele.MonModel.Juries.Include(x => x.Idhackathons).First(x => x.Idjury == idJury);
+            Jury j = Modele.MonModel.Juries.Include(x => x.Idequipejuries).First(x => x.Idjury == idJury);
 
-            List<Hackathon> lesH = j.Idhackathons.ToList();
+            List<Equipejury> lesEJ = j.Idequipejuries.ToList();
+
+            return lesEJ;
+        }
+
+        public static List<Hackathon> ListHackathonParJury(int idJury)
+        {
+            List<Equipejury> lesEJ = ListEquipeJuryParJury(idJury);
+            
+            List<Hackathon> hackathons = ModeleHackathon.listeHackathons();
+
+            List<Hackathon> lesH = new List<Hackathon>();
+
+            foreach (Hackathon h in hackathons)
+            {
+                foreach (Equipejury equipejury in lesEJ)
+                {
+                    if (h.Idequipejury == equipejury.Idequipejury)
+                    {
+                        lesH.Add(h);
+                    }
+                }
+            }
 
             return lesH;
         }

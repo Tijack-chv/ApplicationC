@@ -12,6 +12,7 @@ using System.Xml.Linq;
 using ApplicationC.Controller;
 using ApplicationC.Entities;
 using ApplicationC.Model;
+using ApplicationC.View;
 using SousFormulaire;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -71,6 +72,7 @@ namespace ApplicationC
         }
         #endregion
 
+        #region nbPagesFiltre
         private void nbPagesFiltre(List<Hackathon> liste)
         {
             int count = liste.Count();
@@ -83,6 +85,7 @@ namespace ApplicationC
                 maxPage = (count / 20) + 1;
             }
         }
+        #endregion
 
         #region Form1_Load
         /// <summary>
@@ -132,6 +135,11 @@ namespace ApplicationC
         }
         #endregion
 
+        #region FormFiltre_Load
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="liste"></param>
         private void FormFiltre_Load(List<Hackathon> liste)
         {
             BSHackathon.DataSource = liste.Select(static x => new
@@ -167,6 +175,7 @@ namespace ApplicationC
             filtre = true;
             nbPagesFiltre(liste);
         }
+        #endregion
 
         #region voirLesEquipesToolStripMenuItem_Click
         /// <summary>
@@ -200,6 +209,7 @@ namespace ApplicationC
         }
         #endregion
 
+        #region visualiserLeJuryToolStripMenuItem_Click
         /// <summary>
         /// Au click droit sur la dgv, permet de oir tous les jury pour l'hackathon choisi 
         /// </summary>
@@ -210,7 +220,7 @@ namespace ApplicationC
             System.Type type = BSHackathon.Current.GetType();
             int idH = (int)type.GetProperty("Idhackathon").GetValue(BSHackathon.Current, null);
 
-            List<Jury> lesJurys = ModeleHackathon.listesJuryParHackathon(idH);
+            List<Jury> lesJurys = ModeleHackathon.ListeMembresJuryParHackathon(idH);
             if (lesJurys.Count != 0)
             {
                 BSEquipe.DataSource = (lesJurys).Select(static x => new
@@ -228,10 +238,16 @@ namespace ApplicationC
             else
             {
                 dgvEquipesJury.Visible = false;
-                DialogResult dialogResult = MessageBox.Show("Il n'y a pas de Jury pour cet hackathon !\nVoulez-vous ajouter un Jury ?", "Ajout d'un Jury", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Il n'y a pas d'équipe de Jury pour cet hackathon !\nVoulez-vous ajouter un Jury ?", "Ajout d'un Jury", MessageBoxButtons.YesNo);
                 //intéraction à faire pour l'ajout d'un groupe de membre pour le jury
+                if (dialogResult == DialogResult.Yes)
+                {
+                    FormAjoutJuryHackathon FAJH = new();
+                    FAJH.Show();
+                }
             }
         }
+        #endregion
 
         #region DgvHackathon_AllClick
         /// <summary>

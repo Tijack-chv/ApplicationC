@@ -31,9 +31,11 @@ public partial class Hackathon
 
     public bool Estarchive { get; set; }
 
+    public int? Idequipejury { get; set; }
+
+    public virtual Equipejury? IdequipejuryNavigation { get; set; }
+
     public virtual Organisateur? IdorganisateurNavigation { get; set; }
 
     public virtual ICollection<Inscrire> Inscrires { get; set; } = new List<Inscrire>();
-
-    public virtual ICollection<Jury> Idjuries { get; set; } = new List<Jury>();
 }
