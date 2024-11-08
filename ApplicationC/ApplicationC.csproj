@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <Reference Include="SousFormulaire">
-      <HintPath>..\..\SousFormulaire\bin\Debug\SousFormulaire.dll</HintPath>
+      <HintPath>..\..\..\Librairie\SousFormulaire\bin\Debug\SousFormulaire.dll</HintPath>
     </Reference>
   </ItemGroup>
 

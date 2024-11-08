@@ -145,7 +145,7 @@ namespace ApplicationC
         {
             buttonAffiche(!buttonJury.Visible);
 
-            sousF.openChildForm(new FormMenuJury());
+            sousF.openChildForm(new FormJury());
             panelVisible();
             panelJury.Visible = true;
         }

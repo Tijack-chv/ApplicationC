@@ -131,6 +131,14 @@ namespace ApplicationC.Model
         }
         #endregion
 
+        public static List<Jury> listesJuryParHackathon(int idH)
+        {
+            Hackathon h = Modele.MonModel.Hackathons.Include(p => p.Idjuries).First(x => x.Idhackathon == idH);
+            List<Jury> lesJ = h.Idjuries.ToList();
+
+            return lesJ;
+        }
+
         public static List<Hackathon> listeHackathonParEquipe(int idE)
         {
             Equipe e = Modele.MonModel.Equipes.Include(p=> p.Inscrires).ThenInclude(p=> p.IdhackathonNavigation).First(x=> x.Idequipe == idE); 
