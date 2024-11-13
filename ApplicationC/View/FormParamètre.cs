@@ -22,6 +22,7 @@ namespace ApplicationC
             progressBarMdp.Value = 1;
             panelMdp.Visible = false;
             panelInfoPers.Visible = false;
+            
         }
 
         private void motDePasseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,6 +59,10 @@ namespace ApplicationC
             panelInfoPers.Visible = false;
             panelMdp.Visible = false;
 
+            labelInfo2FA.Text = "La double authentification vous permet\n" +
+                                "d'avoir une sécurité supplémentaire !\n" +
+                                "Pour ajouter la double authentification,\n" +
+                                "Cliquez sur le bouton ci-dessous !";
             panel2FA.Location = new Point(433, 160);
             panel2FA.BackColor = Color.FromArgb(120, 127, 127, 127);
             panel2FA.Visible = true;
@@ -192,6 +197,11 @@ namespace ApplicationC
                 textBoxNvMdp.PasswordChar = '*';
                 textBox2NvMdp.PasswordChar = '*';
             }
+        }
+
+        private void button2FA_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
