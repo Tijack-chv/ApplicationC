@@ -21,7 +21,7 @@ namespace ApplicationC.Controller
                 ServerName = "MyApp"
             });
         }
-
+        /*
         public async Task<CredentialCreateOptions> StartRegistration(string userId, string username, string displayName)
         {
             var user = new Fido2User
@@ -32,7 +32,8 @@ namespace ApplicationC.Controller
             };
 
             // Génération des options d'enregistrement
-            //return await _fido2.RequestNewCredential(user, new List<PublicKeyCredentialDescriptor>(), AuthenticatorSelection.Default, AttestationConveyancePreference.None);
+            return await _fido2.RequestNewCredential(user, new List<PublicKeyCredentialDescriptor>(), AuthenticatorSelection.Default, AttestationConveyancePreference.None);
         }
+        */
     }
 }
