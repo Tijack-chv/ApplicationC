@@ -242,8 +242,16 @@ namespace ApplicationC
                 //intéraction à faire pour l'ajout d'un groupe de membre pour le jury
                 if (dialogResult == DialogResult.Yes)
                 {
-                    FormAjoutJuryHackathon FAJH = new();
-                    FAJH.Show();
+                    Hackathon hack = ModeleHackathon.RecupererHackathon(idH);
+                    if (hack.Dateheuredebuth <= DateTime.Now)
+                    {
+                        MessageBox.Show("Cette Hackathon étant en cours ou terminé, il ne peut donc pas être modifié !");
+                    }
+                    else
+                    {
+                        FormAjoutJuryHackathon FAJH = new(idH);
+                        FAJH.Show();
+                    }
                 }
             }
         }

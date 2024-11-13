@@ -49,5 +49,20 @@ namespace ApplicationC.Model
             }
             return vretour;
         }
+
+        public static Organisateur RecupererOrganisateur(int idO)
+        {
+            Organisateur org = new();
+
+            try
+            {
+                org = Modele.MonModel.Organisateurs.First(x => x.Idorganisateur == idO);
+            } catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+            return org;
+        }
     }
 }

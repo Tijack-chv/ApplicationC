@@ -31,12 +31,12 @@
             components = new System.ComponentModel.Container();
             buttonFermer = new Button();
             buttonAjouter = new Button();
-            textboxMembresJury = new TextBox();
             labelTitle = new Label();
-            comboBoxEquipeJury = new ComboBox();
             labelMembresJury = new Label();
-            labelEquipeJury = new Label();
             bindingSourceEquipeJury = new BindingSource(components);
+            checkedListBoxJury = new CheckedListBox();
+            textBoxRecherche = new TextBox();
+            labelRecherche = new Label();
             ((System.ComponentModel.ISupportInitialize)bindingSourceEquipeJury).BeginInit();
             SuspendLayout();
             // 
@@ -70,19 +70,6 @@
             buttonAjouter.UseVisualStyleBackColor = false;
             buttonAjouter.Click += buttonAjouter_Click;
             // 
-            // textboxMembresJury
-            // 
-            textboxMembresJury.BorderStyle = BorderStyle.FixedSingle;
-            textboxMembresJury.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
-            textboxMembresJury.Location = new Point(49, 199);
-            textboxMembresJury.Margin = new Padding(5);
-            textboxMembresJury.Multiline = true;
-            textboxMembresJury.Name = "textboxMembresJury";
-            textboxMembresJury.ReadOnly = true;
-            textboxMembresJury.ScrollBars = ScrollBars.Vertical;
-            textboxMembresJury.Size = new Size(297, 102);
-            textboxMembresJury.TabIndex = 30;
-            // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
@@ -96,42 +83,49 @@
             labelTitle.TabIndex = 28;
             labelTitle.Text = "Choix Jury d'un Hackathon";
             // 
-            // comboBoxEquipeJury
-            // 
-            comboBoxEquipeJury.FlatStyle = FlatStyle.Popup;
-            comboBoxEquipeJury.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
-            comboBoxEquipeJury.FormattingEnabled = true;
-            comboBoxEquipeJury.Location = new Point(49, 97);
-            comboBoxEquipeJury.Name = "comboBoxEquipeJury";
-            comboBoxEquipeJury.Size = new Size(297, 31);
-            comboBoxEquipeJury.TabIndex = 37;
-            comboBoxEquipeJury.SelectedIndexChanged += comboBoxEquipeJury_SelectedIndexChanged;
-            // 
             // labelMembresJury
             // 
             labelMembresJury.AutoSize = true;
             labelMembresJury.BackColor = Color.Transparent;
             labelMembresJury.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelMembresJury.ForeColor = Color.White;
-            labelMembresJury.Location = new Point(118, 172);
+            labelMembresJury.Location = new Point(114, 55);
             labelMembresJury.Margin = new Padding(5, 0, 5, 0);
             labelMembresJury.Name = "labelMembresJury";
             labelMembresJury.Size = new Size(162, 22);
             labelMembresJury.TabIndex = 38;
             labelMembresJury.Text = "Membres du Jury";
             // 
-            // labelEquipeJury
+            // checkedListBoxJury
             // 
-            labelEquipeJury.AutoSize = true;
-            labelEquipeJury.BackColor = Color.Transparent;
-            labelEquipeJury.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelEquipeJury.ForeColor = Color.White;
-            labelEquipeJury.Location = new Point(143, 72);
-            labelEquipeJury.Margin = new Padding(5, 0, 5, 0);
-            labelEquipeJury.Name = "labelEquipeJury";
-            labelEquipeJury.Size = new Size(116, 22);
-            labelEquipeJury.TabIndex = 39;
-            labelEquipeJury.Text = "Equipe Jury";
+            checkedListBoxJury.FormattingEnabled = true;
+            checkedListBoxJury.Location = new Point(36, 82);
+            checkedListBoxJury.Name = "checkedListBoxJury";
+            checkedListBoxJury.Size = new Size(318, 202);
+            checkedListBoxJury.TabIndex = 40;
+            // 
+            // textBoxRecherche
+            // 
+            textBoxRecherche.Location = new Point(36, 339);
+            textBoxRecherche.Name = "textBoxRecherche";
+            textBoxRecherche.Size = new Size(316, 27);
+            textBoxRecherche.TabIndex = 41;
+            textBoxRecherche.TextChanged += textBoxRecherche_TextChanged;
+            textBoxRecherche.KeyPress += textBoxRecherche_KeyPress;
+            // 
+            // labelRecherche
+            // 
+            labelRecherche.AutoSize = true;
+            labelRecherche.BackColor = Color.Transparent;
+            labelRecherche.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelRecherche.ForeColor = Color.White;
+            labelRecherche.Location = new Point(102, 314);
+            labelRecherche.Margin = new Padding(5, 0, 5, 0);
+            labelRecherche.Name = "labelRecherche";
+            labelRecherche.Size = new Size(182, 22);
+            labelRecherche.TabIndex = 42;
+            labelRecherche.Text = "Barre de recherche";
+            labelRecherche.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormAjoutJuryHackathon
             // 
@@ -139,12 +133,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources._131063946_abstrait_de_texture_de_pierre_ardoise_noire_gris_foncé1;
             ClientSize = new Size(389, 471);
-            Controls.Add(labelEquipeJury);
+            Controls.Add(labelRecherche);
+            Controls.Add(textBoxRecherche);
+            Controls.Add(checkedListBoxJury);
             Controls.Add(labelMembresJury);
-            Controls.Add(comboBoxEquipeJury);
             Controls.Add(buttonFermer);
             Controls.Add(buttonAjouter);
-            Controls.Add(textboxMembresJury);
             Controls.Add(labelTitle);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "FormAjoutJuryHackathon";
@@ -158,11 +152,11 @@
 
         private Button buttonFermer;
         private Button buttonAjouter;
-        private TextBox textboxMembresJury;
         private Label labelTitle;
-        private ComboBox comboBoxEquipeJury;
         private Label labelMembresJury;
-        private Label labelEquipeJury;
         private BindingSource bindingSourceEquipeJury;
+        private CheckedListBox checkedListBoxJury;
+        private TextBox textBoxRecherche;
+        private Label labelRecherche;
     }
 }

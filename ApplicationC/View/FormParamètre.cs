@@ -28,6 +28,11 @@ namespace ApplicationC
         {
             panelInfoPers.Visible = false;
             panelInfoPers.Location = new Point(420, 52);
+
+            panel2FA.Visible = false;
+            panel2FA.Location = new Point(140, 160);
+
+
             panelMdp.BackColor = Color.FromArgb(120, 127, 127, 127);
             panelMdp.Visible = true;
         }
@@ -35,12 +40,27 @@ namespace ApplicationC
         private void informationsPersonnelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelMdp.Visible = false;
-            panelInfoPers.Location = new Point(379, 120);
+
+            panelInfoPers.Location = new Point(433, 160);
             panelInfoPers.BackColor = Color.FromArgb(120, 127, 127, 127);
+
+            panel2FA.Visible = false;
+            panel2FA.Location = new Point(140, 160);
+
             panelInfoPers.Visible = true;
             textBoxEmail.Text = administrateur.Email;
             textBoxFirstName.Text = administrateur.Nom;
             textBoxName.Text = administrateur.Prenom;
+        }
+
+        private void sécuritéSuppléToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelInfoPers.Visible = false;
+            panelMdp.Visible = false;
+
+            panel2FA.Location = new Point(433, 160);
+            panel2FA.BackColor = Color.FromArgb(120, 127, 127, 127);
+            panel2FA.Visible = true;
         }
 
         #region Placeholder
@@ -125,11 +145,6 @@ namespace ApplicationC
         private void buttonAnnulerMdp_Click(object sender, EventArgs e)
         {
             panelMdp.Visible = false;
-        }
-
-        private void buttonValiderInfoPers_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonAnnulerInfoPers_Click(object sender, EventArgs e)

@@ -133,21 +133,34 @@ namespace ApplicationC.Model
 
         public static List<Jury> ListeMembresJuryParHackathon(int idH)
         {
-            // Récupérer le hackathon en incluant l'équipe de jury et les jurys associés
-            Hackathon hackathon = Modele.MonModel.Hackathons
-                                .Include(h => h.IdequipejuryNavigation)
-                                    .ThenInclude(ej => ej.Idjuries) // Inclure les jurys de l'équipe
-                                .FirstOrDefault(h => h.Idhackathon == idH);
+             Hackathon H = Modele.MonModel.Hackathons.Include(x => x.Compositions).First(x => x.Idhackathon == idH);
 
-            // Vérifier si le hackathon et l'équipe de jury sont trouvés
-            if (hackathon?.IdequipejuryNavigation == null)
+            List<Composition> lesC = H.Compositions.ToList();
+
+            List<Jury> jurys = ModeleJury.ListJury();
+
+            List<Jury> lesJ = new List<Jury>();
+            foreach (Composition compo in lesC)
             {
-                // Retourner une liste vide si le hackathon ou l'équipe de jury est manquant
-                return new List<Jury>();
+                foreach (Jury jury in jurys)
+                {
+                    if (compo.Idjury == jury.Idjury)
+                    {
+                        lesJ.Add(jury);
+                    }
+                }
             }
 
-            // Retourner la liste des jurys associés à l'équipe de jury
-            return hackathon.IdequipejuryNavigation.Idjuries.ToList();
+            return lesJ;
+        }
+
+        public static bool AjoutEquipeJuryHackathon(int idH, int idEJ)
+        {
+            bool update = true;
+
+
+
+            return update;
         }
 
         public static List<Hackathon> listeHackathonParEquipe(int idE)
@@ -256,7 +269,7 @@ namespace ApplicationC.Model
             Hackathon unHackathon = new Hackathon();
             try
             {
-                unHackathon = Modele.MonModel.Hackathons.Include(x=>x.IdequipejuryNavigation).First(x => x.Idhackathon == idH);
+                unHackathon = Modele.MonModel.Hackathons.First(x => x.Idhackathon == idH);
             }
             catch (Exception ex)
             {

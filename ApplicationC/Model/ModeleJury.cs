@@ -82,30 +82,23 @@ namespace ApplicationC.Model
             return vretour;
         }
 
-        public static List<Equipejury> ListEquipeJuryParJury(int idJury)
-        {
-            Jury j = Modele.MonModel.Juries.Include(x => x.Idequipejuries).First(x => x.Idjury == idJury);
-
-            List<Equipejury> lesEJ = j.Idequipejuries.ToList();
-
-            return lesEJ;
-        }
-
         public static List<Hackathon> ListHackathonParJury(int idJury)
         {
-            List<Equipejury> lesEJ = ListEquipeJuryParJury(idJury);
-            
+            Jury J = Modele.MonModel.Juries.Include(x => x.Compositions).First(x => x.Idjury == idJury);
+
+            List<Composition> lesC = J.Compositions.ToList();
+
             List<Hackathon> hackathons = ModeleHackathon.listeHackathons();
 
             List<Hackathon> lesH = new List<Hackathon>();
 
-            foreach (Hackathon h in hackathons)
+            foreach (Composition compo in lesC)
             {
-                foreach (Equipejury equipejury in lesEJ)
+                foreach (Hackathon hack in hackathons)
                 {
-                    if (h.Idequipejury == equipejury.Idequipejury)
+                    if (compo.Idhackathon == hack.Idhackathon)
                     {
-                        lesH.Add(h);
+                        lesH.Add(hack);
                     }
                 }
             }
@@ -125,6 +118,30 @@ namespace ApplicationC.Model
                 MessageBox.Show(ex.Message.ToString());
             }
             return unJury;
+        }
+
+        public static bool ajoutJuryHackathon(int idH, int idJ, DateTime date)
+        {
+            Composition compo;
+            bool ajout = true;
+
+            try
+            {
+                compo = new Composition();
+                compo.Idjury = idJ;
+                compo.Idhackathon = idH;
+                compo.DateConvocation = date;
+
+                Modele.MonModel.Compositions.Add(compo);
+                Modele.MonModel.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                ajout = false;
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+            return ajout;
         }
     }
 }

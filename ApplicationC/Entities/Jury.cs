@@ -13,5 +13,5 @@ public partial class Jury
 
     public string Email { get; set; } = null!;
 
-    public virtual ICollection<Equipejury> Idequipejuries { get; set; } = new List<Equipejury>();
+    public virtual ICollection<Composition> Compositions { get; set; } = new List<Composition>();
 }
