@@ -15,5 +15,9 @@ public partial class Administrateur
 
     public string? Email { get; set; }
 
+    public string? SharedSecret { get; set; }
+
     public virtual ICollection<Collecter> Collecters { get; set; } = new List<Collecter>();
+
+    public virtual ICollection<Log> Logs { get; set; } = new List<Log>();
 }

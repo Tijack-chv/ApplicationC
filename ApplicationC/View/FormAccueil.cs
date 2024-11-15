@@ -20,6 +20,7 @@ namespace ApplicationC
 
             if (!test)
             {
+                panelDecoArret.Location = new Point(440, 121);
                 panelDecoArret.Visible = true;
             }
         }

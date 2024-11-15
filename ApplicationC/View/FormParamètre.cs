@@ -1,5 +1,8 @@
 ﻿using ApplicationC.Entities;
 using ApplicationC.Model;
+using Org.BouncyCastle.Asn1.Cmp;
+using OtpNet;
+using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +18,7 @@ namespace ApplicationC
     public partial class FormParamètre : Form
     {
         Administrateur administrateur = new();
+        private string _sharedSecret;
         public FormParamètre(Administrateur admin)
         {
             InitializeComponent();
@@ -22,7 +26,37 @@ namespace ApplicationC
             progressBarMdp.Value = 1;
             panelMdp.Visible = false;
             panelInfoPers.Visible = false;
-            
+
+            textBox2FA.PasswordChar = administrateur.SharedSecret != null ? '*' : '\0';
+            button2FA.Text = administrateur.SharedSecret != null ? "Enlever" : "Ajouter";
+
+            if (administrateur.SharedSecret == null)
+            {
+                GenerateSharedSecret();
+                GenerateQRCode(admin.Email);
+            }
+        }
+        private void GenerateSharedSecret()
+        {
+            // Génération d'une clé aléatoire de 20 octets
+            byte[] secretBytes = KeyGeneration.GenerateRandomKey(20);
+            _sharedSecret = Base32Encoding.ToString(secretBytes); // Convertir en Base32 pour TOTP
+        }
+
+        private void GenerateQRCode(string adminaccount)
+        {
+            // Création de l'URI pour le TOTP (nom de compte et service personnalisable)
+            string accountName = adminaccount; // Nom de l'utilisateur ou email
+            string issuer = "ApplicationC"; // Nom de l'application ou service
+            string totpUri = $"otpauth://totp/{issuer}:{accountName}?secret={_sharedSecret}&issuer={issuer}";
+
+            // Génération du QR Code
+            using (var qrGenerator = new QRCodeGenerator())
+            using (var qrCodeData = qrGenerator.CreateQrCode(totpUri, QRCodeGenerator.ECCLevel.Q))
+            using (var qrCode = new QRCode(qrCodeData))
+            {
+                pictureBox2FA.Image = qrCode.GetGraphic(10); // Taille de l'image QR Code
+            }
         }
 
         private void motDePasseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,13 +90,19 @@ namespace ApplicationC
 
         private void sécuritéSuppléToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (administrateur.SharedSecret == null)
+            {
+                labelInfo2FA.Text = "Saisir le code fourni avec le QrCode\n" +
+                                "pour activer la double authentification";
+
+            } else
+            {
+                labelInfo2FA.Text = "Cliquer sur le bouton pour enlever\n" +
+                    "la double authentification !";
+            }
             panelInfoPers.Visible = false;
             panelMdp.Visible = false;
-
-            labelInfo2FA.Text = "La double authentification vous permet\n" +
-                                "d'avoir une sécurité supplémentaire !\n" +
-                                "Pour ajouter la double authentification,\n" +
-                                "Cliquez sur le bouton ci-dessous !";
+                                
             panel2FA.Location = new Point(433, 160);
             panel2FA.BackColor = Color.FromArgb(120, 127, 127, 127);
             panel2FA.Visible = true;
@@ -201,7 +241,40 @@ namespace ApplicationC
 
         private void button2FA_Click(object sender, EventArgs e)
         {
+            if (administrateur.SharedSecret != null)
+            {
+                if (ModeleAdministrateur.ConnexionAdmin(administrateur.Email, textBox2FA.Text))
+                {
+                    ModeleAdministrateur.update2FA(administrateur.Email, null);
+                    this.Close();
+                } 
+            } 
+            else
+            {
+                string userInputCode = textBox2FA.Text.Trim();
 
+                // Conversion du secret partagé en bytes
+                byte[] secretBytes = Base32Encoding.ToBytes(_sharedSecret);
+
+                // Création de l'instance TOTP
+                var totp = new Totp(secretBytes);
+
+                // Validation du code TOTP entré par l'utilisateur
+                if (totp.VerifyTotp(userInputCode, out long timeStepMatched, VerificationWindow.RfcSpecifiedNetworkDelay))
+                {
+                    if (ModeleAdministrateur.update2FA(administrateur.Email, _sharedSecret))
+                    {
+                        labelInfo2FA.Text = "Code TOTP valide. Connexion réussie.";
+                        labelInfo2FA.ForeColor = Color.Green;
+                    }
+                }
+                else
+                {
+                    labelInfo2FA.Text = "Code TOTP invalide. Veuillez réessayer.";
+                    labelInfo2FA.ForeColor = Color.Red;
+                }
+            }
+            
         }
     }
 }

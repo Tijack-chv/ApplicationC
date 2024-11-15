@@ -1,5 +1,8 @@
 ﻿using ApplicationC.Entities;
 using ApplicationC.Model;
+using ApplicationC.View;
+using Org.BouncyCastle.Asn1.Cmp;
+using OtpNet;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +17,13 @@ namespace ApplicationC
 {
     public partial class FormAdminConnexion : Form
     {
+
         public FormAdminConnexion()
         {
             InitializeComponent();
             labelErreurEmail.Visible = false;
             labelErreurMdp.Visible = false;
         }
-
 
         #region PlaceHolder
 
@@ -103,8 +106,9 @@ namespace ApplicationC
                 {
                     Administrateur administrateur = new();
                     administrateur = ModeleAdministrateur.RecupererAdmin(textBoxMail.Text);
-                    FormHome formHome = new(administrateur);
-                    formHome.Show();
+
+                    Form2FATest form2FA = new(administrateur);
+                    form2FA.Show();
                     this.Hide();
                 }
             }

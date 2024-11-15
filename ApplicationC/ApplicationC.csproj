@@ -11,19 +11,20 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net" Version="0.1.0" />
-    <PackageReference Include="Fido2" Version="3.0.1" />
     <PackageReference Include="iTextSharp" Version="5.5.13.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Otp.NET" Version="1.4.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+    <PackageReference Include="QRCoder" Version="1.6.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="SousFormulaire">
-      <HintPath>..\..\SousFormulaire\bin\Debug\SousFormulaire.dll</HintPath>
+      <HintPath>..\..\..\Librairie\SousFormulaire\bin\Debug\SousFormulaire.dll</HintPath>
     </Reference>
   </ItemGroup>
 

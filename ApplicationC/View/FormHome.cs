@@ -1,5 +1,6 @@
 ﻿using ApplicationC.Controller;
 using ApplicationC.Entities;
+using ApplicationC.Model;
 using ApplicationC.View;
 using SousFormulaire;
 using System;

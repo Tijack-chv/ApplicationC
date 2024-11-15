@@ -19,11 +19,15 @@ public partial class Equipe
 
     public string? CleSecret { get; set; }
 
+    public string? CleSecretVerif { get; set; }
+
     public bool? Active { get; set; }
 
     public virtual ICollection<Collecter> Collecters { get; set; } = new List<Collecter>();
 
     public virtual ICollection<Inscrire> Inscrires { get; set; } = new List<Inscrire>();
+
+    public virtual ICollection<Log> Logs { get; set; } = new List<Log>();
 
     public virtual ICollection<Membre> Membres { get; set; } = new List<Membre>();
 

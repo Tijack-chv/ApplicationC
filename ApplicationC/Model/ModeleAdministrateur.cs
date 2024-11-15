@@ -70,5 +70,22 @@ namespace ApplicationC.Model
             }
             return modification;
         }
+
+        public static bool update2FA(string mail, String sharedSecret)
+        {
+            bool update = true;
+            try
+            {
+                Administrateur admin = RecupererAdmin(mail);
+                admin.SharedSecret = sharedSecret;
+                Modele.MonModel.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                update = false;
+            }
+            return update;
+        }
     }
 }

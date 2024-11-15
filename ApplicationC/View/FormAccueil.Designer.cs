@@ -40,9 +40,10 @@
             panelDecoArret.Controls.Add(buttonAnnuler);
             panelDecoArret.Controls.Add(buttonExit);
             panelDecoArret.Controls.Add(buttonDeconnexion);
-            panelDecoArret.Location = new Point(385, 91);
+            panelDecoArret.Location = new Point(1150, 642);
+            panelDecoArret.Margin = new Padding(3, 4, 3, 4);
             panelDecoArret.Name = "panelDecoArret";
-            panelDecoArret.Size = new Size(200, 265);
+            panelDecoArret.Size = new Size(229, 353);
             panelDecoArret.TabIndex = 0;
             // 
             // buttonAnnuler
@@ -51,9 +52,10 @@
             buttonAnnuler.FlatStyle = FlatStyle.Popup;
             buttonAnnuler.Font = new Font("Stencil", 12F);
             buttonAnnuler.ForeColor = Color.White;
-            buttonAnnuler.Location = new Point(21, 193);
+            buttonAnnuler.Location = new Point(24, 257);
+            buttonAnnuler.Margin = new Padding(3, 4, 3, 4);
             buttonAnnuler.Name = "buttonAnnuler";
-            buttonAnnuler.Size = new Size(162, 31);
+            buttonAnnuler.Size = new Size(185, 41);
             buttonAnnuler.TabIndex = 3;
             buttonAnnuler.Text = "Annuler";
             buttonAnnuler.UseVisualStyleBackColor = false;
@@ -65,9 +67,10 @@
             buttonExit.FlatStyle = FlatStyle.Popup;
             buttonExit.Font = new Font("Stencil", 12F);
             buttonExit.ForeColor = Color.White;
-            buttonExit.Location = new Point(21, 118);
+            buttonExit.Location = new Point(24, 157);
+            buttonExit.Margin = new Padding(3, 4, 3, 4);
             buttonExit.Name = "buttonExit";
-            buttonExit.Size = new Size(162, 31);
+            buttonExit.Size = new Size(185, 41);
             buttonExit.TabIndex = 2;
             buttonExit.Text = "Quitter";
             buttonExit.UseVisualStyleBackColor = false;
@@ -79,9 +82,10 @@
             buttonDeconnexion.FlatStyle = FlatStyle.Popup;
             buttonDeconnexion.Font = new Font("Stencil", 12F);
             buttonDeconnexion.ForeColor = Color.White;
-            buttonDeconnexion.Location = new Point(21, 45);
+            buttonDeconnexion.Location = new Point(24, 60);
+            buttonDeconnexion.Margin = new Padding(3, 4, 3, 4);
             buttonDeconnexion.Name = "buttonDeconnexion";
-            buttonDeconnexion.Size = new Size(162, 31);
+            buttonDeconnexion.Size = new Size(185, 41);
             buttonDeconnexion.TabIndex = 1;
             buttonDeconnexion.Text = "Se déconnecter";
             buttonDeconnexion.UseVisualStyleBackColor = false;
@@ -89,12 +93,13 @@
             // 
             // FormAccueil
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(1013, 490);
+            ClientSize = new Size(1158, 653);
             Controls.Add(panelDecoArret);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormAccueil";
             Text = "FormAccueil";
             panelDecoArret.ResumeLayout(false);

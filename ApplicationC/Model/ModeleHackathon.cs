@@ -154,15 +154,6 @@ namespace ApplicationC.Model
             return lesJ;
         }
 
-        public static bool AjoutEquipeJuryHackathon(int idH, int idEJ)
-        {
-            bool update = true;
-
-
-
-            return update;
-        }
-
         public static List<Hackathon> listeHackathonParEquipe(int idE)
         {
             Equipe e = Modele.MonModel.Equipes.Include(p=> p.Inscrires).ThenInclude(p=> p.IdhackathonNavigation).First(x=> x.Idequipe == idE); 

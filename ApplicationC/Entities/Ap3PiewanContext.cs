@@ -30,6 +30,8 @@ public partial class Ap3PiewanContext : DbContext
 
     public virtual DbSet<Jury> Juries { get; set; }
 
+    public virtual DbSet<Log> Logs { get; set; }
+
     public virtual DbSet<Membre> Membres { get; set; }
 
     public virtual DbSet<Migration> Migrations { get; set; }
@@ -70,6 +72,7 @@ public partial class Ap3PiewanContext : DbContext
             entity.Property(e => e.Prenom)
                 .HasMaxLength(128)
                 .HasColumnName("prenom");
+            entity.Property(e => e.SharedSecret).HasMaxLength(255);
         });
 
         modelBuilder.Entity<Collecter>(entity =>
@@ -148,6 +151,9 @@ public partial class Ap3PiewanContext : DbContext
             entity.Property(e => e.CleSecret)
                 .HasMaxLength(50)
                 .HasColumnName("cle_secret");
+            entity.Property(e => e.CleSecretVerif)
+                .HasMaxLength(150)
+                .HasColumnName("cle_secret_verif");
             entity.Property(e => e.Google2faSecret)
                 .HasMaxLength(50)
                 .HasColumnName("google2fa_secret");
@@ -258,6 +264,40 @@ public partial class Ap3PiewanContext : DbContext
             entity.Property(e => e.Prenomjury)
                 .HasMaxLength(50)
                 .HasColumnName("prenomjury");
+        });
+
+        modelBuilder.Entity<Log>(entity =>
+        {
+            entity.HasKey(e => e.Idlog).HasName("PRIMARY");
+
+            entity
+                .ToTable("LOGS")
+                .UseCollation("utf8mb4_unicode_ci");
+
+            entity.HasIndex(e => e.Idadmin, "contrainte-admin_log");
+
+            entity.HasIndex(e => e.Idequipe, "contrainte_equipe_log");
+
+            entity.Property(e => e.Idlog).HasColumnName("idlog");
+            entity.Property(e => e.CreatedAt)
+                .HasColumnType("timestamp")
+                .HasColumnName("created_at");
+            entity.Property(e => e.Description)
+                .HasColumnType("text")
+                .HasColumnName("description");
+            entity.Property(e => e.Idadmin).HasColumnName("idadmin");
+            entity.Property(e => e.Idequipe).HasColumnName("idequipe");
+            entity.Property(e => e.UpdatedAt)
+                .HasColumnType("timestamp")
+                .HasColumnName("updated_at");
+
+            entity.HasOne(d => d.IdadminNavigation).WithMany(p => p.Logs)
+                .HasForeignKey(d => d.Idadmin)
+                .HasConstraintName("contrainte-admin_log");
+
+            entity.HasOne(d => d.IdequipeNavigation).WithMany(p => p.Logs)
+                .HasForeignKey(d => d.Idequipe)
+                .HasConstraintName("contrainte_equipe_log");
         });
 
         modelBuilder.Entity<Membre>(entity =>

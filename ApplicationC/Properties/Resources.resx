@@ -172,6 +172,9 @@
   <data name="131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_right_156041" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\arrow_right_15604.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="deux-roues-dentees-de-reglage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\deux-roues-dentees-de-reglage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,7 +190,7 @@
   <data name="131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\public\131063946-abstrait-de-texture-de-pierre-ardoise-noire-gris-foncé.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow_right_156041" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\public\arrow_right_15604.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="41-aiEx0h9L._AC_UF1000_1000_QL80_-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\public\41-aiEx0h9L._AC_UF1000_1000_QL80_-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
