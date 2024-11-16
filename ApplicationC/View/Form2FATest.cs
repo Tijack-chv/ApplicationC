@@ -56,7 +56,7 @@ namespace ApplicationC.View
                 } else
                 {
                     string message = "L'administrateur a essayé plus de 3 fois la connexion TOTP !";
-                    ModeleLog.AjouterLog(admin.Idadministrateur, DateTime.Now, message);
+                    ModeleLog.AjouterLog("admin",admin.Idadministrateur, DateTime.Now, message);
                     Application.Exit();
                 }
             }

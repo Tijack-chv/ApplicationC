@@ -9,14 +9,21 @@ namespace ApplicationC.Model
 {
     public static class ModeleLog
     {
-        public static void AjouterLog(int idadmin,DateTime timestamp,string message)
+        public static void AjouterLog(string adminOuEquipe,int id,DateTime timestamp,string message)
         {
             //String timeStamp = GetTimestamp(DateTime.Now);
 
             try
             {
                 Log log = new Log();
-                log.Idadmin = idadmin;
+
+                if (adminOuEquipe == "admin")
+                {
+                    log.Idadmin = id;
+                } else
+                {
+                    log.Idequipe = id;
+                }
                 log.CreatedAt = timestamp;
                 log.UpdatedAt = timestamp;
                 log.Description = message;

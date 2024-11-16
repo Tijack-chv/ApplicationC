@@ -98,7 +98,8 @@ namespace ApplicationC
             } else
             {
                 labelInfo2FA.Text = "Cliquer sur le bouton pour enlever\n" +
-                    "la double authentification !";
+                    "la double authentification !\n" +
+                    "Saisir le mot de passe de\nl'administrateur dans la barre\nci-dessous !";
             }
             panelInfoPers.Visible = false;
             panelMdp.Visible = false;

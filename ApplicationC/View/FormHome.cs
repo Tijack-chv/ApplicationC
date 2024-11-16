@@ -37,6 +37,7 @@ namespace ApplicationC
         public FormHome(Administrateur admin)
         {
             InitializeComponent();
+
             administrateur = admin;
             sousF = new(panelAffichage);
             labelAdmin.Text = administrateur.Prenom + " " + administrateur.Nom;
@@ -91,13 +92,6 @@ namespace ApplicationC
             panelHome.Visible = true;
         }
 
-        private void pictureBoxLogo_Click(object sender, EventArgs e)
-        {
-            buttonAffiche(false);
-
-            sousF.openChildForm(new FormAccueil(true));
-        }
-
         private void buttonHackathon_Click(object sender, EventArgs e)
         {
             buttonAffiche(!buttonSettings.Visible);
@@ -149,6 +143,13 @@ namespace ApplicationC
             sousF.openChildForm(new FormJury());
             panelVisible();
             panelJury.Visible = true;
+        }
+
+        private void pictureBoxDemande_Click(object sender, EventArgs e)
+        {
+            if (ModeleEquipe.DemandeSuppression2FACount() > 0) {
+                sousF.openChildForm(new FormAccueil("demande"));
+            }
         }
     }
 }

@@ -418,29 +418,5 @@ namespace ApplicationC.View
                 }
             }
         }
-
-
-
-
-
-
-        /* Permet au moment du click de chercher le chemin d'accès au fichier et de le retranscrire sur une textbox
-         
-        private void label1_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Title = "Sélectionner un fichier";
-                openFileDialog.Filter = "Tous les fichiers (*.*)|*.*"; // Modifier le filtre selon les besoins
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    // Afficher le chemin du fichier dans le TextBox
-                    textBox1.Text = openFileDialog.FileName;
-                }
-            }
-        }
-
-        */
     }
 }
