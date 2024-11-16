@@ -27,6 +27,20 @@ namespace ApplicationC.Model
             return admin;
         }
 
+        public static Administrateur RecupererAdmin(int id)
+        {
+            Administrateur admin = new();
+            try
+            {
+                admin = Modele.MonModel.Administrateurs.First(a => a.Idadministrateur == id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("L'adresse mail saisie n'est pas reconnu !");
+            }
+            return admin;
+        }
+
         public static bool ConnexionAdmin(string mail, string mdp)
         {
             bool connexion = true;

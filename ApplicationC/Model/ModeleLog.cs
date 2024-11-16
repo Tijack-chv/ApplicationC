@@ -1,4 +1,5 @@
 ﻿using ApplicationC.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,39 @@ namespace ApplicationC.Model
             {
                 MessageBox.Show("Erreur affichage log");
             }
+        }
+
+        public static List<Log> ListLog()
+        {
+            return Modele.MonModel.Logs.ToList();
+        }
+
+        public  static List<Log> ListLogParPage(int position)
+        {
+            int elementsParPage = 20;
+
+            return Modele.MonModel.Logs.Skip((position - 1) * elementsParPage)
+                        .Take(elementsParPage)
+                        .ToList();
+        }
+
+        public static int CountLogs()
+        {
+            return Modele.MonModel.Logs.Count();
+        }
+
+        public static Log RecupererLog(int id)
+        {
+            Log log = new();
+            try
+            {
+                log = Modele.MonModel.Logs.First(a => a.Idlog == id);
+            }
+            catch
+            {
+                MessageBox.Show("Log non retrouvé !");
+            }
+            return log;
         }
     }
 }

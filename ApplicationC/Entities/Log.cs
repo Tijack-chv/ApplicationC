@@ -5,7 +5,7 @@ namespace ApplicationC.Entities;
 
 public partial class Log
 {
-    public ulong Idlog { get; set; }
+    public int Idlog { get; set; }
 
     public int? Idadmin { get; set; }
 
