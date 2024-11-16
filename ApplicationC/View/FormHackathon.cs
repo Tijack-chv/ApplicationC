@@ -124,7 +124,6 @@ namespace ApplicationC
             dgvHackathon.Columns[9].HeaderText = "Nom Organisateur";
             dgvHackathon.Columns[10].HeaderText = "Prénom Organisateur";
             dgvHackathon.Columns[0].Visible = false;
-            dgvHackathon.Columns[11].Visible = false;
 
             for (int i = 0; i <= 11; i++)
             {
@@ -155,7 +154,6 @@ namespace ApplicationC
                 x.Datefininscription,
                 x.IdorganisateurNavigation.Nom,
                 x.IdorganisateurNavigation.Prenom,
-                x.Affiche,
             });
 
             dgvHackathon.DataSource = BSHackathon;
@@ -170,7 +168,6 @@ namespace ApplicationC
             dgvHackathon.Columns[8].HeaderText = "Date butoir inscription";
             dgvHackathon.Columns[9].HeaderText = "Nom Organisateur";
             dgvHackathon.Columns[10].HeaderText = "Prénom Organisateur";
-            dgvHackathon.Columns[11].Visible = false;
 
             filtre = true;
             nbPagesFiltre(liste);

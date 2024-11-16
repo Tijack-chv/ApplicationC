@@ -40,7 +40,7 @@ namespace ApplicationC
                 lesE = ModeleEquipe.DemandeSuppression2FA();
                 foreach (Equipe equipe in lesE)
                 {
-                    checkedListBoxDemande.Items.Add(equipe.Idequipe + ". " + equipe.Nomequipe + " - " + equipe.Login);
+                    checkedListBoxDemande.Items.Add(equipe.Idequipe + ". " + equipe.Nomequipe);
                 }
                 buttonToutVerif.Visible = true;
                 checkedListBoxDemande.Visible = true;

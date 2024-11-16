@@ -218,9 +218,10 @@ namespace ApplicationC
                         // Assigner l'image au PictureBox
                         pictureBoxAffiche.Image = image;
                     }
-                } else
+                }
+                else
                 {
-                    pictureBoxAffiche.Image=null;
+                    pictureBoxAffiche.Image = null;
                 }
 
                 dtFinInscription.MinDate = H.Datefininscription;
@@ -272,8 +273,14 @@ namespace ApplicationC
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                pictureBoxAffiche.Image = Image.FromFile(openFileDialog.FileName);
+                string imagePath = openFileDialog.FileName;
+                pictureBoxAffiche.Image = Image.FromFile(imagePath);
             }
+        }
+
+        private void pictureBoxAffiche_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
