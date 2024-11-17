@@ -61,9 +61,10 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(30, 35, 40);
-            panel2.Location = new Point(12, 553);
+            panel2.Location = new Point(10, 415);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(175, 29);
+            panel2.Size = new Size(153, 22);
             panel2.TabIndex = 56;
             // 
             // label1
@@ -72,18 +73,19 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(12, 601);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(10, 451);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(0, 17);
+            label1.Size = new Size(0, 14);
             label1.TabIndex = 55;
             // 
             // textBoxPage
             // 
             textBoxPage.Font = new Font("Britannic Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPage.Location = new Point(313, 553);
+            textBoxPage.Location = new Point(274, 415);
+            textBoxPage.Margin = new Padding(3, 2, 3, 2);
             textBoxPage.Name = "textBoxPage";
-            textBoxPage.Size = new Size(70, 30);
+            textBoxPage.Size = new Size(62, 25);
             textBoxPage.TabIndex = 54;
             textBoxPage.Text = "1";
             textBoxPage.TextAlign = HorizontalAlignment.Center;
@@ -93,9 +95,10 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(30, 35, 40);
-            panel1.Location = new Point(504, 553);
+            panel1.Location = new Point(441, 415);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(184, 29);
+            panel1.Size = new Size(161, 22);
             panel1.TabIndex = 53;
             // 
             // buttonSuiv
@@ -104,9 +107,10 @@
             buttonSuiv.FlatStyle = FlatStyle.Popup;
             buttonSuiv.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonSuiv.ForeColor = Color.White;
-            buttonSuiv.Location = new Point(382, 553);
+            buttonSuiv.Location = new Point(334, 415);
+            buttonSuiv.Margin = new Padding(3, 2, 3, 2);
             buttonSuiv.Name = "buttonSuiv";
-            buttonSuiv.Size = new Size(126, 29);
+            buttonSuiv.Size = new Size(110, 22);
             buttonSuiv.TabIndex = 52;
             buttonSuiv.Text = "Suivant";
             buttonSuiv.UseVisualStyleBackColor = false;
@@ -118,9 +122,10 @@
             buttonPrec.FlatStyle = FlatStyle.Popup;
             buttonPrec.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonPrec.ForeColor = Color.White;
-            buttonPrec.Location = new Point(187, 553);
+            buttonPrec.Location = new Point(164, 415);
+            buttonPrec.Margin = new Padding(3, 2, 3, 2);
             buttonPrec.Name = "buttonPrec";
-            buttonPrec.Size = new Size(126, 29);
+            buttonPrec.Size = new Size(110, 22);
             buttonPrec.TabIndex = 51;
             buttonPrec.Text = "Précédent";
             buttonPrec.UseVisualStyleBackColor = false;
@@ -155,15 +160,15 @@
             dataGridViewHackathons.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewHackathons.EnableHeadersVisualStyles = false;
             dataGridViewHackathons.GridColor = Color.Black;
-            dataGridViewHackathons.Location = new Point(121, 47);
-            dataGridViewHackathons.Margin = new Padding(6, 7, 6, 7);
+            dataGridViewHackathons.Location = new Point(106, 35);
+            dataGridViewHackathons.Margin = new Padding(5);
             dataGridViewHackathons.MultiSelect = false;
             dataGridViewHackathons.Name = "dataGridViewHackathons";
             dataGridViewHackathons.ReadOnly = true;
             dataGridViewHackathons.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewHackathons.RowHeadersVisible = false;
             dataGridViewHackathons.RowHeadersWidth = 51;
-            dataGridViewHackathons.Size = new Size(429, 507);
+            dataGridViewHackathons.Size = new Size(375, 380);
             dataGridViewHackathons.TabIndex = 50;
             dataGridViewHackathons.Visible = false;
             // 
@@ -173,10 +178,10 @@
             labelInfo.BackColor = Color.Transparent;
             labelInfo.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelInfo.ForeColor = SystemColors.ActiveCaptionText;
-            labelInfo.Location = new Point(12, 618);
-            labelInfo.Margin = new Padding(5, 0, 5, 0);
+            labelInfo.Location = new Point(10, 464);
+            labelInfo.Margin = new Padding(4, 0, 4, 0);
             labelInfo.Name = "labelInfo";
-            labelInfo.Size = new Size(784, 17);
+            labelInfo.Size = new Size(629, 14);
             labelInfo.TabIndex = 49;
             labelInfo.Text = "click droit sur le Jury sélectionné pour voir les hackathons dont il participe";
             // 
@@ -185,10 +190,10 @@
             labelListe.AutoSize = true;
             labelListe.BackColor = Color.Transparent;
             labelListe.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelListe.Location = new Point(19, 11);
-            labelListe.Margin = new Padding(5, 0, 5, 0);
+            labelListe.Location = new Point(17, 8);
+            labelListe.Margin = new Padding(4, 0, 4, 0);
             labelListe.Name = "labelListe";
-            labelListe.Size = new Size(174, 29);
+            labelListe.Size = new Size(138, 24);
             labelListe.TabIndex = 48;
             labelListe.Text = "Liste des Jury";
             // 
@@ -222,8 +227,8 @@
             dataGridViewJury.DefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewJury.EnableHeadersVisualStyles = false;
             dataGridViewJury.GridColor = Color.Black;
-            dataGridViewJury.Location = new Point(12, 47);
-            dataGridViewJury.Margin = new Padding(6, 7, 6, 7);
+            dataGridViewJury.Location = new Point(10, 35);
+            dataGridViewJury.Margin = new Padding(5);
             dataGridViewJury.MultiSelect = false;
             dataGridViewJury.Name = "dataGridViewJury";
             dataGridViewJury.ReadOnly = true;
@@ -239,7 +244,7 @@
             dataGridViewJury.RowHeadersVisible = false;
             dataGridViewJury.RowHeadersWidth = 55;
             dataGridViewJury.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewJury.Size = new Size(676, 507);
+            dataGridViewJury.Size = new Size(592, 380);
             dataGridViewJury.TabIndex = 47;
             dataGridViewJury.CellContentClick += dataGridViewJury_CellContentClick;
             dataGridViewJury.CellMouseClick += dataGridViewJury_CellMouseClick;
@@ -250,7 +255,7 @@
             contextMenuStripJury.ImageScalingSize = new Size(20, 20);
             contextMenuStripJury.Items.AddRange(new ToolStripItem[] { visualiserLesHackathonsToolStripMenuItem });
             contextMenuStripJury.Name = "contextMenuStripJury";
-            contextMenuStripJury.Size = new Size(286, 30);
+            contextMenuStripJury.Size = new Size(233, 30);
             // 
             // visualiserLesHackathonsToolStripMenuItem
             // 
@@ -259,7 +264,7 @@
             visualiserLesHackathonsToolStripMenuItem.ForeColor = Color.White;
             visualiserLesHackathonsToolStripMenuItem.Image = Properties.Resources.arrow_right_156041;
             visualiserLesHackathonsToolStripMenuItem.Name = "visualiserLesHackathonsToolStripMenuItem";
-            visualiserLesHackathonsToolStripMenuItem.Size = new Size(285, 26);
+            visualiserLesHackathonsToolStripMenuItem.Size = new Size(232, 26);
             visualiserLesHackathonsToolStripMenuItem.Text = "Visualiser les hackathons";
             visualiserLesHackathonsToolStripMenuItem.Click += visualiserLesHackathonsToolStripMenuItem_Click;
             // 
@@ -269,9 +274,10 @@
             buttonCreateJury.FlatStyle = FlatStyle.Popup;
             buttonCreateJury.Font = new Font("Stencil", 10.8F);
             buttonCreateJury.ForeColor = Color.White;
-            buttonCreateJury.Location = new Point(721, 38);
+            buttonCreateJury.Location = new Point(631, 6);
+            buttonCreateJury.Margin = new Padding(3, 2, 3, 2);
             buttonCreateJury.Name = "buttonCreateJury";
-            buttonCreateJury.Size = new Size(177, 36);
+            buttonCreateJury.Size = new Size(155, 27);
             buttonCreateJury.TabIndex = 57;
             buttonCreateJury.Text = "Ajouter un Jury ";
             buttonCreateJury.UseVisualStyleBackColor = false;
@@ -283,9 +289,10 @@
             buttonUpdateJury.FlatStyle = FlatStyle.Popup;
             buttonUpdateJury.Font = new Font("Stencil", 10.8F);
             buttonUpdateJury.ForeColor = Color.White;
-            buttonUpdateJury.Location = new Point(913, 38);
+            buttonUpdateJury.Location = new Point(799, 6);
+            buttonUpdateJury.Margin = new Padding(3, 2, 3, 2);
             buttonUpdateJury.Name = "buttonUpdateJury";
-            buttonUpdateJury.Size = new Size(185, 36);
+            buttonUpdateJury.Size = new Size(162, 27);
             buttonUpdateJury.TabIndex = 59;
             buttonUpdateJury.Text = "Modifier un Jury ";
             buttonUpdateJury.UseVisualStyleBackColor = false;
@@ -294,18 +301,19 @@
             // panelGestionJury
             // 
             panelGestionJury.BackColor = Color.Transparent;
-            panelGestionJury.Location = new Point(721, 80);
+            panelGestionJury.Location = new Point(631, 37);
+            panelGestionJury.Margin = new Padding(3, 2, 3, 2);
             panelGestionJury.Name = "panelGestionJury";
-            panelGestionJury.Size = new Size(377, 534);
+            panelGestionJury.Size = new Size(330, 400);
             panelGestionJury.TabIndex = 58;
             panelGestionJury.Visible = false;
             // 
             // FormJury
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(1154, 640);
+            ClientSize = new Size(1012, 486);
             Controls.Add(panelGestionJury);
             Controls.Add(buttonUpdateJury);
             Controls.Add(buttonCreateJury);
@@ -320,7 +328,6 @@
             Controls.Add(labelListe);
             Controls.Add(dataGridViewJury);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormJury";
             Text = "FormJury";
             Load += FormJury_Load;

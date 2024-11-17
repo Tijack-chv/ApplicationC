@@ -216,7 +216,7 @@ namespace ApplicationC.Model
         /// <param name="dateFinInscription"></param>
         /// <param name="idOrganisateur"></param>
         /// <returns></returns>
-        public static bool AjoutHackathon(string lieu, string ville, string thematique, string objectifs, string conditions, byte[] affiche, DateTime dateD, DateTime dateF, int nbPlaceMaxEquipe, DateTime dateFinInscription, int idOrganisateur)
+        public static bool AjoutHackathon(string lieu, string ville, string thematique, string objectifs, string conditions, string affiche, DateTime dateD, DateTime dateF, int nbPlaceMaxEquipe, DateTime dateFinInscription, int idOrganisateur)
         {
             Hackathon unHackathon;
             bool vretour = true;
@@ -302,7 +302,7 @@ namespace ApplicationC.Model
         /// <param name="dateFinInscription"></param>
         /// <param name="idOrganisateur"></param>
         /// <returns></returns>
-        public static bool ModificationHackathon(int idH, string lieu, string ville, string thematique, string objectifs, string conditions, byte[] affiche, DateTime dateD, DateTime dateF, int nbPlaceMaxEquipe, DateTime dateFinInscription, int idOrganisateur)
+        public static bool ModificationHackathon(int idH, string lieu, string ville, string thematique, string objectifs, string conditions, string affiche, DateTime dateD, DateTime dateF, int nbPlaceMaxEquipe, DateTime dateFinInscription, int idOrganisateur)
         {
             Hackathon unHackathon;
             bool vretour = true;
@@ -342,12 +342,62 @@ namespace ApplicationC.Model
 
             return date;
         }
-
         public static DateTime LastDate()
         {
             DateTime date = Modele.MonModel.Hackathons.Where(x => !x.Estarchive).Max(x => x.Datefininscription);
 
             return date;
+        }
+
+        public static Dictionary<(int Year, int Month), int> NombreHackathonsParAnEtParMois()
+        {
+            var hackathons = Modele.MonModel.Hackathons
+                              .GroupBy(x => new { x.Dateheuredebuth.Year, x.Dateheuredebuth.Month }) // Grouper par année et mois
+                              .Select(g => new { g.Key.Year, g.Key.Month, Count = g.Count() }) // Compter par groupe
+                              .ToDictionary(g => (g.Year, g.Month), g => g.Count); // Transformer en dictionnaire
+
+            return hackathons; // Renvoie un dictionnaire : clé = (année, mois), valeur = nombre de hackathons
+        }
+
+        public static int NombreHackathons()
+        {
+            return Modele.MonModel.Hackathons.Count();
+        }
+
+        public static List<Hackathon> HackathonsList()
+        {
+            return Modele.MonModel.Hackathons.ToList();
+        }
+
+        public static Hackathon HackathonLePlusRecentInscription()
+        {
+            var today = DateTime.Now;
+
+            // Récupérer d'abord les hackathons en mémoire
+            var hackathons = Modele.MonModel.Hackathons
+                                  .Where(x => !x.Estarchive) // Filtrer par hackathons non archivés
+                                  .ToList(); // Charger tous les hackathons en mémoire
+
+            // Trouver l'hackathon avec la date la plus proche en utilisant LINQ côté client
+            var hackathonProche = hackathons
+                                  .OrderBy(x => Math.Abs((x.Datefininscription - today).Ticks)) // Trier par la différence en ticks
+                                  .FirstOrDefault(); // Prendre le premier (le plus proche)
+
+            return hackathonProche;
+        }
+
+        public static int NbInscriptionsRestantesHackathon(Hackathon hack)
+        {
+            int nbPlaceMax = hack.Nbplaceeqmax;
+
+            int nbPlacesPrises = hack.Inscrires.Count();
+
+            return nbPlaceMax-nbPlacesPrises;
+        }
+
+        public static int NbInscriptionsHackathon(Hackathon hack)
+        {
+            return Modele.MonModel.Inscrires.Where(x=>x.Idhackathon == hack.Idhackathon).Count();
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using ApplicationC.Entities;
+using HarfBuzzSharp;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -212,6 +214,63 @@ namespace ApplicationC.Model
                 MessageBox.Show(ex.Message);
             }
             return crea;
+        }
+
+        public static double NombreMoyenEquipeParHackathon()
+        {
+            int val = 0;
+            int countTotal = 0;
+            int nbHackNonNull = 0;
+            List<Hackathon> lesH = ModeleHackathon.HackathonsList();
+            
+            foreach (Hackathon h in lesH)
+            {
+                val = Modele.MonModel.Inscrires.Where(x=> x.Idhackathon == h.Idhackathon).Count();
+                if (val > 0)
+                {
+                    countTotal += val;
+                    nbHackNonNull++;
+                    val = 0;
+                }
+            }
+            if (nbHackNonNull == 0) return 0.0; // Éviter une division par zéro
+            double value = (double)countTotal / nbHackNonNull;
+            return Math.Round(value,2);
+        }
+
+        public static double NombreMoyenMembreParEquipe()
+        {
+            List<Equipe> lesE = Modele.MonModel.Equipes.ToList();
+            List<Membre> lesM = Modele.MonModel.Membres.ToList();
+
+            int nbEquipeConcerne = 0;
+            int nbMembreE;
+            foreach (Equipe equipe in lesE)
+            {
+                nbMembreE = 0;
+                foreach (Membre membre in lesM)
+                {
+                    if (equipe.Idequipe == membre.Idequipe)
+                    {
+                        nbMembreE++;
+                    }
+                }
+                if (nbMembreE > 0)
+                {
+                    nbEquipeConcerne++;
+                }
+
+            }
+
+            int nbM = Modele.MonModel.Membres.Where(x=>x.Idequipe != null).Count();
+
+            double value = (double)nbM / nbEquipeConcerne;
+            return Math.Round(value,2);
+        }
+
+        public static double NbEquipeMoyenDesinscription()
+        {
+            return Math.Round(((double)Modele.MonModel.Inscrires.Where(x => x.Datedesinscription != null).Count() / Modele.MonModel.Inscrires.Count())*100,2);
         }
     }
 }

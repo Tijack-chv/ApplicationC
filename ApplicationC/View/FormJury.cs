@@ -29,7 +29,9 @@ namespace ApplicationC.View
 
             minPage = 1;
             buttonPrec.Enabled = false;
-            dataGridViewHackathons.Location = new Point(688, 51);
+            dataGridViewHackathons.Location = new Point(106, 35);
+            buttonCreateJury.Location = new Point(631, 37);
+            buttonUpdateJury.Location = new Point(799, 37);
         }
 
         private void buttonSuiv_Click(object sender, EventArgs e)
@@ -133,10 +135,14 @@ namespace ApplicationC.View
         private void visualiserLesHackathonsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelGestionJury.Visible = false;
-            //location classique : 721; 38      ->           721; 10
-            //location classique : 913; 38      ->           913; 10
-            buttonCreateJury.Location = new Point(721, 10);
-            buttonUpdateJury.Location = new Point(913, 10);
+            //location classique : 721; 38      ->           721; 10               631; 6       631; 37
+            //location classique : 913; 38      ->           913; 10                799; 6      799; 37
+            //location dgv classique : 106; 35     ->       602; 35
+            //location panel classique : 631; 37
+
+            buttonCreateJury.Location = new Point(631, 6);
+            buttonUpdateJury.Location = new Point(799, 6);
+            dataGridViewHackathons.Location = new Point(602, 35);
 
             System.Type type = bindingSourceJury.Current.GetType();
             int idJ = (int)type.GetProperty("Idjury").GetValue(bindingSourceJury.Current, null);
@@ -168,7 +174,6 @@ namespace ApplicationC.View
                 dataGridViewHackathons.Columns[8].HeaderText = "Date butoir inscription";
                 dataGridViewHackathons.Columns[0].Visible = false;
                 dataGridViewHackathons.Visible = true;
-
             }
             else
             {
@@ -179,31 +184,40 @@ namespace ApplicationC.View
 
         private void dataGridViewJury_Click(object sender, EventArgs e)
         {
-            dataGridViewHackathons.Visible = false;
-            buttonCreateJury.Location = new Point(721, 38);
-            buttonUpdateJury.Location = new Point(913, 38);
+            if (!panelGestionJury.Visible)
+            {
+                dataGridViewHackathons.Visible = false;
+                buttonCreateJury.Location = new Point(631, 37);
+                buttonUpdateJury.Location = new Point(799, 37);
+            }
         }
 
         private void dataGridViewJury_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridViewHackathons.Visible = false;
-            buttonCreateJury.Location = new Point(721, 38);
-            buttonUpdateJury.Location = new Point(913, 38);
+            if (!panelGestionJury.Visible)
+            {
+                dataGridViewHackathons.Visible = false;
+                buttonCreateJury.Location = new Point(631, 37);
+                buttonUpdateJury.Location = new Point(799, 37);
+            }
         }
 
         private void dataGridViewJury_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            dataGridViewHackathons.Visible = false;
-            buttonCreateJury.Location = new Point(721, 38);
-            buttonUpdateJury.Location = new Point(913, 38);
+            if (!panelGestionJury.Visible)
+            {
+                dataGridViewHackathons.Visible = false;
+                buttonCreateJury.Location = new Point(631, 37);
+                buttonUpdateJury.Location = new Point(799, 37);
+            }
         }
 
         private void buttonCreateJury_Click(object sender, EventArgs e)
         {
             dataGridViewHackathons.Visible = false;
 
-            buttonCreateJury.Location = new Point(721, 38);
-            buttonUpdateJury.Location = new Point(913, 38);
+            buttonCreateJury.Location = new Point(631, 6);
+            buttonUpdateJury.Location = new Point(799, 6);
 
             panelGestionJury.Visible = true;
             sousF.openChildForm(new FormGestionJury(EtatGestion.Create));
@@ -213,8 +227,8 @@ namespace ApplicationC.View
         {
             dataGridViewHackathons.Visible = false;
 
-            buttonCreateJury.Location = new Point(721, 38);
-            buttonUpdateJury.Location = new Point(913, 38);
+            buttonCreateJury.Location = new Point(631, 6);
+            buttonUpdateJury.Location = new Point(799, 6);
 
             panelGestionJury.Visible = true;
 

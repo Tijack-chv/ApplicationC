@@ -114,8 +114,8 @@
             dgvHackathon.DefaultCellStyle = dataGridViewCellStyle2;
             dgvHackathon.EnableHeadersVisualStyles = false;
             dgvHackathon.GridColor = Color.Black;
-            dgvHackathon.Location = new Point(11, 51);
-            dgvHackathon.Margin = new Padding(6, 7, 6, 7);
+            dgvHackathon.Location = new Point(10, 38);
+            dgvHackathon.Margin = new Padding(5, 5, 5, 5);
             dgvHackathon.MultiSelect = false;
             dgvHackathon.Name = "dgvHackathon";
             dgvHackathon.ReadOnly = true;
@@ -131,7 +131,7 @@
             dgvHackathon.RowHeadersVisible = false;
             dgvHackathon.RowHeadersWidth = 55;
             dgvHackathon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvHackathon.Size = new Size(895, 477);
+            dgvHackathon.Size = new Size(783, 358);
             dgvHackathon.TabIndex = 0;
             dgvHackathon.CellClick += DgvHackathon_CellContentClick;
             dgvHackathon.CellContentClick += DgvHackathon_CellContentClick;
@@ -144,7 +144,7 @@
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { VoirEquipeToolStripMenuItem, modifierToolStripMenuItem, visualiserLAfficheToolStripMenuItem, visualiserLeJuryToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(254, 108);
+            contextMenuStrip1.Size = new Size(209, 108);
             // 
             // VoirEquipeToolStripMenuItem
             // 
@@ -153,7 +153,7 @@
             VoirEquipeToolStripMenuItem.ForeColor = Color.White;
             VoirEquipeToolStripMenuItem.Image = (Image)resources.GetObject("VoirEquipeToolStripMenuItem.Image");
             VoirEquipeToolStripMenuItem.Name = "VoirEquipeToolStripMenuItem";
-            VoirEquipeToolStripMenuItem.Size = new Size(253, 26);
+            VoirEquipeToolStripMenuItem.Size = new Size(208, 26);
             VoirEquipeToolStripMenuItem.Text = "Voir les équipes";
             VoirEquipeToolStripMenuItem.Click += VoirLesÉquipesToolStripMenuItem_Click;
             // 
@@ -164,7 +164,7 @@
             modifierToolStripMenuItem.ForeColor = Color.White;
             modifierToolStripMenuItem.Image = (Image)resources.GetObject("modifierToolStripMenuItem.Image");
             modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            modifierToolStripMenuItem.Size = new Size(253, 26);
+            modifierToolStripMenuItem.Size = new Size(208, 26);
             modifierToolStripMenuItem.Text = "Modifier l'Hackathon";
             modifierToolStripMenuItem.Click += modifierToolStripMenuItem_Click;
             // 
@@ -175,7 +175,7 @@
             visualiserLAfficheToolStripMenuItem.ForeColor = Color.White;
             visualiserLAfficheToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
             visualiserLAfficheToolStripMenuItem.Name = "visualiserLAfficheToolStripMenuItem";
-            visualiserLAfficheToolStripMenuItem.Size = new Size(253, 26);
+            visualiserLAfficheToolStripMenuItem.Size = new Size(208, 26);
             visualiserLAfficheToolStripMenuItem.Text = "Visualiser l'Affiche";
             visualiserLAfficheToolStripMenuItem.Click += visualiserLAfficheToolStripMenuItem_Click;
             // 
@@ -186,7 +186,7 @@
             visualiserLeJuryToolStripMenuItem.ForeColor = Color.White;
             visualiserLeJuryToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
             visualiserLeJuryToolStripMenuItem.Name = "visualiserLeJuryToolStripMenuItem";
-            visualiserLeJuryToolStripMenuItem.Size = new Size(253, 26);
+            visualiserLeJuryToolStripMenuItem.Size = new Size(208, 26);
             visualiserLeJuryToolStripMenuItem.Text = "Visualiser le Jury";
             visualiserLeJuryToolStripMenuItem.Click += visualiserLeJuryToolStripMenuItem_Click;
             // 
@@ -195,10 +195,10 @@
             labelListe.AutoSize = true;
             labelListe.BackColor = Color.Transparent;
             labelListe.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelListe.Location = new Point(18, 12);
-            labelListe.Margin = new Padding(5, 0, 5, 0);
+            labelListe.Location = new Point(16, 9);
+            labelListe.Margin = new Padding(4, 0, 4, 0);
             labelListe.Name = "labelListe";
-            labelListe.Size = new Size(261, 29);
+            labelListe.Size = new Size(208, 24);
             labelListe.TabIndex = 2;
             labelListe.Text = "Liste des Hackathons";
             // 
@@ -208,10 +208,10 @@
             labelInfo.BackColor = Color.Transparent;
             labelInfo.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelInfo.ForeColor = SystemColors.ActiveCaptionText;
-            labelInfo.Location = new Point(11, 592);
-            labelInfo.Margin = new Padding(5, 0, 5, 0);
+            labelInfo.Location = new Point(10, 444);
+            labelInfo.Margin = new Padding(4, 0, 4, 0);
             labelInfo.Name = "labelInfo";
-            labelInfo.Size = new Size(612, 17);
+            labelInfo.Size = new Size(492, 14);
             labelInfo.TabIndex = 4;
             labelInfo.Text = "click droit sur l'hackathon sélectionné pour voir ses équipes";
             // 
@@ -245,15 +245,15 @@
             dgvEquipesJury.DefaultCellStyle = dataGridViewCellStyle5;
             dgvEquipesJury.EnableHeadersVisualStyles = false;
             dgvEquipesJury.GridColor = Color.Black;
-            dgvEquipesJury.Location = new Point(577, 51);
-            dgvEquipesJury.Margin = new Padding(6, 7, 6, 7);
+            dgvEquipesJury.Location = new Point(505, 38);
+            dgvEquipesJury.Margin = new Padding(5, 5, 5, 5);
             dgvEquipesJury.MultiSelect = false;
             dgvEquipesJury.Name = "dgvEquipesJury";
             dgvEquipesJury.ReadOnly = true;
             dgvEquipesJury.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvEquipesJury.RowHeadersVisible = false;
             dgvEquipesJury.RowHeadersWidth = 51;
-            dgvEquipesJury.Size = new Size(329, 477);
+            dgvEquipesJury.Size = new Size(288, 358);
             dgvEquipesJury.TabIndex = 5;
             dgvEquipesJury.Visible = false;
             // 
@@ -263,7 +263,7 @@
             contextMenuStripEquipe.ImageScalingSize = new Size(20, 20);
             contextMenuStripEquipe.Items.AddRange(new ToolStripItem[] { désinscrireEquipeToolStripMenuItem });
             contextMenuStripEquipe.Name = "contextMenuStripEquipe";
-            contextMenuStripEquipe.Size = new Size(235, 30);
+            contextMenuStripEquipe.Size = new Size(195, 30);
             // 
             // désinscrireEquipeToolStripMenuItem
             // 
@@ -272,7 +272,7 @@
             désinscrireEquipeToolStripMenuItem.ForeColor = Color.White;
             désinscrireEquipeToolStripMenuItem.Image = Properties.Resources.arrow_right_15604;
             désinscrireEquipeToolStripMenuItem.Name = "désinscrireEquipeToolStripMenuItem";
-            désinscrireEquipeToolStripMenuItem.Size = new Size(234, 26);
+            désinscrireEquipeToolStripMenuItem.Size = new Size(194, 26);
             désinscrireEquipeToolStripMenuItem.Text = "Désinscrire Equipe";
             désinscrireEquipeToolStripMenuItem.Click += désinscrireEquipeToolStripMenuItem_Click;
             // 
@@ -282,9 +282,10 @@
             buttonPrec.FlatStyle = FlatStyle.Popup;
             buttonPrec.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonPrec.ForeColor = Color.White;
-            buttonPrec.Location = new Point(296, 527);
+            buttonPrec.Location = new Point(259, 395);
+            buttonPrec.Margin = new Padding(3, 2, 3, 2);
             buttonPrec.Name = "buttonPrec";
-            buttonPrec.Size = new Size(126, 29);
+            buttonPrec.Size = new Size(110, 22);
             buttonPrec.TabIndex = 7;
             buttonPrec.Text = "Précédent";
             buttonPrec.UseVisualStyleBackColor = false;
@@ -296,9 +297,10 @@
             buttonSuiv.FlatStyle = FlatStyle.Popup;
             buttonSuiv.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonSuiv.ForeColor = Color.White;
-            buttonSuiv.Location = new Point(491, 527);
+            buttonSuiv.Location = new Point(430, 395);
+            buttonSuiv.Margin = new Padding(3, 2, 3, 2);
             buttonSuiv.Name = "buttonSuiv";
-            buttonSuiv.Size = new Size(126, 29);
+            buttonSuiv.Size = new Size(110, 22);
             buttonSuiv.TabIndex = 8;
             buttonSuiv.Text = "Suivant";
             buttonSuiv.UseVisualStyleBackColor = false;
@@ -307,17 +309,19 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(30, 35, 40);
-            panel1.Location = new Point(613, 527);
+            panel1.Location = new Point(536, 395);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(294, 29);
+            panel1.Size = new Size(257, 22);
             panel1.TabIndex = 11;
             // 
             // textBoxPage
             // 
             textBoxPage.Font = new Font("Britannic Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPage.Location = new Point(422, 527);
+            textBoxPage.Location = new Point(369, 395);
+            textBoxPage.Margin = new Padding(3, 2, 3, 2);
             textBoxPage.Name = "textBoxPage";
-            textBoxPage.Size = new Size(70, 30);
+            textBoxPage.Size = new Size(62, 25);
             textBoxPage.TabIndex = 13;
             textBoxPage.Text = "1";
             textBoxPage.TextAlign = HorizontalAlignment.Center;
@@ -330,10 +334,10 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("SimSun-ExtB", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(11, 568);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(10, 426);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(596, 17);
+            label1.Size = new Size(478, 14);
             label1.TabIndex = 14;
             label1.Text = "double click gauche sur l'hackathon afin d'archivé celui-ci";
             // 
@@ -341,8 +345,7 @@
             // 
             pictureBoxFermer.BackColor = Color.Transparent;
             pictureBoxFermer.Image = Properties.Resources.icons8_multiply_32;
-            pictureBoxFermer.Location = new Point(1121, 0);
-            pictureBoxFermer.Margin = new Padding(3, 4, 3, 4);
+            pictureBoxFermer.Location = new Point(981, 0);
             pictureBoxFermer.Name = "pictureBoxFermer";
             pictureBoxFermer.Size = new Size(32, 32);
             pictureBoxFermer.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -353,17 +356,19 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(30, 35, 40);
-            panel2.Location = new Point(11, 527);
+            panel2.Location = new Point(10, 395);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(285, 29);
+            panel2.Size = new Size(249, 22);
             panel2.TabIndex = 15;
             // 
             // pictureBoxAffiche
             // 
             pictureBoxAffiche.BackColor = Color.Ivory;
-            pictureBoxAffiche.Location = new Point(2, 3);
+            pictureBoxAffiche.Location = new Point(2, 2);
+            pictureBoxAffiche.Margin = new Padding(3, 2, 3, 2);
             pictureBoxAffiche.Name = "pictureBoxAffiche";
-            pictureBoxAffiche.Size = new Size(293, 425);
+            pictureBoxAffiche.Size = new Size(256, 319);
             pictureBoxAffiche.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxAffiche.TabIndex = 31;
             pictureBoxAffiche.TabStop = false;
@@ -372,64 +377,59 @@
             // 
             panelPictureBoxAffiche.BackColor = Color.Black;
             panelPictureBoxAffiche.Controls.Add(pictureBoxAffiche);
-            panelPictureBoxAffiche.Location = new Point(577, 76);
+            panelPictureBoxAffiche.Location = new Point(505, 57);
+            panelPictureBoxAffiche.Margin = new Padding(3, 2, 3, 2);
             panelPictureBoxAffiche.Name = "panelPictureBoxAffiche";
-            panelPictureBoxAffiche.Size = new Size(297, 431);
+            panelPictureBoxAffiche.Size = new Size(260, 323);
             panelPictureBoxAffiche.TabIndex = 32;
             panelPictureBoxAffiche.Visible = false;
             // 
             // textBoxThematique
             // 
-            textBoxThematique.Location = new Point(917, 105);
-            textBoxThematique.Margin = new Padding(3, 4, 3, 4);
+            textBoxThematique.Location = new Point(802, 79);
             textBoxThematique.Name = "textBoxThematique";
-            textBoxThematique.Size = new Size(228, 27);
+            textBoxThematique.Size = new Size(200, 23);
             textBoxThematique.TabIndex = 33;
             textBoxThematique.TextChanged += textBoxThematique_TextChanged;
             // 
             // dateTimePickerDatePrec
             // 
-            dateTimePickerDatePrec.Location = new Point(918, 179);
-            dateTimePickerDatePrec.Margin = new Padding(3, 4, 3, 4);
+            dateTimePickerDatePrec.Location = new Point(803, 134);
             dateTimePickerDatePrec.Name = "dateTimePickerDatePrec";
-            dateTimePickerDatePrec.Size = new Size(228, 27);
+            dateTimePickerDatePrec.Size = new Size(200, 23);
             dateTimePickerDatePrec.TabIndex = 34;
             dateTimePickerDatePrec.ValueChanged += dateTimePickerDatePrec_ValueChanged;
             // 
             // dateTimePickerDateSuiv
             // 
-            dateTimePickerDateSuiv.Location = new Point(918, 217);
-            dateTimePickerDateSuiv.Margin = new Padding(3, 4, 3, 4);
+            dateTimePickerDateSuiv.Location = new Point(803, 163);
             dateTimePickerDateSuiv.Name = "dateTimePickerDateSuiv";
-            dateTimePickerDateSuiv.Size = new Size(228, 27);
+            dateTimePickerDateSuiv.Size = new Size(200, 23);
             dateTimePickerDateSuiv.TabIndex = 35;
             dateTimePickerDateSuiv.ValueChanged += dateTimePickerDateSuiv_ValueChanged;
             // 
             // textBoxVille
             // 
-            textBoxVille.Location = new Point(917, 293);
-            textBoxVille.Margin = new Padding(3, 4, 3, 4);
+            textBoxVille.Location = new Point(802, 220);
             textBoxVille.Name = "textBoxVille";
-            textBoxVille.Size = new Size(228, 27);
+            textBoxVille.Size = new Size(200, 23);
             textBoxVille.TabIndex = 37;
             textBoxVille.TextChanged += textBoxVille_TextChanged;
             // 
             // comboBoxEquipe
             // 
             comboBoxEquipe.FormattingEnabled = true;
-            comboBoxEquipe.Location = new Point(917, 376);
-            comboBoxEquipe.Margin = new Padding(3, 4, 3, 4);
+            comboBoxEquipe.Location = new Point(802, 282);
             comboBoxEquipe.Name = "comboBoxEquipe";
-            comboBoxEquipe.Size = new Size(228, 28);
+            comboBoxEquipe.Size = new Size(200, 23);
             comboBoxEquipe.TabIndex = 38;
             comboBoxEquipe.SelectedIndexChanged += comboBoxEquipe_SelectedIndexChanged;
             // 
             // numericUpDownPlacesRestantes
             // 
-            numericUpDownPlacesRestantes.Location = new Point(917, 455);
-            numericUpDownPlacesRestantes.Margin = new Padding(3, 4, 3, 4);
+            numericUpDownPlacesRestantes.Location = new Point(802, 341);
             numericUpDownPlacesRestantes.Name = "numericUpDownPlacesRestantes";
-            numericUpDownPlacesRestantes.Size = new Size(229, 27);
+            numericUpDownPlacesRestantes.Size = new Size(200, 23);
             numericUpDownPlacesRestantes.TabIndex = 39;
             numericUpDownPlacesRestantes.ValueChanged += numericUpDownPlacesRestantes_ValueChanged;
             // 
@@ -439,10 +439,9 @@
             buttonRenitialiserFiltre.FlatStyle = FlatStyle.Popup;
             buttonRenitialiserFiltre.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonRenitialiserFiltre.ForeColor = Color.White;
-            buttonRenitialiserFiltre.Location = new Point(952, 525);
-            buttonRenitialiserFiltre.Margin = new Padding(3, 4, 3, 4);
+            buttonRenitialiserFiltre.Location = new Point(833, 394);
             buttonRenitialiserFiltre.Name = "buttonRenitialiserFiltre";
-            buttonRenitialiserFiltre.Size = new Size(158, 31);
+            buttonRenitialiserFiltre.Size = new Size(138, 23);
             buttonRenitialiserFiltre.TabIndex = 40;
             buttonRenitialiserFiltre.Text = "Rénitialiser Filtre";
             buttonRenitialiserFiltre.UseVisualStyleBackColor = false;
@@ -453,9 +452,9 @@
             labelThematique.AutoSize = true;
             labelThematique.BackColor = Color.Transparent;
             labelThematique.Font = new Font("SimSun-ExtB", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelThematique.Location = new Point(968, 80);
+            labelThematique.Location = new Point(847, 60);
             labelThematique.Name = "labelThematique";
-            labelThematique.Size = new Size(139, 20);
+            labelThematique.Size = new Size(114, 16);
             labelThematique.TabIndex = 41;
             labelThematique.Text = "Thématique :";
             // 
@@ -464,9 +463,9 @@
             labelRecherche.AutoSize = true;
             labelRecherche.BackColor = Color.Transparent;
             labelRecherche.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelRecherche.Location = new Point(927, 51);
+            labelRecherche.Location = new Point(811, 38);
             labelRecherche.Name = "labelRecherche";
-            labelRecherche.Size = new Size(217, 24);
+            labelRecherche.Size = new Size(174, 19);
             labelRecherche.TabIndex = 42;
             labelRecherche.Text = "Recherche Filtré";
             // 
@@ -475,9 +474,9 @@
             labelDate.AutoSize = true;
             labelDate.BackColor = Color.Transparent;
             labelDate.Font = new Font("SimSun-ExtB", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelDate.Location = new Point(997, 153);
+            labelDate.Location = new Point(872, 115);
             labelDate.Name = "labelDate";
-            labelDate.Size = new Size(86, 20);
+            labelDate.Size = new Size(70, 16);
             labelDate.TabIndex = 43;
             labelDate.Text = "Date : ";
             // 
@@ -486,9 +485,9 @@
             labelVille.AutoSize = true;
             labelVille.BackColor = Color.Transparent;
             labelVille.Font = new Font("SimSun-ExtB", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelVille.Location = new Point(995, 268);
+            labelVille.Location = new Point(871, 201);
             labelVille.Name = "labelVille";
-            labelVille.Size = new Size(86, 20);
+            labelVille.Size = new Size(70, 16);
             labelVille.TabIndex = 44;
             labelVille.Text = "Ville :";
             // 
@@ -497,9 +496,9 @@
             labelEquipe.AutoSize = true;
             labelEquipe.BackColor = Color.Transparent;
             labelEquipe.Font = new Font("SimSun-ExtB", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelEquipe.Location = new Point(939, 351);
+            labelEquipe.Location = new Point(822, 263);
             labelEquipe.Name = "labelEquipe";
-            labelEquipe.Size = new Size(196, 20);
+            labelEquipe.Size = new Size(160, 16);
             labelEquipe.TabIndex = 45;
             labelEquipe.Text = "Equipe Inscrite :";
             // 
@@ -508,19 +507,19 @@
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("SimSun-ExtB", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(934, 429);
+            label7.Location = new Point(817, 322);
             label7.Name = "label7";
-            label7.Size = new Size(207, 20);
+            label7.Size = new Size(169, 16);
             label7.TabIndex = 46;
             label7.Text = "Nombre de Places :";
             // 
             // FormHackathon
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkOliveGreen;
             BackgroundImage = Properties.Resources.cement_concrete_wall_texture_hi_2868537;
-            ClientSize = new Size(1158, 619);
+            ClientSize = new Size(1013, 464);
             Controls.Add(label7);
             Controls.Add(labelEquipe);
             Controls.Add(labelVille);
@@ -547,7 +546,7 @@
             Controls.Add(labelListe);
             Controls.Add(dgvHackathon);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(5);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "FormHackathon";
             Text = "Gestion des Hackathons";
             Load += Form1_Load;

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace ApplicationC
@@ -28,6 +29,67 @@ namespace ApplicationC
                 panelDecoArret.Location = new Point(440, 121);
                 panelDecoArret.Visible = true;
             }
+            else
+            {
+                panel2.Visible = true;
+                panel3.Visible = true;
+                panel4.Visible = true;
+                panel5.Visible = true;
+                dataGridViewHackRecent.Visible = true;
+
+                var stats = ModeleHackathon.NombreHackathonsParAnEtParMois();
+
+                var chart = new Chart
+                {
+                    Location = new Point(256, 198),
+                    Size = new(744, 276)
+                };
+
+                var chartArea = new ChartArea("MainArea");
+                chart.ChartAreas.Add(chartArea);
+
+                var series = new Series("ExampleSeries")
+                {
+                    Name = "Hackathons",
+                    ChartType = SeriesChartType.FastLine
+                };
+
+                chart.Series.Clear();
+                chart.Series.Add(series);
+
+                foreach (var stat in stats.OrderBy(x => x.Key.Year).ThenBy(x => x.Key.Month))
+                {
+                    string label = $"{stat.Key.Year}-{stat.Key.Month:D2}";
+                    series.Points.AddXY(label, stat.Value);
+                }
+
+                chart.Titles.Clear();
+                chart.Titles.Add("Nombre d'Hackathons par Mois et Année");
+                chart.ChartAreas[0].AxisX.Title = "Mois et Année";
+                chart.ChartAreas[0].AxisY.Title = "Nombre de Hackathons";
+
+                this.Controls.Add(chart);
+
+                labelNbEquipeMoyenParHack.Text = ModeleMembreEquipe.NombreMoyenEquipeParHackathon().ToString() + "/Hackathon";
+                labelNbMembreMoyenParEquipe.Text = ModeleMembreEquipe.NombreMoyenMembreParEquipe().ToString() + "/Equipe";
+                labelNbMoyenDesinscriptions.Text = ModeleMembreEquipe.NbEquipeMoyenDesinscription().ToString() + " %";
+                labelNbHackathons.Text = ModeleHackathon.NombreHackathons().ToString() + " Hackathons";
+
+                Hackathon recentHack = ModeleHackathon.HackathonLePlusRecentInscription();
+
+                var data = new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>("Nom de l'hackathon", recentHack.Thematique),
+                    new KeyValuePair<string, string>("Lieu de l'hackathon", recentHack.Lieu),
+                    new KeyValuePair<string, string>("Ville de l'hackathon", recentHack.Ville),
+                    new KeyValuePair<string, string>("Date de début", recentHack.Dateheuredebuth.ToString()),
+                    new KeyValuePair<string, string>("Date de fin", recentHack.Dateheurefinh.ToString()),
+                    new KeyValuePair<string, string>("Date de fin d'inscription", recentHack.Datefininscription.ToString()),
+                    new KeyValuePair<string, string>("Nombre de places restantes", ModeleHackathon.NbInscriptionsRestantesHackathon(recentHack).ToString()),
+                    new KeyValuePair<string,string>("Nombre d'équipes inscrite",ModeleHackathon.NbInscriptionsHackathon(recentHack).ToString()),
+                };
+                dataGridViewHackRecent.DataSource = data.Select(kvp => new { Titre = kvp.Key, Valeur = kvp.Value }).ToList();
+            }
         }
 
         public FormAccueil(string demande)
@@ -42,8 +104,8 @@ namespace ApplicationC
                 {
                     checkedListBoxDemande.Items.Add(equipe.Idequipe + ". " + equipe.Nomequipe);
                 }
-                buttonToutVerif.Visible = true;
-                checkedListBoxDemande.Visible = true;
+                panelCheckBoxList.Location = new Point(350, 10);
+                panelCheckBoxList.Visible = true;
             }
         }
 
@@ -71,16 +133,12 @@ namespace ApplicationC
                 Equipe eq = ModeleMembreEquipe.RecupererEquipe(idEquipe);
 
                 Suppression2FAMod(eq);
-                if (ModeleEquipe.DemandeSuppression2FACount() > 0)
+                if (ModeleEquipe.DemandeSuppression2FACount() <= 0)
                 {
-                    //checkedListBoxDemande.Items.RemoveAt(e.Index);
+                    panelCheckBoxList.Visible = false;
                 }
-                else
-                {
-                    buttonToutVerif.Visible = false;
-                    checkedListBoxDemande.Visible = false;
-                }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Indice invalide pour la sélection");
             }
@@ -92,8 +150,7 @@ namespace ApplicationC
             {
                 Suppression2FAMod(eq);
             }
-            buttonToutVerif.Visible = false;
-            checkedListBoxDemande.Visible = false;
+            panelCheckBoxList.Visible = false;
         }
 
         public void Suppression2FAMod(Equipe eq)

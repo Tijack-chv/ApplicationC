@@ -147,9 +147,21 @@ namespace ApplicationC
 
         private void pictureBoxDemande_Click(object sender, EventArgs e)
         {
-            if (ModeleEquipe.DemandeSuppression2FACount() > 0) {
+            if (ModeleEquipe.DemandeSuppression2FACount() > 0)
+            {
+                buttonAffiche(false);
+                panelVisible();
+                panelHome.Visible = true;
                 sousF.openChildForm(new FormAccueil("demande"));
             }
+        }
+
+        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        {
+            buttonAffiche(false);
+            sousF.openChildForm(new FormAccueil(true));
+            panelVisible();
+            panelHome.Visible = true;
         }
     }
 }
