@@ -25,7 +25,7 @@ namespace ApplicationC.View
 
             idHackathon = idH;
 
-            bindingSourceEquipeJury.DataSource = (ModeleJury.ListJury());
+            bindingSourceJury.DataSource = (ModeleJury.ListJury());
             lesJ = ModeleJury.ListJury();
             foreach (Jury jury in lesJ)
             {
@@ -80,19 +80,6 @@ namespace ApplicationC.View
         private void buttonFermer_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void textBoxRecherche_TextChanged(object sender, EventArgs e)
-        {
-            //bonus
-        }
-
-        private void textBoxRecherche_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
         }
     }
 }

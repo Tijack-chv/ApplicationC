@@ -9,16 +9,21 @@ namespace ApplicationC.Model
 {
     public static class ModeleEquipe
     {
+        #region DemandeSuppression2FA
         public static List<Equipe> DemandeSuppression2FA()
         {
             return Modele.MonModel.Equipes.Where(x => x.CleSecretVerif != null).ToList();
         }
+        #endregion
 
+        #region DemandeSuppression2FACount
         public static int DemandeSuppression2FACount()
         {
             return Modele.MonModel.Equipes.Where(x => x.CleSecretVerif != null).Count();
         }
+        #endregion
 
+        #region VerifSuppression2FA
         public static bool VerifSuppression2FA(int idEquipe)
         {
             string message;
@@ -56,5 +61,6 @@ namespace ApplicationC.Model
 
             return supp;
         }
+        #endregion
     }
 }

@@ -31,6 +31,12 @@ namespace ApplicationC
 
             buttonAffiche(false);
             panelVisible();
+            badge();
+        }
+
+        public void badge()
+        {
+            labelBadge.Text = Convert.ToString(ModeleEquipe.DemandeSuppression2FACount());
         }
 
         public FormHome(Administrateur admin)
@@ -44,6 +50,7 @@ namespace ApplicationC
 
             buttonAffiche(false);
             panelVisible();
+            badge();
         }
 
         private void buttonQuitter_Click(object sender, EventArgs e)
@@ -85,7 +92,7 @@ namespace ApplicationC
         private void buttonHome_Click(object sender, EventArgs e)
         {
             buttonAffiche(!buttonSettings.Visible);
-
+            badge();
             sousF.openChildForm(new FormAccueil(true));
             panelVisible();
             panelHome.Visible = true;
@@ -158,6 +165,7 @@ namespace ApplicationC
         private void pictureBoxLogo_Click(object sender, EventArgs e)
         {
             buttonAffiche(false);
+            badge();
             sousF.openChildForm(new FormAccueil(true));
             panelVisible();
             panelHome.Visible = true;

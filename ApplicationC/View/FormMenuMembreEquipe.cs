@@ -57,15 +57,5 @@ namespace ApplicationC
             // Modif Equipe
             sousF.openChildForm(new FormGestionMembreEquipe(EtatGestion.Update, EtatTypeGestion.Equipe));
         }
-
-        private void rechercheMembreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rechercheEquipeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -71,21 +71,6 @@ namespace ApplicationC
         }
         #endregion
 
-        #region nbPagesFiltre
-        private void nbPagesFiltre(List<Hackathon> liste)
-        {
-            int count = liste.Count();
-            if (count % 20 == 0)
-            {
-                maxPage = count / 20;
-            }
-            else
-            {
-                maxPage = (count / 20) + 1;
-            }
-        }
-        #endregion
-
         #region Form1_Load
         /// <summary>
         /// Permet l'affichage de la liste des Hackathons
@@ -173,7 +158,6 @@ namespace ApplicationC
             dgvHackathon.Columns[0].Visible = false;
 
             filtre = true;
-            nbPagesFiltre(liste);
         }
         #endregion
 
@@ -411,6 +395,7 @@ namespace ApplicationC
         }
         #endregion
 
+        #region visualiserLafficheToolStripMenuItem_Click
         private void visualiserLAfficheToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Type type = BSHackathon.Current.GetType();
@@ -427,7 +412,9 @@ namespace ApplicationC
                 MessageBox.Show("Il n'y a pas d'affiche pour cet événement !");
             }
         }
+        #endregion
 
+        #region désinscrireEquipeToolStripMenuItem_Click
         private void désinscrireEquipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Type typeE = BSEquipe.Current.GetType();
@@ -458,12 +445,16 @@ namespace ApplicationC
                 }
             }
         }
+        #endregion
 
+        #region textBoxThematique_TextChanged
         private void textBoxThematique_TextChanged(object sender, EventArgs e)
         {
             AppliquerFiltres();
         }
+        #endregion
 
+        #region buttonRenitialiserFiltre_Click
         private void buttonRenitialiserFiltre_Click(object sender, EventArgs e)
         {
             filtre = false;
@@ -471,33 +462,45 @@ namespace ApplicationC
             Form1_Load(sender, EventArgs.Empty);
             buttonSuiv.Enabled = true;
         }
+        #endregion
 
+        #region textBoxVille_TextChanged
         private void textBoxVille_TextChanged(object sender, EventArgs e)
         {
             AppliquerFiltres();
         }
+        #endregion
 
+        #region dateTimePickerDatePrec_ValueChanged
         private void dateTimePickerDatePrec_ValueChanged(object sender, EventArgs e)
         {
             dateTimePickerDateSuiv.MinDate = dateTimePickerDatePrec.Value;
             AppliquerFiltres();
         }
+        #endregion
 
+        #region dateTimePickerDateSuiv_ValueChanged
         private void dateTimePickerDateSuiv_ValueChanged(object sender, EventArgs e)
         {
             AppliquerFiltres();
         }
+        #endregion
 
+        #region comboBoxEquipe_SelectedIndexChanged
         private void comboBoxEquipe_SelectedIndexChanged(object sender, EventArgs e)
         {
             AppliquerFiltres();
         }
+        #endregion
 
+        #region numericUpDownPlacesRestantes_ValueChanged
         private void numericUpDownPlacesRestantes_ValueChanged(object sender, EventArgs e)
         {
             AppliquerFiltres();
         }
+        #endregion
 
+        #region AppliquerFiltres
         private void AppliquerFiltres()
         {
             List<Hackathon> query1 = ModeleHackathon.listeHackathons();
@@ -525,7 +528,6 @@ namespace ApplicationC
 
             if (query.Any())
             {
-                // Charge la liste filtrée dans le DataGridView si elle n'est pas vide
                 FormFiltre_Load(query);
             }
             else
@@ -535,5 +537,6 @@ namespace ApplicationC
                 MessageBox.Show("Aucun hackathon ne correspond aux critères des filtres !", "Aucun résultat", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        #endregion
     }
 }

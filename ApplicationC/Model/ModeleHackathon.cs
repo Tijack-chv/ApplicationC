@@ -47,6 +47,7 @@ namespace ApplicationC.Model
         }
         #endregion
 
+        #region CountPlaceRestantes
         public static int CountPlaceRestantes(int idH)
         {
             int value = 0;
@@ -55,6 +56,7 @@ namespace ApplicationC.Model
 
             return value;
         }
+        #endregion
 
         #region CountHackathon
         /// <summary>
@@ -131,6 +133,7 @@ namespace ApplicationC.Model
         }
         #endregion
 
+        #region ListeMembreJuryParHackathon
         public static List<Jury> ListeMembresJuryParHackathon(int idH)
         {
              Hackathon H = Modele.MonModel.Hackathons.Include(x => x.Compositions).First(x => x.Idhackathon == idH);
@@ -153,7 +156,9 @@ namespace ApplicationC.Model
 
             return lesJ;
         }
+        #endregion
 
+        #region listeHackathonParEquipe
         public static List<Hackathon> listeHackathonParEquipe(int idE)
         {
             Equipe e = Modele.MonModel.Equipes.Include(p=> p.Inscrires).ThenInclude(p=> p.IdhackathonNavigation).First(x=> x.Idequipe == idE); 
@@ -168,7 +173,9 @@ namespace ApplicationC.Model
 
             return lesH;
         }
+        #endregion
 
+        #region desinscriptionEquipe
         public static bool desinscriptionEquipe(int idHackathon, int idEquipe)
         {
             bool modif = true;
@@ -187,6 +194,7 @@ namespace ApplicationC.Model
 
             return modif;
         }
+        #endregion
 
         #region RetourneDernierHackathonSaisi
         /// <summary>
@@ -270,6 +278,7 @@ namespace ApplicationC.Model
         }
         #endregion
 
+        #region RecupererInscriptionEquipe
         public static Inscrire RecupererInscriptionEquipe(int idH, int idE)
         {
             Inscrire uneInscription = new();
@@ -284,6 +293,7 @@ namespace ApplicationC.Model
             }
             return uneInscription;
         }
+        #endregion
 
         #region ModificationHackathon
         /// <summary>
@@ -335,6 +345,7 @@ namespace ApplicationC.Model
         }
         #endregion
 
+        #region FirstDate
         public static DateTime FirstDate()
         {
             
@@ -342,13 +353,18 @@ namespace ApplicationC.Model
 
             return date;
         }
+        #endregion
+
+        #region LastDate
         public static DateTime LastDate()
         {
             DateTime date = Modele.MonModel.Hackathons.Where(x => !x.Estarchive).Max(x => x.Datefininscription);
 
             return date;
         }
+        #endregion
 
+        #region NombreHackathonsParAnEtParMois
         public static Dictionary<(int Year, int Month), int> NombreHackathonsParAnEtParMois()
         {
             var hackathons = Modele.MonModel.Hackathons
@@ -358,17 +374,23 @@ namespace ApplicationC.Model
 
             return hackathons; // Renvoie un dictionnaire : clé = (année, mois), valeur = nombre de hackathons
         }
+        #endregion
 
+        #region NombreHackathons
         public static int NombreHackathons()
         {
             return Modele.MonModel.Hackathons.Count();
         }
+        #endregion
 
+        #region HackathonsList
         public static List<Hackathon> HackathonsList()
         {
             return Modele.MonModel.Hackathons.ToList();
         }
+        #endregion
 
+        #region HackathonLePlusRecentInscription
         public static Hackathon HackathonLePlusRecentInscription()
         {
             var today = DateTime.Now;
@@ -385,7 +407,9 @@ namespace ApplicationC.Model
 
             return hackathonProche;
         }
+        #endregion
 
+        #region NbInscriptionsRestantesHackathon
         public static int NbInscriptionsRestantesHackathon(Hackathon hack)
         {
             int nbPlaceMax = hack.Nbplaceeqmax;
@@ -394,10 +418,13 @@ namespace ApplicationC.Model
 
             return nbPlaceMax-nbPlacesPrises;
         }
+        #endregion
 
+        #region NbInscriptionsHackathon
         public static int NbInscriptionsHackathon(Hackathon hack)
         {
             return Modele.MonModel.Inscrires.Where(x=>x.Idhackathon == hack.Idhackathon).Count();
         }
+        #endregion
     }
 }

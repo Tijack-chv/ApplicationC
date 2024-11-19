@@ -75,7 +75,7 @@
             dataGridViewMembreEquipe.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(40, 45, 50);
-            dataGridViewCellStyle1.Font = new Font("Rockwell", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Rockwell", 11.25F);
             dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = Color.SteelBlue;
             dataGridViewCellStyle1.SelectionForeColor = Color.White;
@@ -85,7 +85,7 @@
             dataGridViewMembreEquipe.ContextMenuStrip = contextMenuStripInfoEquipe;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 45, 50);
-            dataGridViewCellStyle2.Font = new Font("Rockwell", 14.25F, FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new Font("Rockwell", 11.25F);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = Color.SteelBlue;
             dataGridViewCellStyle2.SelectionForeColor = Color.White;
@@ -109,7 +109,7 @@
             dataGridViewMembreEquipe.RowHeadersVisible = false;
             dataGridViewMembreEquipe.RowHeadersWidth = 55;
             dataGridViewMembreEquipe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewMembreEquipe.Size = new Size(702, 360);
+            dataGridViewMembreEquipe.Size = new Size(626, 360);
             dataGridViewMembreEquipe.TabIndex = 0;
             dataGridViewMembreEquipe.CellClick += dataGridViewMembreEquipe_CellClick;
             dataGridViewMembreEquipe.CellContentClick += dataGridViewMembreEquipe_CellContentClick;
@@ -170,7 +170,7 @@
             // textBoxPage
             // 
             textBoxPage.Font = new Font("Britannic Bold", 12F);
-            textBoxPage.Location = new Point(471, 396);
+            textBoxPage.Location = new Point(431, 396);
             textBoxPage.Margin = new Padding(3, 2, 3, 2);
             textBoxPage.Name = "textBoxPage";
             textBoxPage.Size = new Size(62, 25);
@@ -186,25 +186,25 @@
             panelLeft.Location = new Point(145, 396);
             panelLeft.Margin = new Padding(3, 2, 3, 2);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new Size(215, 22);
+            panelLeft.Size = new Size(175, 22);
             panelLeft.TabIndex = 18;
             // 
             // panelRight
             // 
             panelRight.BackColor = Color.FromArgb(30, 35, 40);
-            panelRight.Location = new Point(641, 396);
+            panelRight.Location = new Point(601, 396);
             panelRight.Margin = new Padding(3, 2, 3, 2);
             panelRight.Name = "panelRight";
-            panelRight.Size = new Size(206, 22);
+            panelRight.Size = new Size(170, 22);
             panelRight.TabIndex = 17;
             // 
             // buttonSuiv
             // 
             buttonSuiv.BackColor = Color.FromArgb(35, 40, 45);
             buttonSuiv.FlatStyle = FlatStyle.Popup;
-            buttonSuiv.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonSuiv.Font = new Font("Rockwell", 12F, FontStyle.Bold);
             buttonSuiv.ForeColor = Color.White;
-            buttonSuiv.Location = new Point(531, 396);
+            buttonSuiv.Location = new Point(491, 396);
             buttonSuiv.Margin = new Padding(3, 2, 3, 2);
             buttonSuiv.Name = "buttonSuiv";
             buttonSuiv.Size = new Size(110, 22);
@@ -217,9 +217,10 @@
             // 
             buttonPrec.BackColor = Color.FromArgb(35, 40, 45);
             buttonPrec.FlatStyle = FlatStyle.Popup;
-            buttonPrec.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonPrec.Font = new Font("Rockwell", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonPrec.ForeColor = Color.White;
-            buttonPrec.Location = new Point(360, 396);
+            buttonPrec.ImageAlign = ContentAlignment.TopCenter;
+            buttonPrec.Location = new Point(320, 396);
             buttonPrec.Margin = new Padding(3, 2, 3, 2);
             buttonPrec.Name = "buttonPrec";
             buttonPrec.Size = new Size(110, 22);
@@ -263,7 +264,7 @@
             dataGridViewInfoEquipe.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(40, 45, 50);
-            dataGridViewCellStyle4.Font = new Font("Rockwell", 14.25F, FontStyle.Bold);
+            dataGridViewCellStyle4.Font = new Font("Rockwell", 11.25F);
             dataGridViewCellStyle4.ForeColor = Color.White;
             dataGridViewCellStyle4.SelectionBackColor = Color.SteelBlue;
             dataGridViewCellStyle4.SelectionForeColor = Color.White;
@@ -273,7 +274,7 @@
             dataGridViewInfoEquipe.ContextMenuStrip = contextMenuStripArchivageMembreEq;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.FromArgb(40, 45, 50);
-            dataGridViewCellStyle5.Font = new Font("Rockwell", 14.25F, FontStyle.Bold);
+            dataGridViewCellStyle5.Font = new Font("Rockwell", 11.25F);
             dataGridViewCellStyle5.ForeColor = Color.White;
             dataGridViewCellStyle5.SelectionBackColor = Color.SteelBlue;
             dataGridViewCellStyle5.SelectionForeColor = Color.White;
@@ -281,7 +282,7 @@
             dataGridViewInfoEquipe.DefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewInfoEquipe.EnableHeadersVisualStyles = false;
             dataGridViewInfoEquipe.GridColor = Color.Black;
-            dataGridViewInfoEquipe.Location = new Point(529, 37);
+            dataGridViewInfoEquipe.Location = new Point(453, 37);
             dataGridViewInfoEquipe.Margin = new Padding(3, 2, 3, 2);
             dataGridViewInfoEquipe.MultiSelect = false;
             dataGridViewInfoEquipe.Name = "dataGridViewInfoEquipe";

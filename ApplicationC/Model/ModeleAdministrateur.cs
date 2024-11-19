@@ -13,6 +13,7 @@ namespace ApplicationC.Model
 {
     public static class ModeleAdministrateur
     {
+        #region RecupererAdmin
         public static Administrateur RecupererAdmin(string login)
         {
             Administrateur admin = new();
@@ -40,7 +41,9 @@ namespace ApplicationC.Model
             }
             return admin;
         }
+        #endregion
 
+        #region ConnexionAdmin
         public static bool ConnexionAdmin(string mail, string mdp)
         {
             bool connexion = true;
@@ -60,7 +63,9 @@ namespace ApplicationC.Model
             }
             return connexion;
         }
+        #endregion
 
+        #region ModificationMdpAdmin
         public static bool ModificationMdpAdmin(string mail, string mdp)
         {
             bool modification = true;
@@ -84,7 +89,9 @@ namespace ApplicationC.Model
             }
             return modification;
         }
+        #endregion
 
+        #region Update2FA
         public static bool update2FA(string mail, String sharedSecret)
         {
             bool update = true;
@@ -101,5 +108,6 @@ namespace ApplicationC.Model
             }
             return update;
         }
+        #endregion
     }
 }

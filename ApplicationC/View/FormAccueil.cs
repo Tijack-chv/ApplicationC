@@ -133,6 +133,7 @@ namespace ApplicationC
                 Equipe eq = ModeleMembreEquipe.RecupererEquipe(idEquipe);
 
                 Suppression2FAMod(eq);
+
                 if (ModeleEquipe.DemandeSuppression2FACount() <= 0)
                 {
                     panelCheckBoxList.Visible = false;

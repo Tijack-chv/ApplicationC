@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             panelNorth = new Panel();
+            labelBadge = new Label();
+            pictureBox1 = new PictureBox();
             pictureBoxDemande = new PictureBox();
             buttonMenu = new Button();
             labelOrganisation = new Label();
@@ -52,6 +54,7 @@
             buttonEquipe = new Button();
             panelAffichage = new Panel();
             panelNorth.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDemande).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             panelWest.SuspendLayout();
@@ -60,6 +63,8 @@
             // panelNorth
             // 
             panelNorth.BackColor = Color.FromArgb(35, 40, 45);
+            panelNorth.Controls.Add(labelBadge);
+            panelNorth.Controls.Add(pictureBox1);
             panelNorth.Controls.Add(pictureBoxDemande);
             panelNorth.Controls.Add(buttonMenu);
             panelNorth.Controls.Add(labelOrganisation);
@@ -70,6 +75,28 @@
             panelNorth.Name = "panelNorth";
             panelNorth.Size = new Size(1012, 83);
             panelNorth.TabIndex = 0;
+            // 
+            // labelBadge
+            // 
+            labelBadge.AutoSize = true;
+            labelBadge.BackColor = Color.White;
+            labelBadge.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBadge.ForeColor = Color.Red;
+            labelBadge.Location = new Point(159, 6);
+            labelBadge.Name = "labelBadge";
+            labelBadge.Size = new Size(14, 15);
+            labelBadge.TabIndex = 0;
+            labelBadge.Text = "2";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(150, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(29, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // pictureBoxDemande
             // 
@@ -385,6 +412,7 @@
             Text = "HACKAT' INNOV";
             panelNorth.ResumeLayout(false);
             panelNorth.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDemande).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             panelWest.ResumeLayout(false);
@@ -415,5 +443,7 @@
         public Panel panelMembreEquipe;
         private PictureBox pictureBoxDemande;
         private Panel panelAffichage;
+        private PictureBox pictureBox1;
+        public Label labelBadge;
     }
 }

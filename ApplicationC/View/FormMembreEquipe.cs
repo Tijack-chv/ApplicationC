@@ -154,8 +154,8 @@ namespace ApplicationC
                     x.Email,
                     x.Telephone,
                     x.Datenaissance,
-                    x.IdequipeNavigation.Idequipe,
-                    x.IdequipeNavigation.Nomequipe,
+                    x.IdequipeNavigation?.Idequipe,
+                    x.IdequipeNavigation?.Nomequipe,
                 });
 
                 dataGridViewMembreEquipe.DataSource = bindingSourceMembreEquipe;
@@ -266,16 +266,37 @@ namespace ApplicationC
 
         private void ajouterMembresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // affiche la liste des membres qui n'ont pas d'équipe
-            // change l'id dans membre par l'id de l'équipe
+            System.Type type = bindingSourceMembreEquipe.Current.GetType();
+            string loginE = (string)type.GetProperty("Login").GetValue(bindingSourceMembreEquipe.Current, null);
+            Equipe equipe = ModeleMembreEquipe.RecupererEquipe(loginE);
+
+            FormAjoutMembreEquipe formAJME = new FormAjoutMembreEquipe(equipe);
+            formAJME.Show();
         }
 
         private void supprimerLeMembreDeLéquipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // passe l'id de l'équipe dans le membre en set null 
-            // envoie mail au login de l'équipe
-            // si l'équipe tombe en dessous de 2 membres
-            // désinscris l'équipe de l'hackathon dont la date n'est pas passé
+            if (choix == "equipe")
+            {
+                System.Type type = bindingSourceInfoEquipe.Current.GetType();
+                int idMembre = (int)type.GetProperty("Idmembre").GetValue(bindingSourceInfoEquipe.Current, null);
+                Membre membre = ModeleMembreEquipe.RecupererMembre(idMembre);
+
+                System.Type typeE = bindingSourceMembreEquipe.Current.GetType();
+                int idEquipe = (int)typeE.GetProperty("Idequipe").GetValue(bindingSourceMembreEquipe.Current, null);
+                Equipe equipe = ModeleMembreEquipe.RecupererEquipe(idEquipe);
+
+                DialogResult dialogResult = MessageBox.Show("Voulez-vous enlever " + membre.Nom + " " + membre.Prenom + " de l'équipe " + equipe.Nomequipe + " ?", "Suppression d'un Membre dans une équipe", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (ModeleMembreEquipe.SuppMembreInEquipe(membre))
+                    {
+                        MessageBox.Show("Le membre a bien été enlevé de son équipe !");
+                        dataGridViewInfoEquipe.Visible = false;
+                    }
+                }
+            }
         }
     }
 }

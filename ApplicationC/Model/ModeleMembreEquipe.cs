@@ -1,9 +1,11 @@
 ﻿using ApplicationC.Entities;
 using HarfBuzzSharp;
+using iTextSharp.text.xml.xmp;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -271,6 +273,47 @@ namespace ApplicationC.Model
         public static double NbEquipeMoyenDesinscription()
         {
             return Math.Round(((double)Modele.MonModel.Inscrires.Where(x => x.Datedesinscription != null).Count() / Modele.MonModel.Inscrires.Count())*100,2);
+        }
+
+        public static List<Membre> ListMembreSansEquipe()
+        {
+            return Modele.MonModel.Membres.Where(x => x.Idequipe == null).ToList();
+        }
+
+        public static bool AjoutMembreInEquipe(Membre membre, int idEquipe)
+        {
+            bool ajout = true;
+
+            try
+            {
+                Membre leMembre = membre;
+                leMembre.Idequipe = idEquipe;
+                Modele.MonModel.SaveChanges();
+
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+                ajout = false;
+            }
+
+            return ajout;
+        }
+
+        public static bool SuppMembreInEquipe(Membre membre)
+        {
+            bool supp = true;
+
+            try
+            {
+                Membre leMembre = membre;
+                leMembre.Idequipe = null;
+                Modele.MonModel.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                supp = false;
+            }
+            return supp;
         }
     }
 }
