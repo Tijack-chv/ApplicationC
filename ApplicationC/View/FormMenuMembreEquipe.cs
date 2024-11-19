@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using ApplicationC.Controller;
 using ApplicationC.Model;
 using ApplicationC.View;
-using SousFormulaire;
 
 namespace ApplicationC
 {

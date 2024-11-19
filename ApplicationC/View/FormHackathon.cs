@@ -13,7 +13,6 @@ using ApplicationC.Controller;
 using ApplicationC.Entities;
 using ApplicationC.Model;
 using ApplicationC.View;
-using SousFormulaire;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
@@ -171,6 +170,7 @@ namespace ApplicationC
             dgvHackathon.Columns[9].HeaderText = "Nom Organisateur";
             dgvHackathon.Columns[10].HeaderText = "Prénom Organisateur";
             dgvHackathon.Columns[11].Visible = false;
+            dgvHackathon.Columns[0].Visible = false;
 
             filtre = true;
             nbPagesFiltre(liste);

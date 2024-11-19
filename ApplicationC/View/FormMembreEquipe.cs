@@ -1,7 +1,7 @@
-﻿using ApplicationC.Entities;
+﻿using ApplicationC.Controller;
+using ApplicationC.Entities;
 using ApplicationC.Model;
 using ApplicationC.View;
-using SousFormulaire;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -167,6 +167,9 @@ namespace ApplicationC
                 dataGridViewMembreEquipe.Columns[5].HeaderText = "Date de naissance";
                 dataGridViewMembreEquipe.Columns[6].HeaderText = "Identifiant de l'Equipe";
                 dataGridViewMembreEquipe.Columns[7].HeaderText = "Nom de l'équipe";
+
+                dataGridViewMembreEquipe.Columns[0].Visible = false;
+                dataGridViewMembreEquipe.Columns[6].Visible = false;
             }
             else
             {
@@ -183,6 +186,7 @@ namespace ApplicationC
                 dataGridViewMembreEquipe.Columns[1].HeaderText = "Nom de l'équipe";
                 dataGridViewMembreEquipe.Columns[2].HeaderText = "Adresse mail de l'équipe";
                 dataGridViewMembreEquipe.Columns[3].HeaderText = "Lien du prototype";
+                dataGridViewMembreEquipe.Columns[0].Visible = false;
 
             }
         }
@@ -213,6 +217,7 @@ namespace ApplicationC
                 });
 
                 dataGridViewInfoEquipe.DataSource = bindingSourceInfoEquipe;
+                dataGridViewInfoEquipe.Columns[0].Visible = false;
                 dataGridViewInfoEquipe.Visible = true;
             }
             else
@@ -256,6 +261,21 @@ namespace ApplicationC
         {
             dataGridViewInfoEquipe.Visible = false;
         }
-        #endregion
+
+#endregion
+
+        private void ajouterMembresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // affiche la liste des membres qui n'ont pas d'équipe
+            // change l'id dans membre par l'id de l'équipe
+        }
+
+        private void supprimerLeMembreDeLéquipeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // passe l'id de l'équipe dans le membre en set null 
+            // envoie mail au login de l'équipe
+            // si l'équipe tombe en dessous de 2 membres
+            // désinscris l'équipe de l'hackathon dont la date n'est pas passé
+        }
     }
 }
