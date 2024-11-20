@@ -179,7 +179,7 @@ public partial class Ap3PiewanContext : DbContext
 
             entity.Property(e => e.Idhackathon).HasColumnName("idhackathon");
             entity.Property(e => e.Affiche)
-                .HasColumnType("mediumblob")
+                .HasMaxLength(255)
                 .HasColumnName("affiche");
             entity.Property(e => e.Conditions)
                 .HasMaxLength(255)
