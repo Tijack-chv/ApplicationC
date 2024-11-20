@@ -62,7 +62,8 @@ namespace ApplicationC.View
                 string body = "Bonjour, Le jury a été choisi pour l'hackathon '" + hack.Thematique + "' ! Vous êtes convoquez à participer à cet évènement en tant que Jury le " + hack.Dateheuredebuth + " jusqu'au " + hack.Dateheurefinh + " !";
 
                 List<string> dests = ajoutJuryH.Select(x => x.Email).ToList();
-                string path = "..\\..\\..\\public\\pdfHackathon\\ConvocationJury"+idHackathon+".pdf";
+                //string path = "..\\..\\..\\public\\pdfHackathon\\ConvocationJury"+idHackathon+".pdf";
+                string path = "..\\convoc\\ConvocationJury" + idHackathon + ".pdf";
 
                 Controleur.EmailSend(dests, subject, body, idHackathon, path);
 
